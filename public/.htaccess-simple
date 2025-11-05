@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# Serve robots.txt directly
+RewriteRule ^robots\.txt$ robots.txt [L]
+
+# Serve sitemap.xml directly  
+RewriteRule ^sitemap\.xml$ sitemap.xml [L]
+
+# Serve favicon.ico directly
+RewriteRule ^favicon\.ico$ favicon.ico [L]
+
+# Serve neoweb.ico directly
+RewriteRule ^neoweb\.ico$ neoweb.ico [L]
+
+# Serve assets directory directly
+RewriteRule ^assets/ - [L]
+
+# Everything else goes to index.html for Angular routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

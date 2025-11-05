@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tu-dominio.com/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all other content
+Allow: /inicio
+Allow: /servicios
+Allow: /portafolio
+Allow: /nosotros
+Allow: /blog
+Allow: /contacto
+Allow: /politica-privacidad
+Allow: /terminos-condiciones
+
+# Crawl delay (optional)
+Crawl-delay: 1

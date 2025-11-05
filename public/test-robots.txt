@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# This is a test file to verify .htaccess is working
+# If you can see this content, the server is serving static files correctly
