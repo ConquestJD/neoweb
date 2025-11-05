@@ -1,0 +1,5 @@
+/* Efecto hover para proyectos */
+.group:hover {
+  box-shadow: 0 20px 60px rgba(122, 90, 248, 0.4);
+}
+
