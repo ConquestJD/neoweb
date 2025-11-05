@@ -1,0 +1,6 @@
+/* Efecto 3D en hover */
+.group:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 0 20px 60px rgba(0, 76, 255, 0.3);
+}
+

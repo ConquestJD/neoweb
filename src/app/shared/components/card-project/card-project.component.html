@@ -1,0 +1,48 @@
+<!-- Tarjeta de proyecto con efecto hover -->
+<div class="glass-card rounded-2xl overflow-hidden group cursor-pointer transform transition-all duration-500 hover:scale-105">
+  
+  <!-- Imagen del proyecto -->
+  <div class="relative h-64 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-neo-blue/50 to-neo-violet/50 group-hover:opacity-90 transition-opacity duration-300 z-10"></div>
+    
+    <img 
+      [src]="imageUrl || 'https://via.placeholder.com/600x400'" 
+      [alt]="title"
+      class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+    
+    <!-- Overlay con botón -->
+    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+      <button class="btn-primary">
+        Ver Proyecto
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="p-6">
+    <!-- Categoría -->
+    <span class="inline-block px-3 py-1 text-xs font-semibold text-neo-light bg-neo-blue/20 rounded-full mb-3 font-inter">
+      {{ category }}
+    </span>
+
+    <!-- Título -->
+    <h3 class="text-xl font-bold font-poppins text-white mb-2">
+      {{ title }}
+    </h3>
+
+    <!-- Descripción -->
+    <p class="text-gray-300 text-sm font-inter mb-4">
+      {{ description }}
+    </p>
+
+    <!-- Tecnologías -->
+    <div class="flex flex-wrap gap-2" *ngIf="technologies.length > 0">
+      <span 
+        *ngFor="let tech of technologies"
+        class="px-2 py-1 text-xs glass rounded-lg text-gray-300 font-inter">
+        {{ tech }}
+      </span>
+    </div>
+  </div>
+</div>
+
