@@ -1,0 +1,8 @@
+/* Estilos del componente principal App */
+
+/* Asegurar que el layout ocupe toda la altura */
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
