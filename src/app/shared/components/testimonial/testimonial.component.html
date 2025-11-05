@@ -1,0 +1,38 @@
+<!-- Tarjeta de testimonio con glassmorphism -->
+<div class="glass-card p-6 rounded-2xl">
+  
+  <!-- Estrellas de calificación -->
+  <div class="flex mb-4">
+    <span *ngFor="let star of stars" class="material-icons text-yellow-400 text-xl">
+      star
+    </span>
+  </div>
+
+  <!-- Testimonio -->
+  <p class="text-gray-300 font-inter mb-6 italic">
+    "{{ testimonial }}"
+  </p>
+
+  <!-- Información del cliente -->
+  <div class="flex items-center">
+    <!-- Avatar -->
+    <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center">
+      <img 
+        *ngIf="avatarUrl" 
+        [src]="avatarUrl" 
+        [alt]="name"
+        class="w-full h-full object-cover">
+      <span *ngIf="!avatarUrl" class="material-icons text-white">
+        person
+      </span>
+    </div>
+
+    <!-- Datos -->
+    <div>
+      <p class="text-white font-semibold font-poppins">{{ name }}</p>
+      <p class="text-gray-400 text-sm font-inter">{{ position }}</p>
+      <p class="text-neo-light text-xs font-inter">{{ company }}</p>
+    </div>
+  </div>
+</div>
+
