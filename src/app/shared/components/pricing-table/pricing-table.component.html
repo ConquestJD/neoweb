@@ -1,0 +1,55 @@
+<!-- Tabla de precios con diseño Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div 
+    *ngFor="let plan of plans"
+    class="glass-card rounded-2xl p-6 relative group hover:scale-105 transition-all duration-500"
+    [class.ring-2]="plan.recommended"
+    [class.ring-neo-violet]="plan.recommended"
+  >
+    
+    <!-- Badge de recomendado -->
+    <div 
+      *ngIf="plan.recommended"
+      class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-neo-blue to-neo-violet px-4 py-1 rounded-full">
+      <span class="text-white text-xs font-bold font-inter">RECOMENDADO</span>
+    </div>
+
+    <!-- Ícono -->
+    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center mb-4">
+      <span class="material-icons text-white text-3xl">{{ plan.icon }}</span>
+    </div>
+
+    <!-- Nombre del plan -->
+    <h3 class="text-2xl font-bold font-poppins text-white mb-2">
+      {{ plan.name }}
+    </h3>
+
+    <!-- Descripción -->
+    <p class="text-gray-400 text-sm font-inter mb-4">
+      {{ plan.description }}
+    </p>
+
+    <!-- Precio -->
+    <div class="mb-6">
+      <span class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet font-poppins">
+        {{ plan.price }}
+      </span>
+    </div>
+
+    <!-- Features -->
+    <ul class="space-y-3 mb-6">
+      <li *ngFor="let feature of plan.features" class="flex items-start">
+        <span class="material-icons text-neo-light text-sm mr-2 mt-0.5">check_circle</span>
+        <span class="text-gray-300 text-sm font-inter">{{ feature }}</span>
+      </li>
+    </ul>
+
+    <!-- Botón de acción -->
+    <button 
+      routerLink="/contacto"
+      class="w-full btn-primary group-hover:shadow-2xl transition-all duration-300">
+      Solicitar
+    </button>
+  </div>
+</div>
+
