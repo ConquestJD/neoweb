@@ -1,0 +1,427 @@
+<!-- ========================================
+     NUEVA PÁGINA HOME NARRATIVA - NEOWEB
+     ======================================== -->
+
+<!-- 
+  SECCIÓN 1: HERO PRINCIPAL CON SPLINE 3D
+  Mensaje impactante sobre la vitrina digital
+-->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  
+  <!-- Fondo con gradiente animado -->
+  <div class="absolute inset-0 gradient-animated opacity-30"></div>
+  
+  <!-- Partículas flotantes decorativas -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-20 left-10 w-96 h-96 bg-neo-blue/30 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute top-40 right-20 w-72 h-72 bg-neo-violet/30 rounded-full filter blur-3xl animate-float" style="animation-delay: 1s;"></div>
+  </div>
+
+  <!-- Contenido principal del Hero -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      
+      <!-- Columna izquierda: Texto -->
+      <div class="text-center lg:text-left space-y-6 fade-in-up">
+        
+        <!-- Título principal -->
+        <h1 class="text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-poppins leading-tight">
+          <span class="text-white">Tu vitrina digital</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue via-neo-violet to-neo-light block mt-2">
+            comienza aquí
+          </span>
+        </h1>
+
+        <!-- Subtítulo animado -->
+        <p class="text-xl md:text-2xl xl:text-2xl text-gray-300 font-inter">
+          Atrae clientes. Genera confianza. Crece online.
+        </p>
+
+        <!-- Botones CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <button routerLink="/portafolio" class="btn-primary text-base xl:text-lg px-6 xl:px-8 py-3 xl:py-4 group">
+            <span class="flex items-center justify-center">
+              Ver Portafolio
+              <span class="material-icons ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </span>
+          </button>
+          <button (click)="scrollToPromo()" 
+                  class="glass-card text-white px-6 xl:px-8 py-3 xl:py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-base xl:text-lg">
+            Ver Ofertas 
+          </button>
+        </div>
+      </div>
+
+      <!-- Columna derecha: Integración Spline 3D -->
+      <div class="relative lg:block">
+        <div class="spline-container">
+          <!-- INTEGRACIÓN SPLINE 3D -->
+          <img src="assets/hero.png" alt="Spline 3D" fetchpriority="high" loading="eager" width="584" height="584" class="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Flecha scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <span class="material-icons text-white text-4xl xl:text-5xl opacity-50">keyboard_arrow_down</span>
+    </div>
+  </div>
+  <div class="custom-shape-divider-bottom-1761196626">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</section>
+<!-- 
+  SECCIÓN 2: POR QUÉ TU NEGOCIO NECESITA UNA WEB
+  Narrativa con SCROLL ANIMATIONS MEJORADAS
+-->
+<section id="why-web-section" class="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  
+  <!-- Fondo con efecto parallax -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neo-blue/5 to-transparent parallax-layer"></div>
+  
+  <!-- Partículas decorativas que se mueven con scroll -->
+  <div class="absolute inset-0 parallax-layer-slow">
+    <div class="absolute top-40 left-20 w-64 h-64 bg-neo-blue/20 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-40 right-20 w-80 h-80 bg-neo-violet/20 rounded-full filter blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    
+      <!-- Título de sección con animación mejorada -->
+      <div class="text-center mb-32 scroll-zoom-in" [class.visible]="whyWebVisible === 'visible'">
+        <h2 class="text-4xl md:text-5xl xl:text-6xl font-bold font-poppins text-white mb-6 leading-tight">
+          ¿Por qué tu negocio
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue via-neo-violet to-neo-light block mt-2 animate-gradient-text" style="margin-bottom: 20px;">
+            necesita un sitio web?
+          </span>
+        </h2>
+        <div class="max-w-3xl mx-auto relative" style="margin-top: 20px;">
+          <p class="text-xl xl:text-2xl text-gray-400 font-inter">
+            No es una pregunta, es una realidad del mercado actual
+          </p>
+        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-neo-blue to-neo-violet rounded-full animate-expand"></div>
+      </div>
+    </div>
+
+    <!-- Bloques narrativos con ANIMACIONES MEJORADAS -->
+    <div class="space-y-40">
+      <div *ngFor="let reason of whyWebReasons; let i = index" 
+           class="narrative-block"
+           [class.visible]="reason.visible"
+           [attr.data-index]="i">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center" 
+             [class.lg:grid-flow-col-dense]="i % 2 !== 0">
+          
+          <!-- Contenido de texto con animación stagger -->
+          <div [class.lg:col-start-2]="i % 2 !== 0" 
+               class="narrative-content"
+               [class.slide-from-left]="i % 2 === 0"
+               [class.slide-from-right]="i % 2 !== 0">
+            
+            <div class="glass-card p-8 md:p-12 rounded-3xl transform transition-all duration-700 hover:scale-105 hover:rotate-1 relative overflow-hidden">
+              
+              <!-- Efecto de brillo que se mueve -->
+              <div class="shine-effect"></div>
+              
+              <!-- Ícono animado -->
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center mb-6 icon-float">
+                <span class="material-icons text-white text-4xl">{{ reason.icon }}</span>
+              </div>
+
+              <!-- Título con efecto de aparición por letras -->
+              <h3 class="text-3xl md:text-4xl xl:text-5xl font-bold font-poppins text-white mb-4 title-reveal">
+                {{ reason.title }}
+              </h3>
+
+              <!-- Subtítulo -->
+              <p class="text-xl xl:text-2xl text-neo-light font-semibold mb-6 font-inter subtitle-slide">
+                {{ reason.subtitle }}
+              </p>
+
+              <!-- Descripción -->
+              <p class="text-gray-300 font-inter text-base xl:text-lg leading-relaxed mb-8 description-fade">
+                {{ reason.description }}
+              </p>
+
+              <!-- Estadística destacada con animación counter -->
+              <div class="glass p-6 xl:p-8 rounded-xl border-2 border-neo-blue/30 relative overflow-hidden stat-card">
+                <!-- Fondo animado del stat -->
+                <div class="absolute inset-0 bg-gradient-to-r from-neo-blue/10 to-neo-violet/10 stat-glow"></div>
+                
+                <div class="relative z-10 flex items-center justify-between">
+                  <div>
+                    <p class="text-5xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet font-poppins counter-animate">
+                      {{ reason.stat }}
+                    </p>
+                    <p class="text-gray-400 font-inter text-sm xl:text-base mt-2">
+                      {{ reason.statLabel }}
+                    </p>
+                  </div>
+                  <div class="icon-pulse">
+                    <span class="material-icons text-neo-violet text-5xl xl:text-6xl">{{ reason.icon }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elemento visual decorativo con PARALLAX -->
+          <div [class.lg:col-start-1]="i % 2 !== 0" 
+               [class.lg:row-start-1]="i % 2 !== 0"
+               class="visual-element"
+               [class.scale-from-left]="i % 2 === 0"
+               [class.scale-from-right]="i % 2 !== 0">
+               <img [src]="reason.img" alt="Icono" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 
+  SECCIÓN 3: PORTAFOLIO PREVIEW
+  Carrusel horizontal con proyectos destacados
+-->
+<section id="portfolio-section" class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  
+  <!-- Fondo con gradiente -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neo-violet/5 to-transparent"></div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    
+    <!-- Título -->
+    <div class="text-center mb-16 scroll-fade-in" [class.visible]="portfolioVisible === 'visible'">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-4">
+        Algunos de nuestros
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">
+          proyectos recientes
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter">
+        Resultados reales para negocios reales
+      </p>
+    </div>
+
+    <!-- Carrusel infinito que se mueve constantemente -->
+    <div class="relative overflow-hidden">
+      
+      <!-- Contenedor con scroll infinito -->
+      <div class="carousel-infinite">
+        <!-- Track con proyectos repetidos múltiples veces para carrusel fluido -->
+        <div class="carousel-track">
+          <!-- Repetir 6 veces para llenar el carrusel (2 proyectos x 6 = 12 items) -->
+          <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+            <div *ngFor="let project of portfolioProjects" 
+                 class="carousel-item glass-card rounded-2xl overflow-hidden group cursor-pointer transform hover:scale-105 transition-all duration-500">
+            
+            <!-- Imagen del proyecto -->
+            <div class="relative h-64 overflow-hidden">
+              <img [src]="project.imageUrl" 
+                   [alt]="project.title"
+                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              
+              <!-- Overlay con resultado -->
+              <div class="absolute inset-0 bg-gradient-to-t from-neo-blue/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div>
+                  <p class="text-white font-bold font-poppins text-xl xl:text-2xl">{{ project.result }}</p>
+                  <p class="text-neo-light font-inter text-sm">Resultado medible</p>
+                </div>
+              </div>
+              
+              <!-- Badge de categoría -->
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-neo-violet text-white rounded-full font-inter">
+                  {{ project.category }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="p-4 xl:p-6">
+              <h3 class="text-lg xl:text-xl font-bold font-poppins text-white mb-2 group-hover:text-neo-blue transition-colors">
+                {{ project.title }}
+              </h3>
+              <p class="text-gray-400 font-inter text-sm">
+                {{ project.description }}
+              </p>
+            </div>
+          </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <button routerLink="/portafolio" 
+              class="btn-primary px-8 py-4 text-lg group">
+        Ver Portafolio Completo
+        <span class="material-icons ml-2 inline-block group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 
+  SECCIÓN 5: OFERTAS POR TIEMPO LIMITADO
+  Banner de promoción con urgencia
+-->
+<section id="promo-section" class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden" >
+  
+  <!-- Fondo con gradiente animado -->
+  <div class="absolute inset-0 gradient-animated opacity-40"></div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    
+    <!-- Banner principal de promo -->
+    <div class="glass-card rounded-3xl p-8 md:p-16 text-center mb-12 border-2 border-neo-violet/50 scroll-fade-in animate-glow" 
+         [class.visible]="promoVisible === 'visible'">
+      
+      <!-- Badge animado -->
+      <div class="flex justify-center mb-6 animate-bounce">
+        <span class="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-neo-blue to-neo-violet text-white font-bold rounded-full text-sm md:text-base lg:text-lg font-poppins whitespace-nowrap overflow-hidden text-ellipsis">
+          🎉 PROMOCIÓN POR LANZAMIENTO 🎉
+        </span>
+      </div>
+
+      <!-- Título -->
+      <h2 class="text-4xl md:text-6xl font-bold font-poppins text-white mb-6">
+        Descuentos especiales
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet block mt-2">
+          para nuestros primeros clientes
+        </span>
+      </h2>
+
+      <!-- Subtítulo -->
+      <p class="text-2xl text-gray-300 font-inter mb-8">
+        ¡Oferta válida por tiempo limitado! No dejes pasar esta oportunidad.
+      </p>
+
+      <!-- Contador decorativo (solo visual) -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <div class="glass p-3 sm:p-4 rounded-xl w-24 sm:w-auto">
+          <p class="text-3xl sm:text-4xl font-bold text-neo-blue font-poppins">15</p>
+          <p class="text-xs text-gray-400 font-inter">Cupos</p>
+        </div>
+        <span class="hidden sm:block text-3xl text-gray-600">:</span>
+        <div class="glass p-3 sm:p-4 rounded-xl w-24 sm:w-auto">
+          <p class="text-3xl sm:text-4xl font-bold text-neo-violet font-poppins">33%</p>
+          <p class="text-xs text-gray-400 font-inter">Descuento</p>
+        </div>
+        <span class="hidden sm:block text-3xl text-gray-600">:</span>
+        <div class="glass p-3 sm:p-4 rounded-xl w-24 sm:w-auto">
+          <p class="text-3xl sm:text-4xl font-bold text-neo-light font-poppins">∞</p>
+          <p class="text-xs text-gray-400 font-inter">Beneficios</p>
+        </div>
+      </div>
+
+      <!-- CTA principal -->
+      <button routerLink="/contacto" 
+              class="btn-primary px-12 py-5 text-xl group animate-pulse-slow">
+        Aprovechar Oferta Ahora
+        <span class="material-icons ml-2 inline-block group-hover:scale-125 transition-transform">local_fire_department</span>
+      </button>
+    </div>
+
+    <!-- Planes en oferta -->
+  
+
+    <!-- Nota adicional -->
+    <div class="text-center mt-12 scroll-fade-in" [class.visible]="promoVisible === 'visible'">
+      <p class="text-gray-400 font-inter">
+        💎 <span class="text-white">Precio especial solo para los primeros clientes que confíen en nosotros</span> 💎
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 
+  SECCIÓN 6: CTA FINAL
+  Invitación a contactar por redes sociales
+-->
+<section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" >
+  
+  <!-- Fondo con gradiente oscuro -->
+  <div class="absolute inset-0 bg-gradient-to-b from-neo-dark via-neo-blue/10 to-neo-dark"></div>
+  
+  <!-- Luces difuminadas -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-neo-blue/30 rounded-full filter blur-3xl"></div>
+    <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-neo-violet/30 rounded-full filter blur-3xl"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto relative z-10 text-center">
+    
+    <!-- Título -->
+    <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      ¿Listo para impulsar tu negocio online?
+    </h2>
+
+    <p class="text-xl text-gray-300 font-inter mb-12">
+      Conecta con nosotros y da el siguiente paso digital
+    </p>
+
+    <!-- Botones de redes sociales grandes -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      
+      <!-- WhatsApp -->
+      <a href="https://wa.me/51942820836" 
+         target="_blank"
+         class="glass-card p-8 rounded-2xl group cursor-pointer transform hover:scale-105 transition-all duration-500 hover:bg-green-500/20">
+        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold font-poppins text-white mb-2">WhatsApp</h3>
+        <p class="text-gray-400 font-inter text-sm">Respuesta inmediata</p>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/neoweb.agency" 
+         target="_blank"
+         class="glass-card p-8 rounded-2xl group cursor-pointer transform hover:scale-105 transition-all duration-500 hover:bg-pink-500/20">
+        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold font-poppins text-white mb-2">Instagram</h3>
+        <p class="text-gray-400 font-inter text-sm">Síguenos y conoce más</p>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/profile.php?id=61583086977279" 
+         target="_blank"
+         class="glass-card p-8 rounded-2xl group cursor-pointer transform hover:scale-105 transition-all duration-500 hover:bg-blue-500/20">
+        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold font-poppins text-white mb-2">Facebook</h3>
+        <p class="text-gray-400 font-inter text-sm">Únete a nuestra comunidad</p>
+      </a>
+    </div>
+
+    <!-- Texto adicional -->
+    <p class="text-gray-400 font-inter mb-6">
+      O si prefieres, visita nuestra página de contacto
+    </p>
+
+    <button routerLink="/contacto" 
+            class="glass-card text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+      Ir a Contacto
+    </button>
+  </div>
+</section>
