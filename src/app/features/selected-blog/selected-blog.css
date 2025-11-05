@@ -1,0 +1,132 @@
+/* Estilos para la página de artículo detallado */
+
+/* Animaciones de entrada */
+.article-intro p,
+.article-section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Primer párrafo destacado */
+.article-intro p:first-child {
+  position: relative;
+}
+
+.article-intro p:first-child::first-letter {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  float: left;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+  color: var(--neo-blue);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para los párrafos del contenido */
+.article-intro p,
+.article-sections p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Efecto hover en números de sección */
+.article-section .w-10 {
+  transition: all 0.3s ease;
+}
+
+.article-section:hover .w-10 {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 76, 255, 0.4);
+}
+
+/* Línea lateral decorativa en hover */
+.article-sections p {
+  position: relative;
+}
+
+.article-sections p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--neo-blue), var(--neo-violet));
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.article-sections p:hover::before {
+  transform: scaleY(1);
+}
+
+/* Animación progresiva de secciones */
+.article-section:nth-child(1) { animation-delay: 0.1s; }
+.article-section:nth-child(2) { animation-delay: 0.2s; }
+.article-section:nth-child(3) { animation-delay: 0.3s; }
+.article-section:nth-child(4) { animation-delay: 0.4s; }
+.article-section:nth-child(5) { animation-delay: 0.5s; }
+.article-section:nth-child(6) { animation-delay: 0.6s; }
+.article-section:nth-child(7) { animation-delay: 0.7s; }
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .article-intro p:first-child::first-letter {
+    font-size: 3rem;
+  }
+
+  .article-intro p,
+  .article-sections p {
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Animación del divider */
+.my-20 .h-1 {
+  animation: expandWidth 1s ease-out;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 6rem;
+  }
+}
+
+/* Mejora de legibilidad */
+.article-intro p,
+.article-sections p {
+  max-width: 70ch; /* Ancho óptimo para lectura */
+}
+
+/* Estilos para énfasis en texto */
+.article-sections p strong,
+.article-intro p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Animación suave en scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .article-section {
+    scroll-margin-top: 2rem;
+  }
+}

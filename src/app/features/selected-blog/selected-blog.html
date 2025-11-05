@@ -1,0 +1,295 @@
+<!-- Página de Artículo Detallado -->
+
+<div *ngIf="article" class="article-detail">
+  
+  <!-- Hero Section con imagen del artículo -->
+  <section class="relative min-h-[70vh] flex items-end overflow-hidden pt-20">
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0">
+      <img 
+        [src]="article.imageUrl" 
+        [alt]="article.title"
+        class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
+    </div>
+
+    <!-- Overlay de gradiente animado -->
+    <div class="absolute inset-0 gradient-animated opacity-10"></div>
+    
+    <!-- Contenido del hero -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <!-- Breadcrumb -->
+      <div class="mb-6">
+        <button routerLink="/blog" class="text-neo-blue hover:text-neo-violet transition-colors font-inter flex items-center">
+          <span class="material-icons text-sm mr-1">arrow_back</span>
+          Volver al Blog
+        </button>
+      </div>
+
+      <!-- Categoría -->
+      <div class="mb-4">
+        <span class="px-4 py-2 text-sm font-semibold bg-neo-blue text-white rounded-full font-inter">
+          {{ article.category }}
+        </span>
+      </div>
+
+      <!-- Título -->
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-white mb-6 leading-tight">
+        {{ article.title }}
+      </h1>
+
+      <!-- Excerpt -->
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 font-inter max-w-4xl">
+        {{ article.excerpt }}
+      </p>
+
+      <!-- Meta información -->
+      <div class="flex flex-wrap items-center gap-6 text-gray-400 font-inter">
+        <div class="flex items-center">
+          <span class="material-icons text-lg mr-2">person</span>
+          <span>{{ article.author }}</span>
+        </div>
+        <div class="flex items-center">
+          <span class="material-icons text-lg mr-2">calendar_today</span>
+          <span>{{ article.date }}</span>
+        </div>
+        <div class="flex items-center">
+          <span class="material-icons text-lg mr-2">schedule</span>
+          <span>{{ article.readTime }} de lectura</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido del artículo -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Introducción -->
+      <div class="article-intro mb-20">
+        <p *ngFor="let paragraph of article.content; let first = first" 
+           class="text-lg md:text-xl text-gray-300 font-inter leading-[1.9] mb-8"
+           [class.text-2xl]="first"
+           [class.md:text-3xl]="first"
+           [class.font-medium]="first"
+           [class.text-gray-200]="first">
+          {{ paragraph }}
+        </p>
+      </div>
+
+      <!-- Secciones del artículo -->
+      <div class="article-sections space-y-16">
+        <div *ngFor="let section of article.sections; let i = index" class="article-section">
+          
+          <!-- Título de la sección -->
+          <div class="mb-8 relative">
+            <!-- Número y línea decorativa -->
+            <div class="flex items-center gap-4 mb-6">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold font-poppins">{{ i + 1 }}</span>
+              </div>
+              <div class="flex-1 h-px bg-gradient-to-r from-neo-blue/40 via-neo-violet/20 to-transparent"></div>
+            </div>
+            
+          <!-- Título -->
+          <h2 class="text-3xl md:text-4xl font-bold font-poppins text-white leading-tight">
+            {{ section.title }}
+          </h2>
+        </div>
+
+        <!-- Imagen de la sección (si existe) -->
+        <div *ngIf="section.imageUrl" class="mb-8 rounded-2xl overflow-hidden shadow-2xl">
+          <img 
+            [src]="section.imageUrl" 
+            [alt]="section.title"
+            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+
+        <!-- Contenido de la sección - flujo natural -->
+        <div class="space-y-6">
+          <p *ngFor="let paragraph of section.content" 
+             class="text-lg md:text-xl text-gray-300 font-inter leading-[2] pl-6 border-l-2 border-neo-blue/30 hover:border-neo-violet/50 hover:pl-8 transition-all duration-300">
+            {{ paragraph }}
+          </p>
+        </div>
+        </div>
+      </div>
+
+      <!-- Divider decorativo -->
+      <div class="my-20 flex items-center justify-center">
+        <div class="h-1 w-24 bg-gradient-to-r from-transparent via-neo-blue to-transparent rounded-full"></div>
+      </div>
+
+      <!-- Call to Action dentro del artículo -->
+      <div class="glass-card rounded-3xl p-10 md:p-12 text-center my-16 relative overflow-hidden">
+        <div class="absolute inset-0 gradient-animated opacity-10"></div>
+        <div class="relative z-10">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center mx-auto mb-6">
+            <span class="material-icons text-white text-4xl">rocket_launch</span>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-bold font-poppins text-white mb-4">
+            ¿Listo para dar el siguiente paso?
+          </h3>
+          <p class="text-gray-300 font-inter text-lg mb-8 max-w-2xl mx-auto">
+            Ahora que conoces más sobre este tema, ¡es momento de actuar! 
+            Podemos ayudarte a hacer realidad tu presencia digital.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button routerLink="/contacto" class="btn-primary text-lg px-8 py-4">
+              Contáctanos
+            </button>
+            <button routerLink="/servicios" class="glass text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+              Ver Servicios
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compartir en redes sociales -->
+      <div class="flex items-center justify-center gap-4 my-12">
+        <span class="text-gray-400 font-inter font-semibold">Compartir artículo:</span>
+        <div class="flex gap-3">
+          <button class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-600 transition-all duration-300 group">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </button>
+          <button class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-400 transition-all duration-300 group">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </button>
+          <button class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-blue-700 transition-all duration-300 group">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </button>
+          <button class="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-green-600 transition-all duration-300 group">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Artículos Relacionados -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-neo-blue/5 to-transparent">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+          Artículos <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Relacionados</span>
+        </h2>
+        <p class="text-xl text-gray-400 font-inter">
+          Continúa aprendiendo sobre cómo mejorar tu presencia digital
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article 
+          *ngFor="let relatedArticle of relatedArticles"
+          [routerLink]="['/blog', relatedArticle.slug]"
+          class="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-all duration-500">
+          
+          <!-- Imagen -->
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              [src]="relatedArticle.imageUrl" 
+              [alt]="relatedArticle.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            
+            <!-- Categoría badge -->
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 text-xs font-semibold bg-neo-violet text-white rounded-full font-inter">
+                {{ relatedArticle.category }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold font-poppins text-white mb-3 group-hover:text-neo-blue transition-colors">
+              {{ relatedArticle.title }}
+            </h3>
+
+            <p class="text-gray-400 font-inter text-sm mb-4">
+              {{ relatedArticle.excerpt }}
+            </p>
+
+            <!-- Meta -->
+            <div class="flex items-center justify-between text-xs text-gray-500 font-inter">
+              <span>{{ relatedArticle.date }}</span>
+              <span>{{ relatedArticle.readTime }}</span>
+            </div>
+
+            <!-- Botón leer más -->
+            <div class="mt-4 text-neo-blue font-semibold font-inter text-sm flex items-center group-hover:translate-x-2 transition-transform">
+              Leer artículo
+              <span class="material-icons text-sm ml-1">arrow_forward</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Botón ver todos los artículos -->
+      <div class="text-center mt-12">
+        <button routerLink="/blog" class="btn-primary text-lg px-8 py-4">
+          Ver Todos los Artículos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 gradient-animated"></div>
+    
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neo-blue/10 rounded-full filter blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neo-violet/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+    
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Transforma tu negocio con una presencia digital profesional
+      </h2>
+      <p class="text-xl text-gray-200 font-inter mb-10 max-w-3xl mx-auto">
+        Ahora que conoces las claves del éxito digital, 
+        <span class="text-neo-blue font-semibold">hagamos que tu negocio destaque en internet</span> 
+        y consiga más clientes.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <button routerLink="/contacto" class="btn-primary text-lg px-10 py-5">
+          Empezar Mi Proyecto
+        </button>
+        <button routerLink="/portafolio" class="glass-card text-white px-10 py-5 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+          Ver Nuestro Trabajo
+        </button>
+      </div>
+      
+      <!-- Garantías -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="flex flex-col items-center text-center">
+          <span class="material-icons text-neo-blue text-5xl mb-2">verified</span>
+          <p class="text-gray-300 font-inter text-sm">Calidad Garantizada</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="material-icons text-neo-violet text-5xl mb-2">support_agent</span>
+          <p class="text-gray-300 font-inter text-sm">Soporte 24/7</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="material-icons text-neo-light text-5xl mb-2">speed</span>
+          <p class="text-gray-300 font-inter text-sm">Entregas Rápidas</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <span class="material-icons text-white text-5xl mb-2">trending_up</span>
+          <p class="text-gray-300 font-inter text-sm">Resultados Reales</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
