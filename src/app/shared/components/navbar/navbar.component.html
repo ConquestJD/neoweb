@@ -1,0 +1,142 @@
+<!-- Navbar con efecto glassmorphism -->
+<nav 
+  class="fixed top-0 left-0 w-full z-[100] transition-all duration-300"
+  [class.glass-card]="isScrolled"
+  [class.bg-transparent]="!isScrolled"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      
+      <!-- Logo -->
+      <div class="flex flex-co items-center cursor-pointer gap-2" (click)="navigateTo('/inicio')">
+        <img src="/neoweb.ico" alt="NeoWeb" class="w-300 h-12">
+        <div class="flex-col items-center">
+          <div class="flex-col items-center">
+            <h1 class="text-3xl font-bold font-poppins">
+              <span class="">
+                Neo
+              </span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r  to-neo-violet from-neo-blue">Web</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-2 items-center">
+        <a routerLink="/inicio" 
+           routerLinkActive="nav-link-active" 
+           [routerLinkActiveOptions]="{exact: false}"
+           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+          Inicio
+        </a>
+        <a routerLink="/servicios" 
+           routerLinkActive="nav-link-active"
+           [routerLinkActiveOptions]="{exact: false}"
+           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+          Servicios
+        </a>
+        <a routerLink="/portafolio" 
+           routerLinkActive="nav-link-active"
+           [routerLinkActiveOptions]="{exact: false}"
+           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+          Portafolio
+        </a>
+        <a routerLink="/nosotros" 
+           routerLinkActive="nav-link-active"
+           [routerLinkActiveOptions]="{exact: false}"
+           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+          Nosotros
+        </a>
+        <a routerLink="/blog" 
+           routerLinkActive="nav-link-active"
+           [routerLinkActiveOptions]="{exact: false}"
+           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+          Blog
+        </a>
+        <button 
+          (click)="navigateTo('/contacto')"
+          class="btn-primary text-sm ml-2">
+          Contactar
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button 
+          (click)="toggleMenu()"
+          class="text-white hover:text-neo-light focus:outline-none transition-colors">
+          <span class="material-icons text-3xl">
+            {{ isMenuOpen ? 'close' : 'menu' }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div 
+    *ngIf="isMenuOpen"
+    class="md:hidden mobile-menu-glass animate-slide-up"
+    [@slideDown]
+  >
+    <div class="px-4 pt-2 pb-6 space-y-2">
+      <a routerLink="/inicio" 
+         (click)="closeMenu()"
+         routerLinkActive="nav-link-mobile-active"
+         [routerLinkActiveOptions]="{exact: false}"
+         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-2">home</span>
+          Inicio
+        </span>
+      </a>
+      <a routerLink="/servicios" 
+         (click)="closeMenu()"
+         routerLinkActive="nav-link-mobile-active"
+         [routerLinkActiveOptions]="{exact: false}"
+         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-2">design_services</span>
+          Servicios
+        </span>
+      </a>
+      <a routerLink="/portafolio" 
+         (click)="closeMenu()"
+         routerLinkActive="nav-link-mobile-active"
+         [routerLinkActiveOptions]="{exact: false}"
+         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-2">work</span>
+          Portafolio
+        </span>
+      </a>
+      <a routerLink="/nosotros" 
+         (click)="closeMenu()"
+         routerLinkActive="nav-link-mobile-active"
+         [routerLinkActiveOptions]="{exact: false}"
+         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-2">groups</span>
+          Nosotros
+        </span>
+      </a>
+      <a routerLink="/blog" 
+         (click)="closeMenu()"
+         routerLinkActive="nav-link-mobile-active"
+         [routerLinkActiveOptions]="{exact: false}"
+         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
+        <span class="flex items-center">
+          <span class="material-icons text-sm mr-2">article</span>
+          Blog
+        </span>
+      </a>
+      <button 
+        (click)="navigateTo('/contacto')"
+        class="btn-primary w-full mt-4">
+        Contactar
+      </button>
+    </div>
+  </div>
+</nav>
+

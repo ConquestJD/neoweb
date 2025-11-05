@@ -1,0 +1,119 @@
+/* Estilos para Navbar */
+
+/* Animación de slide down para menú móvil */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Estilos para links de navegación en Desktop */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea inferior que aparece en hover */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neo-blue), var(--neo-violet));
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+  width: 80%;
+}
+
+/* Estilo para link activo en Desktop */
+.nav-link-active {
+  background: linear-gradient(135deg, rgba(0, 76, 255, 0.15), rgba(122, 90, 248, 0.15));
+  color: var(--neo-blue) !important;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(0, 76, 255, 0.3);
+  border: 1px solid rgba(0, 76, 255, 0.3);
+}
+
+/* Línea inferior permanente para link activo */
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neo-blue), var(--neo-violet));
+  transform: translateX(-50%);
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 10px var(--neo-blue);
+}
+
+/* Animación de pulso sutil para el link activo */
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 76, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 76, 255, 0.5);
+  }
+}
+
+.nav-link-active {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Estilos para menú móvil */
+.nav-link-mobile {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link-mobile:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+/* Estilos específicos para el contenedor del menú móvil desplegado */
+.mobile-menu-glass {
+  background: rgba(28, 28, 28, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+
+/* Link activo en móvil */
+.nav-link-mobile-active {
+  background: linear-gradient(135deg, rgba(0, 76, 255, 0.2), rgba(122, 90, 248, 0.2));
+  color: var(--neo-blue) !important;
+  font-weight: 600;
+  border-left: 4px solid var(--neo-blue);
+  box-shadow: 0 4px 15px rgba(0, 76, 255, 0.3);
+}
+
+.nav-link-mobile-active .material-icons {
+  color: var(--neo-blue);
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .nav-link-mobile-active {
+    transform: translateX(5px);
+  }
+}
