@@ -1,0 +1,436 @@
+<!-- Página de Portafolio -->
+
+<!-- Hero Section -->
+<section data-section-id="hero" class="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 " [class.visible]="sectionsVisible['hero'] === 'visible'">
+  <div class="absolute inset-0 gradient-animated opacity-20"></div>
+  
+  <div class="absolute inset-0">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-neo-violet/20 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-neo-blue/20 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
+      <span class="text-white">Nuestro </span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Portafolio</span>
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-gray-300 mb-8 font-inter max-w-3xl mx-auto">
+      Descubre los proyectos reales que hemos desarrollado y cómo transformamos 
+      los negocios de nuestros clientes con tecnología de vanguardia.
+    </p>
+  </div>
+  
+  <!-- Divider -->
+  <div class="custom-shape-divider-bottom-1761287699">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" class="shape-fill"></path>
+    </svg>
+  </div>
+</section>
+<!-- Sección: Proyecto Liceum -->
+<section data-section-id="project-liceum" class="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent scroll-reveal" [class.visible]="sectionsVisible['project-liceum'] === 'visible'">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Contenido del proyecto -->
+      <div class="order-2 lg:order-1">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-semibold">
+            {{ projects[0].category }}
+          </div>
+          <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-semibold">
+            {{ projects[0].results.type }}
+          </div>
+        </div>
+        
+        <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+          {{ projects[0].title }}
+        </h2>
+        
+        <p class="text-xl text-gray-300 font-inter mb-8 leading-relaxed">
+          {{ projects[0].description }}
+        </p>
+
+        <!-- Problema y Solución -->
+        <div class="mb-8">
+          <div class="glass-card p-6 rounded-2xl mb-6 variable">
+            <h3 class="text-lg font-semibold text-white mb-4 font-poppins">❌ El Problema</h3>
+            <p class="text-gray-300 font-inter leading-relaxed mb-4">
+              {{ projects[0].results.problem }}
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl mb-6">
+            <h3 class="text-lg font-semibold text-white mb-4 font-poppins">✅ La Solución</h3>
+            <p class="text-gray-300 font-inter leading-relaxed">
+              {{ projects[0].results.solution }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Tecnologías utilizadas -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-white mb-4 font-poppins">🧠 Tecnologías Utilizadas</h3>
+          <div class="flex flex-wrap gap-3">
+            <span *ngFor="let tech of projects[0].technologies" 
+                  class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm font-medium border border-white/20">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Resultados del negocio -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-xl font-bold text-white mb-4 font-poppins">{{ projects[0].results.title }}</h3>
+          
+          <!-- Métricas -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div *ngFor="let metric of projects[0].results.metrics" 
+                 class="text-center p-4 rounded-xl bg-white/5">
+              <span class="material-icons text-2xl text-blue-400 mb-2">{{ metric.icon }}</span>
+              <div class="text-2xl font-bold text-white font-poppins">{{ metric.value }}</div>
+              <div class="text-sm text-gray-300 font-inter">{{ metric.label }}</div>
+            </div>
+          </div>
+
+          <!-- Impacto en el negocio -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold text-white mb-3 font-poppins">🚀 Resultados Obtenidos</h4>
+            <ul class="space-y-2">
+              <li *ngFor="let impact of projects[0].results.businessImpact" 
+                  class="flex items-start text-gray-300 font-inter">
+                <span class="material-icons text-green-400 text-sm mr-2 mt-1">check_circle</span>
+                {{ impact }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Botón para visitar la página -->
+          <div class="text-center">
+            <a [href]="projects[0].results.websiteUrl" 
+               target="_blank"
+               class="btn-primary px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 transition-all duration-300 inline-block">
+              <span class="material-icons align-middle mr-2">open_in_new</span>
+              Visitar Sitio Web
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imágenes del proyecto -->
+      <div class="order-1 lg:order-2">
+        <div class="grid grid-cols-1 gap-12">
+          <!-- Primera imagen -->
+          <div class="relative group " >
+            <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <img [src]="projects[0].imageUrl" 
+                 [alt]="projects[0].title"
+                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
+          </div>
+          
+          <!-- Segunda imagen -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <img [src]="projects[0].imageUrl2" 
+                 [alt]="projects[0].title + ' - Vista 2'"
+                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Proyecto Oncomed -->
+<section data-section-id="project-oncomed" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent scroll-reveal" [class.visible]="sectionsVisible['project-oncomed'] === 'visible'">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Imágenes del proyecto -->
+      <div class="order-1">
+        <div class="grid grid-cols-1 gap-12">
+          <!-- Primera imagen -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-500 to-violet-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <img [src]="projects[1].imageUrl" 
+                 [alt]="projects[1].title"
+                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
+          </div>
+          
+          <!-- Segunda imagen -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-500 to-violet-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <img [src]="projects[1].imageUrl2" 
+                 [alt]="projects[1].title + ' - Vista 2'"
+                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido del proyecto -->
+      <div class="order-2">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-violet-500 text-white text-sm font-semibold">
+            {{ projects[1].category }}
+          </div>
+          <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-semibold">
+            {{ projects[1].results.type }}
+          </div>
+        </div>
+        
+        <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+          {{ projects[1].title }}
+        </h2>
+        
+        <p class="text-xl text-gray-300 font-inter mb-8 leading-relaxed">
+          {{ projects[1].description }}
+        </p>
+
+        <!-- Problema y Solución -->
+        <div class="mb-8">
+          <div class="glass-card p-6 rounded-2xl mb-6">
+            <h3 class="text-lg font-semibold text-white mb-4 font-poppins">❌ El Problema</h3>
+            <p class="text-gray-300 font-inter leading-relaxed">
+              {{ projects[1].results.problem }}
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl mb-6">
+            <h3 class="text-lg font-semibold text-white mb-4 font-poppins">✅ La Solución</h3>
+            <p class="text-gray-300 font-inter leading-relaxed">
+              {{ projects[1].results.solution }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Tecnologías utilizadas -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-white mb-4 font-poppins">🧠 Tecnologías Utilizadas</h3>
+          <div class="flex flex-wrap gap-3">
+            <span *ngFor="let tech of projects[1].technologies" 
+                  class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm font-medium border border-white/20">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Resultados del negocio -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-xl font-bold text-white mb-4 font-poppins">{{ projects[1].results.title }}</h3>
+          
+          <!-- Métricas -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div *ngFor="let metric of projects[1].results.metrics" 
+                 class="text-center p-4 rounded-xl bg-white/5">
+              <span class="material-icons text-2xl text-purple-400 mb-2">{{ metric.icon }}</span>
+              <div class="text-2xl font-bold text-white font-poppins">{{ metric.value }}</div>
+              <div class="text-sm text-gray-300 font-inter">{{ metric.label }}</div>
+            </div>
+          </div>
+
+          <!-- Impacto en el negocio -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold text-white mb-3 font-poppins">🚀 Resultados Obtenidos</h4>
+            <ul class="space-y-2">
+              <li *ngFor="let impact of projects[1].results.businessImpact" 
+                  class="flex items-start text-gray-300 font-inter">
+                <span class="material-icons text-green-400 text-sm mr-2 mt-1">check_circle</span>
+                {{ impact }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Botón para visitar la página -->
+          <div class="text-center">
+            <a [href]="projects[1].results.websiteUrl" 
+               target="_blank"
+               class="btn-primary px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 transition-all duration-300 inline-block">
+              <span class="material-icons align-middle mr-2">open_in_new</span>
+              Visitar Sitio Web
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Sistema de Gestión Financiera OMED -->
+<section data-section-id="project-omed" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-green-500/5 to-transparent scroll-reveal" [class.visible]="sectionsVisible['project-omed'] === 'visible'">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Contenido del proyecto -->
+      <div class="order-2 lg:order-1">
+        <div class="flex flex-wrap gap-3 mb-4">
+          <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-semibold">
+            {{ projects[2].category }}
+          </div>
+          <div class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-semibold">
+            {{ projects[2].results.type }}
+          </div>
+        </div>
+        
+        <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+          {{ projects[2].title }}
+        </h2>
+        
+        <p class="text-xl text-gray-300 font-inter mb-8 leading-relaxed">
+          {{ projects[2].description }}
+        </p>
+
+        <!-- Problema y Solución -->
+        <div class="mb-8">
+          <div class="glass-card p-6 rounded-2xl mb-6">
+            <h3 class="text-lg font-semibold text-white mb-4 font-poppins">❌ El Problema</h3>
+            <p class="text-gray-300 font-inter leading-relaxed">
+              {{ projects[2].results.problem }}
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl mb-6">
+            <h3 class="text-lg font-semibold text-white mb-4 font-poppins">✅ La Solución</h3>
+            <p class="text-gray-300 font-inter leading-relaxed">
+              {{ projects[2].results.solution }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Tecnologías utilizadas -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-white mb-4 font-poppins">🧠 Tecnologías Utilizadas</h3>
+          <div class="flex flex-wrap gap-3">
+            <span *ngFor="let tech of projects[2].technologies" 
+                  class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm font-medium border border-white/20">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Resultados del negocio -->
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-xl font-bold text-white mb-4 font-poppins">{{ projects[2].results.title }}</h3>
+          
+          <!-- Métricas -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div *ngFor="let metric of projects[2].results.metrics" 
+                 class="text-center p-4 rounded-xl bg-white/5">
+              <span class="material-icons text-2xl text-green-400 mb-2">{{ metric.icon }}</span>
+              <div class="text-2xl font-bold text-white font-poppins">{{ metric.value }}</div>
+              <div class="text-sm text-gray-300 font-inter">{{ metric.label }}</div>
+            </div>
+          </div>
+
+          <!-- Impacto en el negocio -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold text-white mb-3 font-poppins">🚀 Resultados Obtenidos</h4>
+            <ul class="space-y-2">
+              <li *ngFor="let impact of projects[2].results.businessImpact" 
+                  class="flex items-start text-gray-300 font-inter">
+                <span class="material-icons text-green-400 text-sm mr-2 mt-1">check_circle</span>
+                {{ impact }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- Botón para más información -->
+          <div class="text-center">
+            <button 
+              class="glass-card px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 inline-block">
+              <span class="material-icons align-middle mr-2">info</span>
+              Sistema Interno
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imágenes del proyecto -->
+      <div class="order-1 lg:order-2">
+        <div class="grid grid-cols-1 gap-12">
+          <!-- Primera imagen -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <img [src]="projects[2].imageUrl" 
+                 [alt]="projects[2].title"
+                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
+          </div>
+          
+          <!-- Segunda imagen -->
+          <div class="relative group">
+            <div class="absolute -inset-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <img [src]="projects[2].imageUrl2" 
+                 [alt]="projects[2].title + ' - Vista 2'"
+                 class="relative w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-300">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Estadísticas del Portafolio -->
+<section data-section-id="stats" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent scroll-reveal" [class.visible]="sectionsVisible['stats'] === 'visible'">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Resultados que <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Hablan</span>
+      </h2>
+      <p class="text-xl text-gray-300 font-inter max-w-3xl mx-auto">
+        Nuestros números reflejan el compromiso y la excelencia que ponemos en cada proyecto
+      </p>
+    </div>
+
+    <!-- Grid de estadísticas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div *ngFor="let stat of stats; let i = index" 
+           class="glass-card p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
+           [style.animation-delay]="(i * 0.1) + 's'">
+        
+        <!-- Ícono -->
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br {{ stat.color }} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+          <span class="material-icons text-white text-2xl">{{ stat.icon }}</span>
+        </div>
+        
+        <!-- Número -->
+        <div class="text-4xl md:text-5xl font-bold font-poppins text-white mb-2">
+          {{ stat.number }}
+        </div>
+        
+        <!-- Label -->
+        <div class="text-gray-300 font-inter">
+          {{ stat.label }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: CTA Final -->
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="glass-card p-12 rounded-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold font-poppins text-white mb-6">
+        ¿Listo para ser nuestro próximo <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">caso de éxito</span>?
+      </h2>
+      
+      <p class="text-xl text-gray-300 font-inter mb-8 max-w-2xl mx-auto">
+        Únete a nuestros clientes satisfechos y transforma tu negocio con una presencia web profesional
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button 
+          routerLink="/contacto"
+          class="btn-primary px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 transition-all duration-300">
+          Iniciar Proyecto
+        </button>
+        
+        <button 
+          routerLink="/servicios"
+          class="glass-card px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300">
+          Ver Servicios
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
