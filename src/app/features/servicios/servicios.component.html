@@ -1,0 +1,248 @@
+<!-- Página de Servicios -->
+
+<!-- Hero Section con Texto Rotatorio -->
+<section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20" style="padding-bottom: 100px;">
+  <!-- Fondo con gradiente animado -->
+  <div class="absolute inset-0 gradient-animated opacity-20"></div>
+  
+  <div class="absolute inset-0">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-neo-blue/20 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-neo-violet/20 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+    <!-- Título con texto rotatorio -->
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-8 leading-tight">
+      <span class="text-white block mb-4">Tu </span>
+      <span class="rotating-text-wrapper relative inline-block">
+        <span [class]="'rotating-text font-bold text-5xl md:text-6xl lg:text-7xl ' + currentBusiness.color">
+          {{ currentBusiness.text }}
+        </span>
+      </span>
+      <span class="text-white block mt-4">necesita una página web</span>
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-gray-300 mb-10 font-inter max-w-3xl mx-auto">
+      Potencia tu negocio con soluciones web profesionales diseñadas para <span class="text-neo-blue font-semibold">atraer más clientes</span> y <span class="text-neo-violet font-semibold">aumentar tus ventas</span>.
+    </p>
+
+    <!-- Botones CTA -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button routerLink="/contacto" class="btn-primary text-lg px-8 py-4">
+        Solicitar Cotización Gratuita
+      </button>
+      <button (click)="scrollToPricing()" class="glass-card text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+        Ver Planes y Precios
+      </button>
+    </div>
+  </div>
+
+  <div class="custom-shape-divider-bottom-1761248641">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Sección: Detalles de Servicios con Scroll Animations -->
+<section class=" relative py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Título de sección -->
+    <div id="section-title" class="text-center mb-20 " [class.visible]="sectionTitleVisible === 'visible'">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Cómo te ayudamos a 
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">
+          crecer online
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+        No vendemos sitios web. Vendemos <span class="text-white font-semibold">más clientes</span>, <span class="text-white font-semibold">más ventas</span> y <span class="text-white font-semibold">más crecimiento</span> para tu negocio.
+      </p>
+    </div>
+
+    <div class="space-y-32">
+      <div 
+        *ngFor="let service of serviceDetails; let i = index"
+        [attr.data-service-index]="i"
+        class="service-card grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        [class.visible]="servicesVisible[i] === 'visible'"
+        [class.lg:grid-flow-col-dense]="i % 2 !== 0">
+        
+        <!-- Contenido del servicio -->
+        <div [class.lg:col-start-2]="i % 2 !== 0" class="service-content">
+          <!-- Ícono y título -->
+          <div class="flex items-start mb-6">
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br {{ service.color }} flex items-center justify-center mr-4 flex-shrink-0 transform hover:scale-110 transition-transform duration-300">
+              <span class="material-icons text-white text-4xl">{{ service.icon }}</span>
+            </div>
+            <div>
+              <h2 class="text-3xl md:text-4xl xl:text-5xl font-bold font-poppins text-white mb-2">
+                {{ service.title }}
+              </h2>
+              <p class="text-gray-400 font-inter text-base md:text-lg">
+                {{ service.subtitle }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Lista de beneficios con scroll stagger -->
+          <div class="space-y-3 mb-8">
+            <div 
+              *ngFor="let benefit of service.benefits; let j = index" 
+              class="benefit-item flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300"
+              >
+              
+              <!-- Icono de check profesional -->
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-neo-blue to-neo-violet flex items-center justify-center mt-0.5">
+                <span class="material-icons text-white text-sm">check</span>
+              </div>
+              
+              <!-- Texto del beneficio -->
+              <p class="text-gray-200 font-inter text-base md:text-lg leading-relaxed flex-1">
+                {{ benefit }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Botón de acción -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button routerLink="/contacto" class="btn-primary group">
+              Solicitar {{ service.title }}
+              <span class="material-icons ml-2 inline-block text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+            <button routerLink="/portafolio" class="glass-card text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300">
+              Ver Ejemplos
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta visual decorativa con efecto 3D -->
+        <div >
+          <div class="glass-card rounded-3xl p-1 relative overflow-hidden group hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-br {{ service.color }} opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+            
+            <!-- Elementos decorativos animados -->
+            <div class="relative z-10 space-y-4">
+              <div class="h-full w-full bg-white/5 rounded-2xl  backdrop-blur-sm">
+                <img [src]="service.img" alt="Icono" class="w-full h-full object-cover rounded-2xl">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Tabla de Precios con Disclaimer -->
+<section id="pricing-section" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-neo-blue/5 to-transparent scroll-reveal" [class.visible]="pricingVisible === 'visible'">
+  <div class="max-w-7xl mx-auto">
+    <!-- Título -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Inversión en tu 
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">
+          Futuro Digital
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter mb-4">
+        Precios transparentes adaptados a las necesidades de tu negocio
+      </p>
+      
+      <!-- Disclaimer de precios variables -->
+      <div class="glass-card rounded-2xl p-6 max-w-3xl mx-auto border-2 border-yellow-500/30 mb-8">
+        <div class="flex items-start gap-4">
+          <span class="material-icons text-yellow-400 text-3xl flex-shrink-0">info</span>
+          <div class="text-left">
+            <p class="text-white font-semibold font-poppins mb-2 text-lg">Precios Referenciales</p>
+            <p class="text-gray-300 font-inter text-base leading-relaxed">
+              Los precios mostrados son <span class="text-yellow-400 font-semibold">orientativos</span> y pueden variar según las características específicas de tu proyecto. 
+              Cada negocio es único y adaptamos la solución a tus necesidades exactas. 
+              <span class="text-neo-light font-semibold">Solicita una cotización personalizada sin compromiso.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de precios -->
+    <div class="pricing-table-wrapper">
+      <app-pricing-table></app-pricing-table>
+    </div>
+
+    <!-- Nota adicional de personalización -->
+    <div class="glass-card rounded-2xl p-8 mt-12 text-center border-2 border-neo-blue/30">
+      <span class="material-icons text-neo-blue text-5xl mb-4">psychology</span>
+      <h3 class="text-2xl font-bold font-poppins text-white mb-4">
+        ¿Tu proyecto es diferente?
+      </h3>
+      <p class="text-gray-300 font-inter text-lg mb-6 max-w-2xl mx-auto">
+        Sabemos que cada negocio tiene necesidades únicas. Podemos crear un <span class="text-neo-violet font-semibold">plan 100% personalizado</span> que se ajuste perfectamente a tu presupuesto y objetivos.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button routerLink="/contacto" class="btn-primary text-lg px-8 py-4 group">
+          Solicitar Cotización Personalizada
+          <span class="material-icons ml-2 inline-block text-lg group-hover:translate-x-1 transition-transform">calculate</span>
+        </button>
+        <a href="https://wa.me/51942820836" target="_blank" class="glass-card text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-500/20 transition-all duration-300 text-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="mr-2">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section id="cta-final" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden scroll-reveal" [class.visible]="ctaVisible === 'visible'">
+  <div class="absolute inset-0 gradient-animated opacity-30"></div>
+  
+  <!-- Luces decorativas -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-neo-blue/30 rounded-full filter blur-3xl"></div>
+    <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-neo-violet/30 rounded-full filter blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      Da el primer paso hacia tu éxito digital
+    </h2>
+    <p class="text-xl text-gray-200 font-inter mb-10 max-w-2xl mx-auto">
+      Más de <span class="text-neo-blue font-bold">miles de negocios</span> ya están creciendo online. 
+      ¿Qué esperas para ser el siguiente?
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <button routerLink="/contacto" class="btn-primary text-lg px-10 py-5 group">
+        Solicitar Cotización Ahora
+        <span class="material-icons ml-2 inline-block text-lg group-hover:translate-x-1 transition-transform">rocket_launch</span>
+      </button>
+      <button routerLink="/portafolio" class="glass-card text-white px-10 py-5 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+        Ver Casos de Éxito
+      </button>
+    </div>
+
+    <!-- Garantías visuales -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+      <div class="glass-card p-4 rounded-xl">
+        <span class="material-icons text-neo-blue text-3xl mb-2">verified</span>
+        <p class="text-white font-semibold text-sm">100% Personalizado</p>
+      </div>
+      <div class="glass-card p-4 rounded-xl">
+        <span class="material-icons text-neo-violet text-3xl mb-2">support_agent</span>
+        <p class="text-white font-semibold text-sm">Soporte Continuo</p>
+      </div>
+      <div class="glass-card p-4 rounded-xl">
+        <span class="material-icons text-green-400 text-3xl mb-2">speed</span>
+        <p class="text-white font-semibold text-sm">Entrega Rápida</p>
+      </div>
+      <div class="glass-card p-4 rounded-xl">
+        <span class="material-icons text-yellow-400 text-3xl mb-2">workspace_premium</span>
+        <p class="text-white font-semibold text-sm">Calidad Premium</p>
+      </div>
+    </div>
+  </div>
+</section>
