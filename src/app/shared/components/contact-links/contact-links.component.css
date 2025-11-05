@@ -1,0 +1,5 @@
+/* Estilos adicionales para enlaces de contacto */
+a:hover {
+  box-shadow: 0 20px 60px rgba(0, 76, 255, 0.4);
+}
+
