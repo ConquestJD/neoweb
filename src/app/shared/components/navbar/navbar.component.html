@@ -1,94 +1,89 @@
-<!-- Navbar con efecto glassmorphism -->
+<!-- Navbar con colores morados NeoWeb -->
 <nav 
-  class="fixed top-0 left-0 w-full z-[100] transition-all duration-300"
-  [class.glass-card]="isScrolled"
-  [class.bg-transparent]="!isScrolled"
+  class="navbar-purple"
+  [class.navbar-scrolled]="isScrolled"
 >
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-20">
+  <div class="navbar-container">
+    <div class="navbar-content">
       
       <!-- Logo -->
-      <div class="flex flex-co items-center cursor-pointer gap-2" (click)="navigateTo('/inicio')">
-        <img src="/neoweb.ico" alt="NeoWeb" class="w-300 h-12">
-        <div class="flex-col items-center">
-          <div class="flex-col items-center">
-            <h1 class="text-3xl font-bold font-poppins">
-              <span class="">
-                Neo
-              </span>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r  to-neo-violet from-neo-blue">Web</span>
-            </h1>
-          </div>
-        </div>
+      <div class="navbar-logo" (click)="navigateTo('/inicio')">
+        <img src="/neoweb.ico" alt="NeoWeb">
+        <h1>
+          <span>Neo</span>
+          <span class="logo-gradient">Web</span>
+        </h1>
       </div>
 
       <!-- Desktop Menu -->
-      <div class="hidden md:flex space-x-2 items-center">
+      <div class="navbar-desktop-menu">
         <a routerLink="/inicio" 
            routerLinkActive="nav-link-active" 
            [routerLinkActiveOptions]="{exact: false}"
-           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+           class="nav-link">
           Inicio
         </a>
+        
         <!-- Servicios con menú desplegable -->
-        <div class="relative" 
+        <div class="navbar-dropdown-wrapper" 
              (mouseenter)="isServicesDropdownOpen = true"
              (mouseleave)="isServicesDropdownOpen = false">
           <a routerLink="/servicios" 
              routerLinkActive="nav-link-active"
              [routerLinkActiveOptions]="{exact: false}"
-             class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative flex items-center cursor-pointer">
+             class="nav-link nav-link-with-icon">
             Servicios
-            <span class="material-icons text-sm ml-1 transition-transform duration-300" 
+            <span class="material-icons dropdown-icon" 
                   [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
           </a>
           
           <!-- Dropdown Menu -->
           <div *ngIf="isServicesDropdownOpen" 
-               class="absolute top-full left-0 mt-2 w-64 glass-card rounded-xl shadow-2xl overflow-hidden z-50"
+               class="services-dropdown"
                [@slideDown]>
-            <div class="py-2">
+            <div class="dropdown-content">
               <a *ngFor="let service of services"
                  [routerLink]="service.route"
                  (click)="navigateTo(service.route)"
-                 class="block px-4 py-3 text-white hover:bg-white/10 transition-all duration-200 font-inter text-sm flex items-center group">
-                <span class="material-icons text-base mr-3 text-gray-400 group-hover:text-neo-blue transition-colors">{{ service.icon }}</span>
-                <span class="group-hover:text-neo-blue transition-colors">{{ service.name }}</span>
+                 class="dropdown-item">
+                <span class="material-icons">{{ service.icon }}</span>
+                <span>{{ service.name }}</span>
               </a>
             </div>
           </div>
         </div>
+        
         <a routerLink="/portafolio" 
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
-           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+           class="nav-link">
           Portafolio
         </a>
         <a routerLink="/nosotros" 
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
-           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+           class="nav-link">
           Nosotros
         </a>
         <a routerLink="/blog" 
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
-           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
+           class="nav-link">
           Blog
         </a>
         <button 
           (click)="navigateTo('/contacto')"
-          class="btn-primary text-sm ml-2">
+          class="btn-primary btn-navbar">
           Contactar
         </button>
       </div>
 
       <!-- Mobile Menu Button -->
-      <div class="md:hidden">
+      <div class="navbar-mobile-toggle">
         <button 
           (click)="toggleMenu()"
-          class="text-white hover:text-neo-light focus:outline-none transition-colors">
-          <span class="material-icons text-3xl">
+          class="mobile-menu-button">
+          <span class="material-icons">
             {{ isMenuOpen ? 'close' : 'menu' }}
           </span>
         </button>
@@ -99,84 +94,77 @@
   <!-- Mobile Menu -->
   <div 
     *ngIf="isMenuOpen"
-    class="md:hidden mobile-menu-glass animate-slide-up"
+    class="mobile-menu-glass animate-slide-up"
     [@slideDown]
   >
-    <div class="px-4 pt-2 pb-6 space-y-2">
+    <div class="mobile-menu-content">
       <a routerLink="/inicio" 
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
-         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-2">home</span>
-          Inicio
-        </span>
+         class="nav-link-mobile">
+        <span class="material-icons">home</span>
+        <span>Inicio</span>
       </a>
+      
       <!-- Servicios con submenú en móvil -->
       <div>
         <button 
           (click)="toggleServicesDropdown()"
           [class.nav-link-mobile-active]="isServicesDropdownOpen"
-          class="nav-link-mobile w-full text-left text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg flex items-center justify-between">
-          <span class="flex items-center">
-            <span class="material-icons text-sm mr-2">design_services</span>
+          class="nav-link-mobile nav-link-mobile-toggle">
+          <span>
+            <span class="material-icons">design_services</span>
             Servicios
           </span>
-          <span class="material-icons text-sm transition-transform duration-300" 
+          <span class="material-icons dropdown-icon" 
                 [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
         </button>
         
         <!-- Submenú de servicios en móvil -->
         <div *ngIf="isServicesDropdownOpen" 
-             class="ml-4 mt-2 space-y-1 mobile-services-submenu"
+             class="mobile-services-submenu"
              [@slideDown]>
           <a *ngFor="let service of services"
              [routerLink]="service.route"
              (click)="navigateTo(service.route)"
              routerLinkActive="nav-link-mobile-active"
-             class="block text-gray-300 hover:text-neo-blue transition-all py-2 px-4 font-inter text-sm rounded-lg hover:bg-white/5 flex items-center">
-            <span class="material-icons text-xs mr-2">{{ service.icon }}</span>
-            {{ service.name }}
+             class="mobile-submenu-item">
+            <span class="material-icons">{{ service.icon }}</span>
+            <span>{{ service.name }}</span>
           </a>
         </div>
       </div>
+      
       <a routerLink="/portafolio" 
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
-         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-2">work</span>
-          Portafolio
-        </span>
+         class="nav-link-mobile">
+        <span class="material-icons">work</span>
+        <span>Portafolio</span>
       </a>
       <a routerLink="/nosotros" 
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
-         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-2">groups</span>
-          Nosotros
-        </span>
+         class="nav-link-mobile">
+        <span class="material-icons">groups</span>
+        <span>Nosotros</span>
       </a>
       <a routerLink="/blog" 
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
-         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-2">article</span>
-          Blog
-        </span>
+         class="nav-link-mobile">
+        <span class="material-icons">article</span>
+        <span>Blog</span>
       </a>
       <button 
         (click)="navigateTo('/contacto')"
-        class="btn-primary w-full mt-4">
+        class="btn-primary btn-mobile-full">
         Contactar
       </button>
     </div>
   </div>
 </nav>
-
