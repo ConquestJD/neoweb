@@ -12,11 +12,6 @@ export const routes: Routes = [
     title: 'Inicio - NeoWeb | Desarrollo de Páginas Web'
   },
   {
-    path: 'servicios',
-    loadComponent: () => import('./features/servicios/servicios.component').then(m => m.ServiciosComponent),
-    title: 'Servicios - NeoWeb | Soluciones Web Profesionales'
-  },
-  {
     path: 'servicios/pagina-web',
     loadComponent: () => import('./features/servicios/pagina-web/pagina-web.component').then(m => m.PaginaWebComponent),
     title: 'Página Web - NeoWeb | Desarrollo Web Profesional'
