@@ -30,12 +30,34 @@
            class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
           Inicio
         </a>
-        <a routerLink="/servicios" 
-           routerLinkActive="nav-link-active"
-           [routerLinkActiveOptions]="{exact: false}"
-           class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative">
-          Servicios
-        </a>
+        <!-- Servicios con menú desplegable -->
+        <div class="relative" 
+             (mouseenter)="isServicesDropdownOpen = true"
+             (mouseleave)="isServicesDropdownOpen = false">
+          <a routerLink="/servicios" 
+             routerLinkActive="nav-link-active"
+             [routerLinkActiveOptions]="{exact: false}"
+             class="nav-link text-white hover:text-neo-light transition-all duration-300 font-inter font-medium px-4 py-2 rounded-lg relative flex items-center cursor-pointer">
+            Servicios
+            <span class="material-icons text-sm ml-1 transition-transform duration-300" 
+                  [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
+          </a>
+          
+          <!-- Dropdown Menu -->
+          <div *ngIf="isServicesDropdownOpen" 
+               class="absolute top-full left-0 mt-2 w-64 glass-card rounded-xl shadow-2xl overflow-hidden z-50"
+               [@slideDown]>
+            <div class="py-2">
+              <a *ngFor="let service of services"
+                 [routerLink]="service.route"
+                 (click)="navigateTo(service.route)"
+                 class="block px-4 py-3 text-white hover:bg-white/10 transition-all duration-200 font-inter text-sm flex items-center group">
+                <span class="material-icons text-base mr-3 text-gray-400 group-hover:text-neo-blue transition-colors">{{ service.icon }}</span>
+                <span class="group-hover:text-neo-blue transition-colors">{{ service.name }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
         <a routerLink="/portafolio" 
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
@@ -91,16 +113,34 @@
           Inicio
         </span>
       </a>
-      <a routerLink="/servicios" 
-         (click)="closeMenu()"
-         routerLinkActive="nav-link-mobile-active"
-         [routerLinkActiveOptions]="{exact: false}"
-         class="nav-link-mobile block text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg">
-        <span class="flex items-center">
-          <span class="material-icons text-sm mr-2">design_services</span>
-          Servicios
-        </span>
-      </a>
+      <!-- Servicios con submenú en móvil -->
+      <div>
+        <button 
+          (click)="toggleServicesDropdown()"
+          [class.nav-link-mobile-active]="isServicesDropdownOpen"
+          class="nav-link-mobile w-full text-left text-white hover:text-neo-light transition-all py-3 px-4 font-inter rounded-lg flex items-center justify-between">
+          <span class="flex items-center">
+            <span class="material-icons text-sm mr-2">design_services</span>
+            Servicios
+          </span>
+          <span class="material-icons text-sm transition-transform duration-300" 
+                [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
+        </button>
+        
+        <!-- Submenú de servicios en móvil -->
+        <div *ngIf="isServicesDropdownOpen" 
+             class="ml-4 mt-2 space-y-1 mobile-services-submenu"
+             [@slideDown]>
+          <a *ngFor="let service of services"
+             [routerLink]="service.route"
+             (click)="navigateTo(service.route)"
+             routerLinkActive="nav-link-mobile-active"
+             class="block text-gray-300 hover:text-neo-blue transition-all py-2 px-4 font-inter text-sm rounded-lg hover:bg-white/5 flex items-center">
+            <span class="material-icons text-xs mr-2">{{ service.icon }}</span>
+            {{ service.name }}
+          </a>
+        </div>
+      </div>
       <a routerLink="/portafolio" 
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"

@@ -24,6 +24,20 @@ import { RouterModule, Router } from '@angular/router';
 export class NavbarComponent {
   isMenuOpen = false;
   isScrolled = false;
+  isServicesDropdownOpen = false;
+
+  // Lista de servicios para el menú desplegable
+  services = [
+    { name: 'Página Web', route: '/servicios/pagina-web', icon: 'language' },
+    { name: 'Landing Page', route: '/servicios/landing-page', icon: 'rocket_launch' },
+    { name: 'Tienda Virtual', route: '/servicios/tienda-virtual', icon: 'shopping_cart' },
+    { name: 'Google Ads', route: '/servicios/google-ads', icon: 'ads_click' },
+    { name: 'Marketing Digital', route: '/servicios/marketing-digital', icon: 'campaign' },
+    { name: 'Rediseño de Páginas Web', route: '/servicios/rediseno-paginas-web', icon: 'refresh' },
+    { name: 'Aplicaciones Móviles', route: '/servicios/aplicaciones-moviles', icon: 'phone_android' },
+    { name: 'Consultoría SEO', route: '/servicios/consultoria-seo', icon: 'search' },
+    { name: 'Digitalización de Procesos', route: '/servicios/digitalizacion-procesos', icon: 'auto_awesome' }
+  ];
 
   constructor(private router: Router) {}
 
@@ -45,6 +59,15 @@ export class NavbarComponent {
   navigateTo(route: string) {
     this.router.navigate([route]);
     this.closeMenu();
+    this.isServicesDropdownOpen = false;
+  }
+
+  toggleServicesDropdown() {
+    this.isServicesDropdownOpen = !this.isServicesDropdownOpen;
+  }
+
+  closeServicesDropdown() {
+    this.isServicesDropdownOpen = false;
   }
 }
 

@@ -111,6 +111,74 @@
   color: var(--neo-blue);
 }
 
+/* Estilos para el menú desplegable de servicios */
+.services-dropdown {
+  background: rgba(28, 28, 28, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación para el dropdown */
+.services-dropdown-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(180deg, var(--neo-blue), var(--neo-violet));
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.services-dropdown-item:hover::before {
+  transform: scaleY(1);
+}
+
+/* Rotación del ícono expand_more */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Estilos adicionales para el dropdown de servicios */
+.services-dropdown a {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.services-dropdown a:hover {
+  padding-left: 1.5rem;
+}
+
+.services-dropdown a .material-icons {
+  transition: all 0.2s ease;
+}
+
+/* Estilos para el submenú móvil */
+.mobile-services-submenu {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
+  }
+}
+
 /* Responsive ajustes */
 @media (max-width: 768px) {
   .nav-link-mobile-active {
