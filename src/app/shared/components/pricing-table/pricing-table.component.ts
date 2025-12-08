@@ -36,7 +36,7 @@ export class PricingTableComponent {
     },
     {
       name: 'Sitio Web Profesional',
-      price: 'S/1,300',
+      price: 'S/1,200',
       description: 'Para negocios que necesitan presencia digital completa',
       icon: 'business',
       recommended: true,
