@@ -1,21 +1,21 @@
 <!-- Página de Servicio: Página Web -->
 
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-  <div class="absolute inset-0 gradient-animated opacity-20"></div>
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white">
+  <div class="absolute inset-0 bg-white"></div>
   
   <div class="absolute inset-0">
-    <div class="absolute top-20 left-10 w-96 h-96 bg-neo-blue/20 rounded-full filter blur-3xl animate-float"></div>
-    <div class="absolute bottom-20 right-10 w-96 h-96 bg-neo-violet/20 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    <div class="absolute top-20 left-10 w-96 h-96 bg-neo-blue/5 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-neo-violet/5 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
   </div>
 
   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
     <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
-      <span class="text-white">Página Web </span>
+      <span class="text-gray-900">Página Web </span>
       <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Profesional</span>
     </h1>
     
-    <p class="text-xl md:text-2xl text-gray-300 mb-8 font-inter max-w-3xl mx-auto">
+    <p class="text-xl md:text-2xl text-gray-600 mb-8 font-inter max-w-3xl mx-auto">
       Tu presencia digital completa. Diseñamos sitios web profesionales que proyectan autoridad, atraen clientes y generan resultados.
     </p>
 
@@ -23,7 +23,7 @@
       <button routerLink="/contacto" class="btn-primary text-lg px-8 py-4">
         Solicitar Cotización
       </button>
-      <button routerLink="/servicios" class="glass-card text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+      <button routerLink="/servicios" class="glass-card text-gray-800 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 text-lg border border-gray-200">
         Ver Todos los Servicios
       </button>
     </div>
@@ -34,10 +34,10 @@
 <section class="py-20 px-4 sm:px-6 lg:px-8" data-section-id="plans">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-gray-900 mb-6">
         Planes y <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Precios</span>
       </h2>
-      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+      <p class="text-xl text-gray-600 font-inter max-w-3xl mx-auto">
         Elige el plan perfecto para tu negocio. Precios desde S/ 1,200 hasta S/ 2,500
       </p>
     </div>
@@ -61,9 +61,9 @@
           <div class="w-16 h-16 rounded-full bg-gradient-to-br {{ plan.color }} flex items-center justify-center mx-auto mb-4">
             <span class="material-icons text-white text-3xl">{{ plan.icon }}</span>
           </div>
-          <h3 class="text-2xl font-bold font-poppins text-white mb-2">PLAN {{ plan.name }}</h3>
+          <h3 class="text-2xl font-bold font-poppins text-gray-900 mb-2">PLAN {{ plan.name }}</h3>
           <div class="mb-4">
-            <span class="text-4xl font-bold text-white">{{ plan.price }}</span>
+            <span class="text-4xl font-bold text-gray-900">{{ plan.price }}</span>
           </div>
         </div>
 
@@ -71,7 +71,7 @@
         <ul class="space-y-3 mb-8">
           <li *ngFor="let feature of plan.features" class="flex items-start">
             <span class="material-icons text-neo-blue mr-3 text-sm flex-shrink-0 mt-1">check_circle</span>
-            <span class="text-gray-300 font-inter text-sm">{{ feature }}</span>
+            <span class="text-gray-700 font-inter text-sm">{{ feature }}</span>
           </li>
         </ul>
 
@@ -88,10 +88,10 @@
 <section class="py-20 px-4 sm:px-6 lg:px-8" data-section-id="features">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-gray-900 mb-6">
         Características de tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Página Web</span>
       </h2>
-      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+      <p class="text-xl text-gray-600 font-inter max-w-3xl mx-auto">
         Tecnología de vanguardia para resultados excepcionales
       </p>
     </div>
@@ -101,8 +101,8 @@
         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center mx-auto mb-4">
           <span class="material-icons text-white text-3xl">{{ feature.icon }}</span>
         </div>
-        <h3 class="text-xl font-bold font-poppins text-white mb-3">{{ feature.title }}</h3>
-        <p class="text-gray-400 font-inter">{{ feature.description }}</p>
+        <h3 class="text-xl font-bold font-poppins text-gray-900 mb-3">{{ feature.title }}</h3>
+        <p class="text-gray-600 font-inter">{{ feature.description }}</p>
       </div>
     </div>
   </div>
@@ -112,10 +112,10 @@
 <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-neo-blue/5 to-transparent" data-section-id="methodology">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-gray-900 mb-6">
         Nuestra <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Metodología</span>
       </h2>
-      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+      <p class="text-xl text-gray-600 font-inter max-w-3xl mx-auto">
         Un proceso probado que garantiza resultados excepcionales
       </p>
     </div>
@@ -128,8 +128,8 @@
           </div>
         </div>
         <div class="flex-1">
-          <h3 class="text-2xl font-bold font-poppins text-white mb-3">{{ step.title }}</h3>
-          <p class="text-lg text-gray-300 font-inter">{{ step.description }}</p>
+          <h3 class="text-2xl font-bold font-poppins text-gray-900 mb-3">{{ step.title }}</h3>
+          <p class="text-lg text-gray-700 font-inter">{{ step.description }}</p>
         </div>
       </div>
     </div>
@@ -140,10 +140,10 @@
 <section class="py-20 px-4 sm:px-6 lg:px-8" data-section-id="fullcode">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-gray-900 mb-6">
         Todo se hace <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Full Code</span>
       </h2>
-      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+      <p class="text-xl text-gray-600 font-inter max-w-3xl mx-auto">
         Desarrollamos tu sitio web desde cero, sin plantillas. Código limpio, optimizado y 100% personalizado para tu negocio.
       </p>
     </div>
@@ -153,22 +153,22 @@
         <div class="w-16 h-16 rounded-full bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center mb-4">
           <span class="material-icons text-white text-3xl">{{ benefit.icon }}</span>
         </div>
-        <h3 class="text-xl font-bold font-poppins text-white mb-3">{{ benefit.title }}</h3>
-        <p class="text-gray-400 font-inter">{{ benefit.description }}</p>
+        <h3 class="text-xl font-bold font-poppins text-gray-900 mb-3">{{ benefit.title }}</h3>
+        <p class="text-gray-600 font-inter">{{ benefit.description }}</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA Final -->
-<section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-  <div class="absolute inset-0 gradient-animated"></div>
+<section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-white">
+  <div class="absolute inset-0 bg-white"></div>
   
   <div class="max-w-4xl mx-auto text-center relative z-10">
-    <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+    <h2 class="text-4xl md:text-5xl font-bold font-poppins text-gray-900 mb-6">
       ¿Listo para tener tu Página Web Profesional?
     </h2>
-    <p class="text-xl text-gray-200 font-inter mb-8">
+    <p class="text-xl text-gray-700 font-inter mb-8">
       Comienza tu transformación digital hoy mismo
     </p>
     
