@@ -1,5 +1,7 @@
-/* Estilos adicionales para el footer */
+/* Footer minimalista oscuro */
 footer {
-  background: linear-gradient(180deg, rgba(0, 76, 255, 0.05) 0%, rgba(10, 10, 10, 0.9) 100%);
+  background: #201926;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
