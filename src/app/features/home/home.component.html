@@ -1,290 +1,171 @@
-<!-- ========================================
-     PÁGINA HOME NARRATIVA - NEOWEB
-     ======================================== -->
+<!-- Home NeoWeb -->
 
-<!-- SECCIÓN 1: HERO PRINCIPAL -->
-<section class="hero-section">
-  <div class="hero-background"></div>
-  
-  <div class="hero-particles">
-    <div class="particle particle-1"></div>
-    <div class="particle particle-2"></div>
-  </div>
-
-  <div class="hero-container">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          <span class="title-main">Tu vitrina digital</span>
-          <span class="title-gradient">comienza aquí</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          Atrae clientes. Genera confianza. Crece online.
-        </p>
-
-        <div class="hero-buttons">
-          <button routerLink="/portafolio" class="btn-primary">
-            <span class="btn-content">
-              Ver Portafolio
-              <span class="material-icons btn-icon">arrow_forward</span>
-            </span>
-          </button>
-          <button (click)="scrollToPromo()" class="btn-secondary">
-            Ver Ofertas 
-          </button>
-        </div>
-      </div>
-
-      <div class="hero-image">
-        <div class="spline-container">
-          <img src="/assets/hero.png" alt="Spline 3D" fetchpriority="high" loading="eager" width="584" height="584">
-        </div>
-      </div>
-    </div>
-
-    <div class="scroll-indicator">
-      <span class="material-icons">keyboard_arrow_down</span>
-    </div>
-  </div>
-  
-  <div class="shape-divider">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-    </svg>
-  </div>
-</section>
-
-<!-- SECCIÓN 2: POR QUÉ TU NEGOCIO NECESITA UNA WEB -->
-<section id="why-web-section" class="why-web-section">
-  <div class="section-background"></div>
-  
-  <div class="section-particles">
-    <div class="particle particle-3"></div>
-    <div class="particle particle-4"></div>
-  </div>
-  
-  <div class="section-container">
-    <div class="section-header scroll-zoom-in" [class.visible]="whyWebVisible === 'visible'">
-      <h2 class="section-title">
-        ¿Por qué tu negocio
-        <span class="title-gradient">necesita un sitio web?</span>
-      </h2>
-      <div class="section-subtitle-wrapper">
-        <p class="section-subtitle">
-          No es una pregunta, es una realidad del mercado actual
-        </p>
-        <div class="title-underline"></div>
-      </div>
-    </div>
-
-    <div class="narrative-blocks">
-      <div *ngFor="let reason of whyWebReasons; let i = index" 
-           class="narrative-block"
-           [class.visible]="reason.visible"
-           [attr.data-index]="i">
-        
-        <div class="narrative-grid" [class.reverse]="i % 2 !== 0">
-          <div class="narrative-content" 
-               [class.slide-left]="i % 2 === 0"
-               [class.slide-right]="i % 2 !== 0">
-            
-            <div class="reason-card">
-              <div class="shine-effect"></div>
-              
-              <div class="reason-icon-wrapper">
-                <span class="material-icons">{{ reason.icon }}</span>
-              </div>
-
-              <h3 class="reason-title">{{ reason.title }}</h3>
-
-              <p class="reason-subtitle">{{ reason.subtitle }}</p>
-
-              <p class="reason-description">{{ reason.description }}</p>
-
-              <div class="reason-stat">
-                <div class="stat-glow"></div>
-                <div class="stat-content">
-                  <div class="stat-main">
-                    <p class="stat-number">{{ reason.stat }}</p>
-                    <p class="stat-label">{{ reason.statLabel }}</p>
-                  </div>
-                  <div class="stat-icon">
-                    <span class="material-icons">{{ reason.icon }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="reason-visual" 
-               [class.scale-left]="i % 2 === 0"
-               [class.scale-right]="i % 2 !== 0">
-            <img [src]="reason.img" alt="Icono">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECCIÓN 3: PORTAFOLIO PREVIEW -->
-<section id="portfolio-section" class="portfolio-section">
-  <div class="section-background-gradient"></div>
-  
-  <div class="section-container">
-    <div class="section-header scroll-fade-in" [class.visible]="portfolioVisible === 'visible'">
-      <h2 class="section-title">
-        Algunos de nuestros
-        <span class="title-gradient">proyectos recientes</span>
-      </h2>
-      <p class="section-subtitle">
-        Resultados reales para negocios reales
+<!-- Hero (blanco) -->
+<section class="section-light py-24">
+  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+      <p class="pill w-fit">Agencia digital</p>
+      <h1 class="text-4xl md:text-5xl font-poppins font-bold text-neutral-900 leading-tight">
+        Tu vitrina digital comienza aquí
+      </h1>
+      <p class="text-lg text-gray-700 max-w-xl">
+        Sitios, tiendas y campañas diseñadas para atraer, convertir y escalar tu marca con un look premium y ordenado.
       </p>
-    </div>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-infinite">
-        <div class="carousel-track">
-          <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
-            <div *ngFor="let project of portfolioProjects" class="carousel-item">
-              <div class="project-image">
-                <img [src]="project.imageUrl" [alt]="project.title">
-                <div class="project-overlay">
-                  <div class="overlay-content">
-                    <p class="overlay-result">{{ project.result }}</p>
-                    <p class="overlay-label">Resultado medible</p>
-                  </div>
-                </div>
-                <div class="project-badge">
-                  <span>{{ project.category }}</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <h3 class="project-title">{{ project.title }}</h3>
-                <p class="project-description">{{ project.description }}</p>
-              </div>
-            </div>
-          </ng-container>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button routerLink="/portafolio" class="btn-primary">Ver portafolio</button>
+        <button routerLink="/servicios" class="btn-secondary">Ver servicios</button>
+      </div>
+      <div class="grid grid-cols-3 gap-3 max-w-md">
+        <div class="metric-card">
+          <div class="metric-value">+40</div>
+          <div class="metric-label">Proyectos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">+25</div>
+          <div class="metric-label">Clientes</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">24h</div>
+          <div class="metric-label">Respuesta</div>
         </div>
       </div>
     </div>
-
-    <div class="section-cta">
-      <button routerLink="/portafolio" class="btn-primary">
-        Ver Portafolio Completo
-        <span class="material-icons btn-icon">arrow_forward</span>
-      </button>
+    <div class="glass-card p-6">
+      <img src="/assets/hero.png" alt="Mockup NeoWeb" class="w-full h-full object-cover">
     </div>
   </div>
 </section>
 
-<!-- SECCIÓN 4: OFERTAS POR TIEMPO LIMITADO -->
-<section id="promo-section" class="promo-section">
-  <div class="promo-background"></div>
-  
-  <div class="section-container">
-    <div class="promo-banner scroll-fade-in animate-glow" [class.visible]="promoVisible === 'visible'">
-      <div class="promo-badge">
-        <span>🎉 PROMOCIÓN POR LANZAMIENTO 🎉</span>
-      </div>
-
-      <h2 class="promo-title">
-        Descuentos especiales
-        <span class="title-gradient">para nuestros primeros clientes</span>
-      </h2>
-
-      <p class="promo-subtitle">
-        ¡Oferta válida por tiempo limitado! No dejes pasar esta oportunidad.
-      </p>
-
-      <div class="promo-stats">
-        <div class="promo-stat">
-          <p class="stat-value">15</p>
-          <p class="stat-text">Cupos</p>
-        </div>
-        <span class="stat-separator">:</span>
-        <div class="promo-stat">
-          <p class="stat-value">33%</p>
-          <p class="stat-text">Descuento</p>
-        </div>
-        <span class="stat-separator">:</span>
-        <div class="promo-stat">
-          <p class="stat-value">∞</p>
-          <p class="stat-text">Beneficios</p>
-        </div>
-      </div>
-
-      <button routerLink="/contacto" class="btn-primary btn-large animate-pulse-slow">
-        Aprovechar Oferta Ahora
-        <span class="material-icons btn-icon">local_fire_department</span>
-      </button>
+<!-- Servicios destacados (blanco) -->
+<section class="section-light py-16">
+  <div class="container">
+    <div class="text-center mb-10">
+      <p class="pill mx-auto mb-3">Servicios</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Lo que hacemos</h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Paquetes claros para tus objetivos digitales.</p>
     </div>
-
-    <div class="promo-note scroll-fade-in" [class.visible]="promoVisible === 'visible'">
-      <p>
-        💎 <span>Precio especial solo para los primeros clientes que confíen en nosotros</span> 💎
-      </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-card p-6">
+        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
+          <span class="material-icons">web</span>
+        </div>
+        <h3 class="text-xl font-poppins font-bold text-neutral-900 mb-2">Sitios corporativos</h3>
+        <p class="text-gray-700 mb-3">Diseño limpio, performance y mensajes claros.</p>
+        <a routerLink="/servicios/pagina-web" class="text-[#a048ff] font-semibold text-sm">Ver detalle →</a>
+      </div>
+      <div class="glass-card p-6">
+        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
+          <span class="material-icons">shopping_bag</span>
+        </div>
+        <h3 class="text-xl font-poppins font-bold text-neutral-900 mb-2">eCommerce</h3>
+        <p class="text-gray-700 mb-3">Catálogo optimizado, pagos seguros y funnels claros.</p>
+        <a routerLink="/servicios/tienda-virtual" class="text-[#a048ff] font-semibold text-sm">Ver detalle →</a>
+      </div>
+      <div class="glass-card p-6">
+        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
+          <span class="material-icons">stacked_line_chart</span>
+        </div>
+        <h3 class="text-xl font-poppins font-bold text-neutral-900 mb-2">Marketing y SEO</h3>
+        <p class="text-gray-700 mb-3">Tráfico de calidad y posicionamiento orgánico.</p>
+        <a routerLink="/servicios/marketing-digital" class="text-[#a048ff] font-semibold text-sm">Ver detalle →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECCIÓN 5: CTA FINAL -->
-<section class="cta-section">
-  <div class="cta-background"></div>
-  
-  <div class="cta-particles">
-    <div class="particle particle-5"></div>
-    <div class="particle particle-6"></div>
-  </div>
-
-  <div class="cta-container">
-    <h2 class="cta-title">
-      ¿Listo para impulsar tu negocio online?
-    </h2>
-
-    <p class="cta-subtitle">
-      Conecta con nosotros y da el siguiente paso digital
-    </p>
-
-    <div class="social-buttons">
-      <a href="https://wa.me/51942820836" target="_blank" class="social-button social-whatsapp">
-        <div class="social-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-          </svg>
-        </div>
-        <h3 class="social-title">WhatsApp</h3>
-        <p class="social-text">Respuesta inmediata</p>
-      </a>
-
-      <a href="https://instagram.com/neoweb.agency" target="_blank" class="social-button social-instagram">
-        <div class="social-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </div>
-        <h3 class="social-title">Instagram</h3>
-        <p class="social-text">Síguenos y conoce más</p>
-      </a>
-
-      <a href="https://www.facebook.com/profile.php?id=61583086977279" target="_blank" class="social-button social-facebook">
-        <div class="social-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        </div>
-        <h3 class="social-title">Facebook</h3>
-        <p class="social-text">Únete a nuestra comunidad</p>
-      </a>
+<!-- Diferenciales (gris claro) -->
+<section class="section-muted py-16">
+  <div class="container">
+    <div class="text-center mb-10">
+      <p class="pill mx-auto mb-3">Por qué NeoWeb</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Lo que nos hace diferentes</h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Metodología clara y entrega medible.</p>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="glass-card p-5 text-center">
+        <h4 class="text-lg font-bold text-neutral-900 mb-2">Research ágil</h4>
+        <p class="text-gray-700 text-sm">Brief claro y descubrimiento rápido.</p>
+      </div>
+      <div class="glass-card p-5 text-center">
+        <h4 class="text-lg font-bold text-neutral-900 mb-2">UX limpio</h4>
+        <p class="text-gray-700 text-sm">Flows sencillos y copy directo.</p>
+      </div>
+      <div class="glass-card p-5 text-center">
+        <h4 class="text-lg font-bold text-neutral-900 mb-2">Code & performance</h4>
+        <p class="text-gray-700 text-sm">Carga rápida, SEO técnico listo.</p>
+      </div>
+      <div class="glass-card p-5 text-center">
+        <h4 class="text-lg font-bold text-neutral-900 mb-2">A/B + métricas</h4>
+        <p class="text-gray-700 text-sm">Decisiones basadas en datos.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <p class="cta-text">
-      O si prefieres, visita nuestra página de contacto
-    </p>
+<!-- Portafolio preview (grafito) -->
+<section class="section-dark py-16">
+  <div class="container">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <p class="pill mb-3">Portafolio</p>
+        <h2 class="text-3xl font-poppins font-bold text-white">Selección de proyectos</h2>
+      </div>
+      <button routerLink="/portafolio" class="btn-secondary">Ver todo</button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div *ngFor="let project of portfolioProjects | slice:0:3" class="glass-card bg-white/5 border-white/10 overflow-hidden">
+        <img [src]="project.imageUrl" [alt]="project.title" class="w-full h-48 object-cover">
+        <div class="p-5 space-y-2">
+          <span class="chip bg-white/10 border-white/20 text-white text-xs">{{ project.category }}</span>
+          <h3 class="text-xl font-bold text-white">{{ project.title }}</h3>
+          <p class="text-white/80 text-sm">{{ project.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <button routerLink="/contacto" class="btn-secondary">
-      Ir a Contacto
-    </button>
+<!-- Proceso (gris claro) -->
+<section class="section-muted py-16">
+  <div class="container">
+    <div class="text-center mb-10">
+      <p class="pill mx-auto mb-3">Proceso</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Cómo trabajamos</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="glass-card p-5 text-center">
+        <div class="pill mb-3">1</div>
+        <h4 class="font-bold text-neutral-900 mb-1">Discovery</h4>
+        <p class="text-gray-700 text-sm">Objetivos y alcance.</p>
+      </div>
+      <div class="glass-card p-5 text-center">
+        <div class="pill mb-3">2</div>
+        <h4 class="font-bold text-neutral-900 mb-1">UX & UI</h4>
+        <p class="text-gray-700 text-sm">Wireframes y diseño.</p>
+      </div>
+      <div class="glass-card p-5 text-center">
+        <div class="pill mb-3">3</div>
+        <h4 class="font-bold text-neutral-900 mb-1">Desarrollo</h4>
+        <p class="text-gray-700 text-sm">Code limpio y QA.</p>
+      </div>
+      <div class="glass-card p-5 text-center">
+        <div class="pill mb-3">4</div>
+        <h4 class="font-bold text-neutral-900 mb-1">Lanzamiento</h4>
+        <p class="text-gray-700 text-sm">Optimización y métricas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios / CTA (blanco) -->
+<section class="section-light py-16">
+  <div class="container max-w-5xl text-center">
+    <p class="pill mx-auto mb-3">Confianza</p>
+    <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900 mb-3">Listo para impulsar tu negocio</h2>
+    <p class="text-lg text-gray-700 mb-8">Agendemos una llamada y planifiquemos tu siguiente lanzamiento.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button routerLink="/contacto" class="btn-primary px-6">Hablar ahora</button>
+      <button routerLink="/servicios" class="btn-secondary px-6">Explorar servicios</button>
+    </div>
   </div>
 </section>
