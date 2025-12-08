@@ -1,0 +1,174 @@
+<!-- Página de Servicio: Rediseño de Páginas Web -->
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <div class="absolute inset-0 gradient-animated opacity-20"></div>
+  
+  <div class="absolute inset-0">
+    <div class="absolute top-20 left-10 w-96 h-96 bg-indigo-500/20 rounded-full filter blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/20 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
+      <span class="text-white">Rediseño de </span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">Páginas Web</span>
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-gray-300 mb-8 font-inter max-w-3xl mx-auto">
+      Moderniza tu sitio web existente. Transformamos tu página actual en una experiencia digital moderna, rápida y efectiva.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button routerLink="/contacto" class="btn-primary text-lg px-8 py-4">
+        Solicitar Cotización
+      </button>
+      <button routerLink="/servicios" class="glass-card text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+        Ver Todos los Servicios
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Planes y Precios -->
+<section class="py-20 px-4 sm:px-6 lg:px-8" data-section-id="plans">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Planes y <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">Precios</span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+        Elige el plan perfecto para rediseñar tu página web. Precios desde S/ 800 hasta S/ 2,500
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div *ngFor="let plan of plans" 
+           [class.ring-2]="plan.featured"
+           [class.ring-indigo-500]="plan.featured"
+           [class.scale-105]="plan.featured"
+           class="glass-card rounded-2xl p-8 relative hover:scale-105 transition-all duration-300">
+        
+        <div *ngIf="plan.featured" class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+            Más Popular
+          </span>
+        </div>
+
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-br {{ plan.color }} flex items-center justify-center mx-auto mb-4">
+            <span class="material-icons text-white text-3xl">{{ plan.icon }}</span>
+          </div>
+          <h3 class="text-2xl font-bold font-poppins text-white mb-2">PLAN {{ plan.name }}</h3>
+          <div class="mb-4">
+            <span class="text-4xl font-bold text-white">{{ plan.price }}</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3 mb-8">
+          <li *ngFor="let feature of plan.features" class="flex items-start">
+            <span class="material-icons text-indigo-500 mr-3 text-sm flex-shrink-0 mt-1">check_circle</span>
+            <span class="text-gray-300 font-inter text-sm">{{ feature }}</span>
+          </li>
+        </ul>
+
+        <button routerLink="/contacto" class="w-full btn-primary py-3 rounded-xl font-semibold">
+          Elegir Plan {{ plan.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Características -->
+<section class="py-20 px-4 sm:px-6 lg:px-8" data-section-id="features">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Características del <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">Rediseño</span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+        Modernización completa de tu presencia digital
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div *ngFor="let feature of features" class="glass-card rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-white text-3xl">{{ feature.icon }}</span>
+        </div>
+        <h3 class="text-xl font-bold font-poppins text-white mb-3">{{ feature.title }}</h3>
+        <p class="text-gray-400 font-inter">{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Metodología -->
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent" data-section-id="methodology">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Nuestra <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">Metodología</span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+        Un proceso probado que transforma tu sitio web
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <div *ngFor="let step of methodology" class="glass-card rounded-2xl p-8 flex items-start gap-6 hover:scale-102 transition-all duration-300">
+        <div class="flex-shrink-0">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center">
+            <span class="text-2xl font-bold font-poppins text-white">{{ step.step }}</span>
+          </div>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold font-poppins text-white mb-3">{{ step.title }}</h3>
+          <p class="text-lg text-gray-300 font-inter">{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Todo se hace Full Code -->
+<section class="py-20 px-4 sm:px-6 lg:px-8" data-section-id="fullcode">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+        Todo se hace <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">Full Code</span>
+      </h2>
+      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
+        Reconstruimos tu sitio web desde cero con código moderno, optimizado y 100% personalizado.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let benefit of fullCodeBenefits" class="glass-card rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center mb-4">
+          <span class="material-icons text-white text-3xl">{{ benefit.icon }}</span>
+        </div>
+        <h3 class="text-xl font-bold font-poppins text-white mb-3">{{ benefit.title }}</h3>
+        <p class="text-gray-400 font-inter">{{ benefit.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+  <div class="absolute inset-0 gradient-animated"></div>
+  
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
+      ¿Listo para modernizar tu web?
+    </h2>
+    <p class="text-xl text-gray-200 font-inter mb-8">
+      Transforma tu sitio web hoy mismo
+    </p>
+    
+    <button routerLink="/contacto" class="btn-primary text-lg px-10 py-5">
+      Solicitar Cotización Gratuita
+    </button>
+  </div>
+</section>
+
