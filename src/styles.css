@@ -1,181 +1,265 @@
-/* Importar Google Fonts (debe ir antes de Tailwind) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+/* Global minimal corporate theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 
-/* Importar Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Variables globales */
 :root {
-  --neo-blue: #004CFF;
-  --neo-violet: #7A5AF8;
-  --neo-light: #CFE2FF;
-  --neo-dark: #1C1C1C;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f7f7f7;
+  --surface-dark: #201926;
+  --surface-navy: #240092;
+  --border: #e6e6e6;
+  --text: #0f172a;
+  --muted: #4b5563;
+  --muted-2: #6b7280;
+  --accent: #a048ff;
+  --accent-strong: #240092;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --radius: 14px;
 }
 
-/* Reset y estilos globales */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  color: #1a1a1a;
-  overflow-x: hidden;
-}
-
-/* Glassmorphism effect - Minimalista claro */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.05);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 32px 0 rgba(0, 76, 255, 0.15);
-  border-color: rgba(0, 76, 255, 0.2);
-}
-
-/* Bento Layout styles */
-.bento-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-/* Animated gradient background - Minimalista */
-.gradient-animated {
-  background: linear-gradient(135deg, #f8f9fa, #ffffff, #f0f4ff, #f8f9fa);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar - Minimalista */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+section {
+  padding: 72px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gradient-animated {
+  background: radial-gradient(circle at 20% 20%, rgba(160, 72, 255, 0.05), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(36, 0, 146, 0.04), transparent 30%),
+    #ffffff;
+  background-size: cover;
+}
+
+.bg-surface { background: var(--surface); }
+.bg-muted { background: var(--surface-muted); }
+.bg-dark { background: var(--surface-dark); color: #ffffff; }
+.bg-navy { background: var(--surface-navy); color: #ffffff; }
+
+.section-light { background: #ffffff; color: var(--text); }
+.section-muted { background: #f7f7f7; color: var(--text); }
+.section-dark { background: #201926; color: #ffffff; }
+.section-navy { background: #240092; color: #ffffff; }
+
+.glass,
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(160, 72, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #ffffff !important;
+  border: 1px solid var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 8px 20px rgba(160, 72, 255, 0.18);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #8f3de4;
+  box-shadow: 0 10px 26px rgba(160, 72, 255, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--accent-strong);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(160, 72, 255, 0.08);
+  color: var(--accent-strong);
+  border: 1px solid rgba(160, 72, 255, 0.18);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.section-title {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fafafa;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.list-check {
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  list-style: none;
+}
+
+.list-check li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-check .icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.metric-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.metric-label {
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 48px 0;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #f7f7f7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #004CFF, #7A5AF8);
-  border-radius: 5px;
+  background: #cfcfcf;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #7A5AF8, #004CFF);
+  background: #bbbbbb;
 }
 
-/* Button styles - Minimalista */
-.btn-primary {
-  background: linear-gradient(135deg, #004CFF, #7A5AF8);
-  color: white;
-  padding: 12px 32px;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 76, 255, 0.2);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 76, 255, 0.3);
-}
-
-/* Fade in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* ===== SPLINE VIEWER GLOBAL SETTINGS ===== */
-
-/* Prevenir zoom en Spline viewer globalmente */
 spline-viewer {
   overflow: hidden !important;
   touch-action: pan-y !important;
   user-select: none !important;
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
 }
 
-/* Prevenir scroll y zoom dentro del canvas de Spline */
 spline-viewer canvas {
   touch-action: none !important;
   pointer-events: auto !important;
 }
 
-/* Prevenir zoom con gestos */
-spline-viewer * {
-  touch-action: pan-y !important;
-  -ms-content-zooming: none !important;
-}
-
-
-/* ===== RESPONSIVE PARA 1920x1080 ===== */
-
 @media (min-width: 1920px) {
-  /* Reducir tamaños generales */
   body {
-    font-size: 14px;
+    font-size: 15px;
   }
-  
-  /* Ajustar contenedores principales */
-  .max-w-7xl {
+  .container {
     max-width: 1400px;
   }
-  
-  /* Ajustar espaciado vertical */
   section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-  /* Reducir tamaños de tarjetas */
-  .glass-card {
-    padding: 1.25rem;
+    padding: 80px 0;
   }
 }
