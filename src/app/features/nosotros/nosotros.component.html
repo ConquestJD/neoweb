@@ -1,252 +1,125 @@
-<!-- Página Nosotros - NeoWeb 2025 -->
+<!-- Nosotros NeoWeb -->
 
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-  <div class="absolute inset-0 gradient-animated opacity-20"></div>
-  
-  <!-- Partículas flotantes -->
-  <div class="absolute inset-0">
-    <div class="absolute top-20 left-10 w-72 h-72 bg-neo-blue/20 rounded-full filter blur-3xl animate-float"></div>
-    <div class="absolute bottom-20 right-10 w-96 h-96 bg-neo-violet/20 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
-    <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-neo-light/10 rounded-full filter blur-3xl animate-float" style="animation-delay: 4s;"></div>
-  </div>
-
-  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
-    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
-      <span class="text-white">Somos </span>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">NeoWeb</span>
+<!-- Hero (azul oscuro) -->
+<section class="section-navy py-24">
+  <div class="container text-center max-w-5xl">
+    <p class="pill mx-auto mb-4">Agencia digital</p>
+    <h1 class="text-4xl md:text-6xl font-poppins font-bold text-white mb-4">
+      Equipo enfocado en resultado y claridad
     </h1>
-    
-    <p class="text-xl md:text-2xl text-gray-300 mb-8 font-inter max-w-4xl mx-auto">
-      Una nueva agencia digital nacida en <span class="text-neo-blue font-semibold">2025</span> con una misión clara: 
-      <span class="text-neo-violet font-semibold">dar visibilidad a tu negocio en internet</span> y ayudarte a conseguir más clientes.
+    <p class="text-lg md:text-xl text-white/80 mb-8">
+      Nacimos en 2025 para dar visibilidad real a negocios ambiciosos. Diseñamos, construimos y optimizamos experiencias digitales que convierten.
     </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <button routerLink="/contacto" class="btn-primary text-lg px-8 py-4">
-        Trabajar con Nosotros
-      </button>
-      <button routerLink="/servicios" class="glass-card text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
-        Ver Nuestros Servicios
-      </button>
-    </div>
-  </div>
-  
-  <div class="custom-shape-divider-bottom-1761253487">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-    </svg>
-  </div>
-</section>
-
-<!-- Sección: Nuestra Historia -->
-<section data-section-id="history" class="py-20 px-4 sm:px-6 lg:px-8 scroll-reveal" [class.visible]="sectionsVisible['history'] === 'visible'">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <!-- Contenido -->
-      <div class="history-content">
-        <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
-          Nuestra Historia
-        </h2>
-        <div class="space-y-6 text-gray-300 font-inter text-lg leading-relaxed">
-          <p>
-            <span class="text-neo-blue font-semibold">NeoWeb nació en 2025</span> con una visión clara: democratizar el acceso 
-            a soluciones web profesionales para pequeñas y medianas empresas que buscan crecer en el mundo digital.
-          </p>
-          <p>
-            Somos una nueva agencia digital con experiencia fresca y enfoque innovador. Nuestra misión es simple pero poderosa: 
-            <span class="text-neo-violet font-semibold">ayudar a tu negocio a ser visible en internet y conseguir más clientes</span>.
-          </p>
-          <p>
-            Creemos que cada empresa merece tener una presencia digital profesional, sin importar su tamaño. Por eso, 
-            ofrecemos soluciones accesibles, modernas y efectivas que realmente funcionan.
-          </p>
-        </div>
-
-        <!-- Estadísticas destacadas -->
-        <div class="grid grid-cols-2 gap-6 mt-12">
-          <div class="glass-card p-6 rounded-xl text-center">
-            <div class="text-3xl font-bold text-neo-blue mb-2">2025</div>
-            <div class="text-gray-300 font-inter">Año de Fundación</div>
-          </div>
-          <div class="glass-card p-6 rounded-xl text-center">
-            <div class="text-3xl font-bold text-neo-violet mb-2">100%</div>
-            <div class="text-gray-300 font-inter">Enfoque en Resultados</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Visual -->
-      <div class="history-visual">
-        <div class="glass-card rounded-3xl relative overflow-hidden group h-96 flex items-center justify-center">
-          <div class="absolute inset-0 bg-gradient-to-br from-neo-blue/20 to-neo-violet/20 group-hover:opacity-30 transition-opacity duration-500"></div>
-          <div class="relative z-10 text-center">
-            <img src="/assets/historia.png" alt="Nuestra Historia" class="w-full h-full object-cover">
-          </div>
-        </div>
-      </div>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button routerLink="/contacto" class="btn-primary">Trabajar con nosotros</button>
+      <button routerLink="/servicios" class="btn-secondary">Ver servicios</button>
     </div>
   </div>
 </section>
 
-<!-- Sección: Misión y Visión -->
-<section data-section-id="mission" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-neo-blue/5 to-transparent scroll-reveal" [class.visible]="sectionsVisible['mission'] === 'visible'">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
-        Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Propósito</span>
-      </h2>
-      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
-        Una misión clara y una visión ambiciosa para transformar negocios
+<!-- Historia (blanco) -->
+<section class="section-light py-16">
+  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="space-y-5">
+      <p class="pill w-fit">Nuestra historia</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">De cero a socio digital confiable</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        NeoWeb nace en 2025 con el propósito de democratizar la presencia digital profesional para pymes. Combinamos diseño limpio, código sólido y marketing orientado a KPIs.
       </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <!-- Misión -->
-      <div class="mission-card glass-card p-10 rounded-3xl">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-neo-blue to-cyan-500 flex items-center justify-center mb-8">
-          <span class="material-icons text-white text-5xl">flag</span>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Creemos en experiencias simples, performance rápida y mensajes claros. Nuestro equipo integra estrategia, UX/UI, desarrollo y growth en un mismo flujo.
+      </p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="glass-card p-4 text-center">
+          <div class="text-2xl font-bold text-neutral-900">2025</div>
+          <div class="text-sm text-gray-600">Año de fundación</div>
         </div>
-        <h3 class="text-4xl font-bold font-poppins text-white mb-6">Nuestra Misión</h3>
-        <p class="text-gray-300 font-inter text-lg leading-relaxed">
-          Democratizar el acceso a la presencia digital profesional. Ayudamos a pequeñas y medianas empresas 
-          a <span class="text-neo-blue font-semibold">ser visibles en internet</span>, 
-          <span class="text-neo-violet font-semibold">conseguir más clientes</span> y 
-          <span class="text-white font-semibold">crecer de forma sostenible</span> en el mundo digital.
+        <div class="glass-card p-4 text-center">
+          <div class="text-2xl font-bold text-neutral-900">100%</div>
+          <div class="text-sm text-gray-600">Enfoque en resultados</div>
+        </div>
+      </div>
+    </div>
+    <div class="glass-card overflow-hidden">
+      <img src="/assets/historia.png" alt="Nuestro equipo" class="w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- Misión y Visión (gris claro) -->
+<section class="section-muted py-16">
+  <div class="container">
+    <div class="text-center mb-12">
+      <p class="pill mx-auto mb-3">Propósito</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Misión y visión</h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Lo que nos mueve y hacia dónde vamos.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="glass-card p-8">
+        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
+          <span class="material-icons">flag</span>
+        </div>
+        <h3 class="text-2xl font-poppins font-bold text-neutral-900 mb-3">Misión</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Democratizar la presencia digital de alto nivel para empresas que quieren crecer, con sitios rápidos, claros y orientados a conversión.
         </p>
       </div>
-
-      <!-- Visión -->
-      <div class="vision-card glass-card p-10 rounded-3xl">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-neo-violet to-purple-500 flex items-center justify-center mb-8">
-          <span class="material-icons text-white text-5xl">visibility</span>
+      <div class="glass-card p-8">
+        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
+          <span class="material-icons">visibility</span>
         </div>
-        <h3 class="text-4xl font-bold font-poppins text-white mb-6">Nuestra Visión</h3>
-        <p class="text-gray-300 font-inter text-lg leading-relaxed">
-          Ser la agencia digital líder en transformar negocios tradicionales en empresas digitalmente exitosas. 
-          Queremos que <span class="text-neo-blue font-semibold">cada empresa tenga la oportunidad</span> de 
-          competir y destacar en el mercado digital actual.
+        <h3 class="text-2xl font-poppins font-bold text-neutral-900 mb-3">Visión</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Ser el partner digital preferido de marcas que buscan resultados medibles y diseño impecable, en Latinoamérica y más allá.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Sección: Valores -->
-<section data-section-id="values" class="py-20 px-4 sm:px-6 lg:px-8 scroll-reveal" [class.visible]="sectionsVisible['values'] === 'visible'">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-20">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
-        Nuestros <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Valores</span>
-      </h2>
-      <p class="text-xl text-gray-400 font-inter max-w-3xl mx-auto">
-        Los principios que guían nuestro trabajo y definen nuestra cultura
-      </p>
+<!-- Valores (grafito) -->
+<section class="section-dark py-16">
+  <div class="container">
+    <div class="text-center mb-12">
+      <p class="pill mx-auto mb-3">Cultura</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-white">Valores que nos definen</h2>
+      <p class="text-lg text-white/80 max-w-2xl mx-auto">Principios que guían cada entrega y relación con clientes.</p>
     </div>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div 
-        *ngFor="let value of values; let i = index"
-        class="value-card glass-card p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-500"
-        [style.animation-delay]="(i * 0.2) + 's'">
-        
-        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <span class="material-icons text-white text-5xl">{{ value.icon }}</span>
+      <div *ngFor="let value of values" class="glass-card p-6 bg-white/5 border-white/10 text-center">
+        <div class="w-12 h-12 rounded-full bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mx-auto mb-3">
+          <span class="material-icons">{{ value.icon }}</span>
         </div>
-
-        <h3 class="text-2xl font-bold font-poppins text-white mb-4">
-          {{ value.title }}
-        </h3>
-
-        <p class="text-gray-300 font-inter leading-relaxed">
-          {{ value.description }}
-        </p>
+        <h3 class="text-xl font-poppins font-bold text-white mb-2">{{ value.title }}</h3>
+        <p class="text-white/80">{{ value.description }}</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Sección: Tecnologías -->
-<section data-section-id="technologies" class="py-20 px-4 sm:px-6 lg:px-8 scroll-reveal" [class.visible]="sectionsVisible['technologies'] === 'visible'">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
-        Tecnologías que <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-violet">Dominamos</span>
-      </h2>
-      <p class="text-xl text-gray-400 font-inter">
-        Trabajamos con las herramientas más modernas y eficientes del mercado
-      </p>
+<!-- Tecnologías (blanco) -->
+<section class="section-light py-16">
+  <div class="container">
+    <div class="text-center mb-12">
+      <p class="pill mx-auto mb-3">Toolstack</p>
+      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Tecnologías que dominamos</h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Seleccionamos herramientas por desempeño, estabilidad y escalabilidad.</p>
     </div>
-
-    <div class="flex flex-wrap justify-center gap-6">
-      <div 
-        *ngFor="let tech of technologies; let i = index"
-        class="tech-card glass px-8 py-4 rounded-xl text-white font-inter hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
-        [style.animation-delay]="(i * 0.1) + 's'">
-        {{ tech }}
-      </div>
+    <div class="flex flex-wrap justify-center gap-3">
+      <span *ngFor="let tech of technologies" class="chip">{{ tech }}</span>
     </div>
   </div>
 </section>
 
-<section class="custom-shape-divider-top-1761253934">
-  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
-  </svg>
-</section>
-
-<!-- CTA Final -->
-<section class="py-32 px-4  sm:px-6 lg:px-8 relative overflow-hidden">
-  <div class="absolute inset-0 gradient-animated"></div>
-  
-  <!-- Luces decorativas -->
-  <div class="absolute inset-0">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neo-blue/10 rounded-full filter blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neo-violet/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  
-  <div class="max-w-5xl mx-auto text-center relative z-10">
-    <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
-      ¿Listo para dar el siguiente paso digital?
-    </h2>
-    <p class="text-xl text-gray-200 font-inter mb-10 max-w-3xl mx-auto">
-      Únete a los negocios que ya están creciendo con NeoWeb. 
-      <span class="text-neo-blue font-semibold">Hagamos que tu empresa sea visible en internet</span> 
-      y consiga más clientes.
-    </p>
-    
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-      <button routerLink="/contacto" class="btn-primary text-lg px-10 py-5">
-        Empezar Mi Proyecto
-      </button>
-      <a href="https://wa.me/51999999999" target="_blank" class="glass-card text-white px-10 py-5 rounded-xl font-semibold hover:bg-green-500/20 transition-all duration-300 text-lg flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="mr-2">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        WhatsApp
-      </a>
-    </div>
-    
-    <!-- Garantías -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-      <div class="flex flex-col items-center text-center">
-        <span class="material-icons text-neo-blue text-5xl mb-2">verified</span>
-        <p class="text-gray-300 font-inter text-sm">Calidad Garantizada</p>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <span class="material-icons text-neo-violet text-5xl mb-2">support_agent</span>
-        <p class="text-gray-300 font-inter text-sm">Soporte 24/7</p>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <span class="material-icons text-neo-light text-5xl mb-2">speed</span>
-        <p class="text-gray-300 font-inter text-sm">Entregas Rápidas</p>
-      </div>
-      <div class="flex flex-col items-center text-center">
-        <span class="material-icons text-white text-5xl mb-2">trending_up</span>
-        <p class="text-gray-300 font-inter text-sm">Resultados Reales</p>
-      </div>
+<!-- CTA Final (azul oscuro) -->
+<section class="section-navy py-20">
+  <div class="container max-w-4xl text-center">
+    <p class="pill mx-auto mb-3">Siguiente paso</p>
+    <h3 class="text-3xl md:text-4xl font-poppins font-bold text-white mb-3">¿Listo para trabajar juntos?</h3>
+    <p class="text-lg text-white/80 mb-8">Hablemos de tu sitio, tienda o producto digital y definamos un plan claro.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button routerLink="/contacto" class="btn-primary px-6">Agendar llamada</button>
+      <button routerLink="/servicios" class="btn-secondary px-6">Explorar servicios</button>
     </div>
   </div>
 </section>
