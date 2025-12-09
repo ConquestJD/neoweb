@@ -23,22 +23,32 @@
 </section>
 
 
-<!-- Todos los Servicios (blanco) -->
-<section class="section-light services-section">
+<!-- Todos los Servicios (mejorado) -->
+<section class="services-section-enhanced">
   <div class="container">
-    <div class="services-header">
+    <div class="services-header-enhanced">
       <p class="pill">Servicios</p>
-      <h2 class="services-title">Nuestros Servicios</h2>
-      <p class="services-subtitle">Soluciones digitales diseñadas para empresas peruanas que buscan destacar en el mercado local.</p>
+      <h2 class="services-title-enhanced">Nuestros Servicios</h2>
+      <p class="services-subtitle-enhanced">Soluciones digitales diseñadas para empresas peruanas que buscan destacar en el mercado local.</p>
     </div>
-    <div class="services-grid">
-      <div *ngFor="let service of services" class="service-card">
-        <div class="service-icon">
-          <span class="material-icons">{{ service.icon }}</span>
+    <div class="services-grid-enhanced">
+      <div *ngFor="let service of services" class="service-card-enhanced">
+        <div class="service-card-inner">
+          <div class="service-icon-wrapper-enhanced">
+            <div class="service-icon-bg"></div>
+            <span class="material-icons service-icon-enhanced">{{ service.icon }}</span>
+            <div class="service-icon-glow"></div>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title-enhanced">{{ service.name }}</h3>
+            <p class="service-description-enhanced">{{ service.description }}</p>
+            <a [routerLink]="service.route" class="service-link-enhanced">
+              <span>Ver detalle</span>
+              <span class="material-icons">arrow_forward</span>
+            </a>
+          </div>
+          <div class="service-card-decoration"></div>
         </div>
-        <h3 class="service-title">{{ service.name }}</h3>
-        <p class="service-description">{{ service.description }}</p>
-        <a [routerLink]="service.route" class="service-link">Ver detalle →</a>
       </div>
     </div>
   </div>
