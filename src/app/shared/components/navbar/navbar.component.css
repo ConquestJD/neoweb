@@ -1,19 +1,22 @@
-/* Navbar minimalista blanco con acentos morados */
+/* Navbar profesional con paleta morada */
 .navbar-purple {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  background: #240092;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #6B46C1 0%, #7C3AED 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(107, 70, 193, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .navbar-scrolled {
-  background: #201926;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  background: rgba(30, 27, 75, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .navbar-container {
@@ -49,7 +52,7 @@
 }
 
 .navbar-logo .logo-gradient {
-  background: linear-gradient(90deg, #ffffff, #cbb1ff);
+  background: linear-gradient(135deg, #ffffff 0%, #C4B5FD 50%, #A78BFA 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -80,15 +83,17 @@
 
 .nav-link:hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
 }
 
 .nav-link-active {
   color: #ffffff !important;
-  background: rgba(160, 72, 255, 0.25);
+  background: rgba(139, 92, 246, 0.3);
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
 }
 
 .navbar-desktop-menu {
@@ -126,8 +131,8 @@
   overflow: hidden;
   z-index: 50;
   background: #ffffff;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 14px 40px rgba(107, 70, 193, 0.15);
 }
 
 .dropdown-content {
@@ -147,36 +152,38 @@
 }
 
 .dropdown-item:hover {
-  background: #f6f6f6;
+  background: linear-gradient(90deg, #F3F4F6 0%, #EDE9FE 100%);
   padding-left: 20px;
-  color: #240092;
+  color: #6B46C1;
 }
 
 .dropdown-item .material-icons {
   font-size: 1rem;
-  color: #a048ff;
+  color: #8B5CF6;
   transition: all 0.2s ease;
 }
 
 .dropdown-item:hover .material-icons {
-  color: #240092;
+  color: #6B46C1;
   transform: scale(1.05);
 }
 
 .btn-navbar {
   margin-left: 8px;
   font-size: 0.9rem;
-  background: #a048ff !important;
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%) !important;
   color: #ffffff !important;
   font-weight: 600;
-  border: 1px solid #a048ff;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
+  transition: all 0.3s ease;
 }
 
 .btn-navbar:hover {
-  background: #8f3de4 !important;
-  border-color: #8f3de4;
+  background: linear-gradient(135deg, #7C3AED 0%, #6B46C1 100%) !important;
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
 }
 
 .navbar-mobile-toggle {
@@ -193,14 +200,15 @@
 }
 
 .mobile-menu-button:hover {
-  color: #a048ff;
+  color: #C4B5FD;
   transform: scale(1.05);
 }
 
 .mobile-menu-glass {
-  background: #201926 !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35) !important;
+  background: rgba(30, 27, 75, 0.98) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 14px 40px rgba(107, 70, 193, 0.4) !important;
   margin-top: 1rem;
   border-radius: 1rem;
 }
@@ -243,10 +251,11 @@
 }
 
 .nav-link-mobile-active {
-  background: rgba(160, 72, 255, 0.2);
+  background: rgba(139, 92, 246, 0.25);
   color: #ffffff !important;
   font-weight: 600;
-  border-left: 4px solid #a048ff;
+  border-left: 4px solid #8B5CF6;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
 }
 
 .mobile-services-submenu {
@@ -278,21 +287,23 @@
 
 .mobile-submenu-item .material-icons {
   font-size: 1rem;
-  color: #a048ff;
+  color: #8B5CF6;
 }
 
 .btn-mobile-full {
   width: 100%;
   margin-top: 16px;
-  background: #a048ff !important;
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%) !important;
   color: #ffffff !important;
   font-weight: 600;
-  border: 1px solid #a048ff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4);
 }
 
 .btn-mobile-full:hover {
-  background: #8f3de4 !important;
+  background: linear-gradient(135deg, #7C3AED 0%, #6B46C1 100%) !important;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
 }
 
 @keyframes slideDown {
