@@ -28,14 +28,13 @@
         <div class="navbar-dropdown-wrapper" 
              (mouseenter)="isServicesDropdownOpen = true"
              (mouseleave)="isServicesDropdownOpen = false">
-          <a routerLink="/servicios" 
-             routerLinkActive="nav-link-active"
-             [routerLinkActiveOptions]="{exact: false}"
-             class="nav-link nav-link-with-icon">
+          <button 
+             class="nav-link nav-link-with-icon"
+             type="button">
             Servicios
             <span class="material-icons dropdown-icon" 
                   [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
-          </a>
+          </button>
           
           <!-- Dropdown Menu -->
           <div *ngIf="isServicesDropdownOpen" 
@@ -112,7 +111,8 @@
         <button 
           (click)="toggleServicesDropdown()"
           [class.nav-link-mobile-active]="isServicesDropdownOpen"
-          class="nav-link-mobile nav-link-mobile-toggle">
+          class="nav-link-mobile nav-link-mobile-toggle"
+          type="button">
           <span>
             <span class="material-icons">design_services</span>
             Servicios
