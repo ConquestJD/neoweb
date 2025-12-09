@@ -155,6 +155,96 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // Control de carrusel de portafolio
   currentSlide = 0;
 
+  // Diferenciales para scroll experience
+  diferenciales = [
+    {
+      title: 'Research ágil',
+      description: 'Brief claro y descubrimiento rápido.',
+      image: '/assets/reason-1.png',
+      position: 'left',
+      visible: false
+    },
+    {
+      title: 'UX limpio',
+      description: 'Flows sencillos y copy directo.',
+      image: '/assets/reason-2.png',
+      position: 'right',
+      visible: false
+    },
+    {
+      title: 'Code & performance',
+      description: 'Carga rápida, SEO técnico listo.',
+      image: '/assets/reason-3.png',
+      position: 'left',
+      visible: false
+    },
+    {
+      title: 'A/B + métricas',
+      description: 'Decisiones basadas en datos.',
+      image: '/assets/reason-4.png',
+      position: 'right',
+      visible: false
+    }
+  ];
+
+  // Servicios disponibles
+  services = [
+    { 
+      name: 'Página Web', 
+      route: '/servicios/pagina-web', 
+      icon: 'language',
+      description: 'Sitios web profesionales diseñados para tu negocio con diseño moderno y optimizado.'
+    },
+    { 
+      name: 'Landing Page', 
+      route: '/servicios/landing-page', 
+      icon: 'rocket_launch',
+      description: 'Páginas de alto rendimiento diseñadas para convertir visitantes en clientes.'
+    },
+    { 
+      name: 'Tienda Virtual', 
+      route: '/servicios/tienda-virtual', 
+      icon: 'shopping_cart',
+      description: 'E-commerce completo con catálogo optimizado y pasarelas de pago seguras.'
+    },
+    { 
+      name: 'Google Ads', 
+      route: '/servicios/google-ads', 
+      icon: 'ads_click',
+      description: 'Campañas publicitarias en Google para atraer clientes potenciales.'
+    },
+    { 
+      name: 'Marketing Digital', 
+      route: '/servicios/marketing-digital', 
+      icon: 'campaign',
+      description: 'Estrategias digitales integrales para hacer crecer tu presencia online.'
+    },
+    { 
+      name: 'Rediseño de Páginas Web', 
+      route: '/servicios/rediseno-paginas-web', 
+      icon: 'refresh',
+      description: 'Moderniza y optimiza tu sitio web existente con las últimas tendencias.'
+    },
+    { 
+      name: 'Aplicaciones Móviles', 
+      route: '/servicios/aplicaciones-moviles', 
+      icon: 'phone_android',
+      description: 'Apps nativas e híbridas para iOS y Android con diseño intuitivo.'
+    },
+    { 
+      name: 'Consultoría SEO', 
+      route: '/servicios/consultoria-seo', 
+      icon: 'search',
+      description: 'Optimización para motores de búsqueda y posicionamiento orgánico.'
+    },
+    { 
+      name: 'Digitalización de Procesos', 
+      route: '/servicios/digitalizacion-procesos', 
+      icon: 'auto_awesome',
+      description: 'Automatiza y digitaliza los procesos de tu empresa con soluciones personalizadas.'
+    }
+  ];
+
   ngOnInit() {
     // Ya no necesitamos interval para el carrusel, ahora es CSS puro
     
@@ -232,6 +322,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.promoVisible = 'visible';
       });
     }
+
+    // Animar diferenciales
+    this.diferenciales.forEach((diferencial, index) => {
+      if (!diferencial.visible) {
+        const elementId = `diferencial-${index}`;
+        this.animateOnScroll(elementId, () => {
+          diferencial.visible = true;
+        });
+      }
+    });
   }
 
   animateOnScroll(elementId: string, callback: () => void) {

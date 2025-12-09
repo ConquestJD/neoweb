@@ -30,73 +30,56 @@
         </div>
       </div>
     </div>
-    <div class="glass-card p-6">
+    <div class=" p-6">
       <img src="/assets/hero.png" alt="Mockup NeoWeb" class="w-full h-full object-cover">
     </div>
   </div>
 </section>
 
-<!-- Servicios destacados (blanco) -->
-<section class="section-light py-16">
+
+<!-- Todos los Servicios (blanco) -->
+<section class="section-light services-section">
   <div class="container">
-    <div class="text-center mb-10">
-      <p class="pill mx-auto mb-3">Servicios</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Lo que hacemos</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Paquetes claros para tus objetivos digitales.</p>
+    <div class="services-header">
+      <p class="pill">Servicios</p>
+      <h2 class="services-title">Nuestros Servicios</h2>
+      <p class="services-subtitle">Soluciones digitales completas para hacer crecer tu negocio.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="glass-card p-6">
-        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
-          <span class="material-icons">web</span>
+    <div class="services-grid">
+      <div *ngFor="let service of services" class="service-card">
+        <div class="service-icon">
+          <span class="material-icons">{{ service.icon }}</span>
         </div>
-        <h3 class="text-xl font-poppins font-bold text-neutral-900 mb-2">Sitios corporativos</h3>
-        <p class="text-gray-700 mb-3">Diseño limpio, performance y mensajes claros.</p>
-        <a routerLink="/servicios/pagina-web" class="text-[#a048ff] font-semibold text-sm">Ver detalle →</a>
-      </div>
-      <div class="glass-card p-6">
-        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
-          <span class="material-icons">shopping_bag</span>
-        </div>
-        <h3 class="text-xl font-poppins font-bold text-neutral-900 mb-2">eCommerce</h3>
-        <p class="text-gray-700 mb-3">Catálogo optimizado, pagos seguros y funnels claros.</p>
-        <a routerLink="/servicios/tienda-virtual" class="text-[#a048ff] font-semibold text-sm">Ver detalle →</a>
-      </div>
-      <div class="glass-card p-6">
-        <div class="w-12 h-12 rounded-xl bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-4">
-          <span class="material-icons">stacked_line_chart</span>
-        </div>
-        <h3 class="text-xl font-poppins font-bold text-neutral-900 mb-2">Marketing y SEO</h3>
-        <p class="text-gray-700 mb-3">Tráfico de calidad y posicionamiento orgánico.</p>
-        <a routerLink="/servicios/marketing-digital" class="text-[#a048ff] font-semibold text-sm">Ver detalle →</a>
+        <h3 class="service-title">{{ service.name }}</h3>
+        <p class="service-description">{{ service.description }}</p>
+        <a [routerLink]="service.route" class="service-link">Ver detalle →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Diferenciales (gris claro) -->
-<section class="section-muted py-16">
-  <div class="container">
-    <div class="text-center mb-10">
-      <p class="pill mx-auto mb-3">Por qué NeoWeb</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Lo que nos hace diferentes</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Metodología clara y entrega medible.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="glass-card p-5 text-center">
-        <h4 class="text-lg font-bold text-neutral-900 mb-2">Research ágil</h4>
-        <p class="text-gray-700 text-sm">Brief claro y descubrimiento rápido.</p>
-      </div>
-      <div class="glass-card p-5 text-center">
-        <h4 class="text-lg font-bold text-neutral-900 mb-2">UX limpio</h4>
-        <p class="text-gray-700 text-sm">Flows sencillos y copy directo.</p>
-      </div>
-      <div class="glass-card p-5 text-center">
-        <h4 class="text-lg font-bold text-neutral-900 mb-2">Code & performance</h4>
-        <p class="text-gray-700 text-sm">Carga rápida, SEO técnico listo.</p>
-      </div>
-      <div class="glass-card p-5 text-center">
-        <h4 class="text-lg font-bold text-neutral-900 mb-2">A/B + métricas</h4>
-        <p class="text-gray-700 text-sm">Decisiones basadas en datos.</p>
+<!-- Diferenciales (scroll experience) -->
+<section class="diferenciales-section">
+  <div class="diferenciales-header">
+    <p class="pill">Por qué NeoWeb</p>
+    <h2 class="diferenciales-title">Lo que nos hace diferentes</h2>
+    <p class="diferenciales-subtitle">Metodología clara y entrega medible.</p>
+  </div>
+  <div class="diferenciales-container">
+    <div *ngFor="let diferencial of diferenciales; let i = index" 
+         [id]="'diferencial-' + i"
+         class="diferencial-item"
+         [class.diferencial-left]="diferencial.position === 'left'"
+         [class.diferencial-right]="diferencial.position === 'right'"
+         [class.diferencial-visible]="diferencial.visible">
+      <div class="diferencial-content">
+        <div class="diferencial-text">
+          <h3 class="diferencial-item-title">{{ diferencial.title }}</h3>
+          <p class="diferencial-item-description">{{ diferencial.description }}</p>
+        </div>
+        <div class="diferencial-image-wrapper">
+          <img [src]="diferencial.image" [alt]="diferencial.title" class="diferencial-image">
+        </div>
       </div>
     </div>
   </div>
