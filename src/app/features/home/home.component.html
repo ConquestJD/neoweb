@@ -13,7 +13,7 @@
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
         <button routerLink="/portafolio" class="btn-primary">Ver portafolio</button>
-        <button routerLink="/servicios" class="btn-secondary">Ver servicios</button>
+        <button routerLink="/contacto" class="btn-secondary">Contactar</button>
       </div>
     </div>
     <div class=" p-6">
@@ -126,15 +126,41 @@
   </div>
 </section>
 
-<!-- Testimonios / CTA (blanco) -->
-<section class="section-light py-16">
-  <div class="container max-w-5xl text-center">
-    <p class="pill mx-auto mb-3">Confianza</p>
-    <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900 mb-3">Impulsa tu negocio en el mercado peruano</h2>
-    <p class="text-lg text-gray-700 mb-8">Somos una agencia digital peruana lista para ayudarte a crecer. Agendemos una llamada y conversemos sobre tu proyecto.</p>
-    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <button routerLink="/contacto" class="btn-primary px-6">Hablar ahora</button>
-      <button routerLink="/servicios" class="btn-secondary px-6">Explorar servicios</button>
+<!-- CTA Final (mejorado) -->
+<section class="cta-section">
+  <div class="cta-container">
+    <div class="cta-content">
+      <div class="cta-badge">
+        <span class="material-icons">rocket_launch</span>
+        <span>Listo para comenzar</span>
+      </div>
+      <h2 class="cta-title">Impulsa tu negocio en el mercado peruano</h2>
+      <p class="cta-description">Somos una agencia digital peruana lista para ayudarte a crecer. Agendemos una llamada y conversemos sobre tu proyecto.</p>
+      <div class="cta-buttons">
+        <button routerLink="/contacto" class="cta-button-primary">
+          <span class="material-icons">chat</span>
+          <span>Hablar ahora</span>
+        </button>
+        <button routerLink="/portafolio" class="cta-button-secondary">
+          <span class="material-icons">work</span>
+          <span>Ver portafolio</span>
+        </button>
+      </div>
+      <div class="cta-features">
+        <div class="cta-feature">
+          <span class="material-icons">check_circle</span>
+          <span>Respuesta en 24h</span>
+        </div>
+        <div class="cta-feature">
+          <span class="material-icons">check_circle</span>
+          <span>Consulta gratuita</span>
+        </div>
+        <div class="cta-feature">
+          <span class="material-icons">check_circle</span>
+          <span>Proyectos personalizados</span>
+        </div>
+      </div>
     </div>
+    <div class="cta-decoration"></div>
   </div>
 </section>
