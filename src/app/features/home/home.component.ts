@@ -158,29 +158,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // Diferenciales para scroll experience
   diferenciales = [
     {
-      title: 'Research ágil',
-      description: 'Brief claro y descubrimiento rápido.',
+      title: 'Desarrollo 100% con código real',
+      description: 'Construimos tu página desde cero con código personalizado, sin plantillas, sin Wix, sin WordPress. Esto garantiza rendimiento, seguridad y un diseño único para tu negocio.',
       image: '/assets/reason-1.png',
       position: 'left',
       visible: false
     },
     {
-      title: 'UX limpio',
-      description: 'Flows sencillos y copy directo.',
+      title: 'Diseños que convierten en ventas',
+      description: 'Cada sección, color y estructura está pensada estratégicamente para generar clientes, aumentar leads y mejorar tu presencia digital.',
       image: '/assets/reason-2.png',
       position: 'right',
       visible: false
     },
     {
-      title: 'Code & performance',
-      description: 'Carga rápida, SEO técnico listo.',
+      title: 'Adaptados al mercado peruano',
+      description: 'Conocemos cómo compran y qué necesitan los usuarios en el Perú. Creamos soluciones que funcionan con patrones locales de consumo.',
       image: '/assets/reason-3.png',
       position: 'left',
       visible: false
     },
     {
-      title: 'A/B + métricas',
-      description: 'Decisiones basadas en datos.',
+      title: 'Acompañamiento y soporte directo',
+      description: 'Te guiamos en todo el proceso: mejoras, recomendaciones, actualizaciones y soporte técnico rápido cuando lo necesites.',
       image: '/assets/reason-4.png',
       position: 'right',
       visible: false
