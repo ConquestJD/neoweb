@@ -1,23 +1,42 @@
 <!-- Home NeoWeb -->
 
-<!-- Hero (blanco) -->
-<section class="section-navy hero-full hero-pattern py-24">
-  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div class="space-y-6">
-      <p class="pill w-fit">Agencia digital en Perú</p>
-      <h1 class="text-4xl md:text-5xl font-poppins font-bold text-white leading-tight">
-        Transformamos negocios peruanos con soluciones digitales
-      </h1>
-      <p class="text-lg text-white/80 max-w-xl">
-        Somos una agencia digital peruana especializada en crear sitios web, tiendas virtuales y estrategias de marketing digital para empresas que buscan crecer en el mercado peruano.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <button routerLink="/portafolio" class="btn-primary">Ver portafolio</button>
-        <button routerLink="/contacto" class="btn-secondary">Contactar</button>
+<!-- Hero (mejorado) -->
+<section class="hero-section-enhanced">
+  <div class="hero-background-pattern"></div>
+  <div class="container">
+    <div class="hero-content-wrapper">
+      <div class="hero-text-content">
+        <div class="hero-badge-wrapper">
+          <p class="hero-badge">
+            <span class="material-icons">location_on</span>
+            <span>Agencia digital en Perú</span>
+          </p>
+        </div>
+        <h1 class="hero-title-enhanced">
+          Transformamos negocios peruanos  
+          <span class="hero-title-gradient">con soluciones digitales</span>
+        </h1>
+        <p class="hero-description-enhanced">
+          Somos una agencia digital peruana especializada en crear sitios web, tiendas virtuales y estrategias de marketing digital para empresas que buscan crecer en el mercado peruano.
+        </p>
+        <div class="hero-buttons">
+          <button routerLink="/portafolio" class="hero-btn-primary">
+            <span class="material-icons">work</span>
+            <span>Ver portafolio</span>
+          </button>
+          <button routerLink="/contacto" class="hero-btn-secondary">
+            <span class="material-icons">chat</span>
+            <span>Contactar</span>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class=" p-6">
-      <img src="/assets/hero.png" alt="Mockup NeoWeb" class="w-full h-full object-cover">
+      <div class="hero-image-wrapper">
+        <div class="hero-image-container">
+          <div class="hero-image-glow"></div>
+          <img src="/assets/hero.png" alt="Mockup NeoWeb" class="hero-image">
+          <div class="hero-image-decoration"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
