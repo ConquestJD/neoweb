@@ -10,7 +10,7 @@
   --surface: #ffffff;
   --surface-muted: #f7f7f7;
   --surface-dark: #201926;
-  --surface-navy: #240092;
+  --surface-navy: #7A5AF8;
   --border: #e6e6e6;
   --text: #0f172a;
   --muted: #4b5563;
@@ -58,12 +58,67 @@ section {
 .bg-surface { background: var(--surface); }
 .bg-muted { background: var(--surface-muted); }
 .bg-dark { background: var(--surface-dark); color: #ffffff; }
-.bg-navy { background: var(--surface-navy); color: #ffffff; }
+.bg-navy { 
+  background: linear-gradient(135deg, #6B46C1, #7A5AF8, #004CFF); 
+  color: #ffffff; 
+}
 
 .section-light { background: #ffffff; color: var(--text); }
 .section-muted { background: #f7f7f7; color: var(--text); }
 .section-dark { background: #201926; color: #ffffff; }
-.section-navy { background: #240092; color: #ffffff; }
+.section-navy { 
+  background: linear-gradient(135deg, #6B46C1, #7A5AF8, #004CFF) !important; 
+  color: #ffffff !important; 
+}
+.hero-full {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-navy.hero-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(160,72,255,0.12), transparent 24%),
+    radial-gradient(circle at 40% 80%, rgba(36,0,146,0.1), transparent 30%),
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0 20%, transparent 20% 40%, rgba(255,255,255,0.04) 40% 60%, transparent 60% 80%, rgba(255,255,255,0.04) 80% 100%);
+  background-size: 420px 420px, 520px 520px, 460px 460px, 120px 120px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  background-color: transparent !important;
+}
+
+.hero-pattern > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-pattern {
+  position: relative;
+}
+
+.section-navy.hero-pattern {
+  background: linear-gradient(135deg, #6B46C1, #7A5AF8, #004CFF) !important;
+}
+
+.section-navy.hero-pattern::before {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(160,72,255,0.12), transparent 26%),
+    radial-gradient(circle at 40% 80%, rgba(36,0,146,0.09), transparent 30%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px);
+  background-size: cover;
+}
 
 .glass,
 .glass-card {
@@ -109,9 +164,9 @@ section {
   gap: 10px;
   padding: 12px 28px;
   border-radius: 12px;
-  background: transparent;
+  background: #ffffff;
   color: var(--accent-strong);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(160, 72, 255, 0.25);
   font-weight: 600;
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
@@ -120,6 +175,7 @@ section {
   transform: translateY(-2px);
   border-color: var(--accent);
   color: var(--accent);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .pill {
@@ -128,11 +184,12 @@ section {
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(160, 72, 255, 0.08);
+  background: #ffffff;
   color: var(--accent-strong);
-  border: 1px solid rgba(160, 72, 255, 0.18);
+  border: 1px solid rgba(160, 72, 255, 0.35);
   font-weight: 600;
   font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .section-title {
