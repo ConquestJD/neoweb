@@ -137,21 +137,33 @@
   </div>
 </section>
 
-<!-- Valores (grafito) -->
-<section class="section-dark py-16">
+<!-- Valores (mejorada) -->
+<section class="valores-section-enhanced">
   <div class="container">
-    <div class="text-center mb-12">
-      <p class="pill mx-auto mb-3">Cultura</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-white">Valores que nos definen</h2>
-      <p class="text-lg text-white/80 max-w-2xl mx-auto">Principios que guían cada entrega y relación con clientes.</p>
+    <div class="valores-header">
+      <p class="pill">
+        <span class="material-icons">favorite</span>
+        <span>Cultura</span>
+      </p>
+      <h2 class="valores-title">Valores que nos definen</h2>
+      <p class="valores-subtitle">Principios que guían cada entrega y relación con clientes.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div *ngFor="let value of values" class="glass-card p-6 bg-white/5 border-white/10 text-center">
-        <div class="w-12 h-12 rounded-full bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mx-auto mb-3">
-          <span class="material-icons">{{ value.icon }}</span>
+    <div class="valores-grid">
+      <div *ngFor="let value of values; let i = index" class="valor-card">
+        <div class="valor-card-inner">
+          <div class="valor-icon-wrapper">
+            <div class="valor-icon-bg"></div>
+            <span class="material-icons valor-icon">{{ value.icon }}</span>
+            <div class="valor-icon-glow"></div>
+            <div class="valor-number">{{ i + 1 }}</div>
+          </div>
+          <div class="valor-content">
+            <h3 class="valor-title">{{ value.title }}</h3>
+            <p class="valor-description">{{ value.description }}</p>
+            <div class="valor-decoration-line"></div>
+          </div>
+          <div class="valor-card-decoration"></div>
         </div>
-        <h3 class="text-xl font-poppins font-bold text-white mb-2">{{ value.title }}</h3>
-        <p class="text-white/80">{{ value.description }}</p>
       </div>
     </div>
   </div>
