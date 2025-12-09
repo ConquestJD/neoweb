@@ -230,16 +230,8 @@ section {
   opacity: 1;
 }
 
-.diferencial-left {
-  justify-content: flex-start;
-}
-
 .diferencial-left.diferencial-visible {
   animation: slideInFromLeft 0.8s ease-out forwards;
-}
-
-.diferencial-right {
-  justify-content: flex-end;
 }
 
 .diferencial-right.diferencial-visible {
@@ -249,6 +241,7 @@ section {
 .diferencial-content {
   max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
