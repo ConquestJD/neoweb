@@ -67,11 +67,83 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   ];
 
-  // Tecnologías
+  // Tecnologías con imágenes
   technologies = [
-    'Angular 20', 'React 18', 'Vue.js 3', 'Node.js', 'TypeScript',
-    'TailwindCSS', 'Firebase', 'MongoDB', 'PostgreSQL',
-    'AWS', 'Docker', 'Git', 'Figma', 'Adobe XD', 'Spline 3D'
+    { 
+      name: 'Angular 20', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'React 18', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Vue.js 3', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Node.js', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'TypeScript', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'TailwindCSS', 
+      image: 'https://api.iconify.design/devicon:tailwindcss.svg?color=%2306b6d4',
+      icon: 'code'
+    },
+    { 
+      name: 'Firebase', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'MongoDB', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'PostgreSQL', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'AWS', 
+      image: 'https://api.iconify.design/logos:aws.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Docker', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Git', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Figma', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Adobe XD', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xd/xd-plain.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Spline 3D', 
+      image: 'https://api.iconify.design/simple-icons:spline.svg',
+      icon: 'code'
+    }
   ];
 
   constructor(

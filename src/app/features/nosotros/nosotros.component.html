@@ -169,16 +169,31 @@
   </div>
 </section>
 
-<!-- Tecnologías (blanco) -->
-<section class="section-light py-16">
+<!-- Tecnologías (mejorada) -->
+<section class="tecnologias-section-enhanced">
   <div class="container">
-    <div class="text-center mb-12">
-      <p class="pill mx-auto mb-3">Toolstack</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Tecnologías que dominamos</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Seleccionamos herramientas por desempeño, estabilidad y escalabilidad.</p>
+    <div class="tecnologias-header">
+      <p class="pill">
+        <span class="material-icons">code</span>
+        <span>Toolstack</span>
+      </p>
+      <h2 class="tecnologias-title">Tecnologías que dominamos</h2>
+      <p class="tecnologias-subtitle">Seleccionamos herramientas por desempeño, estabilidad y escalabilidad.</p>
     </div>
-    <div class="flex flex-wrap justify-center gap-3">
-      <span *ngFor="let tech of technologies" class="chip">{{ tech }}</span>
+    <div class="tecnologias-grid">
+      <div *ngFor="let tech of technologies" class="tecnologia-card">
+        <div class="tecnologia-card-inner">
+          <div class="tecnologia-icon-wrapper">
+            <img [src]="tech.image" [alt]="tech.name" class="tecnologia-logo" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="tecnologia-icon-fallback" style="display: none;">
+              <span class="material-icons tecnologia-icon">{{ tech.icon }}</span>
+            </div>
+          </div>
+          <span class="tecnologia-name">{{ tech.name }}</span>
+          <div class="tecnologia-card-decoration"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
