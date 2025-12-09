@@ -54,27 +54,43 @@
   </div>
 </section>
 
-<!-- Diferenciales (scroll experience) -->
-<section class="diferenciales-section">
-  <div class="diferenciales-header">
+<!-- Diferenciales (scroll experience mejorado) -->
+<section class="diferenciales-section-enhanced">
+  <div class="diferenciales-header-enhanced">
     <p class="pill">Por qué NeoWeb</p>
-    <h2 class="diferenciales-title">La agencia digital que entiende el mercado peruano</h2>
-    <p class="diferenciales-subtitle">Conocemos las necesidades de las empresas peruanas y creamos soluciones que realmente funcionan en nuestro mercado.</p>
+    <h2 class="diferenciales-title-enhanced">La agencia digital que entiende el mercado peruano</h2>
+    <p class="diferenciales-subtitle-enhanced">Conocemos las necesidades de las empresas peruanas y creamos soluciones que realmente funcionan en nuestro mercado.</p>
   </div>
-  <div class="diferenciales-container">
+  <div class="diferenciales-container-enhanced">
     <div *ngFor="let diferencial of diferenciales; let i = index" 
          [id]="'diferencial-' + i"
-         class="diferencial-item"
-         [class.diferencial-left]="diferencial.position === 'left'"
-         [class.diferencial-right]="diferencial.position === 'right'"
-         [class.diferencial-visible]="diferencial.visible">
-      <div class="diferencial-content">
-        <div class="diferencial-text">
-          <h3 class="diferencial-item-title">{{ diferencial.title }}</h3>
-          <p class="diferencial-item-description">{{ diferencial.description }}</p>
+         class="diferencial-item-enhanced"
+         [class.diferencial-left-enhanced]="diferencial.position === 'left'"
+         [class.diferencial-right-enhanced]="diferencial.position === 'right'"
+         [class.diferencial-visible-enhanced]="diferencial.visible">
+      <div class="diferencial-content-enhanced">
+        <div class="diferencial-text-enhanced">
+          <div class="diferencial-badge-enhanced">
+            <span class="diferencial-number">{{ i + 1 }}</span>
+            <div class="diferencial-badge-line"></div>
+          </div>
+          <h3 class="diferencial-item-title-enhanced">{{ diferencial.title }}</h3>
+          <p class="diferencial-item-description-enhanced">{{ diferencial.description }}</p>
+          <div class="diferencial-features">
+            <div class="diferencial-feature-item">
+              <span class="material-icons">check_circle</span>
+              <span>100% personalizado</span>
+            </div>
+            <div class="diferencial-feature-item">
+              <span class="material-icons">check_circle</span>
+              <span>Enfoque en resultados</span>
+            </div>
+          </div>
         </div>
-        <div class="diferencial-image-wrapper">
-          <img [src]="diferencial.image" [alt]="diferencial.title" class="diferencial-image">
+        <div class="diferencial-image-wrapper-enhanced">
+          <div class="diferencial-image-overlay"></div>
+          <img [src]="diferencial.image" [alt]="diferencial.title" class="diferencial-image-enhanced">
+          <div class="diferencial-image-glow"></div>
         </div>
       </div>
     </div>
