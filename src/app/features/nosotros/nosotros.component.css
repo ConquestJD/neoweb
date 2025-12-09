@@ -1106,3 +1106,300 @@ section {
     font-size: 0.85rem;
   }
 }
+
+/* CTA Final Section Mejorada */
+.cta-final-section-enhanced {
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta-final-background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(107, 70, 193, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cta-final-background-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 92, 246, 0.03) 2px,
+      rgba(139, 92, 246, 0.03) 4px
+    );
+  pointer-events: none;
+}
+
+.cta-final-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.cta-final-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50px;
+  color: #c4b5fd;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.cta-final-badge:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+.cta-final-badge .material-icons {
+  font-size: 18px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cta-final-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-final-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-final-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.cta-final-btn-primary,
+.cta-final-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cta-final-btn-primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+}
+
+.cta-final-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-final-btn-primary:hover::before {
+  left: 100%;
+}
+
+.cta-final-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
+  background: linear-gradient(135deg, #9d6af7 0%, #8b4ef0 100%);
+}
+
+.cta-final-btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.cta-final-btn-primary .material-icons {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cta-final-btn-primary:hover .material-icons {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.cta-final-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.cta-final-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-final-btn-secondary:active {
+  transform: translateY(-1px);
+}
+
+.cta-final-btn-secondary .material-icons {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cta-final-btn-secondary:hover .material-icons {
+  transform: scale(1.1);
+}
+
+.cta-final-features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-final-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cta-final-feature:hover {
+  color: #c4b5fd;
+  transform: translateY(-2px);
+}
+
+.cta-final-feature .material-icons {
+  font-size: 20px;
+  color: #8b5cf6;
+  transition: all 0.3s ease;
+}
+
+.cta-final-feature:hover .material-icons {
+  transform: scale(1.2) rotate(5deg);
+  color: #a78bfa;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive CTA Final */
+@media (max-width: 768px) {
+  .cta-final-section-enhanced {
+    padding: 80px 0;
+  }
+
+  .cta-final-title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .cta-final-description {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .cta-final-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+
+  .cta-final-btn-primary,
+  .cta-final-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 28px;
+  }
+
+  .cta-final-features {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cta-final-feature {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-final-title {
+    font-size: 1.75rem;
+  }
+
+  .cta-final-description {
+    font-size: 1rem;
+  }
+
+  .cta-final-badge {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+}
