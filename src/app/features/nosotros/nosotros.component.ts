@@ -140,8 +140,8 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
       icon: 'code'
     },
     { 
-      name: 'Spline 3D', 
-      image: 'https://api.iconify.design/simple-icons:spline.svg',
+      name: 'Spring Boot', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg',
       icon: 'code'
     }
   ];
