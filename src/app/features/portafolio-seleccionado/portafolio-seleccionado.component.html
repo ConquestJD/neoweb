@@ -190,56 +190,76 @@
     </div>
   </section>
 
-  <!-- Características de la Página Mejoradas -->
-  <section class="project-features-enhanced">
-    <div class="project-features-background"></div>
+  <!-- Características de la Página Rediseñadas -->
+  <section class="project-features-redesigned">
+    <div class="features-background-pattern"></div>
     <div class="container">
-      <div class="project-features-header">
-        <div class="features-badge">
-          <span class="material-icons">auto_awesome</span>
-          <span>Funcionalidades</span>
+      <div class="features-header-redesigned">
+        <div class="features-badge-redesigned">
+          <span class="material-icons">star</span>
+          <span>Características Premium</span>
         </div>
-        <h3 class="features-title">Características de la Página</h3>
-        <p class="features-subtitle">Funcionalidades y características implementadas en este proyecto</p>
+        <h3 class="features-title-redesigned">Funcionalidades Implementadas</h3>
+        <p class="features-subtitle-redesigned">Cada detalle diseñado para ofrecer la mejor experiencia</p>
       </div>
-      <div class="features-grid-enhanced">
-        <div *ngFor="let feature of project.features; let i = index" class="feature-card-enhanced" [style.animation-delay]="i * 0.1 + 's'">
-          <div class="feature-card-glow"></div>
-          <div class="feature-icon-wrapper">
-            <div class="feature-icon-bg"></div>
-            <span class="material-icons feature-icon">check_circle</span>
-          </div>
-          <div class="feature-content">
-            <p class="feature-text">{{ feature }}</p>
-          </div>
-          <div class="feature-hover-effect">
-            <span class="material-icons">arrow_forward</span>
+      <div class="features-showcase">
+        <div *ngFor="let feature of project.features; let i = index; let isEven = even" 
+             class="feature-showcase-item" 
+             [class.feature-left]="isEven"
+             [class.feature-right]="!isEven"
+             [style.animation-delay]="i * 0.15 + 's'">
+          <div class="feature-showcase-content">
+            <div class="feature-number">{{ (i + 1).toString().padStart(2, '0') }}</div>
+            <div class="feature-main-content">
+              <div class="feature-icon-circle">
+                <span class="material-icons">check_circle</span>
+              </div>
+              <h4 class="feature-name">{{ feature }}</h4>
+            </div>
+            <div class="feature-accent-line"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Proyectos Relacionados -->
-  <section class="related-projects-section" *ngIf="relatedProjects.length > 0">
+  <!-- Proyectos Relacionados Rediseñados -->
+  <section class="related-projects-enhanced" *ngIf="relatedProjects.length > 0">
+    <div class="related-projects-background"></div>
     <div class="container">
-      <h3 class="section-title-center">
-        <span class="material-icons">folder_special</span>
-        Proyectos Relacionados
-      </h3>
-      <div class="related-projects-grid">
-        <div *ngFor="let relatedProject of relatedProjects" class="related-project-card">
-          <div class="related-project-image">
-            <img [src]="relatedProject.imageUrl" [alt]="relatedProject.title">
+      <div class="related-projects-header-enhanced">
+        <div class="related-projects-badge">
+          <span class="material-icons">explore</span>
+          <span>Descubre Más</span>
+        </div>
+        <h3 class="related-projects-title-enhanced">Proyectos Relacionados</h3>
+        <p class="related-projects-subtitle">Explora otros proyectos que podrían interesarte</p>
+      </div>
+      <div class="related-projects-grid-enhanced">
+        <div *ngFor="let relatedProject of relatedProjects; let i = index" 
+             class="related-project-card-enhanced" 
+             [style.animation-delay]="i * 0.15 + 's'">
+          <div class="related-project-image-wrapper">
+            <div class="related-project-image-overlay"></div>
+            <img [src]="relatedProject.imageUrl" [alt]="relatedProject.title" class="related-project-image-enhanced">
+            <div class="related-project-image-glow"></div>
+            <div class="related-project-badge-overlay">
+              <span class="material-icons">star</span>
+              <span>{{ relatedProject.category }}</span>
+            </div>
           </div>
-          <div class="related-project-content">
-            <span class="related-project-category">{{ relatedProject.category }}</span>
-            <h4 class="related-project-title">{{ relatedProject.title }}</h4>
-            <p class="related-project-description">{{ relatedProject.description }}</p>
-            <a [routerLink]="['/portafolio', relatedProject.id]" class="related-project-link">
-              Ver proyecto
-              <span class="material-icons">arrow_forward</span>
-            </a>
+          <div class="related-project-content-enhanced">
+            <h4 class="related-project-title-enhanced">{{ relatedProject.title }}</h4>
+            <p class="related-project-description-enhanced">{{ relatedProject.description }}</p>
+            <div class="related-project-footer">
+              <a [routerLink]="['/portafolio', relatedProject.id]" class="related-project-link-enhanced">
+                <span>Ver detalles</span>
+                <span class="material-icons">arrow_forward</span>
+              </a>
+              <div class="related-project-arrow">
+                <span class="material-icons">trending_flat</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
