@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class LandingPageComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

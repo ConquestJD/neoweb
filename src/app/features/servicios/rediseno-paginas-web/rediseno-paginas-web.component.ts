@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './rediseno-paginas-web.component.html',
-  styleUrl: './rediseno-paginas-web.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class RedisenoPaginasWebComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './google-ads.component.html',
-  styleUrl: './google-ads.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class GoogleAdsComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

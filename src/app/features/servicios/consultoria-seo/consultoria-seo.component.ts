@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './consultoria-seo.component.html',
-  styleUrl: './consultoria-seo.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class ConsultoriaSeoComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

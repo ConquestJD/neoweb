@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './pagina-web.component.html',
-  styleUrl: './pagina-web.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class PaginaWebComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

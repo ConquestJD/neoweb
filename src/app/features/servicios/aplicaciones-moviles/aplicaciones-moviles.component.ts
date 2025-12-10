@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './aplicaciones-moviles.component.html',
-  styleUrl: './aplicaciones-moviles.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class AplicacionesMovilesComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

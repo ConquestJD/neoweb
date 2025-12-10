@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './marketing-digital.component.html',
-  styleUrl: './marketing-digital.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class MarketingDigitalComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

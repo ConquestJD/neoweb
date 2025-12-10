@@ -177,20 +177,40 @@
   </div>
 </section>
 
-<!-- Resultados esperados (grafito) -->
-<section class="section-dark py-16">
+<!-- Full Code Mejorado -->
+<section class="fullcode-section-enhanced">
+  <div class="fullcode-background"></div>
+  <div class="fullcode-pattern"></div>
   <div class="container">
-    <div class="text-center mb-10">
-      <p class="pill mx-auto mb-3">Resultados</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-white">Lo que buscamos lograr</h2>
+    <div class="fullcode-header">
+      <div class="fullcode-badge">
+        <span class="material-icons">code</span>
+        <span>Resultados</span>
+      </div>
+      <h2 class="fullcode-title">
+        Lo que buscamos
+        <span class="fullcode-title-highlight">lograr</span>
+      </h2>
+      <p class="fullcode-subtitle">Objetivos claros y resultados medibles para tu estrategia SEO.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div *ngFor="let benefit of fullCodeBenefits" class="glass-card p-5 bg-white/5 border-white/10">
-        <div class="w-10 h-10 rounded-lg bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mb-3">
-          <span class="material-icons">{{ benefit.icon }}</span>
+    <div class="fullcode-grid">
+      <div 
+        *ngFor="let benefit of fullCodeBenefits; let i = index"
+        class="fullcode-card"
+        [style.animation-delay]="i * 0.1 + 's'">
+        <div class="fullcode-card-inner">
+          <div class="fullcode-icon-wrapper">
+            <div class="fullcode-icon-bg"></div>
+            <span class="material-icons fullcode-icon">{{ benefit.icon }}</span>
+            <div class="fullcode-icon-glow"></div>
+          </div>
+          <div class="fullcode-content">
+            <h3 class="fullcode-card-title">{{ benefit.title }}</h3>
+            <p class="fullcode-card-description">{{ benefit.description }}</p>
+          </div>
+          <div class="fullcode-card-accent"></div>
         </div>
-        <h3 class="text-lg font-bold text-white mb-1">{{ benefit.title }}</h3>
-        <p class="text-white/80 text-sm">{{ benefit.description }}</p>
+        <div class="fullcode-card-glow"></div>
       </div>
     </div>
   </div>

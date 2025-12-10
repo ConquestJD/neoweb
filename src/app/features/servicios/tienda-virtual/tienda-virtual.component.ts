@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './tienda-virtual.component.html',
-  styleUrl: './tienda-virtual.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class TiendaVirtualComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};

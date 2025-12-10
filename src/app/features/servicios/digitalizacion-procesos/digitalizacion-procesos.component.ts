@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './digitalizacion-procesos.component.html',
-  styleUrl: './digitalizacion-procesos.component.css'
+  styleUrl: '../servicios-shared.component.css'
 })
 export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
   sectionsVisible: { [key: string]: string } = {};
