@@ -285,37 +285,99 @@
     </div>
   </section>
 
-   <!-- Características de la Página Mejoradas -->
-  <section class="project-features-compact">
-    <div class="features-background-enhanced"></div>
+  <!-- Características de la Página - Diseño Creativo -->
+  <section class="project-features-creative">
+    <div class="features-creative-background"></div>
+    <div class="features-floating-shapes">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+    </div>
     <div class="container">
-      <div class="features-header-compact">
-        <div class="features-badge-compact">
-          <span class="material-icons">auto_awesome</span>
-          <span>Funcionalidades Premium</span>
+      <div class="features-creative-header">
+        <div class="features-creative-badge">
+          <div class="badge-sparkle">
+            <span class="material-icons">auto_awesome</span>
+          </div>
+          <span>Funcionalidades Exclusivas</span>
+          <div class="badge-pulse"></div>
         </div>
-        <h3 class="features-title-compact">Características del Proyecto</h3>
-        <p class="features-subtitle-compact">Cada detalle diseñado para ofrecer la mejor experiencia</p>
+        <h3 class="features-creative-title">
+          <span class="title-line">Características</span>
+          <span class="title-highlight">Destacadas</span>
+        </h3>
+        <p class="features-creative-subtitle">Cada funcionalidad diseñada con precisión para maximizar el valor del proyecto</p>
       </div>
-      <div class="features-grid-compact">
-        <div *ngFor="let feature of project.features; let i = index" 
-             class="feature-card-compact" 
-             [style.animation-delay]="i * 0.08 + 's'">
-          <div class="feature-card-glow"></div>
-          <div class="feature-number-badge">
-            <span>{{ formatNumber(i + 1) }}</span>
-          </div>
-          <div class="feature-icon-compact">
-            <div class="feature-icon-bg"></div>
-            <span class="material-icons">check_circle</span>
-          </div>
-          <div class="feature-content-wrapper">
-            <span class="feature-text-compact">{{ feature }}</span>
-            <div class="feature-hover-indicator">
-              <span class="material-icons">arrow_forward</span>
+      <div class="features-creative-grid">
+        <div *ngFor="let feature of project.features; let i = index; let isEven = even" 
+             class="feature-card-creative" 
+             [class.feature-even]="isEven"
+             [class.feature-odd]="!isEven"
+             [style.animation-delay]="i * 0.1 + 's'">
+          <div class="feature-card-inner">
+            <div class="feature-gradient-overlay"></div>
+            <div class="feature-pattern-bg"></div>
+            <div class="feature-number-display">
+              <div class="number-circle">
+                <span class="number-value">{{ formatNumber(i + 1) }}</span>
+                <div class="number-ring"></div>
+              </div>
             </div>
+            <div class="feature-main-content">
+              <div class="feature-icon-creative">
+                <div class="icon-outer-ring"></div>
+                <div class="icon-inner-circle">
+                  <span class="material-icons">verified</span>
+                </div>
+                <div class="icon-particles">
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                  <div class="particle"></div>
+                </div>
+              </div>
+              <div class="feature-text-creative">
+                <h4 class="feature-title-text">{{ feature }}</h4>
+                <div class="feature-description-hint">
+                  <span class="material-icons">info</span>
+                  <span>Funcionalidad implementada</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-interactive-elements">
+              <div class="feature-progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="feature-action-button">
+                <span class="material-icons">arrow_forward</span>
+              </div>
+            </div>
+            <div class="feature-corner-decoration"></div>
           </div>
-          <div class="feature-accent-line"></div>
+        </div>
+      </div>
+      <div class="features-summary">
+        <div class="summary-item">
+          <span class="material-icons">check_circle</span>
+          <div>
+            <div class="summary-value">{{ project.features.length }}+</div>
+            <div class="summary-label">Funcionalidades</div>
+          </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="material-icons">code</span>
+          <div>
+            <div class="summary-value">100%</div>
+            <div class="summary-label">Implementadas</div>
+          </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <span class="material-icons">speed</span>
+          <div>
+            <div class="summary-value">Premium</div>
+            <div class="summary-label">Calidad</div>
+          </div>
         </div>
       </div>
     </div>
