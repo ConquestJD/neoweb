@@ -1,30 +1,63 @@
 <!-- Blog NeoWeb -->
 
-<!-- Hero (azul oscuro) -->
-<section class="section-navy hero-full hero-pattern py-20">
-  <div class="container text-center max-w-4xl">
-    <p class="pill mx-auto mb-3">Insights y recursos</p>
-    <h1 class="text-4xl md:text-5xl font-poppins font-bold text-white mb-4">Nuestro Blog</h1>
-    <p class="text-lg md:text-xl text-white/80">
-      Artículos sobre diseño, desarrollo y growth para marcas que buscan claridad y resultados.
-    </p>
+<!-- Hero del Blog -->
+<section class="hero-blog-enhanced">
+  <div class="hero-blog-background"></div>
+  <div class="hero-blog-particles"></div>
+  <div class="container">
+    <div class="hero-blog-content">
+      <div class="hero-blog-badge">
+        <span class="material-icons">article</span>
+        <span>Insights y recursos</span>
+      </div>
+      <h1 class="hero-blog-title">
+        Nuestro
+        <span class="hero-blog-title-highlight">Blog</span>
+      </h1>
+      <p class="hero-blog-description">
+        Artículos sobre diseño, desarrollo y growth para marcas que buscan claridad y resultados.
+      </p>
+      <div class="hero-blog-buttons">
+        <button routerLink="/contacto" class="hero-blog-btn-primary">
+          <span class="material-icons">mail</span>
+          <span>Suscribirse</span>
+        </button>
+        <button class="hero-blog-btn-secondary" (click)="scrollToPosts()">
+          <span class="material-icons">arrow_downward</span>
+          <span>Ver artículos</span>
+        </button>
+      </div>
+      <div class="hero-blog-scroll-indicator">
+        <span class="material-icons">keyboard_arrow_down</span>
+      </div>
+    </div>
   </div>
-  <!-- Filtros -->
-  <div class="container mt-10">
-    <div class="flex flex-wrap justify-center gap-3">
-      <button
-        *ngFor="let category of categories"
-        (click)="filterPosts(category)"
-        class="chip"
-        [class]="selectedCategory === category ? 'chip bg-[#f1e9ff] text-[#240092] border-[#a048ff]' : 'chip'">
-        {{ category }}
-      </button>
+</section>
+
+<!-- Filtros -->
+<section class="blog-filters-section" id="blog-filters">
+  <div class="container">
+    <div class="blog-filters-wrapper">
+      <div class="filters-header">
+        <span class="material-icons">filter_list</span>
+        <span>Filtrar por categoría</span>
+      </div>
+      <div class="filters-grid">
+        <button
+          *ngFor="let category of categories"
+          (click)="filterPosts(category)"
+          class="filter-chip"
+          [class.filter-chip-active]="selectedCategory === category">
+          <span class="material-icons">{{ getCategoryIcon(category) }}</span>
+          <span>{{ category }}</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Grid de posts (blanco) -->
-<section class="section-light py-16">
+<section class="section-light py-16" id="blog-posts">
   <div class="container">
     <div class="mb-6 text-center text-gray-700">
       Mostrando <span class="text-[#240092] font-semibold">{{ filteredPosts.length }}</span>

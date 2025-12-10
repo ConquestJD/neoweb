@@ -116,5 +116,26 @@ export class BlogComponent {
     }
     return this.posts.filter(p => p.category === this.selectedCategory);
   }
+
+  // Obtener icono para categoría
+  getCategoryIcon(category: string): string {
+    const iconMap: { [key: string]: string } = {
+      'Todos': 'apps',
+      'Negocios Digitales': 'business',
+      'Ventas Online': 'shopping_cart',
+      'Decisiones Digitales': 'lightbulb',
+      'Diseño Web': 'palette',
+      'Marketing Digital': 'trending_up'
+    };
+    return iconMap[category] || 'article';
+  }
+
+  // Scroll a los posts
+  scrollToPosts() {
+    const element = document.getElementById('blog-filters');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
 
