@@ -1,0 +1,136 @@
+<div *ngIf="project" class="project-detail-page">
+  <!-- Hero del Proyecto -->
+  <section class="project-detail-hero">
+    <div class="container">
+      <a routerLink="/portafolio" class="back-button">
+        <span class="material-icons">arrow_back</span>
+        <span>Volver al portafolio</span>
+      </a>
+      <div class="project-detail-header">
+        <div class="project-detail-badges">
+          <span class="project-detail-badge">{{ project.category }}</span>
+          <span class="project-detail-badge badge-accent">{{ project.results.type }}</span>
+        </div>
+        <h1 class="project-detail-title">{{ project.title }}</h1>
+        <p class="project-detail-description">{{ project.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Imagen Principal -->
+  <section class="project-detail-image-section">
+    <div class="container">
+      <div class="project-detail-image-wrapper">
+        <img [src]="project.imageUrl" [alt]="project.title">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido Principal -->
+  <section class="project-detail-content">
+    <div class="container">
+      <div class="project-detail-layout">
+        <!-- Columna Principal -->
+        <div class="project-detail-main">
+          <!-- Problema y Solución -->
+          <div class="project-detail-insights">
+            <div class="insight-card-detail problem-card-detail">
+              <div class="insight-header-detail">
+                <div class="insight-icon-detail problem-icon-detail">
+                  <span class="material-icons">error_outline</span>
+                </div>
+                <h3>El Desafío</h3>
+              </div>
+              <p>{{ project.results.problem }}</p>
+            </div>
+            <div class="insight-card-detail solution-card-detail">
+              <div class="insight-header-detail">
+                <div class="insight-icon-detail solution-icon-detail">
+                  <span class="material-icons">lightbulb</span>
+                </div>
+                <h3>Nuestra Solución</h3>
+              </div>
+              <p>{{ project.results.solution }}</p>
+            </div>
+          </div>
+
+          <!-- Stack Tecnológico -->
+          <div class="project-detail-tech">
+            <h3 class="section-title-detail">
+              <span class="material-icons">code</span>
+              Stack Tecnológico
+            </h3>
+            <div class="tech-grid-detail">
+              <div *ngFor="let tech of project.technologies" class="tech-item-detail">
+                <span class="material-icons">check_circle</span>
+                <span>{{ tech }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Impacto en el Negocio -->
+          <div class="project-detail-impact">
+            <h3 class="section-title-detail">
+              <span class="material-icons">trending_up</span>
+              Impacto en el Negocio
+            </h3>
+            <ul class="impact-list-detail">
+              <li *ngFor="let impact of project.results.businessImpact" class="impact-item-detail">
+                <span class="material-icons">check_circle</span>
+                <span>{{ impact }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Galería -->
+          <div class="project-detail-gallery">
+            <h3 class="section-title-detail">
+              <span class="material-icons">collections</span>
+              Galería del Proyecto
+            </h3>
+            <div class="gallery-grid-detail">
+              <div class="gallery-item-detail">
+                <img [src]="project.imageUrl" [alt]="project.title">
+              </div>
+              <div class="gallery-item-detail">
+                <img [src]="project.imageUrl2" [alt]="project.title + ' vista 2'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="project-detail-sidebar">
+          <!-- Métricas -->
+          <div class="metrics-sidebar">
+            <h3 class="sidebar-title">Resultados</h3>
+            <div class="metrics-list-sidebar">
+              <div *ngFor="let metric of project.results.metrics" class="metric-sidebar">
+                <div class="metric-icon-sidebar">
+                  <span class="material-icons">{{ metric.icon }}</span>
+                </div>
+                <div class="metric-content-sidebar">
+                  <div class="metric-value-sidebar">{{ metric.value }}</div>
+                  <div class="metric-label-sidebar">{{ metric.label }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acciones -->
+          <div class="actions-sidebar">
+            <a [href]="project.results.websiteUrl" target="_blank" class="action-btn-primary-sidebar" *ngIf="project.results.websiteUrl !== '#'">
+              <span class="material-icons">launch</span>
+              <span>Visitar sitio web</span>
+            </a>
+            <a routerLink="/contacto" class="action-btn-secondary-sidebar">
+              <span class="material-icons">chat</span>
+              <span>Hablemos de tu proyecto</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

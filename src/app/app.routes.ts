@@ -62,6 +62,11 @@ export const routes: Routes = [
     title: 'Portafolio - NeoWeb | Nuestros Proyectos'
   },
   {
+    path: 'portafolio/:id',
+    loadComponent: () => import('./features/portafolio-seleccionado/portafolio-seleccionado.component').then(m => m.PortafolioSeleccionadoComponent),
+    title: 'Proyecto - NeoWeb | Detalles del Proyecto'
+  },
+  {
     path: 'nosotros',
     loadComponent: () => import('./features/nosotros/nosotros.component').then(m => m.NosotrosComponent),
     title: 'Nosotros - NeoWeb | Conoce Nuestro Equipo'
