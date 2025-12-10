@@ -136,18 +136,42 @@
   </div>
 </section>
 
-<!-- Proceso (blanco) -->
-<section class="section-light py-16">
+<!-- Proceso Mejorado -->
+<section class="process-section-enhanced">
+  <div class="process-background"></div>
+  <div class="process-pattern"></div>
   <div class="container">
-    <div class="text-center mb-10">
-      <p class="pill mx-auto mb-3">Proceso</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Cómo implementamos</h2>
+    <div class="process-header">
+      <div class="process-badge">
+        <span class="material-icons">timeline</span>
+        <span>Proceso</span>
+      </div>
+      <h2 class="process-title">
+        Cómo
+        <span class="process-title-highlight">implementamos</span>
+      </h2>
+      <p class="process-subtitle">Un proceso estructurado y probado para garantizar resultados excepcionales.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div *ngFor="let step of methodology" class="glass-card p-5 text-center">
-        <div class="pill mb-3">{{ step.step }}</div>
-        <h3 class="text-lg font-bold text-neutral-900 mb-1">{{ step.title }}</h3>
-        <p class="text-gray-700 text-sm">{{ step.description }}</p>
+    <div class="process-grid">
+      <div 
+        *ngFor="let step of methodology; let i = index"
+        class="process-card"
+        [style.animation-delay]="i * 0.1 + 's'">
+        <div class="process-card-inner">
+          <div class="process-number-badge">
+            <span class="process-number">{{ step.step }}</span>
+            <div class="process-number-ring"></div>
+          </div>
+          <div class="process-card-content">
+            <h3 class="process-card-title">{{ step.title }}</h3>
+            <p class="process-card-description">{{ step.description }}</p>
+          </div>
+          <div class="process-card-decoration">
+            <div class="process-card-dot"></div>
+            <div class="process-card-line"></div>
+          </div>
+        </div>
+        <div class="process-card-glow"></div>
       </div>
     </div>
   </div>
