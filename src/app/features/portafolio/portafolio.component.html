@@ -48,163 +48,115 @@
   </div>
 </section>
 
-<!-- Proyecto 1 (blanco) -->
-<section class="section-light py-16">
-  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div class="space-y-4">
-      <div class="flex flex-wrap gap-3">
-        <span class="chip">{{ projects[0].category }}</span>
-        <span class="chip">{{ projects[0].results.type }}</span>
-      </div>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">{{ projects[0].title }}</h2>
-      <p class="text-lg text-gray-700 leading-relaxed">{{ projects[0].description }}</p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="glass-card p-4">
-          <p class="text-sm text-gray-600 mb-1">Problema</p>
-          <p class="text-base text-neutral-900">{{ projects[0].results.problem }}</p>
-        </div>
-        <div class="glass-card p-4">
-          <p class="text-sm text-gray-600 mb-1">Solución</p>
-          <p class="text-base text-neutral-900">{{ projects[0].results.solution }}</p>
+<!-- Proyecto 1 Compacto -->
+<section class="project-section-compact" data-section-id="project-liceum">
+  <div class="container">
+    <div class="project-card-compact">
+      <div class="project-image-compact">
+        <img [src]="projects[0].imageUrl" [alt]="projects[0].title">
+        <div class="project-badges-compact">
+          <span class="project-badge-compact">{{ projects[0].category }}</span>
+          <span class="project-badge-compact badge-accent">{{ projects[0].results.type }}</span>
         </div>
       </div>
-
-      <div class="space-y-3">
-        <p class="text-sm text-gray-600">Tecnologías</p>
-        <div class="flex flex-wrap gap-2">
-          <span *ngFor="let tech of projects[0].technologies" class="chip">{{ tech }}</span>
+      <div class="project-content-compact">
+        <h2 class="project-title-compact">{{ projects[0].title }}</h2>
+        <p class="project-description-compact">{{ projects[0].description }}</p>
+        <div class="project-metrics-compact">
+          <div *ngFor="let metric of projects[0].results.metrics.slice(0, 2)" class="metric-compact">
+            <span class="material-icons">{{ metric.icon }}</span>
+            <div>
+              <div class="metric-value-compact">{{ metric.value }}</div>
+              <div class="metric-label-compact">{{ metric.label }}</div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <div *ngFor="let metric of projects[0].results.metrics" class="metric-card text-left">
-          <span class="material-icons text-[#a048ff] text-xl">{{ metric.icon }}</span>
-          <div class="metric-value">{{ metric.value }}</div>
-          <div class="metric-label">{{ metric.label }}</div>
+        <div class="project-actions-compact">
+          <a [routerLink]="['/portafolio', projects[0].id]" class="btn-view-details">
+            <span class="material-icons">visibility</span>
+            <span>Ver detalles completos</span>
+          </a>
+          <a [href]="projects[0].results.websiteUrl" target="_blank" class="btn-visit-site">
+            <span class="material-icons">open_in_new</span>
+            <span>Visitar sitio</span>
+          </a>
         </div>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a [href]="projects[0].results.websiteUrl" target="_blank" class="btn-primary">Visitar sitio</a>
-        <button routerLink="/contacto" class="btn-secondary">Explorar proyecto</button>
-      </div>
-    </div>
-
-    <div class="grid gap-6">
-      <div class="glass-card overflow-hidden">
-        <img [src]="projects[0].imageUrl" [alt]="projects[0].title" class="w-full h-full object-cover">
-      </div>
-      <div class="glass-card overflow-hidden">
-        <img [src]="projects[0].imageUrl2" [alt]="projects[0].title + ' vista 2'" class="w-full h-full object-cover">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Proyecto 2 (gris claro) -->
-<section class="section-muted py-16">
-  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div class="grid gap-6 order-2 lg:order-1">
-      <div class="glass-card overflow-hidden">
-        <img [src]="projects[1].imageUrl" [alt]="projects[1].title" class="w-full h-full object-cover">
-      </div>
-      <div class="glass-card overflow-hidden">
-        <img [src]="projects[1].imageUrl2" [alt]="projects[1].title + ' vista 2'" class="w-full h-full object-cover">
-      </div>
-    </div>
-
-    <div class="space-y-4 order-1 lg:order-2">
-      <div class="flex flex-wrap gap-3">
-        <span class="chip">{{ projects[1].category }}</span>
-        <span class="chip">{{ projects[1].results.type }}</span>
-      </div>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">{{ projects[1].title }}</h2>
-      <p class="text-lg text-gray-700 leading-relaxed">{{ projects[1].description }}</p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="glass-card p-4">
-          <p class="text-sm text-gray-600 mb-1">Problema</p>
-          <p class="text-base text-neutral-900">{{ projects[1].results.problem }}</p>
-        </div>
-        <div class="glass-card p-4">
-          <p class="text-sm text-gray-600 mb-1">Solución</p>
-          <p class="text-base text-neutral-900">{{ projects[1].results.solution }}</p>
+<!-- Proyecto 2 Compacto -->
+<section class="project-section-compact section-muted" data-section-id="project-oncomed">
+  <div class="container">
+    <div class="project-card-compact">
+      <div class="project-image-compact">
+        <img [src]="projects[1].imageUrl" [alt]="projects[1].title">
+        <div class="project-badges-compact">
+          <span class="project-badge-compact">{{ projects[1].category }}</span>
+          <span class="project-badge-compact badge-accent">{{ projects[1].results.type }}</span>
         </div>
       </div>
-
-      <div class="space-y-3">
-        <p class="text-sm text-gray-600">Tecnologías</p>
-        <div class="flex flex-wrap gap-2">
-          <span *ngFor="let tech of projects[1].technologies" class="chip">{{ tech }}</span>
+      <div class="project-content-compact">
+        <h2 class="project-title-compact">{{ projects[1].title }}</h2>
+        <p class="project-description-compact">{{ projects[1].description }}</p>
+        <div class="project-metrics-compact">
+          <div *ngFor="let metric of projects[1].results.metrics.slice(0, 2)" class="metric-compact">
+            <span class="material-icons">{{ metric.icon }}</span>
+            <div>
+              <div class="metric-value-compact">{{ metric.value }}</div>
+              <div class="metric-label-compact">{{ metric.label }}</div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <div *ngFor="let metric of projects[1].results.metrics" class="metric-card text-left">
-          <span class="material-icons text-[#a048ff] text-xl">{{ metric.icon }}</span>
-          <div class="metric-value">{{ metric.value }}</div>
-          <div class="metric-label">{{ metric.label }}</div>
+        <div class="project-actions-compact">
+          <a [routerLink]="['/portafolio', projects[1].id]" class="btn-view-details">
+            <span class="material-icons">visibility</span>
+            <span>Ver detalles completos</span>
+          </a>
+          <a [href]="projects[1].results.websiteUrl" target="_blank" class="btn-visit-site">
+            <span class="material-icons">open_in_new</span>
+            <span>Visitar sitio</span>
+          </a>
         </div>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a [href]="projects[1].results.websiteUrl" target="_blank" class="btn-primary">Visitar sitio</a>
-        <button routerLink="/contacto" class="btn-secondary">Explorar proyecto</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Proyecto 3 (grafito) -->
-<section class="section-dark py-16">
-  <div class="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div class="space-y-4">
-      <div class="flex flex-wrap gap-3">
-        <span class="chip">{{ projects[2].category }}</span>
-        <span class="chip">{{ projects[2].results.type }}</span>
-      </div>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-white">{{ projects[2].title }}</h2>
-      <p class="text-lg text-white/80 leading-relaxed">{{ projects[2].description }}</p>
-
-      <div class="grid gap-4 md:grid-cols-2">
-        <div class="glass-card p-4 bg-white/5 border-white/10">
-          <p class="text-sm text-white/70 mb-1">Problema</p>
-          <p class="text-base text-white">{{ projects[2].results.problem }}</p>
-        </div>
-        <div class="glass-card p-4 bg-white/5 border-white/10">
-          <p class="text-sm text-white/70 mb-1">Solución</p>
-          <p class="text-base text-white">{{ projects[2].results.solution }}</p>
+<!-- Proyecto 3 Compacto -->
+<section class="project-section-compact section-dark" data-section-id="project-omed">
+  <div class="container">
+    <div class="project-card-compact">
+      <div class="project-image-compact">
+        <img [src]="projects[2].imageUrl" [alt]="projects[2].title">
+        <div class="project-badges-compact">
+          <span class="project-badge-compact">{{ projects[2].category }}</span>
+          <span class="project-badge-compact badge-accent">{{ projects[2].results.type }}</span>
         </div>
       </div>
-
-      <div class="space-y-3">
-        <p class="text-sm text-white/70">Tecnologías</p>
-        <div class="flex flex-wrap gap-2">
-          <span *ngFor="let tech of projects[2].technologies" class="chip bg-white/10 border-white/20 text-white">{{ tech }}</span>
+      <div class="project-content-compact">
+        <h2 class="project-title-compact">{{ projects[2].title }}</h2>
+        <p class="project-description-compact">{{ projects[2].description }}</p>
+        <div class="project-metrics-compact">
+          <div *ngFor="let metric of projects[2].results.metrics.slice(0, 2)" class="metric-compact">
+            <span class="material-icons">{{ metric.icon }}</span>
+            <div>
+              <div class="metric-value-compact">{{ metric.value }}</div>
+              <div class="metric-label-compact">{{ metric.label }}</div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <div *ngFor="let metric of projects[2].results.metrics" class="metric-card text-left bg-white/5 border-white/10">
-          <span class="material-icons text-[#a048ff] text-xl">{{ metric.icon }}</span>
-          <div class="metric-value text-white">{{ metric.value }}</div>
-          <div class="metric-label text-white/70">{{ metric.label }}</div>
+        <div class="project-actions-compact">
+          <a [routerLink]="['/portafolio', projects[2].id]" class="btn-view-details">
+            <span class="material-icons">visibility</span>
+            <span>Ver detalles completos</span>
+          </a>
+          <a [href]="projects[2].results.websiteUrl" target="_blank" class="btn-visit-site" *ngIf="projects[2].results.websiteUrl !== '#'">
+            <span class="material-icons">open_in_new</span>
+            <span>Visitar sitio</span>
+          </a>
         </div>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-3">
-        <a [href]="projects[2].results.websiteUrl" target="_blank" class="btn-primary">Visitar sitio</a>
-        <button routerLink="/contacto" class="btn-secondary">Explorar proyecto</button>
-      </div>
-    </div>
-
-    <div class="grid gap-6">
-      <div class="glass-card overflow-hidden bg-white/5 border-white/10">
-        <img [src]="projects[2].imageUrl" [alt]="projects[2].title" class="w-full h-full object-cover">
-      </div>
-      <div class="glass-card overflow-hidden bg-white/5 border-white/10">
-        <img [src]="projects[2].imageUrl2" [alt]="projects[2].title + ' vista 2'" class="w-full h-full object-cover">
       </div>
     </div>
   </div>
