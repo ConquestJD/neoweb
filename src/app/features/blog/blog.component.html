@@ -34,22 +34,27 @@
   </div>
 </section>
 
-<!-- Filtros -->
-<section class="blog-filters-section" id="blog-filters">
+<!-- Filtros Minimalistas -->
+<section class="blog-filters-minimal" id="blog-filters">
   <div class="container">
-    <div class="blog-filters-wrapper">
-      <div class="filters-header">
-        <span class="material-icons">filter_list</span>
-        <span>Filtrar por categoría</span>
+    <div class="filters-wrapper-minimal">
+      <div class="filters-header-minimal">
+        <h2 class="filters-title-minimal">Categorías</h2>
+        <p class="filters-subtitle-minimal">{{ filteredPosts.length }} artículos disponibles</p>
       </div>
-      <div class="filters-grid">
+      <div class="filters-list-minimal">
         <button
           *ngFor="let category of categories"
           (click)="filterPosts(category)"
-          class="filter-chip"
-          [class.filter-chip-active]="selectedCategory === category">
-          <span class="material-icons">{{ getCategoryIcon(category) }}</span>
-          <span>{{ category }}</span>
+          class="filter-item-minimal"
+          [class.filter-item-active]="selectedCategory === category">
+          <span class="filter-icon-minimal">
+            <span class="material-icons">{{ getCategoryIcon(category) }}</span>
+          </span>
+          <span class="filter-label-minimal">{{ category }}</span>
+          <span class="filter-indicator-minimal" *ngIf="selectedCategory === category">
+            <span class="material-icons">check</span>
+          </span>
         </button>
       </div>
     </div>
@@ -109,12 +114,64 @@
   </div>
 </section>
 
-<!-- CTA final (grafito) -->
-<section class="section-dark py-16">
-  <div class="container text-center max-w-4xl">
-    <p class="pill mx-auto mb-3">¿Tienes un proyecto?</p>
-    <h2 class="text-3xl md:text-4xl font-poppins font-bold text-white mb-3">Conversemos</h2>
-    <p class="text-lg text-white/80 mb-8">Cuéntanos sobre tu idea y te ayudamos a aterrizar un plan claro.</p>
-    <button routerLink="/contacto" class="btn-primary">Contactar</button>
+<!-- CTA Final Mejorado -->
+<section class="blog-cta-enhanced">
+  <div class="cta-background-gradient"></div>
+  <div class="cta-particles"></div>
+  <div class="cta-shapes">
+    <div class="cta-shape cta-shape-1"></div>
+    <div class="cta-shape cta-shape-2"></div>
+    <div class="cta-shape cta-shape-3"></div>
+  </div>
+  <div class="container">
+    <div class="cta-content-enhanced">
+      <div class="cta-badge-enhanced">
+        <span class="material-icons">rocket_launch</span>
+        <span>¿Tienes un proyecto?</span>
+        <div class="badge-pulse"></div>
+      </div>
+      <h2 class="cta-title-enhanced">
+        Conversemos y
+        <span class="cta-title-highlight">hagamos realidad</span>
+        tu idea
+      </h2>
+      <p class="cta-description-enhanced">
+        Cuéntanos sobre tu proyecto y te ayudamos a aterrizar un plan claro. 
+        Diseñamos, construimos y optimizamos experiencias digitales que convierten.
+      </p>
+      <div class="cta-buttons-enhanced">
+        <button routerLink="/contacto" class="cta-btn-primary-enhanced">
+          <div class="btn-icon-wrapper">
+            <span class="material-icons">phone</span>
+          </div>
+          <span class="btn-text">Agendar llamada</span>
+          <span class="material-icons btn-arrow">arrow_forward</span>
+          <div class="btn-shine"></div>
+        </button>
+        <button routerLink="/portafolio" class="cta-btn-secondary-enhanced">
+          <div class="btn-icon-wrapper">
+            <span class="material-icons">work</span>
+          </div>
+          <span class="btn-text">Ver portafolio</span>
+          <span class="material-icons btn-arrow">arrow_forward</span>
+        </button>
+      </div>
+      <div class="cta-features-enhanced">
+        <div class="cta-feature-item">
+          <span class="material-icons">schedule</span>
+          <span>Respuesta en 24h</span>
+        </div>
+        <div class="cta-feature-divider"></div>
+        <div class="cta-feature-item">
+          <span class="material-icons">gift</span>
+          <span>Consulta gratuita</span>
+        </div>
+        <div class="cta-feature-divider"></div>
+        <div class="cta-feature-item">
+          <span class="material-icons">verified</span>
+          <span>Proyectos garantizados</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
