@@ -1,70 +1,127 @@
 <div *ngIf="project" class="project-detail-page">
-  <!-- Hero: Proyecto Izquierda + Imagen Derecha -->
-  <section class="project-hero-section">
+  <!-- Hero Mejorado: Proyecto Izquierda + Imagen Derecha -->
+  <section class="project-hero-enhanced">
+    <div class="project-hero-background"></div>
+    <div class="project-hero-particles"></div>
     <div class="container">
-      <a routerLink="/portafolio" class="back-button">
+      <a routerLink="/portafolio" class="back-button-enhanced">
         <span class="material-icons">arrow_back</span>
         <span>Volver al portafolio</span>
       </a>
-      <div class="project-hero-layout">
-        <div class="project-hero-content">
-          <div class="project-hero-badges">
-            <span class="project-hero-badge">{{ project.category }}</span>
-            <span class="project-hero-badge badge-accent">{{ project.results.type }}</span>
+      <div class="project-hero-layout-enhanced">
+        <div class="project-hero-content-enhanced">
+          <div class="project-hero-badges-enhanced">
+            <span class="project-hero-badge-enhanced">
+              <span class="material-icons">category</span>
+              <span>{{ project.category }}</span>
+            </span>
+            <span class="project-hero-badge-enhanced badge-accent-enhanced">
+              <span class="material-icons">star</span>
+              <span>{{ project.results.type }}</span>
+            </span>
           </div>
-          <h1 class="project-hero-title">{{ project.title }}</h1>
-          <p class="project-hero-description">{{ project.description }}</p>
-          <div class="project-hero-actions">
-            <a [href]="project.results.websiteUrl" target="_blank" class="hero-btn-primary" *ngIf="project.results.websiteUrl !== '#'">
+          <h1 class="project-hero-title-enhanced">
+            {{ project.title }}
+          </h1>
+          <p class="project-hero-description-enhanced">{{ project.description }}</p>
+          
+          <!-- Métricas Rápidas -->
+          <div class="project-hero-metrics">
+            <div *ngFor="let metric of project.results.metrics.slice(0, 3)" class="hero-metric-item">
+              <div class="hero-metric-icon">
+                <span class="material-icons">{{ metric.icon }}</span>
+              </div>
+              <div class="hero-metric-content">
+                <div class="hero-metric-value">{{ metric.value }}</div>
+                <div class="hero-metric-label">{{ metric.label }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-hero-actions-enhanced">
+            <a [href]="project.results.websiteUrl" target="_blank" class="hero-btn-primary-enhanced" *ngIf="project.results.websiteUrl !== '#'">
               <span class="material-icons">launch</span>
               <span>Visitar sitio web</span>
+              <span class="material-icons action-arrow">arrow_forward</span>
             </a>
-            <a routerLink="/contacto" class="hero-btn-secondary">
-              <span class="material-icons">chat</span>
+            <a routerLink="/contacto" class="hero-btn-secondary-enhanced">
+              <span class="material-icons">chat_bubble_outline</span>
               <span>Hablemos de tu proyecto</span>
             </a>
           </div>
         </div>
-        <div class="project-hero-image">
-          <img [src]="project.imageUrl" [alt]="project.title">
+        <div class="project-hero-image-enhanced">
+          <div class="hero-image-container">
+            <div class="hero-image-glow"></div>
+            <div class="hero-image-badge">
+              <span class="material-icons">photo_library</span>
+              <span>Vista principal</span>
+            </div>
+            <img [src]="project.imageUrl" [alt]="project.title" class="hero-main-image">
+            <div class="hero-image-overlay">
+              <span class="material-icons">zoom_in</span>
+              <span>Ver en detalle</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Problema, Solución y Tecnologías -->
-  <section class="project-insights-section">
+  <!-- Problema y Solución Mejorados -->
+  <section class="project-insights-enhanced">
+    <div class="project-insights-background"></div>
     <div class="container">
-      <div class="insights-layout">
-        <div class="insights-cards">
-          <div class="insight-card problem-card">
-            <div class="insight-header">
-              <div class="insight-icon problem-icon">
-                <span class="material-icons">error_outline</span>
+      <div class="insights-header-enhanced">
+        <p class="insights-badge">
+          <span class="material-icons">psychology</span>
+          <span>Análisis del Proyecto</span>
+        </p>
+        <h2 class="insights-title">Del Desafío a la Solución</h2>
+        <p class="insights-subtitle">Entendemos el problema y diseñamos la mejor solución digital</p>
+      </div>
+      <div class="insights-cards-enhanced">
+        <div class="insight-card-enhanced problem-card-enhanced">
+          <div class="insight-card-glow problem-glow"></div>
+          <div class="insight-content-wrapper">
+            <div class="insight-header-enhanced">
+              <div class="insight-icon-enhanced problem-icon-enhanced">
+                <span class="material-icons">warning</span>
               </div>
-              <h3>El Desafío</h3>
+              <div class="insight-title-wrapper">
+                <h3 class="insight-title-enhanced">El Desafío</h3>
+                <p class="insight-subtitle-enhanced">Problema identificado</p>
+              </div>
             </div>
-            <p>{{ project.results.problem }}</p>
+            <div class="insight-divider"></div>
+            <p class="insight-text-enhanced">{{ project.results.problem }}</p>
+            <div class="insight-arrow-enhanced">
+              <span class="material-icons">arrow_forward</span>
+            </div>
           </div>
-          <div class="insight-card solution-card">
-            <div class="insight-header">
-              <div class="insight-icon solution-icon">
+        </div>
+        <div class="insight-connector">
+          <div class="connector-line"></div>
+          <div class="connector-icon">
+            <span class="material-icons">auto_awesome</span>
+          </div>
+        </div>
+        <div class="insight-card-enhanced solution-card-enhanced">
+          <div class="insight-card-glow solution-glow"></div>
+          <div class="insight-content-wrapper">
+            <div class="insight-header-enhanced">
+              <div class="insight-icon-enhanced solution-icon-enhanced">
                 <span class="material-icons">lightbulb</span>
               </div>
-              <h3>Nuestra Solución</h3>
+              <div class="insight-title-wrapper">
+                <h3 class="insight-title-enhanced">Nuestra Solución</h3>
+                <p class="insight-subtitle-enhanced">Solución implementada</p>
+              </div>
             </div>
-            <p>{{ project.results.solution }}</p>
-          </div>
-        </div>
-        <div class="technologies-used">
-          <h3 class="section-title">
-            <span class="material-icons">code</span>
-            Tecnologías Empleadas
-          </h3>
-          <div class="technologies-list">
-            <div *ngFor="let tech of project.technologies" class="tech-item">
+            <div class="insight-divider"></div>
+            <p class="insight-text-enhanced">{{ project.results.solution }}</p>
+            <div class="insight-arrow-enhanced">
               <span class="material-icons">check_circle</span>
-              <span>{{ tech }}</span>
             </div>
           </div>
         </div>
@@ -72,16 +129,23 @@
     </div>
   </section>
 
-  <!-- Imágenes de Tecnologías -->
-  <section class="tech-images-section" *ngIf="project.technologyImages && project.technologyImages.length > 0">
+  <!-- Imágenes de Tecnologías Mejoradas -->
+  <section class="tech-images-enhanced" *ngIf="project.technologyImages && project.technologyImages.length > 0">
+    <div class="tech-images-background"></div>
     <div class="container">
-      <h3 class="section-title-center">
-        <span class="material-icons">terminal</span>
-        Stack Tecnológico
-      </h3>
-      <div class="tech-images-grid">
-        <div *ngFor="let techImg of project.technologyImages" class="tech-image-item">
-          <img [src]="techImg" [alt]="'Tecnología'">
+      <div class="tech-images-header">
+        <div class="tech-images-badge">
+          <span class="material-icons">code</span>
+          <span>Stack Tecnológico</span>
+        </div>
+        <h3 class="tech-images-title">Tecnologías que impulsan este proyecto</h3>
+      </div>
+      <div class="tech-images-row">
+        <div *ngFor="let techImg of project.technologyImages; let i = index" class="tech-image-card" [style.animation-delay]="i * 0.1 + 's'">
+          <div class="tech-image-wrapper">
+            <div class="tech-image-glow-effect"></div>
+            <img [src]="techImg" [alt]="'Tecnología ' + (i + 1)" class="tech-image-logo">
+          </div>
         </div>
       </div>
     </div>
