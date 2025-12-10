@@ -285,24 +285,37 @@
     </div>
   </section>
 
-  <!-- Características de la Página Compactas -->
+   <!-- Características de la Página Mejoradas -->
   <section class="project-features-compact">
+    <div class="features-background-enhanced"></div>
     <div class="container">
       <div class="features-header-compact">
         <div class="features-badge-compact">
-          <span class="material-icons">check_circle</span>
-          <span>Funcionalidades</span>
+          <span class="material-icons">auto_awesome</span>
+          <span>Funcionalidades Premium</span>
         </div>
         <h3 class="features-title-compact">Características del Proyecto</h3>
+        <p class="features-subtitle-compact">Cada detalle diseñado para ofrecer la mejor experiencia</p>
       </div>
       <div class="features-grid-compact">
         <div *ngFor="let feature of project.features; let i = index" 
              class="feature-card-compact" 
-             [style.animation-delay]="i * 0.05 + 's'">
-          <div class="feature-icon-compact">
-            <span class="material-icons">check</span>
+             [style.animation-delay]="i * 0.08 + 's'">
+          <div class="feature-card-glow"></div>
+          <div class="feature-number-badge">
+            <span>{{ formatNumber(i + 1) }}</span>
           </div>
-          <span class="feature-text-compact">{{ feature }}</span>
+          <div class="feature-icon-compact">
+            <div class="feature-icon-bg"></div>
+            <span class="material-icons">check_circle</span>
+          </div>
+          <div class="feature-content-wrapper">
+            <span class="feature-text-compact">{{ feature }}</span>
+            <div class="feature-hover-indicator">
+              <span class="material-icons">arrow_forward</span>
+            </div>
+          </div>
+          <div class="feature-accent-line"></div>
         </div>
       </div>
     </div>

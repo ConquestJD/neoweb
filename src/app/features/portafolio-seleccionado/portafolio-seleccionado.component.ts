@@ -336,6 +336,10 @@ export class PortafolioSeleccionadoComponent implements OnInit {
     private router: Router
   ) {}
 
+  formatNumber(num: number): string {
+    return num.toString().padStart(2, '0');
+  }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const projectId = params.get('id');
