@@ -61,55 +61,64 @@
   </div>
 </section>
 
-<!-- Grid de posts (blanco) -->
-<section class="section-light py-16" id="blog-posts">
+<!-- Grid de Posts Mejorado -->
+<section class="blog-posts-enhanced" id="blog-posts">
   <div class="container">
-    <div class="mb-6 text-center text-gray-700">
-      Mostrando <span class="text-[#240092] font-semibold">{{ filteredPosts.length }}</span>
-      {{ selectedCategory === 'Todos' ? 'artículos' : 'artículos de ' + selectedCategory }}
+    <div class="posts-header-enhanced">
+      <div class="posts-count">
+        <span class="count-number">{{ filteredPosts.length }}</span>
+        <span class="count-label">{{ selectedCategory === 'Todos' ? 'artículos' : 'artículos de ' + selectedCategory }}</span>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="posts-grid-enhanced">
       <article
-        *ngFor="let post of filteredPosts"
+        *ngFor="let post of filteredPosts; let i = index"
         [routerLink]="['/blog', post.slug]"
-        class="glass-card rounded-2xl overflow-hidden cursor-pointer transition-transform duration-200 hover:-translate-y-1">
-        
-        <div class="relative h-48 overflow-hidden">
-          <img [src]="post.imageUrl" [alt]="post.title" class="w-full h-full object-cover">
-          <div class="absolute top-4 left-4">
-            <span class="chip bg-[#f1e9ff] text-[#240092] border-[#a048ff] text-xs">{{ post.category }}</span>
+        class="post-card-enhanced"
+        [style.animation-delay]="i * 0.1 + 's'">
+        <div class="post-image-wrapper">
+          <div class="post-image-overlay"></div>
+          <img [src]="post.imageUrl" [alt]="post.title" class="post-image">
+          <div class="post-category-badge">
+            <span class="material-icons">{{ getCategoryIcon(post.category) }}</span>
+            <span>{{ post.category }}</span>
+          </div>
+          <div class="post-read-indicator">
+            <span class="material-icons">schedule</span>
+            <span>{{ post.readTime }}</span>
           </div>
         </div>
-
-        <div class="p-5 space-y-3">
-          <h2 class="text-xl font-poppins font-bold text-neutral-900">{{ post.title }}</h2>
-          <p class="text-sm text-gray-700">{{ post.excerpt }}</p>
-          <div class="flex items-center justify-between text-xs text-gray-600">
-            <div class="flex items-center gap-2">
-              <span class="material-icons text-sm">person</span>
+        <div class="post-content">
+          <h2 class="post-title">{{ post.title }}</h2>
+          <p class="post-excerpt">{{ post.excerpt }}</p>
+          <div class="post-meta">
+            <div class="post-author">
+              <span class="material-icons">person</span>
               <span>{{ post.author }}</span>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="flex items-center gap-1">
-                <span class="material-icons text-sm">calendar_today</span>
-                <span>{{ post.date }}</span>
-              </div>
-              <div class="flex items-center gap-1">
-                <span class="material-icons text-sm">schedule</span>
-                <span>{{ post.readTime }}</span>
-              </div>
+            <div class="post-date">
+              <span class="material-icons">calendar_today</span>
+              <span>{{ post.date }}</span>
             </div>
           </div>
-          <div class="pt-2">
-            <span class="text-[#a048ff] font-semibold text-sm">Leer más →</span>
+          <div class="post-footer">
+            <span class="post-read-more">
+              <span>Leer artículo</span>
+              <span class="material-icons">arrow_forward</span>
+            </span>
           </div>
         </div>
+        <div class="post-hover-effect"></div>
       </article>
     </div>
 
-    <div *ngIf="filteredPosts.length === 0" class="text-center py-16 text-gray-600">
-      No hay artículos en esta categoría aún.
+    <div *ngIf="filteredPosts.length === 0" class="posts-empty">
+      <div class="empty-icon">
+        <span class="material-icons">article</span>
+      </div>
+      <h3 class="empty-title">No hay artículos disponibles</h3>
+      <p class="empty-description">No se encontraron artículos en esta categoría aún.</p>
     </div>
   </div>
 </section>
