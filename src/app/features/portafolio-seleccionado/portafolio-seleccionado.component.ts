@@ -8,8 +8,12 @@ interface Project {
   category: string;
   imageUrl: string;
   imageUrl2: string;
+  imageUrl3?: string;
   description: string;
   technologies: string[];
+  technologyImages?: string[];
+  features: string[];
+  serviceType: 'landing-page' | 'pagina-web' | 'tienda-virtual' | 'full-digital';
   results: {
     title: string;
     metrics: Array<{ label: string; value: string; icon: string }>;
@@ -30,6 +34,9 @@ interface Project {
 })
 export class PortafolioSeleccionadoComponent implements OnInit {
   project: Project | null = null;
+  relatedProjects: Project[] = [];
+  servicePlans: any[] = [];
+  
   allProjects: Project[] = [
     {
       id: 'liceum',
@@ -37,8 +44,26 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       category: 'Centro de Investigación Médica',
       imageUrl: 'assets/liceum-1.png',
       imageUrl2: 'assets/liceum-2.png',
+      imageUrl3: 'assets/liceum-1.png',
       description: 'Sitio web institucional para centro de investigación y entrenamiento en cirugía endoscópica, laparoscópica y robótica',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg'
+      ],
+      features: [
+        'Sistema de inscripciones online',
+        'Pasarela de pagos integrada',
+        'Panel administrativo completo',
+        'Gestión de cursos y eventos',
+        'Multi-idioma (Español/Inglés)',
+        'Optimización SEO avanzada',
+        'Diseño responsive completo',
+        'Integración con redes sociales'
+      ],
+      serviceType: 'pagina-web',
       results: {
         title: 'Transformación Digital en Medicina',
         metrics: [
@@ -65,8 +90,26 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       category: 'Clínica Oncológica',
       imageUrl: 'assets/omed-1.png',
       imageUrl2: 'assets/omed-2.png',
+      imageUrl3: 'assets/omed-1.png',
       description: 'Sitio web oficial de la Clínica Oncomed, centro médico especializado en tratamientos oncológicos',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Angular Material', 'SEO On-Page'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'
+      ],
+      features: [
+        '15+ páginas personalizadas',
+        'Diseño moderno y profesional',
+        'Optimización SEO completa',
+        'Formularios de contacto avanzados',
+        'Galería de imágenes',
+        'Perfiles del equipo médico',
+        'Información de servicios detallada',
+        'Diseño responsive'
+      ],
+      serviceType: 'pagina-web',
       results: {
         title: 'Presencia Digital Profesional',
         metrics: [
@@ -93,8 +136,26 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       category: 'Full Digital Personalizado',
       imageUrl: 'assets/gomed-1.png',
       imageUrl2: 'assets/gomed-2.png',
+      imageUrl3: 'assets/gomed-1.png',
       description: 'Sistema web completo para la administración financiera, médica y operativa de la Clínica OMED',
       technologies: ['Angular 19', 'TypeScript', 'RxJS', 'Chart.js', 'Angular Material', 'REST API', 'JWT Auth', 'MySQL', 'jsPDF', 'xlsx'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg'
+      ],
+      features: [
+        'Dashboard interactivo con gráficos',
+        'Gestión financiera completa',
+        'Control de caja chica',
+        'Gestión de pacientes',
+        'Reportes automáticos',
+        'Múltiples sedes conectadas',
+        'Sistema de autenticación seguro',
+        'Exportación de reportes (PDF/Excel)'
+      ],
+      serviceType: 'full-digital',
       results: {
         title: 'Automatización Total de Procesos',
         metrics: [
@@ -117,6 +178,159 @@ export class PortafolioSeleccionadoComponent implements OnInit {
     }
   ];
 
+  // Planes por tipo de servicio
+  plansByService: any = {
+    'landing-page': [
+      {
+        name: 'START',
+        price: 'S/ 500',
+        icon: 'star',
+        features: [
+          '3-4 bloques: Hero, Beneficios, Servicios/Características, CTA',
+          'Diseño moderno',
+          'WhatsApp integrado',
+          'SEO básico',
+          'Hosting + dominio 1 año'
+        ]
+      },
+      {
+        name: 'PRO',
+        price: 'S/ 800',
+        icon: 'rocket_launch',
+        featured: true,
+        features: [
+          '6-7 bloques: Hero, Beneficios, Cómo Funciona, Planes/Servicios, Testimonios, FAQ, CTA final',
+          'Copywriting optimizado',
+          'Formulario avanzado',
+          'Integración con CRM / Email marketing',
+          'Animaciones suaves',
+          'Google Analytics'
+        ]
+      },
+      {
+        name: 'PREMIUM',
+        price: 'S/ 1,200',
+        icon: 'diamond',
+        features: [
+          '8-10 bloques: Hero premium, Valor diferencial, Solución, Beneficios, Video/Demo, Planes, Testimonios, Casos de éxito, FAQ, CTA final',
+          'Diseño totalmente personalizado',
+          'Animaciones avanzadas',
+          'SEO completo',
+          'Optimizada para campañas masivas',
+          'Automatizaciones (email + etiquetas)'
+        ]
+      }
+    ],
+    'pagina-web': [
+      {
+        name: 'START',
+        price: 'S/ 1,200',
+        icon: 'star',
+        features: [
+          '6 secciones: Inicio, Nosotros, Servicios, Beneficios, FAQ, Contacto',
+          'Diseño moderno',
+          'Responsive completo',
+          'Formulario + WhatsApp',
+          'SEO básico (título, descripción, etiquetas)',
+          'Certificado SSL',
+          'Hosting + dominio 1 año',
+          'Entrega: 1 semana'
+        ]
+      },
+      {
+        name: 'PRO',
+        price: 'S/ 1,800',
+        icon: 'rocket_launch',
+        featured: true,
+        features: [
+          '8-10 secciones: Inicio, Nosotros, Equipo, Servicios, Detalle de Servicios, Proyectos, Testimonios, Blog (activado), FAQ, Contacto',
+          'Diseño personalizado',
+          'Animaciones suaves (fade, slide, hover)',
+          'Google Analytics + Tag Manager',
+          'SEO on-page básico',
+          'Optimización de velocidad ligera',
+          'Hosting + dominio 1 año',
+          'Entrega: 1-2 semanas'
+        ]
+      },
+      {
+        name: 'PREMIUM',
+        price: 'S/ 2,500',
+        icon: 'diamond',
+        features: [
+          '12-15 secciones: Hero avanzado, Inicio, Nosotros, Historia, Equipo, Servicios, Detalle de Servicios, Portafolio filtrable, Proyectos, Testimonios, Blog, FAQ, CTA personalizados, Contacto',
+          'Diseño UI/UX avanzado',
+          'Animaciones profesionales (scroll, parallax, microinteracciones)',
+          'Integraciones API básicas (CRM, correos, etc.)',
+          'SEO completo',
+          'Optimización de velocidad PRO',
+          'Hosting + dominio 1 año',
+          'Entrega: 2-3 semanas'
+        ]
+      }
+    ],
+    'tienda-virtual': [
+      {
+        name: 'START',
+        price: 'S/ 2,500',
+        icon: 'star',
+        features: [
+          'Hasta 50 productos',
+          'Secciones: Inicio, Tienda, Categorías simples, Producto, Carrito, Checkout, Contacto',
+          'Métodos de pago básicos',
+          'Diseño moderno',
+          'Inventario básico',
+          'SEO simple'
+        ]
+      },
+      {
+        name: 'PRO',
+        price: 'S/ 3,500',
+        icon: 'rocket_launch',
+        featured: true,
+        features: [
+          'Hasta 300 productos',
+          'Secciones: Inicio, Tienda avanzada, Categorías profesionales, Producto completo, Cuenta usuario, Políticas, Blog',
+          'Variantes y filtros',
+          'Cupones y reportes',
+          'SEO optimizado',
+          'Integración con WhatsApp'
+        ]
+      },
+      {
+        name: 'PREMIUM',
+        price: 'S/ 5,000 - S/ 8,000',
+        icon: 'diamond',
+        features: [
+          'Productos ilimitados',
+          'Panel administrativo personalizado',
+          'Diseño UI/UX a medida',
+          'Automatizaciones (correos, estados, alertas)',
+          'Integraciones API externas',
+          'SEO completo',
+          'Optimización de rendimiento'
+        ]
+      }
+    ],
+    'full-digital': [
+      {
+        name: 'PERSONALIZADO',
+        price: 'Cotización',
+        icon: 'auto_awesome',
+        features: [
+          'Solución digital completa a medida',
+          'Análisis de necesidades',
+          'Diseño UI/UX personalizado',
+          'Desarrollo full-stack',
+          'Integraciones avanzadas',
+          'Panel administrativo completo',
+          'Soporte técnico extendido',
+          'Actualizaciones continuas'
+        ]
+      }
+    ]
+  };
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -129,6 +343,22 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         this.project = this.allProjects.find(p => p.id === projectId) || null;
         if (!this.project) {
           this.router.navigate(['/portafolio']);
+        } else {
+          // Cargar proyectos relacionados (excluyendo el actual)
+          this.relatedProjects = this.allProjects
+            .filter(p => p.id !== projectId && p.serviceType === this.project!.serviceType)
+            .slice(0, 3);
+          
+          // Si no hay suficientes del mismo tipo, agregar otros
+          if (this.relatedProjects.length < 3) {
+            const otherProjects = this.allProjects
+              .filter(p => p.id !== projectId && !this.relatedProjects.find(rp => rp.id === p.id))
+              .slice(0, 3 - this.relatedProjects.length);
+            this.relatedProjects = [...this.relatedProjects, ...otherProjects];
+          }
+          
+          // Cargar planes del servicio
+          this.servicePlans = this.plansByService[this.project.serviceType] || [];
         }
       } else {
         this.router.navigate(['/portafolio']);

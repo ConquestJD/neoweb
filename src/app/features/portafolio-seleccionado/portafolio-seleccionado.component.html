@@ -1,136 +1,209 @@
 <div *ngIf="project" class="project-detail-page">
-  <!-- Hero del Proyecto -->
-  <section class="project-detail-hero">
+  <!-- Hero: Proyecto Izquierda + Imagen Derecha -->
+  <section class="project-hero-section">
     <div class="container">
       <a routerLink="/portafolio" class="back-button">
         <span class="material-icons">arrow_back</span>
         <span>Volver al portafolio</span>
       </a>
-      <div class="project-detail-header">
-        <div class="project-detail-badges">
-          <span class="project-detail-badge">{{ project.category }}</span>
-          <span class="project-detail-badge badge-accent">{{ project.results.type }}</span>
-        </div>
-        <h1 class="project-detail-title">{{ project.title }}</h1>
-        <p class="project-detail-description">{{ project.description }}</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Imagen Principal -->
-  <section class="project-detail-image-section">
-    <div class="container">
-      <div class="project-detail-image-wrapper">
-        <img [src]="project.imageUrl" [alt]="project.title">
-      </div>
-    </div>
-  </section>
-
-  <!-- Contenido Principal -->
-  <section class="project-detail-content">
-    <div class="container">
-      <div class="project-detail-layout">
-        <!-- Columna Principal -->
-        <div class="project-detail-main">
-          <!-- Problema y Solución -->
-          <div class="project-detail-insights">
-            <div class="insight-card-detail problem-card-detail">
-              <div class="insight-header-detail">
-                <div class="insight-icon-detail problem-icon-detail">
-                  <span class="material-icons">error_outline</span>
-                </div>
-                <h3>El Desafío</h3>
-              </div>
-              <p>{{ project.results.problem }}</p>
-            </div>
-            <div class="insight-card-detail solution-card-detail">
-              <div class="insight-header-detail">
-                <div class="insight-icon-detail solution-icon-detail">
-                  <span class="material-icons">lightbulb</span>
-                </div>
-                <h3>Nuestra Solución</h3>
-              </div>
-              <p>{{ project.results.solution }}</p>
-            </div>
+      <div class="project-hero-layout">
+        <div class="project-hero-content">
+          <div class="project-hero-badges">
+            <span class="project-hero-badge">{{ project.category }}</span>
+            <span class="project-hero-badge badge-accent">{{ project.results.type }}</span>
           </div>
-
-          <!-- Stack Tecnológico -->
-          <div class="project-detail-tech">
-            <h3 class="section-title-detail">
-              <span class="material-icons">code</span>
-              Stack Tecnológico
-            </h3>
-            <div class="tech-grid-detail">
-              <div *ngFor="let tech of project.technologies" class="tech-item-detail">
-                <span class="material-icons">check_circle</span>
-                <span>{{ tech }}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Impacto en el Negocio -->
-          <div class="project-detail-impact">
-            <h3 class="section-title-detail">
-              <span class="material-icons">trending_up</span>
-              Impacto en el Negocio
-            </h3>
-            <ul class="impact-list-detail">
-              <li *ngFor="let impact of project.results.businessImpact" class="impact-item-detail">
-                <span class="material-icons">check_circle</span>
-                <span>{{ impact }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Galería -->
-          <div class="project-detail-gallery">
-            <h3 class="section-title-detail">
-              <span class="material-icons">collections</span>
-              Galería del Proyecto
-            </h3>
-            <div class="gallery-grid-detail">
-              <div class="gallery-item-detail">
-                <img [src]="project.imageUrl" [alt]="project.title">
-              </div>
-              <div class="gallery-item-detail">
-                <img [src]="project.imageUrl2" [alt]="project.title + ' vista 2'">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="project-detail-sidebar">
-          <!-- Métricas -->
-          <div class="metrics-sidebar">
-            <h3 class="sidebar-title">Resultados</h3>
-            <div class="metrics-list-sidebar">
-              <div *ngFor="let metric of project.results.metrics" class="metric-sidebar">
-                <div class="metric-icon-sidebar">
-                  <span class="material-icons">{{ metric.icon }}</span>
-                </div>
-                <div class="metric-content-sidebar">
-                  <div class="metric-value-sidebar">{{ metric.value }}</div>
-                  <div class="metric-label-sidebar">{{ metric.label }}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Acciones -->
-          <div class="actions-sidebar">
-            <a [href]="project.results.websiteUrl" target="_blank" class="action-btn-primary-sidebar" *ngIf="project.results.websiteUrl !== '#'">
+          <h1 class="project-hero-title">{{ project.title }}</h1>
+          <p class="project-hero-description">{{ project.description }}</p>
+          <div class="project-hero-actions">
+            <a [href]="project.results.websiteUrl" target="_blank" class="hero-btn-primary" *ngIf="project.results.websiteUrl !== '#'">
               <span class="material-icons">launch</span>
               <span>Visitar sitio web</span>
             </a>
-            <a routerLink="/contacto" class="action-btn-secondary-sidebar">
+            <a routerLink="/contacto" class="hero-btn-secondary">
               <span class="material-icons">chat</span>
               <span>Hablemos de tu proyecto</span>
             </a>
           </div>
         </div>
+        <div class="project-hero-image">
+          <img [src]="project.imageUrl" [alt]="project.title">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problema, Solución y Tecnologías -->
+  <section class="project-insights-section">
+    <div class="container">
+      <div class="insights-layout">
+        <div class="insights-cards">
+          <div class="insight-card problem-card">
+            <div class="insight-header">
+              <div class="insight-icon problem-icon">
+                <span class="material-icons">error_outline</span>
+              </div>
+              <h3>El Desafío</h3>
+            </div>
+            <p>{{ project.results.problem }}</p>
+          </div>
+          <div class="insight-card solution-card">
+            <div class="insight-header">
+              <div class="insight-icon solution-icon">
+                <span class="material-icons">lightbulb</span>
+              </div>
+              <h3>Nuestra Solución</h3>
+            </div>
+            <p>{{ project.results.solution }}</p>
+          </div>
+        </div>
+        <div class="technologies-used">
+          <h3 class="section-title">
+            <span class="material-icons">code</span>
+            Tecnologías Empleadas
+          </h3>
+          <div class="technologies-list">
+            <div *ngFor="let tech of project.technologies" class="tech-item">
+              <span class="material-icons">check_circle</span>
+              <span>{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Imágenes de Tecnologías -->
+  <section class="tech-images-section" *ngIf="project.technologyImages && project.technologyImages.length > 0">
+    <div class="container">
+      <h3 class="section-title-center">
+        <span class="material-icons">terminal</span>
+        Stack Tecnológico
+      </h3>
+      <div class="tech-images-grid">
+        <div *ngFor="let techImg of project.technologyImages" class="tech-image-item">
+          <img [src]="techImg" [alt]="'Tecnología'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vistas del Proyecto (3 imágenes) -->
+  <section class="project-views-section">
+    <div class="container">
+      <h3 class="section-title-center">
+        <span class="material-icons">collections</span>
+        Vistas del Proyecto
+      </h3>
+      <div class="project-views-grid">
+        <div class="view-item">
+          <img [src]="project.imageUrl" [alt]="project.title + ' vista 1'">
+        </div>
+        <div class="view-item">
+          <img [src]="project.imageUrl2" [alt]="project.title + ' vista 2'">
+        </div>
+        <div class="view-item" *ngIf="project.imageUrl3">
+          <img [src]="project.imageUrl3" [alt]="project.title + ' vista 3'">
+        </div>
+        <div class="view-item" *ngIf="!project.imageUrl3">
+          <img [src]="project.imageUrl" [alt]="project.title + ' vista 3'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Características de la Página -->
+  <section class="project-features-section">
+    <div class="container">
+      <h3 class="section-title-center">
+        <span class="material-icons">star</span>
+        Características de la Página
+      </h3>
+      <div class="features-grid">
+        <div *ngFor="let feature of project.features" class="feature-item">
+          <span class="material-icons">check_circle</span>
+          <span>{{ feature }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos Relacionados -->
+  <section class="related-projects-section" *ngIf="relatedProjects.length > 0">
+    <div class="container">
+      <h3 class="section-title-center">
+        <span class="material-icons">folder_special</span>
+        Proyectos Relacionados
+      </h3>
+      <div class="related-projects-grid">
+        <div *ngFor="let relatedProject of relatedProjects" class="related-project-card">
+          <div class="related-project-image">
+            <img [src]="relatedProject.imageUrl" [alt]="relatedProject.title">
+          </div>
+          <div class="related-project-content">
+            <span class="related-project-category">{{ relatedProject.category }}</span>
+            <h4 class="related-project-title">{{ relatedProject.title }}</h4>
+            <p class="related-project-description">{{ relatedProject.description }}</p>
+            <a [routerLink]="['/portafolio', relatedProject.id]" class="related-project-link">
+              Ver proyecto
+              <span class="material-icons">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planes del Tipo de Servicio -->
+  <section class="service-plans-section" *ngIf="servicePlans.length > 0">
+    <div class="container">
+      <div class="plans-header">
+        <p class="plans-badge">
+          <span class="material-icons">local_offer</span>
+          Planes disponibles
+        </p>
+        <h3 class="plans-title">Planes de {{ project.results.type }}</h3>
+        <p class="plans-description">Elige el plan que mejor se adapte a las necesidades de tu proyecto</p>
+      </div>
+      <div class="plans-grid">
+        <div *ngFor="let plan of servicePlans" class="plan-card" [class.featured]="plan.featured">
+          <div class="plan-header">
+            <div class="plan-icon">
+              <span class="material-icons">{{ plan.icon }}</span>
+            </div>
+            <h4 class="plan-name">{{ plan.name }}</h4>
+            <div class="plan-price">{{ plan.price }}</div>
+          </div>
+          <ul class="plan-features">
+            <li *ngFor="let feature of plan.features">
+              <span class="material-icons">check</span>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+          <a routerLink="/contacto" class="plan-button">
+            Solicitar cotización
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="project-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h3 class="cta-title">¿Listo para tu próximo proyecto?</h3>
+        <p class="cta-description">Hablemos de cómo podemos llevar tu negocio al siguiente nivel digital</p>
+        <div class="cta-buttons">
+          <a routerLink="/contacto" class="cta-btn-primary">
+            <span class="material-icons">rocket_launch</span>
+            <span>Iniciar proyecto</span>
+          </a>
+          <a routerLink="/portafolio" class="cta-btn-secondary">
+            <span class="material-icons">folder</span>
+            <span>Ver más proyectos</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 </div>
-
