@@ -1,16 +1,35 @@
 <!-- Servicio: Landing Page -->
 
-<!-- Hero (azul oscuro) -->
-<section class="section-navy hero-full hero-pattern py-20">
-  <div class="container text-center max-w-5xl">
-    <p class="pill mx-auto mb-3">Landing pages</p>
-    <h1 class="text-4xl md:text-5xl font-poppins font-bold text-white mb-4">Landing pages de alto rendimiento</h1>
-    <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-      Mensaje claro, velocidad y optimización para conversión. Perfecta para campañas y lanzamiento de productos.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-      <button routerLink="/contacto" class="btn-primary">Solicitar cotización</button>
-      <button routerLink="/servicios" class="btn-secondary">Ver todos los servicios</button>
+<!-- Hero Mejorado -->
+<section class="hero-servicio-enhanced">
+  <div class="hero-servicio-background"></div>
+  <div class="hero-servicio-particles"></div>
+  <div class="container">
+    <div class="hero-servicio-content">
+      <div class="hero-servicio-badge">
+        <span class="material-icons">rocket_launch</span>
+        <span>Landing pages</span>
+      </div>
+      <h1 class="hero-servicio-title">
+        Landing pages de
+        <span class="hero-servicio-title-highlight">alto rendimiento</span>
+      </h1>
+      <p class="hero-servicio-description">
+        Mensaje claro, velocidad y optimización para conversión. Perfecta para campañas y lanzamiento de productos.
+      </p>
+      <div class="hero-servicio-buttons">
+        <button routerLink="/contacto" class="hero-servicio-btn-primary">
+          <span class="material-icons">mail</span>
+          <span>Solicitar cotización</span>
+        </button>
+        <button routerLink="/servicios" class="hero-servicio-btn-secondary">
+          <span class="material-icons">arrow_back</span>
+          <span>Ver todos los servicios</span>
+        </button>
+      </div>
+      <div class="hero-servicio-scroll-indicator">
+        <span class="material-icons">keyboard_arrow_down</span>
+      </div>
     </div>
   </div>
 </section>
