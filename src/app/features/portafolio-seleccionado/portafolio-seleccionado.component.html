@@ -151,25 +151,40 @@
     </div>
   </section>
 
-  <!-- Vistas del Proyecto (3 imágenes) -->
-  <section class="project-views-section">
+  <!-- Vistas del Proyecto Mejoradas (3 imágenes) -->
+  <section class="project-views-enhanced">
+    <div class="project-views-background"></div>
     <div class="container">
-      <h3 class="section-title-center">
-        <span class="material-icons">collections</span>
-        Vistas del Proyecto
-      </h3>
-      <div class="project-views-grid">
-        <div class="view-item">
-          <img [src]="project.imageUrl" [alt]="project.title + ' vista 1'">
+      <div class="project-views-header">
+        <div class="views-badge">
+          <span class="material-icons">photo_library</span>
+          <span>Galería</span>
         </div>
-        <div class="view-item">
-          <img [src]="project.imageUrl2" [alt]="project.title + ' vista 2'">
-        </div>
-        <div class="view-item" *ngIf="project.imageUrl3">
-          <img [src]="project.imageUrl3" [alt]="project.title + ' vista 3'">
-        </div>
-        <div class="view-item" *ngIf="!project.imageUrl3">
-          <img [src]="project.imageUrl" [alt]="project.title + ' vista 3'">
+        <h3 class="views-title">Vistas del Proyecto</h3>
+        <p class="views-subtitle">Explora las diferentes secciones y funcionalidades implementadas</p>
+      </div>
+      <div class="project-views-grid-enhanced">
+        <div class="view-card-enhanced" *ngFor="let img of [project.imageUrl, project.imageUrl2, project.imageUrl3 || project.imageUrl]; let i = index">
+          <div class="view-card-wrapper">
+            <div class="view-number-badge">
+              <span class="material-icons">image</span>
+              <span>Vista {{ i + 1 }}</span>
+            </div>
+            <div class="view-image-container">
+              <div class="view-image-glow"></div>
+              <img [src]="img" [alt]="project.title + ' vista ' + (i + 1)" class="view-image">
+              <div class="view-overlay">
+                <div class="view-overlay-content">
+                  <span class="material-icons">zoom_in</span>
+                  <span>Ver en detalle</span>
+                </div>
+              </div>
+            </div>
+            <div class="view-card-footer">
+              <span class="view-label">Captura {{ i + 1 }}</span>
+              <span class="material-icons view-arrow">arrow_forward</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
