@@ -34,34 +34,64 @@
   </div>
 </section>
 
-<!-- Planes (blanco) -->
-<section class="section-light py-16">
+<!-- Planes Mejorados -->
+<section class="plans-section-enhanced">
+  <div class="plans-background"></div>
+  <div class="plans-pattern"></div>
   <div class="container">
-    <div class="text-center mb-10">
-      <p class="pill mx-auto mb-3">Planes</p>
-      <h2 class="text-3xl md:text-4xl font-poppins font-bold text-neutral-900">Planes y precios</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Desde S/ 400/mes hasta S/ 1,500/mes según inversión y alcance.</p>
+    <div class="plans-header">
+      <div class="plans-badge">
+        <span class="material-icons">local_offer</span>
+        <span>Planes</span>
+      </div>
+      <h2 class="plans-title">
+        Planes y
+        <span class="plans-title-highlight">precios</span>
+      </h2>
+      <p class="plans-subtitle">Desde S/ 400/mes hasta S/ 1,500/mes según inversión y alcance.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div *ngFor="let plan of plans" class="glass-card p-6 relative">
-        <div *ngIf="plan.featured" class="absolute -top-3 left-1/2 -translate-x-1/2 pill bg-[#f1e9ff] text-[#240092] border-[#a048ff]">
-          Más popular
+    <div class="plans-grid">
+      <div 
+        *ngFor="let plan of plans; let i = index"
+        class="plan-card"
+        [class.plan-featured]="plan.featured"
+        [style.animation-delay]="i * 0.15 + 's'">
+        <div *ngIf="plan.featured" class="plan-popular-badge">
+          <span class="material-icons">star</span>
+          <span>Más popular</span>
         </div>
-        <div class="text-center mb-4">
-          <div class="w-14 h-14 rounded-full bg-[#f1e9ff] text-[#a048ff] flex items-center justify-center mx-auto mb-3">
-            <span class="material-icons">{{ plan.icon }}</span>
+        <div class="plan-card-inner">
+          <div class="plan-header">
+            <div class="plan-icon-wrapper">
+              <div class="plan-icon-bg"></div>
+              <span class="material-icons plan-icon">{{ plan.icon }}</span>
+              <div class="plan-icon-glow"></div>
+            </div>
+            <h3 class="plan-name">Plan {{ plan.name }}</h3>
+            <div class="plan-price">
+              <span class="plan-price-amount">{{ plan.price }}</span>
+              <span *ngIf="plan.period" class="plan-price-period">{{ plan.period }}</span>
+            </div>
           </div>
-          <h3 class="text-xl font-poppins font-bold text-neutral-900">Plan {{ plan.name }}</h3>
-          <p class="text-3xl font-bold text-neutral-900 mt-2">{{ plan.price }}</p>
-          <p class="text-sm text-gray-600">{{ plan.period }}</p>
+          <div class="plan-features">
+            <ul class="plan-features-list">
+              <li *ngFor="let feature of plan.features" class="plan-feature-item">
+                <span class="plan-feature-icon">
+                  <span class="material-icons">check_circle</span>
+                </span>
+                <span class="plan-feature-text">{{ feature }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <button routerLink="/contacto" class="plan-button" [class.plan-button-featured]="plan.featured">
+              <span>Elegir plan {{ plan.name }}</span>
+              <span class="material-icons">arrow_forward</span>
+              <div class="plan-button-shine"></div>
+            </button>
+          </div>
         </div>
-        <ul class="list-check mb-4">
-          <li *ngFor="let feature of plan.features">
-            <span class="icon">✓</span>
-            <span>{{ feature }}</span>
-          </li>
-        </ul>
-        <button routerLink="/contacto" class="btn-primary w-full">Elegir plan {{ plan.name }}</button>
+        <div class="plan-card-glow"></div>
       </div>
     </div>
   </div>
