@@ -73,16 +73,20 @@
     <div class="project-insights-background"></div>
     <div class="container">
       <div class="insights-header-enhanced">
-        <p class="insights-badge">
-          <span class="material-icons">psychology</span>
-          <span>Análisis del Proyecto</span>
-        </p>
+        <div class="insights-badge">
+          <span class="material-icons">analytics</span>
+          <span>Análisis Estratégico</span>
+        </div>
         <h2 class="insights-title">Del Desafío a la Solución</h2>
-        <p class="insights-subtitle">Entendemos el problema y diseñamos la mejor solución digital</p>
+        <p class="insights-subtitle">Comprendemos el problema, diseñamos la estrategia y ejecutamos la solución</p>
       </div>
       <div class="insights-cards-enhanced">
         <div class="insight-card-enhanced problem-card-enhanced">
           <div class="insight-card-glow problem-glow"></div>
+          <div class="insight-badge-top">
+            <span class="material-icons">error_outline</span>
+            <span>Desafío</span>
+          </div>
           <div class="insight-content-wrapper">
             <div class="insight-header-enhanced">
               <div class="insight-icon-enhanced problem-icon-enhanced">
@@ -95,6 +99,20 @@
             </div>
             <div class="insight-divider"></div>
             <p class="insight-text-enhanced">{{ project.results.problem }}</p>
+            <div class="insight-challenges">
+              <div class="challenge-item">
+                <span class="material-icons">remove_circle</span>
+                <span>Falta de presencia digital</span>
+              </div>
+              <div class="challenge-item">
+                <span class="material-icons">remove_circle</span>
+                <span>Procesos manuales ineficientes</span>
+              </div>
+              <div class="challenge-item">
+                <span class="material-icons">remove_circle</span>
+                <span>Limitado alcance geográfico</span>
+              </div>
+            </div>
             <div class="insight-arrow-enhanced">
               <span class="material-icons">arrow_forward</span>
             </div>
@@ -105,9 +123,18 @@
           <div class="connector-icon">
             <span class="material-icons">auto_awesome</span>
           </div>
+          <div class="connector-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+          </div>
         </div>
         <div class="insight-card-enhanced solution-card-enhanced">
           <div class="insight-card-glow solution-glow"></div>
+          <div class="insight-badge-top solution-badge">
+            <span class="material-icons">check_circle</span>
+            <span>Solución</span>
+          </div>
           <div class="insight-content-wrapper">
             <div class="insight-header-enhanced">
               <div class="insight-icon-enhanced solution-icon-enhanced">
@@ -120,9 +147,44 @@
             </div>
             <div class="insight-divider"></div>
             <p class="insight-text-enhanced">{{ project.results.solution }}</p>
+            <div class="insight-solutions">
+              <div class="solution-item">
+                <span class="material-icons">check_circle</span>
+                <span>Plataforma digital completa</span>
+              </div>
+              <div class="solution-item">
+                <span class="material-icons">check_circle</span>
+                <span>Automatización de procesos</span>
+              </div>
+              <div class="solution-item">
+                <span class="material-icons">check_circle</span>
+                <span>Alcance internacional</span>
+              </div>
+            </div>
+            <div class="insight-results-preview">
+              <div class="result-preview-item">
+                <span class="material-icons">trending_up</span>
+                <div>
+                  <div class="result-value">{{ project.results.metrics[0]?.value || '100%' }}</div>
+                  <div class="result-label">{{ project.results.metrics[0]?.label || 'Mejora' }}</div>
+                </div>
+              </div>
+            </div>
             <div class="insight-arrow-enhanced">
               <span class="material-icons">check_circle</span>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="insights-impact-section">
+        <div class="impact-header">
+          <span class="material-icons">star</span>
+          <h4>Impacto del Proyecto</h4>
+        </div>
+        <div class="impact-grid">
+          <div *ngFor="let impact of project.results.businessImpact" class="impact-item">
+            <span class="material-icons">verified</span>
+            <span>{{ impact }}</span>
           </div>
         </div>
       </div>
@@ -151,41 +213,74 @@
     </div>
   </section>
 
-  <!-- Vistas del Proyecto Mejoradas (3 imágenes) -->
+  <!-- Vistas del Proyecto Rediseñadas -->
   <section class="project-views-enhanced">
     <div class="project-views-background"></div>
+    <div class="views-pattern-overlay"></div>
     <div class="container">
       <div class="project-views-header">
         <div class="views-badge">
-          <span class="material-icons">photo_library</span>
-          <span>Galería</span>
+          <span class="material-icons">collections</span>
+          <span>Galería del Proyecto</span>
         </div>
-        <h3 class="views-title">Vistas del Proyecto</h3>
-        <p class="views-subtitle">Explora las diferentes secciones y funcionalidades implementadas</p>
+        <h3 class="views-title">Un Vistazo Detallado al Diseño</h3>
+        <p class="views-subtitle">Explora las interfaces y la experiencia de usuario de este proyecto</p>
       </div>
       <div class="project-views-grid-enhanced">
-        <div class="view-card-enhanced" *ngFor="let img of [project.imageUrl, project.imageUrl2, project.imageUrl3 || project.imageUrl]; let i = index">
+        <div class="view-card-enhanced" 
+             *ngFor="let img of [project.imageUrl, project.imageUrl2, project.imageUrl3 || project.imageUrl]; let i = index"
+             [style.animation-delay]="i * 0.15 + 's'">
           <div class="view-card-wrapper">
+            <div class="view-card-background"></div>
             <div class="view-number-badge">
-              <span class="material-icons">image</span>
-              <span>Vista {{ i + 1 }}</span>
+              <div class="badge-icon-wrapper">
+                <span class="material-icons">photo</span>
+              </div>
+              <div class="badge-content">
+                <span class="badge-number">0{{ i + 1 }}</span>
+                <span class="badge-label">Vista</span>
+              </div>
             </div>
             <div class="view-image-container">
               <div class="view-image-glow"></div>
+              <div class="view-image-border"></div>
               <img [src]="img" [alt]="project.title + ' vista ' + (i + 1)" class="view-image">
               <div class="view-overlay">
                 <div class="view-overlay-content">
-                  <span class="material-icons">zoom_in</span>
-                  <span>Ver en detalle</span>
+                  <div class="overlay-icon-wrapper">
+                    <span class="material-icons">zoom_in</span>
+                  </div>
+                  <span class="overlay-text">Ver en detalle</span>
+                  <div class="overlay-arrow">
+                    <span class="material-icons">arrow_forward</span>
+                  </div>
                 </div>
               </div>
+              <div class="view-shine-effect"></div>
             </div>
             <div class="view-card-footer">
-              <span class="view-label">Captura {{ i + 1 }}</span>
-              <span class="material-icons view-arrow">arrow_forward</span>
+              <div class="view-footer-content">
+                <div class="view-footer-icon">
+                  <span class="material-icons">desktop_windows</span>
+                </div>
+                <div class="view-footer-text">
+                  <span class="view-label">{{ ['Vista Principal', 'Diseño Interior', 'Vista Adicional'][i] || 'Captura ' + (i + 1) }}</span>
+                  <span class="view-description">Sección {{ i + 1 }} del proyecto</span>
+                </div>
+              </div>
+              <div class="view-footer-arrow">
+                <span class="material-icons">arrow_forward</span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="views-cta">
+        <a [href]="project.results.websiteUrl" target="_blank" class="views-cta-button" *ngIf="project.results.websiteUrl !== '#'">
+          <span class="material-icons">launch</span>
+          <span>Ver proyecto completo</span>
+          <span class="material-icons">arrow_forward</span>
+        </a>
       </div>
     </div>
   </section>
