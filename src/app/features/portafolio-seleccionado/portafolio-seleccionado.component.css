@@ -1578,7 +1578,7 @@
 /* Service Plans Section Rediseñada */
 .service-plans-enhanced {
   position: relative;
-  padding: 50px 0;
+  padding: 40px 0;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   overflow: hidden;
   isolation: isolate;
@@ -1608,21 +1608,21 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .plans-badge-enhanced {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
+  gap: 8px;
+  padding: 8px 16px;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(107, 70, 193, 0.08) 100%);
   border: 1px solid rgba(139, 92, 246, 0.25);
   border-radius: 50px;
   color: #8b5cf6;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   box-shadow: 0 4px 16px rgba(139, 92, 246, 0.15);
 }
 
@@ -1631,10 +1631,10 @@
 }
 
 .plans-title-enhanced {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
-  margin: 0 0 16px 0;
+  margin: 0 0 8px 0;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.03em;
   background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
@@ -1644,7 +1644,7 @@
 }
 
 .plans-description-enhanced {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #64748b;
   margin: 0;
   max-width: 600px;
@@ -1656,15 +1656,15 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .plan-card-enhanced {
   position: relative;
-  padding: 28px;
+  padding: 20px;
   background: #ffffff;
   border: 2px solid #e2e8f0;
   border-radius: 28px;
@@ -1733,16 +1733,16 @@
 
 .plan-header-enhanced {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   position: relative;
   z-index: 2;
 }
 
 .plan-icon-wrapper {
   position: relative;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 16px;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
 }
 
 .plan-icon-bg {
@@ -1765,7 +1765,7 @@
 .plan-icon-enhanced {
   position: relative;
   z-index: 1;
-  font-size: 32px;
+  font-size: 24px;
   color: #8b5cf6;
   transition: all 0.4s ease;
   display: flex;
@@ -1780,10 +1780,10 @@
 }
 
 .plan-name-enhanced {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #0f172a;
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease;
 }
@@ -1800,7 +1800,7 @@
 }
 
 .plan-price-enhanced {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 900;
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   -webkit-background-clip: text;
@@ -1820,7 +1820,7 @@
 
 .plan-features-enhanced {
   flex: 1;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   position: relative;
   z-index: 2;
 }
@@ -1828,10 +1828,10 @@
 .plan-features-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #e2e8f0;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .plan-features-header .material-icons {
@@ -1853,14 +1853,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .plan-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 8px;
+  gap: 10px;
+  padding: 6px;
   background: rgba(139, 92, 246, 0.02);
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -1872,8 +1872,8 @@
 }
 
 .plan-feature-check {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1889,7 +1889,7 @@
 }
 
 .plan-feature-check .material-icons {
-  font-size: 16px;
+  font-size: 14px;
   color: #10b981;
   transition: color 0.3s ease;
 }
@@ -1920,9 +1920,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  padding: 18px 32px;
+  padding: 14px 24px;
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: #ffffff;
   text-decoration: none;
