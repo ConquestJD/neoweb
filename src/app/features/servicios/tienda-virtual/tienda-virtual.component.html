@@ -70,6 +70,7 @@
             <h3 class="plan-name">Plan {{ plan.name }}</h3>
             <div class="plan-price">
               <span class="plan-price-amount">{{ plan.price }}</span>
+              <span *ngIf="plan.period" class="plan-price-period">{{ plan.period }}</span>
             </div>
           </div>
           <div class="plan-features">

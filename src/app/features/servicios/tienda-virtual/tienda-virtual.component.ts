@@ -135,7 +135,15 @@ export class TiendaVirtualComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  plans = [
+  plans: Array<{
+    name: string;
+    price: string;
+    icon: string;
+    color: string;
+    features: string[];
+    featured?: boolean;
+    period?: string;
+  }> = [
     {
       name: 'START',
       price: 'S/ 2,500',
