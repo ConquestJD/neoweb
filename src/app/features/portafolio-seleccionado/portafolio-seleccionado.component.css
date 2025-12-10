@@ -1578,7 +1578,7 @@
 /* Service Plans Section Rediseñada */
 .service-plans-enhanced {
   position: relative;
-  padding: 60px 0;
+  padding: 50px 0;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   overflow: hidden;
   isolation: isolate;
@@ -1608,7 +1608,7 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .plans-badge-enhanced {
@@ -1664,7 +1664,7 @@
 
 .plan-card-enhanced {
   position: relative;
-  padding: 40px;
+  padding: 28px;
   background: #ffffff;
   border: 2px solid #e2e8f0;
   border-radius: 28px;
@@ -1733,16 +1733,16 @@
 
 .plan-header-enhanced {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 2;
 }
 
 .plan-icon-wrapper {
   position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 24px;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
 }
 
 .plan-icon-bg {
@@ -1765,7 +1765,7 @@
 .plan-icon-enhanced {
   position: relative;
   z-index: 1;
-  font-size: 40px;
+  font-size: 32px;
   color: #8b5cf6;
   transition: all 0.4s ease;
   display: flex;
@@ -1780,10 +1780,10 @@
 }
 
 .plan-name-enhanced {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #0f172a;
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease;
 }
@@ -1800,7 +1800,7 @@
 }
 
 .plan-price-enhanced {
-  font-size: 2.75rem;
+  font-size: 2.25rem;
   font-weight: 900;
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   -webkit-background-clip: text;
@@ -1820,7 +1820,7 @@
 
 .plan-features-enhanced {
   flex: 1;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 2;
 }
@@ -1829,8 +1829,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
   border-bottom: 2px solid #e2e8f0;
 }
 
@@ -1853,14 +1853,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .plan-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 12px;
+  gap: 12px;
+  padding: 8px;
   background: rgba(139, 92, 246, 0.02);
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -1980,7 +1980,7 @@
 /* CTA Section Rediseñada */
 .project-cta-enhanced {
   position: relative;
-  padding: 80px 0;
+  padding: 60px 0;
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
   overflow: hidden;
   isolation: isolate;
@@ -2089,15 +2089,15 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 28px;
+  padding: 10px 20px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   animation: badgePulse 3s ease-in-out infinite;
 }
@@ -2112,10 +2112,10 @@
 }
 
 .cta-title-enhanced {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 900;
   color: #ffffff;
-  margin: 0 0 24px 0;
+  margin: 0 0 16px 0;
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -2131,9 +2131,9 @@
 }
 
 .cta-description-enhanced {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 48px 0;
+  margin: 0 0 32px 0;
   line-height: 1.8;
   max-width: 700px;
   margin-left: auto;
@@ -2144,9 +2144,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
-  margin-bottom: 32px;
-  padding: 32px;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2161,7 +2161,7 @@
 }
 
 .cta-stat-value {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 900;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
@@ -2189,10 +2189,10 @@
 
 .cta-buttons-enhanced {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .cta-btn-primary-enhanced,
@@ -2200,8 +2200,8 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px 40px;
+  gap: 10px;
+  padding: 16px 32px;
   font-size: 1.1rem;
   font-weight: 700;
   border-radius: 16px;
