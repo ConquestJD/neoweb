@@ -190,34 +190,24 @@
     </div>
   </section>
 
-  <!-- Características de la Página Rediseñadas -->
-  <section class="project-features-redesigned">
-    <div class="features-background-pattern"></div>
+  <!-- Características de la Página Compactas -->
+  <section class="project-features-compact">
     <div class="container">
-      <div class="features-header-redesigned">
-        <div class="features-badge-redesigned">
-          <span class="material-icons">star</span>
-          <span>Características Premium</span>
+      <div class="features-header-compact">
+        <div class="features-badge-compact">
+          <span class="material-icons">check_circle</span>
+          <span>Funcionalidades</span>
         </div>
-        <h3 class="features-title-redesigned">Funcionalidades Implementadas</h3>
-        <p class="features-subtitle-redesigned">Cada detalle diseñado para ofrecer la mejor experiencia</p>
+        <h3 class="features-title-compact">Características del Proyecto</h3>
       </div>
-      <div class="features-showcase">
-        <div *ngFor="let feature of project.features; let i = index; let isEven = even" 
-             class="feature-showcase-item" 
-             [class.feature-left]="isEven"
-             [class.feature-right]="!isEven"
-             [style.animation-delay]="i * 0.15 + 's'">
-          <div class="feature-showcase-content">
-            <div class="feature-number">{{ (i + 1).toString().padStart(2, '0') }}</div>
-            <div class="feature-main-content">
-              <div class="feature-icon-circle">
-                <span class="material-icons">check_circle</span>
-              </div>
-              <h4 class="feature-name">{{ feature }}</h4>
-            </div>
-            <div class="feature-accent-line"></div>
+      <div class="features-grid-compact">
+        <div *ngFor="let feature of project.features; let i = index" 
+             class="feature-card-compact" 
+             [style.animation-delay]="i * 0.05 + 's'">
+          <div class="feature-icon-compact">
+            <span class="material-icons">check</span>
           </div>
+          <span class="feature-text-compact">{{ feature }}</span>
         </div>
       </div>
     </div>
