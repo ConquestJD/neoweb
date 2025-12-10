@@ -80,6 +80,15 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  scrollToProjects() {
+    if (isPlatformBrowser(this.platformId)) {
+      const firstProject = document.querySelector('[data-section-id="project-liceum"]');
+      if (firstProject) {
+        firstProject.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
   // Proyectos reales del portafolio
   projects = [
     {

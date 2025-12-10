@@ -1,15 +1,50 @@
 <!-- Portafolio NeoWeb -->
 
-<!-- Hero (azul oscuro) -->
-<section class="section-navy hero-full hero-pattern relative py-24">
-  <div class="container text-center">
-    <p class="pill mx-auto mb-4">Casos reales</p>
-    <h1 class="text-4xl md:text-6xl font-poppins font-bold text-white mb-4">
-      Proyectos que elevan marcas
-    </h1>
-    <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-      Selección curada de sitios, eCommerce y productos digitales construidos con enfoque en negocio, performance y diseño premium.
-    </p>
+<!-- Hero Mejorado -->
+<section class="hero-portafolio-enhanced">
+  <div class="hero-portafolio-background"></div>
+  <div class="hero-portafolio-particles"></div>
+  <div class="container">
+    <div class="hero-portafolio-content">
+      <div class="hero-portafolio-badge">
+        <span class="material-icons">folder_special</span>
+        <span>Casos reales</span>
+      </div>
+      <h1 class="hero-portafolio-title">
+        Proyectos que
+        <span class="hero-portafolio-title-highlight">elevan</span> marcas
+      </h1>
+      <p class="hero-portafolio-description">
+        Selección curada de sitios, eCommerce y productos digitales construidos con enfoque en negocio, performance y diseño premium.
+      </p>
+      <div class="hero-portafolio-buttons">
+        <button routerLink="/contacto" class="hero-portafolio-btn-primary">
+          <span class="material-icons">rocket_launch</span>
+          <span>Iniciar proyecto</span>
+        </button>
+        <button class="hero-portafolio-btn-secondary" (click)="scrollToProjects()">
+          <span class="material-icons">visibility</span>
+          <span>Ver proyectos</span>
+        </button>
+      </div>
+      <div class="hero-portafolio-features">
+        <div class="hero-portafolio-feature">
+          <span class="material-icons">speed</span>
+          <span>Performance</span>
+        </div>
+        <div class="hero-portafolio-feature">
+          <span class="material-icons">palette</span>
+          <span>Diseño Premium</span>
+        </div>
+        <div class="hero-portafolio-feature">
+          <span class="material-icons">trending_up</span>
+          <span>Resultados Reales</span>
+        </div>
+      </div>
+      <div class="hero-portafolio-scroll-indicator">
+        <span class="material-icons">keyboard_arrow_down</span>
+      </div>
+    </div>
   </div>
 </section>
 
