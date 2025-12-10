@@ -190,17 +190,31 @@
     </div>
   </section>
 
-  <!-- Características de la Página -->
-  <section class="project-features-section">
+  <!-- Características de la Página Mejoradas -->
+  <section class="project-features-enhanced">
+    <div class="project-features-background"></div>
     <div class="container">
-      <h3 class="section-title-center">
-        <span class="material-icons">star</span>
-        Características de la Página
-      </h3>
-      <div class="features-grid">
-        <div *ngFor="let feature of project.features" class="feature-item">
-          <span class="material-icons">check_circle</span>
-          <span>{{ feature }}</span>
+      <div class="project-features-header">
+        <div class="features-badge">
+          <span class="material-icons">auto_awesome</span>
+          <span>Funcionalidades</span>
+        </div>
+        <h3 class="features-title">Características de la Página</h3>
+        <p class="features-subtitle">Funcionalidades y características implementadas en este proyecto</p>
+      </div>
+      <div class="features-grid-enhanced">
+        <div *ngFor="let feature of project.features; let i = index" class="feature-card-enhanced" [style.animation-delay]="i * 0.1 + 's'">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrapper">
+            <div class="feature-icon-bg"></div>
+            <span class="material-icons feature-icon">check_circle</span>
+          </div>
+          <div class="feature-content">
+            <p class="feature-text">{{ feature }}</p>
+          </div>
+          <div class="feature-hover-effect">
+            <span class="material-icons">arrow_forward</span>
+          </div>
         </div>
       </div>
     </div>
