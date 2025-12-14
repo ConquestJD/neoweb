@@ -77,7 +77,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       description: 'Optimizada para velocidad máxima y mejor experiencia'
     },
     {
-      icon: 'target',
+      icon: 'center_focus_strong',
       title: 'Enfoque Único',
       description: 'Una página, un objetivo: tu conversión'
     },
