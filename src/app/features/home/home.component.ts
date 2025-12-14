@@ -160,7 +160,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Desarrollo 100% con código real',
       description: 'Construimos tu página desde cero con código personalizado, sin plantillas, sin Wix, sin WordPress. Esto garantiza rendimiento, seguridad y un diseño único para tu negocio.',
-      image: '/assets/reason-1.png',
+      image: '/assets/home/codigo.png',
       position: 'left',
       visible: false
     },
