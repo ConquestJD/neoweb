@@ -68,7 +68,7 @@ export class GoogleAdsComponent implements OnInit, AfterViewInit {
   features = [
     { icon: 'ads_click', title: 'Campañas Optimizadas', description: 'Estrategias personalizadas para tu negocio' },
     { icon: 'trending_up', title: 'ROI Medible', description: 'Seguimiento completo de resultados' },
-    { icon: 'target', title: 'Segmentación Precisa', description: 'Llega a tu audiencia ideal' },
+    { icon: 'person_search', title: 'Segmentación Precisa', description: 'Llega a tu audiencia ideal' },
     { icon: 'analytics', title: 'Reportes Detallados', description: 'Análisis continuo de rendimiento' }
   ];
 
