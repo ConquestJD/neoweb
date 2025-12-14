@@ -97,21 +97,21 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   portfolioProjects = [
     {
       title: 'Liceum',
-      category: 'Sitio Web Profesional',
+      category: 'Tienda Virtual',
       imageUrl: '/assets/liceum-1.png',
       description: 'Sitio web institucional para centro de investigación y entrenamiento en cirugía endoscópica, laparoscópica y robótica',
       result: 'Presencia digital profesional'
     },
     {
       title: 'Oncomed',
-      category: 'Sitio Web Profesional + 15 vistas',
+      category: 'Sitio Web Profesional - Plan Premium',
       imageUrl: '/assets/omed-1.png',
       description: 'Sitio web oficial de la Clínica Oncomed, centro médico especializado en tratamientos oncológicos',
       result: 'Presencia digital profesional'
     },
     {
       title: 'Sistema de Gestión Financiera OMED',
-      category: 'Full Digital Personalizado',
+      category: 'Digitalización de Procesos',
       imageUrl: '/assets/gomed-1.png',
       description: 'Sistema web completo para la administración financiera, médica y operativa de la Clínica OMED',
       result: 'Automatización total de procesos'

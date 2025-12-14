@@ -116,7 +116,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
         problem: 'LICEUM necesitaba presencia digital profesional para promocionar sus cursos de cirugía mínimamente invasiva y facilitar las inscripciones online.',
         solution: 'NeoWeb desarrolló una plataforma web completa con sistema de pagos integrado, permitiendo inscripciones online y mayor alcance internacional.',
         websiteUrl: 'https://www.liceum.pe',
-        type: 'Sitio Web Profesional + Pasarela de Pago'
+        type: 'Tienda Virtual'
       }
     },
     {
@@ -144,13 +144,13 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
         problem: 'Oncomed necesitaba modernizar su presencia digital y mejorar la comunicación con pacientes mediante una interfaz profesional.',
         solution: 'NeoWeb desarrolló un sitio web moderno, optimizado para buscadores y responsive, consolidando la presencia digital profesional.',
         websiteUrl: 'https://oncomed.pe',
-        type: 'Sitio Web Profesional + Pasarela de Pago + 15 Vistas'
+        type: 'Sitio Web Profesional - Plan Premium'
       }
     },
     {
       id: 'omed-financial',
       title: 'Sistema de Gestión Financiera OMED',
-      category: 'Full Digital Personalizado',
+      category: 'Digitalización de Procesos',
       imageUrl: 'assets/gomed-1.png',
       imageUrl2: 'assets/gomed-2.png',
       description: 'Sistema web completo para la administración financiera, médica y operativa de la Clínica OMED',
@@ -172,7 +172,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
         problem: 'La Clínica OMED necesitaba centralizar la administración financiera, médica y operativa de sus sedes eliminando procesos manuales.',
         solution: 'NeoWeb desarrolló un sistema integral con módulos de gestión, dashboard interactivo y reportes automáticos para control total.',
         websiteUrl: '#',
-        type: 'Full Digital Personalizado'
+        type: 'Digitalización de Procesos'
       }
     }
   ];

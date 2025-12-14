@@ -13,7 +13,7 @@ interface Project {
   technologies: string[];
   technologyImages?: string[];
   features: string[];
-  serviceType: 'landing-page' | 'pagina-web' | 'tienda-virtual' | 'full-digital';
+  serviceType: 'landing-page' | 'pagina-web' | 'tienda-virtual' | 'full-digital' | 'digitalizacion-procesos';
   results: {
     title: string;
     metrics: Array<{ label: string; value: string; icon: string }>;
@@ -63,7 +63,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         'Diseño responsive completo',
         'Integración con redes sociales'
       ],
-      serviceType: 'pagina-web',
+      serviceType: 'tienda-virtual',
       results: {
         title: 'Transformación Digital en Medicina',
         metrics: [
@@ -81,7 +81,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         problem: 'LICEUM necesitaba presencia digital profesional para promocionar sus cursos de cirugía mínimamente invasiva y facilitar las inscripciones online.',
         solution: 'NeoWeb desarrolló una plataforma web completa con sistema de pagos integrado, permitiendo inscripciones online y mayor alcance internacional.',
         websiteUrl: 'https://www.liceum.pe',
-        type: 'Sitio Web Profesional + Pasarela de Pago'
+        type: 'Tienda Virtual'
       }
     },
     {
@@ -127,13 +127,13 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         problem: 'Oncomed necesitaba modernizar su presencia digital y mejorar la comunicación con pacientes mediante una interfaz profesional.',
         solution: 'NeoWeb desarrolló un sitio web moderno, optimizado para buscadores y responsive, consolidando la presencia digital profesional.',
         websiteUrl: 'https://oncomed.pe',
-        type: 'Sitio Web Profesional + Pasarela de Pago + 15 Vistas'
+        type: 'Sitio Web Profesional - Plan Premium'
       }
     },
     {
       id: 'omed-financial',
       title: 'Sistema de Gestión Financiera OMED',
-      category: 'Full Digital Personalizado',
+      category: 'Digitalización de Procesos',
       imageUrl: 'assets/gomed-1.png',
       imageUrl2: 'assets/gomed-2.png',
       imageUrl3: 'assets/gomed-1.png',
@@ -155,7 +155,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         'Sistema de autenticación seguro',
         'Exportación de reportes (PDF/Excel)'
       ],
-      serviceType: 'full-digital',
+      serviceType: 'digitalizacion-procesos',
       results: {
         title: 'Automatización Total de Procesos',
         metrics: [
@@ -173,7 +173,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         problem: 'La Clínica OMED necesitaba centralizar la administración financiera, médica y operativa de sus sedes eliminando procesos manuales.',
         solution: 'NeoWeb desarrolló un sistema integral con módulos de gestión, dashboard interactivo y reportes automáticos para control total.',
         websiteUrl: '#',
-        type: 'Full Digital Personalizado'
+        type: 'Digitalización de Procesos'
       }
     }
   ];
@@ -326,6 +326,23 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Panel administrativo completo',
           'Soporte técnico extendido',
           'Actualizaciones continuas'
+        ]
+      }
+    ],
+    'digitalizacion-procesos': [
+      {
+        name: 'PERSONALIZADO',
+        price: 'Cotización',
+        icon: 'auto_awesome',
+        features: [
+          'Análisis de procesos actuales',
+          'Diseño de solución personalizada',
+          'Automatización de procesos',
+          'Dashboard y reportes',
+          'Integraciones con sistemas existentes',
+          'Panel administrativo completo',
+          'Capacitación del equipo',
+          'Soporte técnico extendido'
         ]
       }
     ]
