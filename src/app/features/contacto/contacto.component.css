@@ -325,6 +325,85 @@
   }
 }
 
+/* Responsive Hero Contacto */
+@media (max-width: 968px) {
+  .hero-contacto-title {
+    font-size: 3rem;
+  }
+
+  .hero-contacto-description {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-contacto-enhanced {
+    padding: 100px 0 60px;
+    min-height: auto;
+    height: auto;
+  }
+
+  .hero-contacto-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-contacto-description {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+
+  .hero-contacto-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+
+  .hero-contacto-btn-primary,
+  .hero-contacto-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+
+  .hero-contacto-features {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-contacto-enhanced {
+    padding: 80px 0 50px;
+  }
+
+  .hero-contacto-title {
+    font-size: 2rem;
+  }
+
+  .hero-contacto-description {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  .hero-contacto-badge {
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+
+  .hero-contacto-btn-primary,
+  .hero-contacto-btn-secondary {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+
+  .hero-contacto-feature {
+    font-size: 0.9rem;
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
