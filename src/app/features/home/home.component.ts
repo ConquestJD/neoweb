@@ -167,7 +167,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Diseños que convierten en ventas',
       description: 'Cada sección, color y estructura está pensada estratégicamente para generar clientes, aumentar leads y mejorar tu presencia digital.',
-      image: '/assets/reason-2.png',
+      image: '/assets/home/disenos.png',
       position: 'right',
       visible: false
     },
