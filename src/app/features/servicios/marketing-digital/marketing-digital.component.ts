@@ -67,7 +67,7 @@ export class MarketingDigitalComponent implements OnInit, AfterViewInit {
 
   features = [
     { icon: 'campaign', title: 'Estrategia Integral', description: 'Plan completo de marketing digital' },
-    { icon: 'social', title: 'Redes Sociales', description: 'Gestión profesional de tus perfiles' },
+    { icon: 'share', title: 'Redes Sociales', description: 'Gestión profesional de tus perfiles' },
     { icon: 'email', title: 'Email Marketing', description: 'Campañas automatizadas efectivas' },
     { icon: 'analytics', title: 'Analytics Avanzado', description: 'Medición y optimización continua' }
   ];
