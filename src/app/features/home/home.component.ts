@@ -181,7 +181,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Acompañamiento y soporte directo',
       description: 'Te guiamos en todo el proceso: mejoras, recomendaciones, actualizaciones y soporte técnico rápido cuando lo necesites.',
-      image: '/assets/reason-4.png',
+      image: '/assets/home/soporte.png',
       position: 'right',
       visible: false
     }
