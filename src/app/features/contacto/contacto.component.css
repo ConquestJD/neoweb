@@ -1193,6 +1193,9 @@
   height: 80px;
   margin: 0 auto 24px;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .schedule-icon-bg {
