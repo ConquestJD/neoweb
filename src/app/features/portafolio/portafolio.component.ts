@@ -144,7 +144,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
         problem: 'Oncomed necesitaba modernizar su presencia digital y mejorar la comunicación con pacientes mediante una interfaz profesional.',
         solution: 'NeoWeb desarrolló un sitio web moderno, optimizado para buscadores y responsive, consolidando la presencia digital profesional.',
         websiteUrl: 'https://oncomed.pe',
-        type: 'Sitio Web Profesional - Plan Premium'
+        type: 'Sitio Web Profesional'
       }
     },
     {

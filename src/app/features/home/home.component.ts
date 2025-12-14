@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       title: 'Oncomed',
-      category: 'Sitio Web Profesional - Plan Premium',
+      category: 'Sitio Web Profesional',
       imageUrl: '/assets/omed-1.png',
       description: 'Sitio web oficial de la Clínica Oncomed, centro médico especializado en tratamientos oncológicos',
       result: 'Presencia digital profesional'
