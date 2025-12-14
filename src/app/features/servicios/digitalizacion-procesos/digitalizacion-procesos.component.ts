@@ -76,27 +76,32 @@ export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis de Procesos',
-      description: 'Mapeamos tus procesos actuales, identificamos ineficiencias y oportunidades de automatización'
+      description: 'Mapeamos tus procesos actuales, identificamos ineficiencias y oportunidades de automatización',
+      icon: 'assessment'
     },
     {
       step: '02',
       title: 'Diseño de Solución',
-      description: 'Diseñamos la solución digital personalizada que optimiza y automatiza tus procesos'
+      description: 'Diseñamos la solución digital personalizada que optimiza y automatiza tus procesos',
+      icon: 'design_services'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Desarrollamos sistema personalizado desde cero con código limpio y escalable'
+      description: 'Desarrollamos sistema personalizado desde cero con código limpio y escalable',
+      icon: 'code'
     },
     {
       step: '04',
       title: 'Implementación y Migración',
-      description: 'Implementamos la solución, migramos datos y capacitamos a tu equipo'
+      description: 'Implementamos la solución, migramos datos y capacitamos a tu equipo',
+      icon: 'sync'
     },
     {
       step: '05',
       title: 'Optimización Continua',
-      description: 'Monitoreamos el sistema y optimizamos continuamente para mejor rendimiento'
+      description: 'Monitoreamos el sistema y optimizamos continuamente para mejor rendimiento',
+      icon: 'trending_up'
     }
   ];
 

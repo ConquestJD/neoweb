@@ -78,27 +78,32 @@ export class TiendaVirtualComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis de Productos y Mercado',
-      description: 'Analizamos tu catálogo, competencia y estrategia de ventas para crear la mejor experiencia de compra'
+      description: 'Analizamos tu catálogo, competencia y estrategia de ventas para crear la mejor experiencia de compra',
+      icon: 'inventory'
     },
     {
       step: '02',
       title: 'Diseño de Experiencia de Compra',
-      description: 'Diseñamos una experiencia de compra intuitiva que guía al cliente desde el catálogo hasta el checkout'
+      description: 'Diseñamos una experiencia de compra intuitiva que guía al cliente desde el catálogo hasta el checkout',
+      icon: 'shopping_cart'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Construimos tu tienda virtual desde cero con código optimizado, carrito inteligente y pasarelas de pago'
+      description: 'Construimos tu tienda virtual desde cero con código optimizado, carrito inteligente y pasarelas de pago',
+      icon: 'code'
     },
     {
       step: '04',
       title: 'Integración de Pagos y Envíos',
-      description: 'Conectamos métodos de pago seguros y sistemas de envío para una experiencia completa'
+      description: 'Conectamos métodos de pago seguros y sistemas de envío para una experiencia completa',
+      icon: 'payment'
     },
     {
       step: '05',
       title: 'Panel Admin y Lanzamiento',
-      description: 'Entregamos panel administrativo completo y lanzamos tu tienda lista para vender'
+      description: 'Entregamos panel administrativo completo y lanzamos tu tienda lista para vender',
+      icon: 'dashboard'
     }
   ];
 

@@ -76,22 +76,26 @@ export class MarketingDigitalComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis de Marca y Audiencia',
-      description: 'Estudiamos tu marca, competencia y audiencia objetivo para crear estrategias efectivas'
+      description: 'Estudiamos tu marca, competencia y audiencia objetivo para crear estrategias efectivas',
+      icon: 'person_search'
     },
     {
       step: '02',
       title: 'Estrategia de Contenido',
-      description: 'Desarrollamos calendario editorial y estrategia de contenido que conecta con tu audiencia'
+      description: 'Desarrollamos calendario editorial y estrategia de contenido que conecta con tu audiencia',
+      icon: 'content_copy'
     },
     {
       step: '03',
       title: 'Ejecución Multi-Canal',
-      description: 'Gestionamos tus redes sociales, email marketing y campañas de forma coordinada'
+      description: 'Gestionamos tus redes sociales, email marketing y campañas de forma coordinada',
+      icon: 'campaign'
     },
     {
       step: '04',
       title: 'Análisis y Optimización',
-      description: 'Medimos resultados, analizamos métricas y optimizamos continuamente para mejores resultados'
+      description: 'Medimos resultados, analizamos métricas y optimizamos continuamente para mejores resultados',
+      icon: 'analytics'
     }
   ];
 

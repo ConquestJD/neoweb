@@ -76,27 +76,32 @@ export class ConsultoriaSeoComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Auditoría SEO Completa',
-      description: 'Analizamos tu sitio web, competencia y palabras clave para identificar oportunidades'
+      description: 'Analizamos tu sitio web, competencia y palabras clave para identificar oportunidades',
+      icon: 'search'
     },
     {
       step: '02',
       title: 'Estrategia Personalizada',
-      description: 'Desarrollamos estrategia SEO específica para tu industria y objetivos de negocio'
+      description: 'Desarrollamos estrategia SEO específica para tu industria y objetivos de negocio',
+      icon: 'lightbulb'
     },
     {
       step: '03',
       title: 'Optimización Técnica',
-      description: 'Mejoramos estructura, velocidad, mobile-friendliness y aspectos técnicos del SEO'
+      description: 'Mejoramos estructura, velocidad, mobile-friendliness y aspectos técnicos del SEO',
+      icon: 'build'
     },
     {
       step: '04',
       title: 'Optimización de Contenido',
-      description: 'Optimizamos contenido existente y creamos nuevo contenido estratégico para SEO'
+      description: 'Optimizamos contenido existente y creamos nuevo contenido estratégico para SEO',
+      icon: 'edit'
     },
     {
       step: '05',
       title: 'Monitoreo y Reportes',
-      description: 'Monitoreamos rankings, tráfico y conversiones con reportes mensuales detallados'
+      description: 'Monitoreamos rankings, tráfico y conversiones con reportes mensuales detallados',
+      icon: 'assessment'
     }
   ];
 

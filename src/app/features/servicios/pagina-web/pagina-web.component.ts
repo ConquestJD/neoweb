@@ -102,27 +102,32 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis y Planificación',
-      description: 'Analizamos tu negocio, objetivos y competencia para crear una estrategia digital personalizada'
+      description: 'Analizamos tu negocio, objetivos y competencia para crear una estrategia digital personalizada',
+      icon: 'assessment'
     },
     {
       step: '02',
       title: 'Diseño y Prototipado',
-      description: 'Creamos diseños modernos y funcionales que reflejan la identidad de tu marca'
+      description: 'Creamos diseños modernos y funcionales que reflejan la identidad de tu marca',
+      icon: 'palette'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Desarrollamos tu sitio web desde cero con código limpio, optimizado y escalable'
+      description: 'Desarrollamos tu sitio web desde cero con código limpio, optimizado y escalable',
+      icon: 'code'
     },
     {
       step: '04',
       title: 'Optimización y Testing',
-      description: 'Probamos en todos los dispositivos y optimizamos velocidad, SEO y experiencia de usuario'
+      description: 'Probamos en todos los dispositivos y optimizamos velocidad, SEO y experiencia de usuario',
+      icon: 'speed'
     },
     {
       step: '05',
       title: 'Lanzamiento y Soporte',
-      description: 'Publicamos tu sitio web y te brindamos soporte continuo para asegurar su éxito'
+      description: 'Publicamos tu sitio web y te brindamos soporte continuo para asegurar su éxito',
+      icon: 'launch'
     }
   ];
 

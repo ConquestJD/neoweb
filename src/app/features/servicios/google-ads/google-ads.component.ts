@@ -76,22 +76,26 @@ export class GoogleAdsComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Auditoría y Estrategia',
-      description: 'Analizamos tu negocio, competencia y palabras clave para crear una estrategia publicitaria efectiva'
+      description: 'Analizamos tu negocio, competencia y palabras clave para crear una estrategia publicitaria efectiva',
+      icon: 'search'
     },
     {
       step: '02',
       title: 'Configuración de Campañas',
-      description: 'Creamos y configuramos tus campañas con segmentación precisa y presupuesto optimizado'
+      description: 'Creamos y configuramos tus campañas con segmentación precisa y presupuesto optimizado',
+      icon: 'settings'
     },
     {
       step: '03',
       title: 'Optimización Continua',
-      description: 'Monitoreamos y optimizamos diariamente para mejorar el ROI y reducir costos por conversión'
+      description: 'Monitoreamos y optimizamos diariamente para mejorar el ROI y reducir costos por conversión',
+      icon: 'trending_up'
     },
     {
       step: '04',
       title: 'Análisis y Reportes',
-      description: 'Generamos reportes detallados con insights accionables para mejorar continuamente'
+      description: 'Generamos reportes detallados con insights accionables para mejorar continuamente',
+      icon: 'assessment'
     }
   ];
 

@@ -76,27 +76,32 @@ export class AplicacionesMovilesComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis y Diseño UX/UI',
-      description: 'Estudiamos tu audiencia y diseñamos una experiencia móvil intuitiva y atractiva'
+      description: 'Estudiamos tu audiencia y diseñamos una experiencia móvil intuitiva y atractiva',
+      icon: 'phone_android'
     },
     {
       step: '02',
       title: 'Prototipado y Validación',
-      description: 'Creamos prototipos interactivos para validar la experiencia antes del desarrollo'
+      description: 'Creamos prototipos interactivos para validar la experiencia antes del desarrollo',
+      icon: 'design_services'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Desarrollamos tu app desde cero con código nativo o híbrido optimizado para rendimiento'
+      description: 'Desarrollamos tu app desde cero con código nativo o híbrido optimizado para rendimiento',
+      icon: 'code'
     },
     {
       step: '04',
       title: 'Testing y Optimización',
-      description: 'Probamos en múltiples dispositivos y optimizamos rendimiento y experiencia'
+      description: 'Probamos en múltiples dispositivos y optimizamos rendimiento y experiencia',
+      icon: 'bug_report'
     },
     {
       step: '05',
       title: 'Publicación y Mantenimiento',
-      description: 'Publicamos en App Store y Google Play, y brindamos mantenimiento continuo'
+      description: 'Publicamos en App Store y Google Play, y brindamos mantenimiento continuo',
+      icon: 'publish'
     }
   ];
 

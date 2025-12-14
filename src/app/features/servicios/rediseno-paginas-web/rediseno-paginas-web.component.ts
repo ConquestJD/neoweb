@@ -76,27 +76,32 @@ export class RedisenoPaginasWebComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Auditoría Completa',
-      description: 'Analizamos tu sitio actual, identificamos problemas y oportunidades de mejora'
+      description: 'Analizamos tu sitio actual, identificamos problemas y oportunidades de mejora',
+      icon: 'assessment'
     },
     {
       step: '02',
       title: 'Propuesta de Rediseño',
-      description: 'Presentamos propuesta visual y funcional que mejora tu sitio manteniendo tu identidad'
+      description: 'Presentamos propuesta visual y funcional que mejora tu sitio manteniendo tu identidad',
+      icon: 'palette'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Reconstruimos tu sitio desde cero con código moderno, optimizado y escalable'
+      description: 'Reconstruimos tu sitio desde cero con código moderno, optimizado y escalable',
+      icon: 'code'
     },
     {
       step: '04',
       title: 'Migración y Optimización',
-      description: 'Migramos tu contenido sin pérdida de datos y optimizamos velocidad y SEO'
+      description: 'Migramos tu contenido sin pérdida de datos y optimizamos velocidad y SEO',
+      icon: 'sync'
     },
     {
       step: '05',
       title: 'Lanzamiento y Capacitación',
-      description: 'Lanzamos tu nuevo sitio y te capacitamos en el uso del nuevo panel administrativo'
+      description: 'Lanzamos tu nuevo sitio y te capacitamos en el uso del nuevo panel administrativo',
+      icon: 'school'
     }
   ];
 
