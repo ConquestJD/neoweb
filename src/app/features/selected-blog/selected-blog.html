@@ -307,51 +307,66 @@
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-    <div class="absolute inset-0 gradient-animated"></div>
-    
-    <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neo-blue/10 rounded-full filter blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neo-violet/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+  <!-- CTA Final - Versión Mejorada -->
+  <section class="cta-final-section">
+    <!-- Fondos decorativos -->
+    <div class="cta-final-background"></div>
+    <div class="cta-final-particles">
+      <div class="cta-final-particle cta-final-particle-1"></div>
+      <div class="cta-final-particle cta-final-particle-2"></div>
+      <div class="cta-final-particle cta-final-particle-3"></div>
     </div>
     
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-      <h2 class="text-4xl md:text-5xl font-bold font-poppins text-white mb-6">
-        Transforma tu negocio con una presencia digital profesional
-      </h2>
-      <p class="text-xl text-gray-200 font-inter mb-10 max-w-3xl mx-auto">
-        Ahora que conoces las claves del éxito digital, 
-        <span class="text-neo-blue font-semibold">hagamos que tu negocio destaque en internet</span> 
-        y consiga más clientes.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-        <button routerLink="/contacto" class="btn-primary text-lg px-10 py-5">
-          Empezar Mi Proyecto
-        </button>
-        <button routerLink="/portafolio" class="glass-card text-white px-10 py-5 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
-          Ver Nuestro Trabajo
-        </button>
+    <div class="cta-final-container">
+      <!-- Contenido principal -->
+      <div class="cta-final-content scroll-reveal">
+        <h2 class="cta-final-title">
+          Transforma tu negocio con una presencia digital profesional
+        </h2>
+        <p class="cta-final-description">
+          Ahora que conoces las claves del éxito digital, 
+          <span class="cta-final-highlight">hagamos que tu negocio destaque en internet</span> 
+          y consiga más clientes.
+        </p>
+        
+        <!-- Botones -->
+        <div class="cta-final-buttons">
+          <button routerLink="/contacto" class="cta-final-button cta-final-button-primary">
+            <span class="cta-final-button-text">Empezar Mi Proyecto</span>
+            <span class="material-icons cta-final-button-icon">rocket_launch</span>
+          </button>
+          <button routerLink="/portafolio" class="cta-final-button cta-final-button-secondary">
+            <span class="cta-final-button-text">Ver Nuestro Trabajo</span>
+            <span class="material-icons cta-final-button-icon">explore</span>
+          </button>
+        </div>
       </div>
       
-      <!-- Garantías -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="flex flex-col items-center text-center">
-          <span class="material-icons text-neo-blue text-5xl mb-2">verified</span>
-          <p class="text-gray-300 font-inter text-sm">Calidad Garantizada</p>
+      <!-- Garantías mejoradas -->
+      <div class="cta-final-guarantees scroll-reveal">
+        <div class="cta-final-guarantee" style="animation-delay: 0.1s;">
+          <div class="cta-final-guarantee-icon-wrapper cta-final-guarantee-icon-1">
+            <span class="material-icons cta-final-guarantee-icon">verified</span>
+          </div>
+          <p class="cta-final-guarantee-text">Calidad Garantizada</p>
         </div>
-        <div class="flex flex-col items-center text-center">
-          <span class="material-icons text-neo-violet text-5xl mb-2">support_agent</span>
-          <p class="text-gray-300 font-inter text-sm">Soporte 24/7</p>
+        <div class="cta-final-guarantee" style="animation-delay: 0.2s;">
+          <div class="cta-final-guarantee-icon-wrapper cta-final-guarantee-icon-2">
+            <span class="material-icons cta-final-guarantee-icon">support_agent</span>
+          </div>
+          <p class="cta-final-guarantee-text">Soporte 24/7</p>
         </div>
-        <div class="flex flex-col items-center text-center">
-          <span class="material-icons text-neo-light text-5xl mb-2">speed</span>
-          <p class="text-gray-300 font-inter text-sm">Entregas Rápidas</p>
+        <div class="cta-final-guarantee" style="animation-delay: 0.3s;">
+          <div class="cta-final-guarantee-icon-wrapper cta-final-guarantee-icon-3">
+            <span class="material-icons cta-final-guarantee-icon">speed</span>
+          </div>
+          <p class="cta-final-guarantee-text">Entregas Rápidas</p>
         </div>
-        <div class="flex flex-col items-center text-center">
-          <span class="material-icons text-white text-5xl mb-2">trending_up</span>
-          <p class="text-gray-300 font-inter text-sm">Resultados Reales</p>
+        <div class="cta-final-guarantee" style="animation-delay: 0.4s;">
+          <div class="cta-final-guarantee-icon-wrapper cta-final-guarantee-icon-4">
+            <span class="material-icons cta-final-guarantee-icon">trending_up</span>
+          </div>
+          <p class="cta-final-guarantee-text">Resultados Reales</p>
         </div>
       </div>
     </div>
