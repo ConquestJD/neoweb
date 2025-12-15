@@ -2,63 +2,109 @@
 
 <div *ngIf="article" class="article-detail">
   
-  <!-- Hero Section con imagen del artículo -->
-  <section class="relative min-h-[70vh] flex items-end overflow-hidden pt-20">
-    <!-- Imagen de fondo -->
-    <div class="absolute inset-0">
+  <!-- Hero Section con imagen del artículo - Versión Mejorada -->
+  <section class="relative min-h-[85vh] flex items-end overflow-hidden pt-20 hero-blog-section">
+    <!-- Imagen de fondo con efecto parallax -->
+    <div class="absolute inset-0 hero-blog-background">
       <img 
         [src]="article.imageUrl" 
         [alt]="article.title"
-        class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent"></div>
+        class="w-full h-full object-cover scale-110 hero-blog-image">
+      <!-- Overlay de gradiente mejorado -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 via-[#0a0a0a]/70 to-[#0a0a0a]/40"></div>
+      <!-- Overlay de gradiente de color -->
+      <div class="absolute inset-0 bg-gradient-to-br from-neo-blue/20 via-transparent to-neo-violet/20"></div>
+    </div>
+
+    <!-- Partículas decorativas animadas -->
+    <div class="absolute inset-0 hero-blog-particles">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-neo-blue/10 rounded-full filter blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neo-violet/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+      <div class="absolute top-1/2 right-1/3 w-48 h-48 bg-neo-light/5 rounded-full filter blur-2xl animate-pulse" style="animation-delay: 0.5s;"></div>
     </div>
 
     <!-- Overlay de gradiente animado -->
-    <div class="absolute inset-0 gradient-animated opacity-10"></div>
+    <div class="absolute inset-0 gradient-animated opacity-5"></div>
     
     <!-- Contenido del hero -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-      <!-- Breadcrumb -->
-      <div class="mb-6">
-        <button routerLink="/blog" class="text-neo-blue hover:text-neo-violet transition-colors font-inter flex items-center">
-          <span class="material-icons text-sm mr-1">arrow_back</span>
-          Volver al Blog
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 w-full hero-blog-content">
+      <!-- Breadcrumb mejorado -->
+      <div class="mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+        <button routerLink="/blog" class="group glass-card px-5 py-3 rounded-full text-white hover:text-neo-light transition-all duration-300 font-inter flex items-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-neo-blue/20">
+          <span class="material-icons text-lg group-hover:-translate-x-1 transition-transform duration-300">arrow_back</span>
+          <span class="font-semibold">Volver al Blog</span>
         </button>
       </div>
 
-      <!-- Categoría -->
-      <div class="mb-4">
-        <span class="px-4 py-2 text-sm font-semibold bg-neo-blue text-white rounded-full font-inter">
+      <!-- Categoría con efecto glassmorphism -->
+      <div class="mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
+        <span class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold bg-gradient-to-r from-neo-blue to-neo-violet text-white rounded-full font-inter shadow-lg shadow-neo-blue/30 backdrop-blur-sm border border-white/20">
+          <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
           {{ article.category }}
         </span>
       </div>
 
-      <!-- Título -->
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-white mb-6 leading-tight">
-        {{ article.title }}
+      <!-- Título con efecto de gradiente -->
+      <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold font-poppins mb-8 leading-[1.1] animate-fade-in-up" style="animation-delay: 0.3s;">
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-neo-light to-white">
+          {{ article.title }}
+        </span>
       </h1>
 
-      <!-- Excerpt -->
-      <p class="text-xl md:text-2xl text-gray-300 mb-8 font-inter max-w-4xl">
-        {{ article.excerpt }}
-      </p>
+      <!-- Excerpt mejorado -->
+      <div class="mb-10 animate-fade-in-up max-w-4xl" style="animation-delay: 0.4s;">
+        <p class="text-xl md:text-2xl lg:text-3xl text-gray-200 font-inter leading-relaxed font-medium">
+          {{ article.excerpt }}
+        </p>
+      </div>
 
-      <!-- Meta información -->
-      <div class="flex flex-wrap items-center gap-6 text-gray-400 font-inter">
-        <div class="flex items-center">
-          <span class="material-icons text-lg mr-2">person</span>
-          <span>{{ article.author }}</span>
+      <!-- Meta información mejorada con glassmorphism -->
+      <div class="flex flex-wrap items-center gap-4 md:gap-6 animate-fade-in-up" style="animation-delay: 0.5s;">
+        <!-- Card de autor -->
+        <div class="glass-card px-5 py-3 rounded-xl flex items-center gap-3 group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-neo-blue/20">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-neo-blue to-neo-violet flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <span class="material-icons text-white text-lg">person</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xs text-gray-400 font-inter font-medium">Autor</span>
+            <span class="text-white font-inter font-semibold">{{ article.author }}</span>
+          </div>
         </div>
-        <div class="flex items-center">
-          <span class="material-icons text-lg mr-2">calendar_today</span>
-          <span>{{ article.date }}</span>
+
+        <!-- Card de fecha -->
+        <div class="glass-card px-5 py-3 rounded-xl flex items-center gap-3 group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-neo-violet/20">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-neo-violet to-neo-blue flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <span class="material-icons text-white text-lg">calendar_today</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xs text-gray-400 font-inter font-medium">Publicado</span>
+            <span class="text-white font-inter font-semibold">{{ article.date }}</span>
+          </div>
         </div>
-        <div class="flex items-center">
-          <span class="material-icons text-lg mr-2">schedule</span>
-          <span>{{ article.readTime }} de lectura</span>
+
+        <!-- Card de tiempo de lectura -->
+        <div class="glass-card px-5 py-3 rounded-xl flex items-center gap-3 group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-neo-light/20">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-neo-light to-neo-blue flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <span class="material-icons text-white text-lg">schedule</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xs text-gray-400 font-inter font-medium">Lectura</span>
+            <span class="text-white font-inter font-semibold">{{ article.readTime }} min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de scroll -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+        <div class="flex flex-col items-center gap-2 text-white/60">
+          <span class="text-xs font-inter font-semibold uppercase tracking-wider">Scroll</span>
+          <span class="material-icons text-2xl">keyboard_arrow_down</span>
         </div>
       </div>
     </div>
+
+    <!-- Línea decorativa inferior -->
+    <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-neo-blue via-neo-violet to-transparent"></div>
   </section>
 
   <!-- Contenido del artículo -->

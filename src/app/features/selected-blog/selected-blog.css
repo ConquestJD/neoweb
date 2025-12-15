@@ -1,5 +1,113 @@
 /* Estilos para la página de artículo detallado */
 
+/* ============================================
+   HERO SECTION MEJORADO
+   ============================================ */
+
+.hero-blog-section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Fondo con efecto parallax */
+.hero-blog-background {
+  will-change: transform;
+}
+
+.hero-blog-image {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+/* Efecto parallax en scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-blog-section:hover .hero-blog-image {
+    transform: scale(1.15);
+  }
+}
+
+/* Partículas decorativas */
+.hero-blog-particles {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Contenido del hero */
+.hero-blog-content {
+  animation: fadeInContent 1.2s ease-out;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animación fade-in-up mejorada */
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUpEnhanced 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUpEnhanced {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glass card mejorado para hero */
+.hero-blog-section .glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-blog-section .glass-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+              0 0 60px rgba(0, 76, 255, 0.2);
+}
+
+/* Efecto de brillo en el título */
+.hero-blog-section h1 {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5),
+               0 0 40px rgba(107, 70, 193, 0.3);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Mejora en el gradiente del título */
+.hero-blog-section h1 span {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 /* Animaciones de entrada */
 .article-intro p,
 .article-section {
@@ -82,6 +190,35 @@
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
+  /* Hero responsive */
+  .hero-blog-section {
+    min-height: 75vh;
+  }
+
+  .hero-blog-content {
+    padding-bottom: 2rem;
+  }
+
+  .hero-blog-section h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+  }
+
+  .hero-blog-section h1 span:last-child {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-blog-section .glass-card {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hero-blog-particles > div {
+    width: 8rem !important;
+    height: 8rem !important;
+  }
+
+  /* Contenido responsive */
   .article-intro p:first-child::first-letter {
     font-size: 3rem;
   }
@@ -94,6 +231,17 @@
 
   .article-section h2 {
     font-size: 1.75rem;
+  }
+}
+
+/* Mejoras para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-blog-section {
+    min-height: 80vh;
+  }
+
+  .hero-blog-section h1 {
+    font-size: 3.5rem;
   }
 }
 
