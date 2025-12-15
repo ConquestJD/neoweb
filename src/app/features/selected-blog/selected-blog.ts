@@ -417,7 +417,31 @@ export class SelectedBlog implements OnInit {
       
       // Scroll to top
       window.scrollTo(0, 0);
+      
+      // Inicializar scroll reveal después de que el contenido se cargue
+      setTimeout(() => {
+        this.initScrollReveal();
+      }, 100);
     });
+  }
+
+  initScrollReveal() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observar todos los elementos con clase scroll-reveal
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach(el => observer.observe(el));
   }
 
   loadRelatedArticles() {
