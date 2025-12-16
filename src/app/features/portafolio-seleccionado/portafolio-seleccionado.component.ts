@@ -357,6 +357,209 @@ export class PortafolioSeleccionadoComponent implements OnInit {
     return num.toString().padStart(2, '0');
   }
 
+  getFeatureIcon(featureText: string): string {
+    const text = featureText.toLowerCase();
+    
+    // Mapeo de palabras clave a iconos
+    const iconMap: { [key: string]: string } = {
+      // Pagos y transacciones
+      'pago': 'payment',
+      'pasarela': 'payment',
+      'transacción': 'payment',
+      'checkout': 'shopping_cart',
+      'carrito': 'shopping_cart',
+      'compra': 'shopping_cart',
+      
+      // Inscripciones y registros
+      'inscripción': 'how_to_reg',
+      'inscripciones': 'how_to_reg',
+      'registro': 'app_registration',
+      'registros': 'app_registration',
+      
+      // Panel y administración
+      'panel': 'dashboard',
+      'administrativo': 'admin_panel_settings',
+      'administración': 'admin_panel_settings',
+      'gestión': 'manage_accounts',
+      'control': 'settings',
+      
+      // Cursos y eventos
+      'curso': 'school',
+      'cursos': 'school',
+      'evento': 'event',
+      'eventos': 'event',
+      'capacitación': 'menu_book',
+      
+      // Idiomas y localización
+      'idioma': 'language',
+      'multi-idioma': 'language',
+      'español': 'language',
+      'inglés': 'language',
+      'localización': 'public',
+      
+      // SEO y optimización
+      'seo': 'search',
+      'optimización': 'trending_up',
+      'posicionamiento': 'trending_up',
+      'buscador': 'search',
+      'google': 'search',
+      
+      // Diseño y UI
+      'diseño': 'palette',
+      'responsive': 'devices',
+      'interfaz': 'palette',
+      'ui': 'palette',
+      'ux': 'design_services',
+      'moderno': 'auto_awesome',
+      
+      // Redes sociales
+      'redes sociales': 'share',
+      'social': 'share',
+      'facebook': 'share',
+      'instagram': 'share',
+      'twitter': 'share',
+      
+      // Páginas y secciones
+      'página': 'description',
+      'páginas': 'description',
+      'sección': 'view_module',
+      'secciones': 'view_module',
+      
+      // Formularios
+      'formulario': 'description',
+      'formularios': 'description',
+      'contacto': 'mail',
+      
+      // Galería y medios
+      'galería': 'photo_library',
+      'imagen': 'image',
+      'imágenes': 'image',
+      'video': 'videocam',
+      'foto': 'photo',
+      
+      // Equipo y perfiles
+      'equipo': 'people',
+      'perfil': 'person',
+      'perfiles': 'people',
+      'médico': 'medical_services',
+      'staff': 'people',
+      
+      // Servicios
+      'servicio': 'room_service',
+      'servicios': 'room_service',
+      'información': 'info',
+      
+      // Dashboard y gráficos
+      'dashboard': 'dashboard',
+      'gráfico': 'bar_chart',
+      'gráficos': 'bar_chart',
+      'reporte': 'assessment',
+      'reportes': 'assessment',
+      'métrica': 'analytics',
+      'métricas': 'analytics',
+      
+      // Financiero
+      'financiero': 'account_balance',
+      'financiera': 'account_balance',
+      'caja': 'account_balance_wallet',
+      'efectivo': 'payments',
+      
+      // Pacientes
+      'paciente': 'personal_injury',
+      'pacientes': 'personal_injury',
+      'historial': 'history',
+      
+      // Sede y ubicación
+      'sede': 'business',
+      'sedes': 'business',
+      'ubicación': 'location_on',
+      'local': 'location_on',
+      
+      // Autenticación y seguridad
+      'autenticación': 'lock',
+      'seguro': 'security',
+      'seguridad': 'security',
+      'login': 'login',
+      
+      // Exportación
+      'exportación': 'file_download',
+      'exportar': 'file_download',
+      'pdf': 'picture_as_pdf',
+      'excel': 'table_chart',
+      
+      // Automatización
+      'automatización': 'auto_awesome',
+      'automático': 'auto_awesome',
+      'automatizado': 'auto_awesome',
+      
+      // Integración
+      'integración': 'link',
+      'integrado': 'link',
+      'api': 'api',
+      
+      // Sistema
+      'sistema': 'settings',
+      'módulo': 'view_module',
+      'módulos': 'view_module',
+      
+      // Blog
+      'blog': 'article',
+      'noticia': 'article',
+      'publicación': 'article',
+      
+      // Testimonios
+      'testimonio': 'format_quote',
+      'testimonios': 'format_quote',
+      'reseña': 'rate_review',
+      
+      // FAQ
+      'faq': 'help',
+      'pregunta': 'help',
+      'preguntas': 'help',
+      
+      // WhatsApp
+      'whatsapp': 'chat',
+      'chat': 'chat',
+      'mensaje': 'message',
+      
+      // Velocidad y rendimiento
+      'velocidad': 'speed',
+      'rendimiento': 'speed',
+      'optimizado': 'flash_on',
+      'rápido': 'bolt',
+      
+      // Hosting y dominio
+      'hosting': 'cloud',
+      'dominio': 'domain',
+      'ssl': 'lock',
+      
+      // Analytics
+      'analytics': 'analytics',
+      'google analytics': 'analytics',
+      'estadística': 'bar_chart',
+    };
+    
+    // Buscar coincidencias en el texto
+    for (const [keyword, icon] of Object.entries(iconMap)) {
+      if (text.includes(keyword)) {
+        return icon;
+      }
+    }
+    
+    // Iconos por defecto si no hay coincidencia
+    const defaultIcons = [
+      'auto_awesome',
+      'star',
+      'rocket_launch',
+      'bolt',
+      'workspace_premium'
+    ];
+    
+    // Usar un hash simple del texto para seleccionar un icono por defecto
+    const hash = featureText.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    return defaultIcons[hash % defaultIcons.length];
+  }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const projectId = params.get('id');
