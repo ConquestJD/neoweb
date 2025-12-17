@@ -91,9 +91,11 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 50px;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .project-hero-content-enhanced {
@@ -101,6 +103,8 @@
   flex-direction: column;
   gap: 32px;
   animation: fadeInUp 0.8s ease-out;
+  min-width: 0;
+  flex: 1;
 }
 
 .project-hero-badges-enhanced {
@@ -153,6 +157,8 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: fadeInUp 1s ease-out 0.2s both;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .project-hero-description-enhanced {
@@ -161,6 +167,9 @@
   line-height: 1.8;
   margin: 0;
   animation: fadeInUp 1s ease-out 0.4s both;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 /* Métricas Hero */
@@ -311,6 +320,11 @@
 .project-hero-image-enhanced {
   position: relative;
   animation: fadeInUp 1s ease-out 0.4s both;
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-image-container {
@@ -323,6 +337,10 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   width: 100%;
   max-width: 100%;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-image-container:hover {
@@ -352,8 +370,9 @@
 .hero-main-image {
   width: 100%;
   height: auto;
-  min-height: 500px;
-  object-fit: cover;
+  max-height: 600px;
+  min-height: 400px;
+  object-fit: contain;
   display: block;
   position: relative;
   z-index: 2;
@@ -3305,14 +3324,32 @@
 }
 
 /* Responsive Hero Enhanced */
+@media (max-width: 1200px) {
+  .project-hero-layout-enhanced {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+  }
+}
+
 @media (max-width: 1024px) {
   .project-hero-layout-enhanced {
     grid-template-columns: 1fr;
     gap: 60px;
+    max-width: 100%;
   }
 
   .project-hero-image-enhanced {
     order: -1;
+    max-width: 100%;
+  }
+
+  .hero-image-container {
+    max-height: 500px;
+  }
+
+  .hero-main-image {
+    max-height: 500px;
+    min-height: 350px;
   }
 
   .project-hero-title-enhanced {
@@ -3354,6 +3391,19 @@
 @media (max-width: 768px) {
   .project-hero-enhanced {
     padding: 120px 0 80px;
+  }
+
+  .project-hero-layout-enhanced {
+    gap: 40px;
+  }
+
+  .hero-image-container {
+    max-height: 400px;
+  }
+
+  .hero-main-image {
+    max-height: 400px;
+    min-height: 300px;
   }
 
   .project-hero-title-enhanced {

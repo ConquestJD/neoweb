@@ -331,18 +331,35 @@ export class PortafolioSeleccionadoComponent implements OnInit {
     ],
     'digitalizacion-procesos': [
       {
-        name: 'PERSONALIZADO',
-        price: 'Cotización',
-        icon: 'auto_awesome',
+        name: 'START',
+        price: 'S/ 1,500',
+        icon: 'star',
         features: [
-          'Análisis de procesos actuales',
-          'Diseño de solución personalizada',
-          'Automatización de procesos',
-          'Dashboard y reportes',
-          'Integraciones con sistemas existentes',
-          'Panel administrativo completo',
-          'Capacitación del equipo',
-          'Soporte técnico extendido'
+          '1 proceso digitalizado',
+          'Formularios / flujos básicos'
+        ]
+      },
+      {
+        name: 'PRO',
+        price: 'S/ 4,000',
+        icon: 'rocket_launch',
+        featured: true,
+        features: [
+          '3-5 procesos',
+          'Panel admin',
+          'Roles y permisos',
+          'Integraciones'
+        ]
+      },
+      {
+        name: 'PREMIUM',
+        price: 'S/ 8,000 - S/ 20,000',
+        icon: 'diamond',
+        features: [
+          'Sistema interno completo',
+          'Automatizaciones avanzadas',
+          'Dashboard BI',
+          'Capacitación'
         ]
       }
     ]
@@ -582,7 +599,11 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           }
           
           // Cargar planes del servicio
-          this.servicePlans = this.plansByService[this.project.serviceType] || [];
+          // Caso especial: Sistema de Gestión Financiera OMED usa planes de digitalización de procesos
+          const serviceTypeForPlans = this.project.id === 'omed-financial' 
+            ? 'digitalizacion-procesos' 
+            : this.project.serviceType;
+          this.servicePlans = this.plansByService[serviceTypeForPlans] || [];
         }
       } else {
         this.router.navigate(['/portafolio']);
