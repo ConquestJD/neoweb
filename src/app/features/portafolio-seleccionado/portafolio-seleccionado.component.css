@@ -2375,22 +2375,6 @@
   justify-content: center;
 }
 
-.related-project-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 2;
-}
-
-.related-project-card-enhanced:hover .related-project-image-overlay {
-  opacity: 1;
-}
-
 .related-project-image-enhanced {
   width: 100%;
   height: auto;
@@ -2398,34 +2382,11 @@
   min-height: 280px;
   object-fit: contain;
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-  filter: brightness(1);
   display: block;
 }
 
 .related-project-card-enhanced:hover .related-project-image-enhanced {
-  transform: scale(1.15);
-  filter: brightness(0.9);
-}
-
-.related-project-image-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.6s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.related-project-card-enhanced:hover .related-project-image-glow {
-  width: 400px;
-  height: 400px;
-  opacity: 1;
+  transform: scale(1.1);
 }
 
 .related-project-badge-overlay {
