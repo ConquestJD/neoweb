@@ -1,56 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home - Prioridad Máxima -->
   <url>
-    <loc>https://tu-dominio.com/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tu-dominio.com/inicio</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/inicio</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Servicios - Alta Prioridad -->
   <url>
-    <loc>https://tu-dominio.com/servicios</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://tu-dominio.com/portafolio</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/servicios/pagina-web</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tu-dominio.com/nosotros</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/servicios/landing-page</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neoweb.website/servicios/tienda-virtual</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neoweb.website/servicios/marketing-digital</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neoweb.website/servicios/google-ads</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neoweb.website/servicios/consultoria-seo</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neoweb.website/servicios/rediseno-paginas-web</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tu-dominio.com/blog</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://neoweb.website/servicios/aplicaciones-moviles</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tu-dominio.com/contacto</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/servicios/digitalizacion-procesos</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Portafolio -->
+  <url>
+    <loc>https://neoweb.website/portafolio</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Nosotros -->
+  <url>
+    <loc>https://neoweb.website/nosotros</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Blog - Actualización Frecuente -->
   <url>
-    <loc>https://tu-dominio.com/politica-privacidad</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/blog</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Contacto -->
+  <url>
+    <loc>https://neoweb.website/contacto</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Páginas Legales -->
+  <url>
+    <loc>https://neoweb.website/politica-privacidad</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tu-dominio.com/terminos-condiciones</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://neoweb.website/terminos-condiciones</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

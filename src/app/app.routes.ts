@@ -9,12 +9,12 @@ export const routes: Routes = [
   {
     path: 'inicio',
     loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent),
-    title: 'Inicio - NeoWeb | Desarrollo de Páginas Web'
+    title: 'Agencia Digital en Perú | Desarrollo Web Personalizado | NeoWeb'
   },
   {
     path: 'servicios/pagina-web',
     loadComponent: () => import('./features/servicios/pagina-web/pagina-web.component').then(m => m.PaginaWebComponent),
-    title: 'Página Web - NeoWeb | Desarrollo Web Profesional'
+    title: 'Agencia de Desarrollo Web en Perú | Páginas Web Personalizadas | NeoWeb'
   },
   {
     path: 'servicios/landing-page',
@@ -34,7 +34,7 @@ export const routes: Routes = [
   {
     path: 'servicios/marketing-digital',
     loadComponent: () => import('./features/servicios/marketing-digital/marketing-digital.component').then(m => m.MarketingDigitalComponent),
-    title: 'Marketing Digital - NeoWeb | Estrategias Digitales'
+    title: 'Agencia de Marketing Digital en Perú | Estrategias Digitales | NeoWeb'
   },
   {
     path: 'servicios/rediseno-paginas-web',
@@ -49,7 +49,7 @@ export const routes: Routes = [
   {
     path: 'servicios/consultoria-seo',
     loadComponent: () => import('./features/servicios/consultoria-seo/consultoria-seo.component').then(m => m.ConsultoriaSeoComponent),
-    title: 'Consultoría SEO - NeoWeb | Posicionamiento en Google'
+    title: 'Agencia SEO en Perú | Consultoría SEO y Posicionamiento | NeoWeb'
   },
   {
     path: 'servicios/digitalizacion-procesos',
@@ -69,7 +69,7 @@ export const routes: Routes = [
   {
     path: 'nosotros',
     loadComponent: () => import('./features/nosotros/nosotros.component').then(m => m.NosotrosComponent),
-    title: 'Nosotros - NeoWeb | Conoce Nuestro Equipo'
+    title: 'Nosotros - Agencia Digital NeoWeb | Equipo de Desarrollo Web en Perú'
   },
   {
     path: 'blog',
@@ -84,7 +84,7 @@ export const routes: Routes = [
   {
     path: 'contacto',
     loadComponent: () => import('./features/contacto/contacto.component').then(m => m.ContactoComponent),
-    title: 'Contacto - NeoWeb | Contáctanos'
+    title: 'Contacto - Agencia Digital NeoWeb | Lima, Perú'
   },
   {
     path: 'politica-privacidad',
