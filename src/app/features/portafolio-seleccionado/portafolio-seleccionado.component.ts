@@ -43,8 +43,8 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
       imageUrl: 'assets/portfolio/liceum-portfolio.png',
-      imageUrl2: 'assets/liceum-2.png',
-      imageUrl3: 'assets/liceum-1.png',
+      imageUrl2: 'assets/portfolio/liceum-interior.png',
+      imageUrl3: 'assets/portfolio/liceum-extra.png',
       description: 'Sitio web institucional para centro de investigación y entrenamiento en cirugía endoscópica, laparoscópica y robótica',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
       technologyImages: [
@@ -89,8 +89,8 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       title: 'Oncomed',
       category: 'Clínica Oncológica',
       imageUrl: 'assets/portfolio/oncomed-portfolio.png',
-      imageUrl2: 'assets/omed-2.png',
-      imageUrl3: 'assets/omed-1.png',
+      imageUrl2: 'assets/portfolio/oncomed-interior.png',
+      imageUrl3: 'assets/portfolio/oncomed-extra.png',
       description: 'Sitio web oficial de la Clínica Oncomed, centro médico especializado en tratamientos oncológicos',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Angular Material', 'SEO On-Page'],
       technologyImages: [
@@ -135,8 +135,8 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       title: 'Sistema de Gestión Financiera OMED',
       category: 'Digitalización de Procesos',
       imageUrl: 'assets/portfolio/gestion-omed-portfolio.png',
-      imageUrl2: 'assets/gomed-2.png',
-      imageUrl3: 'assets/gomed-1.png',
+      imageUrl2: 'assets/portfolio/gestion-omed-interior.png',
+      imageUrl3: 'assets/portfolio/gestion-omed-extra.png',
       description: 'Sistema web completo para la administración financiera, médica y operativa de la Clínica OMED',
       technologies: ['Angular 19', 'TypeScript', 'RxJS', 'Chart.js', 'Angular Material', 'REST API', 'JWT Auth', 'MySQL', 'jsPDF', 'xlsx'],
       technologyImages: [
@@ -575,6 +575,16 @@ export class PortafolioSeleccionadoComponent implements OnInit {
     // Usar un hash simple del texto para seleccionar un icono por defecto
     const hash = featureText.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     return defaultIcons[hash % defaultIcons.length];
+  }
+
+  getProjectImages(): string[] {
+    if (!this.project) return [];
+    const images: string[] = [
+      this.project.imageUrl,
+      this.project.imageUrl2,
+      this.project.imageUrl3
+    ].filter(img => img !== undefined && img !== null) as string[];
+    return images;
   }
 
   ngOnInit() {

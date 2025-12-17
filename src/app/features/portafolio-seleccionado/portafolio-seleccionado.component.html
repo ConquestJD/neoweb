@@ -224,7 +224,7 @@
       </div>
       <div class="project-views-grid-enhanced">
         <div class="view-card-enhanced" 
-             *ngFor="let img of [project.imageUrl, project.imageUrl2, project.imageUrl3 || project.imageUrl]; let i = index"
+             *ngFor="let img of getProjectImages(); let i = index"
              [style.animation-delay]="i * 0.15 + 's'">
           <div class="view-card-wrapper">
             <div class="view-card-background"></div>
@@ -241,17 +241,6 @@
               <div class="view-image-glow"></div>
               <div class="view-image-border"></div>
               <img [src]="img" [alt]="project.title + ' vista ' + (i + 1)" class="view-image">
-              <div class="view-overlay">
-                <div class="view-overlay-content">
-                  <div class="overlay-icon-wrapper">
-                    <span class="material-icons">zoom_in</span>
-                  </div>
-                  <span class="overlay-text">Ver en detalle</span>
-                  <div class="overlay-arrow">
-                    <span class="material-icons">arrow_forward</span>
-                  </div>
-                </div>
-              </div>
               <div class="view-shine-effect"></div>
             </div>
             <div class="view-card-footer">
@@ -260,7 +249,7 @@
                   <span class="material-icons">desktop_windows</span>
                 </div>
                 <div class="view-footer-text">
-                  <span class="view-label">{{ ['Vista Principal', 'Diseño Interior', 'Vista Adicional'][i] || 'Captura ' + (i + 1) }}</span>
+                  <span class="view-label">{{ ['Vista Principal', 'Diseño Interior', 'Vista Adicional', 'Vista Interior', 'Vista Externa'][i] || 'Captura ' + (i + 1) }}</span>
                   <span class="view-description">Sección {{ i + 1 }} del proyecto</span>
                 </div>
               </div>
