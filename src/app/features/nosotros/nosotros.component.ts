@@ -143,6 +143,31 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
       name: 'Spring Boot', 
       image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg',
       icon: 'code'
+    },
+    { 
+      name: 'React Native', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+      icon: 'phone_android'
+    },
+    { 
+      name: 'Flutter', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg',
+      icon: 'phone_android'
+    },
+    { 
+      name: 'Ionic', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ionic/ionic-original.svg',
+      icon: 'phone_android'
+    },
+    { 
+      name: 'Swift', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg',
+      icon: 'phone_iphone'
+    },
+    { 
+      name: 'Kotlin', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg',
+      icon: 'phone_android'
     }
   ];
 
