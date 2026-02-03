@@ -165,7 +165,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
         'Diseño moderno',
         'WhatsApp integrado',
         'SEO básico',
-        'Hosting + dominio 1 año'
+        'Hosting + dominio gratis por 6 meses; luego mantenimiento mensual'
       ]
     },
     {
