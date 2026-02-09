@@ -48,6 +48,18 @@
 .policy-section:nth-child(9) { animation-delay: 0.9s; }
 .policy-section:nth-child(10) { animation-delay: 1.0s; }
 
+/* Scroll Reveal Animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .policy-section h2 {
