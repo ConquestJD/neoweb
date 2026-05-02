@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
@@ -23,7 +23,8 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class NavbarComponent {
   isMenuOpen = false;
-  isScrolled = false;
+  /** Recibido desde App: controla transparencia vs fondo sólido al scrollear */
+  @Input() isScrolled = false;
   isServicesDropdownOpen = false;
 
   // Lista de servicios para el menú desplegable
@@ -40,13 +41,6 @@ export class NavbarComponent {
   ];
 
   constructor(private router: Router) {}
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (typeof window !== 'undefined') {
-      this.isScrolled = window.scrollY > 50;
-    }
-  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
