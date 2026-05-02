@@ -1,88 +1,108 @@
-<!-- Navbar con colores morados NeoWeb -->
-<nav 
+<!-- Navbar profesional NeoWeb -->
+<nav
   class="navbar-purple"
   [class.navbar-scrolled]="isScrolled"
 >
   <div class="navbar-container">
     <div class="navbar-content">
-      
+
       <!-- Logo -->
-      <div class="navbar-logo" (click)="navigateTo('/inicio')">
-        <img src="/neoweb.ico" alt="NeoWeb">
-        <h1>
-          <span>Neo</span>
-          <span class="logo-gradient">Web</span>
-        </h1>
-        <span class="logo-tagline">| agencia digital</span>
-      </div>
+      <a routerLink="/inicio" class="navbar-logo" aria-label="NeoWeb - Ir al inicio">
+        <img src="/nuevo-logo-texto-blanco.png" alt="NeoWeb Agencia Digital">
+      </a>
 
       <!-- Desktop Menu -->
       <div class="navbar-desktop-menu">
-        <a routerLink="/inicio" 
-           routerLinkActive="nav-link-active" 
+        <a routerLink="/inicio"
+           routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
            class="nav-link">
           Inicio
         </a>
-        
-        <!-- Servicios con menú desplegable -->
-        <div class="navbar-dropdown-wrapper" 
+
+        <!-- Servicios con megamenú -->
+        <div class="navbar-dropdown-wrapper"
              (mouseenter)="isServicesDropdownOpen = true"
              (mouseleave)="isServicesDropdownOpen = false">
-          <button 
+          <button
              class="nav-link nav-link-with-icon"
+             [class.nav-link-active]="isServicesDropdownOpen"
              type="button">
             Servicios
-            <span class="material-icons dropdown-icon" 
+            <span class="material-icons dropdown-icon"
                   [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
           </button>
-          
-          <!-- Dropdown Menu -->
-          <div *ngIf="isServicesDropdownOpen" 
-               class="services-dropdown"
-               [@slideDown]>
-            <div class="dropdown-content">
-              <a *ngFor="let service of services"
-                 [routerLink]="service.route"
-                 (click)="navigateTo(service.route)"
-                 class="dropdown-item">
-                <span class="material-icons">{{ service.icon }}</span>
-                <span>{{ service.name }}</span>
-              </a>
+
+          <!-- Megamenú -->
+          <div *ngIf="isServicesDropdownOpen"
+               class="services-megamenu"
+               [@megaFade]>
+            <div class="megamenu-inner">
+              <div class="megamenu-aside">
+                <p class="megamenu-eyebrow">Soluciones digitales</p>
+                <h3 class="megamenu-title">Servicios pensados para hacer crecer empresas peruanas</h3>
+                <p class="megamenu-copy">Combina diseño, desarrollo y marketing con un equipo que entiende tu negocio.</p>
+                <a routerLink="/contacto" (click)="closeServicesDropdown()" class="megamenu-cta">
+                  Agendar diagnóstico gratuito
+                  <span class="material-icons">arrow_forward</span>
+                </a>
+              </div>
+              <div class="megamenu-grid">
+                <a *ngFor="let service of services"
+                   [routerLink]="service.route"
+                   (click)="navigateTo(service.route)"
+                   class="megamenu-card"
+                   [attr.aria-label]="'Ver servicio ' + service.name">
+                  <span class="megamenu-thumb">
+                    <img [src]="service.image" [alt]="service.name" loading="lazy">
+                    <span class="megamenu-thumb-overlay"></span>
+                    <span class="megamenu-thumb-icon">
+                      <span class="material-icons">{{ service.icon }}</span>
+                    </span>
+                  </span>
+                  <span class="megamenu-card-body">
+                    <span class="megamenu-card-name">{{ service.name }}</span>
+                    <span class="megamenu-card-short">{{ service.short }}</span>
+                  </span>
+                  <span class="material-icons megamenu-card-arrow">arrow_outward</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        
-        <a routerLink="/portafolio" 
+
+        <a routerLink="/portafolio"
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
            class="nav-link">
           Portafolio
         </a>
-        <a routerLink="/nosotros" 
+        <a routerLink="/nosotros"
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
            class="nav-link">
           Nosotros
         </a>
-        <a routerLink="/blog" 
+        <a routerLink="/blog"
            routerLinkActive="nav-link-active"
            [routerLinkActiveOptions]="{exact: false}"
            class="nav-link">
           Blog
         </a>
-        <button 
+        <button
           (click)="navigateTo('/contacto')"
           class="btn-primary btn-navbar">
           Contactar
+          <span class="material-icons">arrow_forward</span>
         </button>
       </div>
 
       <!-- Mobile Menu Button -->
       <div class="navbar-mobile-toggle">
-        <button 
+        <button
           (click)="toggleMenu()"
-          class="mobile-menu-button">
+          class="mobile-menu-button"
+          [attr.aria-label]="isMenuOpen ? 'Cerrar menú' : 'Abrir menú'">
           <span class="material-icons">
             {{ isMenuOpen ? 'close' : 'menu' }}
           </span>
@@ -92,13 +112,13 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div 
+  <div
     *ngIf="isMenuOpen"
     class="mobile-menu-glass animate-slide-up"
     [@slideDown]
   >
     <div class="mobile-menu-content">
-      <a routerLink="/inicio" 
+      <a routerLink="/inicio"
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
@@ -106,10 +126,10 @@
         <span class="material-icons">home</span>
         <span>Inicio</span>
       </a>
-      
+
       <!-- Servicios con submenú en móvil -->
       <div>
-        <button 
+        <button
           (click)="toggleServicesDropdown()"
           [class.nav-link-mobile-active]="isServicesDropdownOpen"
           class="nav-link-mobile nav-link-mobile-toggle"
@@ -118,26 +138,31 @@
             <span class="material-icons">design_services</span>
             Servicios
           </span>
-          <span class="material-icons dropdown-icon" 
+          <span class="material-icons dropdown-icon"
                 [class.rotate-180]="isServicesDropdownOpen">expand_more</span>
         </button>
-        
-        <!-- Submenú de servicios en móvil -->
-        <div *ngIf="isServicesDropdownOpen" 
+
+        <div *ngIf="isServicesDropdownOpen"
              class="mobile-services-submenu"
              [@slideDown]>
           <a *ngFor="let service of services"
              [routerLink]="service.route"
              (click)="navigateTo(service.route)"
-             routerLinkActive="nav-link-mobile-active"
              class="mobile-submenu-item">
-            <span class="material-icons">{{ service.icon }}</span>
-            <span>{{ service.name }}</span>
+            <span class="mobile-submenu-thumb">
+              <img [src]="service.image" [alt]="service.name" loading="lazy">
+              <span class="mobile-submenu-thumb-overlay"></span>
+              <span class="material-icons">{{ service.icon }}</span>
+            </span>
+            <span class="mobile-submenu-text">
+              <span class="mobile-submenu-name">{{ service.name }}</span>
+              <span class="mobile-submenu-short">{{ service.short }}</span>
+            </span>
           </a>
         </div>
       </div>
-      
-      <a routerLink="/portafolio" 
+
+      <a routerLink="/portafolio"
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
@@ -145,7 +170,7 @@
         <span class="material-icons">work</span>
         <span>Portafolio</span>
       </a>
-      <a routerLink="/nosotros" 
+      <a routerLink="/nosotros"
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
@@ -153,7 +178,7 @@
         <span class="material-icons">groups</span>
         <span>Nosotros</span>
       </a>
-      <a routerLink="/blog" 
+      <a routerLink="/blog"
          (click)="closeMenu()"
          routerLinkActive="nav-link-mobile-active"
          [routerLinkActiveOptions]="{exact: false}"
@@ -161,7 +186,7 @@
         <span class="material-icons">article</span>
         <span>Blog</span>
       </a>
-      <button 
+      <button
         (click)="navigateTo('/contacto')"
         class="btn-primary btn-mobile-full">
         Contactar
