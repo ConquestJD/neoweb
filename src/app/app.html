@@ -1,7 +1,7 @@
 <!-- Layout principal de la aplicación NeoWeb -->
 
-<!-- Navbar global -->
-<app-navbar></app-navbar>
+<!-- Navbar global: transparente arriba, sólido al scrollear (controlado desde App) -->
+<app-navbar [isScrolled]="isScrolled()"></app-navbar>
 
 <!-- Contenido principal (se carga según la ruta) -->
 <main class="min-h-screen" style="background-color: #ffffff;">
