@@ -1,531 +1,370 @@
-<div *ngIf="project" class="project-detail-page">
-  <!-- Hero Mejorado: Proyecto Izquierda + Imagen Derecha -->
-  <section class="project-hero-enhanced">
-    <div class="project-hero-background"></div>
-    <div class="project-hero-particles"></div>
-    <div class="container">
-      <a routerLink="/portafolio" class="back-button-enhanced">
-        <span class="material-icons">arrow_back</span>
-        <span>Volver al portafolio</span>
-      </a>
-      <div class="project-hero-layout-enhanced">
-        <div class="project-hero-content-enhanced">
-          <div class="project-hero-badges-enhanced">
-            <span class="project-hero-badge-enhanced">
-              <span class="material-icons">category</span>
-              <span>{{ project.category }}</span>
-            </span>
-            <span class="project-hero-badge-enhanced badge-accent-enhanced">
-              <span class="material-icons">star</span>
-              <span>{{ project.results.type }}</span>
-            </span>
-          </div>
-          <h1 class="project-hero-title-enhanced">
-            {{ project.title }}
-          </h1>
-          <p class="project-hero-description-enhanced">{{ project.description }}</p>
-          
-          <!-- Métricas Rápidas -->
-          <div class="project-hero-metrics">
-            <div *ngFor="let metric of project.results.metrics.slice(0, 3)" class="hero-metric-item">
-              <div class="hero-metric-icon">
-                <span class="material-icons">{{ metric.icon }}</span>
-              </div>
-              <div class="hero-metric-content">
-                <div class="hero-metric-value">{{ metric.value }}</div>
-                <div class="hero-metric-label">{{ metric.label }}</div>
-              </div>
-            </div>
-          </div>
+<!-- ===========================================================
+     Portafolio · Detalle (case study) — rediseñado pro
+     Las imágenes son mockups laptop+phone con fondo transparente:
+     se muestran completas (object-fit: contain) sobre fondos cuidados.
+     =========================================================== -->
 
-          <div class="project-hero-actions-enhanced">
-            <a [href]="project.results.websiteUrl" target="_blank" class="hero-btn-primary-enhanced" *ngIf="project.results.websiteUrl !== '#'">
-              <span class="material-icons">launch</span>
-              <span>Visitar sitio web</span>
-              <span class="material-icons action-arrow">arrow_forward</span>
-            </a>
-            <a routerLink="/contacto" class="hero-btn-secondary-enhanced">
-              <span class="material-icons">chat_bubble_outline</span>
-              <span>Hablemos de tu proyecto</span>
-            </a>
-          </div>
+<ng-container *ngIf="project">
+
+  <!-- ==========================================================
+       HERO — incluye breadcrumb fusionado (sin franja blanca)
+       ========================================================== -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg"></div>
+    <div class="cs-hero-grid"></div>
+    <div class="cs-hero-orb cs-hero-orb-1"></div>
+    <div class="cs-hero-orb cs-hero-orb-2"></div>
+
+    <!-- Breadcrumb integrado en el hero (mismo morado, sin fondo blanco) -->
+    <div class="cs-breadcrumb-wrap">
+      <div class="container cs-breadcrumb-inner">
+        <a routerLink="/portafolio" class="cs-breadcrumb-back">
+          <span class="material-icons">arrow_back</span>
+          <span>Volver al portafolio</span>
+        </a>
+        <ol class="cs-breadcrumb-trail" aria-label="Migas de pan">
+          <li><a routerLink="/inicio">Inicio</a></li>
+          <li><span class="material-icons">chevron_right</span></li>
+          <li><a routerLink="/portafolio">Portafolio</a></li>
+          <li><span class="material-icons">chevron_right</span></li>
+          <li class="cs-current">{{ project.title }}</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="container cs-hero-inner">
+      <div class="cs-hero-text">
+        <span class="cs-hero-tag">
+          <span class="cs-hero-dot"></span>
+          {{ project.results.type }}
+        </span>
+        <p class="cs-hero-cat">{{ project.category }}</p>
+        <h1 class="cs-title">{{ project.title }}</h1>
+        <p class="cs-lede">{{ project.description }}</p>
+
+        <div class="cs-hero-actions">
+          <a [href]="project.results.websiteUrl"
+             target="_blank" rel="noopener"
+             class="cs-btn cs-btn-primary"
+             *ngIf="project.results.websiteUrl !== '#'">
+            <span class="material-icons">open_in_new</span>
+            Visitar sitio
+          </a>
+          <a routerLink="/contacto" class="cs-btn cs-btn-ghost">
+            <span class="material-icons">forum</span>
+            Quiero algo similar
+          </a>
         </div>
-        <div class="project-hero-image-enhanced">
-          <div class="hero-image-container">
-            <div class="hero-image-glow"></div>
-            <div class="hero-image-badge">
-              <span class="material-icons">photo_library</span>
-              <span>Vista principal</span>
-            </div>
-            <img [src]="project.imageUrl" [alt]="project.title" class="hero-main-image">
-          </div>
-        </div>
+      </div>
+
+      <!-- Mockup principal sin fondo, solo glow detrás -->
+      <div class="cs-hero-shot">
+        <div class="cs-hero-shot-glow"></div>
+        <img [src]="project.imageUrl" [alt]="project.title + ' - mockup principal'">
       </div>
     </div>
   </section>
 
-  <!-- Problema y Solución Mejorados -->
-  <section class="project-insights-enhanced">
-    <div class="project-insights-background"></div>
+  <!-- ==========================================================
+       OVERVIEW + FACT SHEET
+       ========================================================== -->
+  <section class="cs-overview">
     <div class="container">
-      <div class="insights-header-enhanced">
-        <div class="insights-badge">
-          <span class="material-icons">analytics</span>
-          <span>Análisis Estratégico</span>
+      <div class="cs-overview-grid">
+        <div class="cs-overview-main">
+          <p class="cs-eyebrow">Resumen</p>
+          <h2 class="cs-section-title">{{ project.results.title }}</h2>
+          <p class="cs-prose">{{ project.results.solution }}</p>
+          <p class="cs-prose cs-prose-muted">{{ project.results.problem }}</p>
         </div>
-        <h2 class="insights-title">Del Desafío a la Solución</h2>
-        <p class="insights-subtitle">Comprendemos el problema, diseñamos la estrategia y ejecutamos la solución</p>
+
+        <aside class="cs-fact-sheet">
+          <h3 class="cs-fact-title">Ficha del proyecto</h3>
+          <dl class="cs-fact-list">
+            <div>
+              <dt>Cliente</dt>
+              <dd>{{ project.title }}</dd>
+            </div>
+            <div>
+              <dt>Industria</dt>
+              <dd>{{ project.category }}</dd>
+            </div>
+            <div>
+              <dt>Servicio</dt>
+              <dd>{{ project.results.type }}</dd>
+            </div>
+            <div *ngIf="project.results.websiteUrl !== '#'">
+              <dt>Web</dt>
+              <dd>
+                <a [href]="project.results.websiteUrl" target="_blank" rel="noopener">
+                  Ver sitio
+                  <span class="material-icons">north_east</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </aside>
       </div>
-      <div class="insights-cards-enhanced">
-        <div class="insight-card-enhanced problem-card-enhanced">
-          <div class="insight-card-glow problem-glow"></div>
-          <div class="insight-badge-top">
-            <span class="material-icons">error_outline</span>
-            <span>Desafío</span>
-          </div>
-          <div class="insight-content-wrapper">
-            <div class="insight-header-enhanced">
-              <div class="insight-icon-enhanced problem-icon-enhanced">
-                <span class="material-icons">warning</span>
-              </div>
-              <div class="insight-title-wrapper">
-                <h3 class="insight-title-enhanced">El Desafío</h3>
-                <p class="insight-subtitle-enhanced">Problema identificado</p>
-              </div>
-            </div>
-            <div class="insight-divider"></div>
-            <p class="insight-text-enhanced">{{ project.results.problem }}</p>
-            <div class="insight-challenges">
-              <div class="challenge-item">
-                <span class="material-icons">remove_circle</span>
-                <span>Falta de presencia digital</span>
-              </div>
-              <div class="challenge-item">
-                <span class="material-icons">remove_circle</span>
-                <span>Procesos manuales ineficientes</span>
-              </div>
-              <div class="challenge-item">
-                <span class="material-icons">remove_circle</span>
-                <span>Limitado alcance geográfico</span>
-              </div>
-            </div>
-            <div class="insight-arrow-enhanced">
-              <span class="material-icons">arrow_forward</span>
-            </div>
-          </div>
-        </div>
-        <div class="insight-connector">
-          <div class="connector-line"></div>
-          <div class="connector-icon">
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       IMPACTO
+       ========================================================== -->
+  <section class="cs-impact">
+    <div class="container">
+      <header class="cs-impact-header">
+        <p class="cs-eyebrow">Impacto</p>
+        <h2 class="cs-section-title">Resultados clave</h2>
+        <p class="cs-impact-sub">
+          Indicadores reales luego de la implementación. Construido con un foco claro
+          en negocio y métricas medibles.
+        </p>
+      </header>
+
+      <div class="cs-impact-grid">
+        <article *ngFor="let metric of project.results.metrics" class="cs-impact-card">
+          <span class="cs-impact-icon">
+            <span class="material-icons">{{ metric.icon }}</span>
+          </span>
+          <strong class="cs-impact-value">{{ metric.value }}</strong>
+          <span class="cs-impact-label">{{ metric.label }}</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       PROBLEMA / SOLUCIÓN
+       ========================================================== -->
+  <section class="cs-story">
+    <div class="container">
+      <div class="cs-story-grid">
+        <article class="cs-story-card cs-story-problem">
+          <span class="cs-story-icon">
+            <span class="material-icons">help_outline</span>
+          </span>
+          <span class="cs-story-kicker">El reto</span>
+          <h3>Punto de partida</h3>
+          <p>{{ project.results.problem }}</p>
+        </article>
+        <article class="cs-story-card cs-story-solution">
+          <span class="cs-story-icon">
             <span class="material-icons">auto_awesome</span>
-          </div>
-          <div class="connector-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-          </div>
+          </span>
+          <span class="cs-story-kicker">Nuestra solución</span>
+          <h3>Cómo lo resolvimos</h3>
+          <p>{{ project.results.solution }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       CAPACIDADES
+       ========================================================== -->
+  <section class="cs-capabilities">
+    <div class="container">
+      <header class="cs-section-header">
+        <p class="cs-eyebrow">Capacidades</p>
+        <h2 class="cs-section-title">Funcionalidades implementadas</h2>
+        <p class="cs-section-sub">
+          Cada funcionalidad fue priorizada por su impacto directo en la operación y la conversión.
+        </p>
+      </header>
+
+      <div class="cs-cap-grid">
+        <div *ngFor="let feature of project.features; let i = index" class="cs-cap-card">
+          <span class="cs-cap-num">{{ formatNumber(i + 1) }}</span>
+          <span class="cs-cap-icon">
+            <span class="material-icons">{{ getFeatureIcon(feature) }}</span>
+          </span>
+          <p>{{ feature }}</p>
         </div>
-        <div class="insight-card-enhanced solution-card-enhanced">
-          <div class="insight-card-glow solution-glow"></div>
-          <div class="insight-badge-top solution-badge">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BUSINESS IMPACT
+       ========================================================== -->
+  <section class="cs-business" *ngIf="project.results.businessImpact?.length">
+    <div class="container">
+      <div class="cs-business-grid">
+        <div class="cs-business-text">
+          <p class="cs-eyebrow cs-eyebrow-light">Negocio</p>
+          <h2 class="cs-section-title cs-section-title-light">Lo que cambió para el cliente</h2>
+          <p class="cs-business-sub">Resultados tangibles más allá del producto digital.</p>
+        </div>
+        <ul class="cs-business-list">
+          <li *ngFor="let impact of project.results.businessImpact">
             <span class="material-icons">check_circle</span>
-            <span>Solución</span>
-          </div>
-          <div class="insight-content-wrapper">
-            <div class="insight-header-enhanced">
-              <div class="insight-icon-enhanced solution-icon-enhanced">
-                <span class="material-icons">lightbulb</span>
-              </div>
-              <div class="insight-title-wrapper">
-                <h3 class="insight-title-enhanced">Nuestra Solución</h3>
-                <p class="insight-subtitle-enhanced">Solución implementada</p>
-              </div>
-            </div>
-            <div class="insight-divider"></div>
-            <p class="insight-text-enhanced">{{ project.results.solution }}</p>
-            <div class="insight-solutions">
-              <div class="solution-item">
-                <span class="material-icons">check_circle</span>
-                <span>Plataforma digital completa</span>
-              </div>
-              <div class="solution-item">
-                <span class="material-icons">check_circle</span>
-                <span>Automatización de procesos</span>
-              </div>
-              <div class="solution-item">
-                <span class="material-icons">check_circle</span>
-                <span>Alcance internacional</span>
-              </div>
-            </div>
-            <div class="insight-results-preview">
-              <div class="result-preview-item">
-                <span class="material-icons">trending_up</span>
-                <div>
-                  <div class="result-value">{{ project.results.metrics[0]?.value || '100%' }}</div>
-                  <div class="result-label">{{ project.results.metrics[0]?.label || 'Mejora' }}</div>
-                </div>
-              </div>
-            </div>
-            <div class="insight-arrow-enhanced">
-              <span class="material-icons">check_circle</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="insights-impact-section">
-        <div class="impact-header">
-          <span class="material-icons">star</span>
-          <h4>Impacto del Proyecto</h4>
-        </div>
-        <div class="impact-grid">
-          <div *ngFor="let impact of project.results.businessImpact" class="impact-item">
-            <span class="material-icons">verified</span>
             <span>{{ impact }}</span>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Imágenes de Tecnologías Mejoradas -->
-  <section class="tech-images-enhanced" *ngIf="project.technologyImages && project.technologyImages.length > 0">
-    <div class="tech-images-background"></div>
+  <!-- ==========================================================
+       GALERÍA — mockups transparentes en cards claras
+       ========================================================== -->
+  <section class="cs-gallery" *ngIf="getProjectImages().length > 1">
     <div class="container">
-      <div class="tech-images-header">
-        <div class="tech-images-badge">
+      <header class="cs-section-header">
+        <p class="cs-eyebrow">Galería</p>
+        <h2 class="cs-section-title">Vista detallada</h2>
+        <p class="cs-section-sub">Capturas reales del proyecto en producción.</p>
+      </header>
+
+      <div class="cs-gallery-grid">
+        <figure *ngFor="let img of getProjectImages(); let i = index"
+                class="cs-gallery-item"
+                [class.cs-gallery-item-wide]="i === 0">
+          <div class="cs-gallery-frame">
+            <img [src]="img" [alt]="project.title + ' captura ' + (i + 1)">
+          </div>
+          <figcaption>
+            <span>{{ project.title }}</span>
+            <span class="cs-gallery-num">{{ formatNumber(i + 1) }}</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       STACK — chips con logos reales
+       ========================================================== -->
+  <section class="cs-stack">
+    <div class="container">
+      <header class="cs-section-header">
+        <p class="cs-eyebrow">Stack</p>
+        <h2 class="cs-section-title">Tecnologías utilizadas</h2>
+        <p class="cs-section-sub">Construcción 100% a medida con un stack moderno y mantenible.</p>
+      </header>
+
+      <!-- Logos destacados (cuando hay technologyImages) -->
+      <div class="cs-stack-logos" *ngIf="project.technologyImages?.length">
+        <div *ngFor="let logo of project.technologyImages; let i = index" class="cs-stack-logo-card">
+          <img [src]="logo" [alt]="project.technologies[i] || 'Tecnología'" loading="lazy">
+          <span class="cs-stack-logo-name">{{ project.technologies[i] || '' }}</span>
+        </div>
+      </div>
+
+      <!-- Stack completo en chips -->
+      <div class="cs-stack-grid">
+        <div *ngFor="let tech of project.technologies" class="cs-stack-chip">
           <span class="material-icons">code</span>
-          <span>Stack Tecnológico</span>
-        </div>
-        <h3 class="tech-images-title">Tecnologías que impulsan este proyecto</h3>
-      </div>
-      <div class="tech-images-row">
-        <div *ngFor="let techImg of project.technologyImages; let i = index" class="tech-image-card" [style.animation-delay]="i * 0.1 + 's'">
-          <div class="tech-image-wrapper">
-            <div class="tech-image-glow-effect"></div>
-            <img [src]="techImg" [alt]="'Tecnología ' + (i + 1)" class="tech-image-logo">
-          </div>
+          {{ tech }}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Vistas del Proyecto Rediseñadas -->
-  <section class="project-views-enhanced">
-    <div class="project-views-background"></div>
-    <div class="views-pattern-overlay"></div>
+  <!-- ==========================================================
+       PLANES (si existen)
+       ========================================================== -->
+  <section class="cs-plans" *ngIf="servicePlans?.length">
     <div class="container">
-      <div class="project-views-header">
-        <div class="views-badge">
-          <span class="material-icons">collections</span>
-          <span>Galería del Proyecto</span>
-        </div>
-        <h3 class="views-title">Un Vistazo Detallado al Diseño</h3>
-        <p class="views-subtitle">Explora las interfaces y la experiencia de usuario de este proyecto</p>
+      <header class="cs-section-header">
+        <p class="cs-eyebrow">Inversión</p>
+        <h2 class="cs-section-title">¿Quieres algo similar?</h2>
+        <p class="cs-section-sub">Planes orientativos para proyectos del mismo tipo.</p>
+      </header>
+
+      <div class="cs-plans-grid" [class.cs-plans-single]="servicePlans.length === 1">
+        <article *ngFor="let plan of servicePlans"
+                 class="cs-plan-card"
+                 [class.cs-plan-featured]="plan.featured">
+          <span *ngIf="plan.featured" class="cs-plan-ribbon">Recomendado</span>
+          <span class="cs-plan-icon">
+            <span class="material-icons">{{ plan.icon }}</span>
+          </span>
+          <h3 class="cs-plan-name">{{ plan.name }}</h3>
+          <div class="cs-plan-price">{{ plan.price }}</div>
+          <ul class="cs-plan-features">
+            <li *ngFor="let f of plan.features">
+              <span class="material-icons">check</span>
+              <span>{{ f }}</span>
+            </li>
+          </ul>
+          <a routerLink="/contacto" class="cs-btn cs-btn-primary cs-btn-block">
+            Solicitar este plan
+            <span class="material-icons">arrow_forward</span>
+          </a>
+        </article>
       </div>
-      <div class="project-views-grid-enhanced">
-        <div class="view-card-enhanced" 
-             *ngFor="let img of getProjectImages(); let i = index"
-             [style.animation-delay]="i * 0.15 + 's'">
-          <div class="view-card-wrapper">
-            <div class="view-card-background"></div>
-            <div class="view-number-badge">
-              <div class="badge-icon-wrapper">
-                <span class="material-icons">photo</span>
-              </div>
-              <div class="badge-content">
-                <span class="badge-number">0{{ i + 1 }}</span>
-                <span class="badge-label">Vista</span>
-              </div>
-            </div>
-            <div class="view-image-container">
-              <div class="view-image-glow"></div>
-              <div class="view-image-border"></div>
-              <img [src]="img" [alt]="project.title + ' vista ' + (i + 1)" class="view-image">
-              <div class="view-shine-effect"></div>
-            </div>
-            <div class="view-card-footer">
-              <div class="view-footer-content">
-                <div class="view-footer-icon">
-                  <span class="material-icons">desktop_windows</span>
-                </div>
-                <div class="view-footer-text">
-                  <span class="view-label">{{ ['Vista Principal', 'Diseño Interior', 'Vista Adicional', 'Vista Interior', 'Vista Externa'][i] || 'Captura ' + (i + 1) }}</span>
-                  <span class="view-description">Sección {{ i + 1 }} del proyecto</span>
-                </div>
-              </div>
-              <div class="view-footer-arrow">
-                <span class="material-icons">arrow_forward</span>
-              </div>
-            </div>
-          </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       PROYECTOS RELACIONADOS — cards editoriales con mockup transparente
+       ========================================================== -->
+  <section class="cs-related" *ngIf="relatedProjects.length">
+    <div class="container">
+      <header class="cs-section-header cs-section-header-row">
+        <div>
+          <p class="cs-eyebrow">Más casos</p>
+          <h2 class="cs-section-title">Proyectos relacionados</h2>
+          <p class="cs-section-sub">Otros proyectos del mismo tipo de servicio que también podrían interesarte.</p>
         </div>
-      </div>
-      <div class="views-cta">
-        <a [href]="project.results.websiteUrl" target="_blank" class="views-cta-button" *ngIf="project.results.websiteUrl !== '#'">
-          <span class="material-icons">launch</span>
-          <span>Ver proyecto completo</span>
+        <a routerLink="/portafolio" class="cs-related-link">
+          Ver todo el portafolio
           <span class="material-icons">arrow_forward</span>
+        </a>
+      </header>
+
+      <div class="cs-related-grid">
+        <a *ngFor="let related of relatedProjects"
+           [routerLink]="['/portafolio', related.id]"
+           class="cs-related-card">
+          <div class="cs-related-mockup">
+            <div class="cs-related-glow"></div>
+            <img [src]="related.imageUrl" [alt]="related.title" loading="lazy">
+            <span class="cs-related-tag">{{ related.results.type }}</span>
+          </div>
+          <div class="cs-related-body">
+            <span class="cs-related-cat">{{ related.category }}</span>
+            <h3>{{ related.title }}</h3>
+            <p>{{ related.description }}</p>
+            <span class="cs-related-cta">
+              Ver caso completo
+              <span class="material-icons">arrow_forward</span>
+            </span>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Características de la Página - Diseño Premium -->
-  <section class="project-features-premium">
-    <div class="features-premium-background">
-      <div class="features-gradient-orb orb-1"></div>
-      <div class="features-gradient-orb orb-2"></div>
-      <div class="features-gradient-orb orb-3"></div>
-    </div>
+  <!-- ==========================================================
+       CTA
+       ========================================================== -->
+  <section class="cs-cta">
+    <div class="cs-cta-bg"></div>
     <div class="container">
-      <div class="features-premium-header">
-        <div class="features-header-badge">
-          <span class="material-icons">stars</span>
-          <span>Funcionalidades Premium</span>
-        </div>
-        <h2 class="features-premium-title">
-          Características que <span class="title-gradient">impulsan</span> el éxito
-        </h2>
-        <p class="features-premium-description">
-          Cada funcionalidad ha sido cuidadosamente diseñada e implementada para ofrecer el máximo valor y rendimiento
-        </p>
-      </div>
-
-      <div class="features-premium-grid">
-        <div *ngFor="let feature of project.features; let i = index" 
-             class="feature-card-premium"
-             [style.animation-delay]="i * 0.08 + 's'">
-          <div class="feature-card-glow"></div>
-          <div class="feature-card-border"></div>
-          <div class="feature-card-content">
-            <div class="feature-index">
-              <span class="index-number">{{ i + 1 }}</span>
-              <div class="index-line"></div>
-            </div>
-            <div class="feature-main">
-              <div class="feature-icon-wrapper">
-                <div class="feature-icon-bg"></div>
-                <span class="material-icons feature-icon">{{ getFeatureIcon(feature) }}</span>
-                <div class="feature-icon-shine"></div>
-              </div>
-              <h3 class="feature-title">{{ feature }}</h3>
-              <p class="feature-status">
-                <span class="material-icons">verified</span>
-                <span>Implementado y funcional</span>
-              </p>
-            </div>
-            <div class="feature-hover-effect">
-              <div class="hover-glow"></div>
-              <span class="material-icons">arrow_forward</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="features-stats">
-        <div class="stat-card">
-          <div class="stat-icon-wrapper">
-            <span class="material-icons">auto_awesome</span>
-          </div>
-          <div class="stat-content">
-            <div class="stat-value">{{ project.features.length }}</div>
-            <div class="stat-label">Funcionalidades</div>
-          </div>
-          <div class="stat-decoration"></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon-wrapper">
-            <span class="material-icons">verified</span>
-          </div>
-          <div class="stat-content">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Completadas</div>
-          </div>
-          <div class="stat-decoration"></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon-wrapper">
-            <span class="material-icons">speed</span>
-          </div>
-          <div class="stat-content">
-            <div class="stat-value">Premium</div>
-            <div class="stat-label">Calidad</div>
-          </div>
-          <div class="stat-decoration"></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon-wrapper">
+      <div class="cs-cta-card">
+        <div>
+          <span class="cs-cta-eyebrow">
             <span class="material-icons">rocket_launch</span>
-          </div>
-          <div class="stat-content">
-            <div class="stat-value">Optimizado</div>
-            <div class="stat-label">Rendimiento</div>
-          </div>
-          <div class="stat-decoration"></div>
+            Trabajemos juntos
+          </span>
+          <h2>Construyamos tu próximo caso de éxito</h2>
+          <p>Cuéntanos tu reto. Te respondemos en menos de 24 horas con una propuesta clara.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos Relacionados Rediseñados -->
-  <section class="related-projects-enhanced" *ngIf="relatedProjects.length > 0">
-    <div class="related-projects-background"></div>
-    <div class="container">
-      <div class="related-projects-header-enhanced">
-        <div class="related-projects-badge">
-          <span class="material-icons">explore</span>
-          <span>Descubre Más</span>
-        </div>
-        <h3 class="related-projects-title-enhanced">Proyectos Relacionados</h3>
-        <p class="related-projects-subtitle">Explora otros proyectos que podrían interesarte</p>
-      </div>
-      <div class="related-projects-grid-enhanced">
-        <div *ngFor="let relatedProject of relatedProjects; let i = index" 
-             class="related-project-card-enhanced" 
-             [style.animation-delay]="i * 0.15 + 's'">
-          <div class="related-project-image-wrapper">
-            <img [src]="relatedProject.imageUrl" [alt]="relatedProject.title" class="related-project-image-enhanced">
-            <div class="related-project-badge-overlay">
-              <span class="material-icons">star</span>
-              <span>{{ relatedProject.category }}</span>
-            </div>
-          </div>
-          <div class="related-project-content-enhanced">
-            <h4 class="related-project-title-enhanced">{{ relatedProject.title }}</h4>
-            <p class="related-project-description-enhanced">{{ relatedProject.description }}</p>
-            <div class="related-project-footer">
-              <a [routerLink]="['/portafolio', relatedProject.id]" class="related-project-link-enhanced">
-                <span>Ver detalles</span>
-                <span class="material-icons">arrow_forward</span>
-              </a>
-              <div class="related-project-arrow">
-                <span class="material-icons">trending_flat</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Planes del Tipo de Servicio Rediseñados -->
-  <section class="service-plans-enhanced" *ngIf="servicePlans.length > 0">
-    <div class="plans-background-pattern"></div>
-    <div class="container">
-      <div class="plans-header-enhanced">
-        <div class="plans-badge-enhanced">
-          <span class="material-icons">workspace_premium</span>
-          <span>Planes Premium</span>
-        </div>
-        <h3 class="plans-title-enhanced">Planes de {{ project.results.type }}</h3>
-        <p class="plans-description-enhanced">Elige el plan perfecto para hacer realidad tu proyecto</p>
-      </div>
-      <div class="plans-grid-enhanced">
-        <div *ngFor="let plan of servicePlans; let i = index" 
-             class="plan-card-enhanced" 
-             [class.plan-featured]="plan.featured"
-             [style.animation-delay]="i * 0.15 + 's'">
-          <div class="plan-card-glow"></div>
-          <div class="plan-badge-popular" *ngIf="plan.featured">
-            <span class="material-icons">star</span>
-            <span>Más Popular</span>
-          </div>
-          <div class="plan-header-enhanced">
-            <div class="plan-icon-wrapper">
-              <div class="plan-icon-bg"></div>
-              <span class="material-icons plan-icon-enhanced">{{ plan.icon }}</span>
-            </div>
-            <h4 class="plan-name-enhanced">{{ plan.name }}</h4>
-            <div class="plan-price-wrapper">
-              <span class="plan-price-enhanced">{{ plan.price }}</span>
-              <span class="plan-price-label">Precio único</span>
-            </div>
-          </div>
-          <div class="plan-features-enhanced">
-            <div class="plan-features-header">
-              <span class="material-icons">check_circle</span>
-              <span>Incluye:</span>
-            </div>
-            <ul class="plan-features-list">
-              <li *ngFor="let feature of plan.features" class="plan-feature-item">
-                <div class="plan-feature-check">
-                  <span class="material-icons">check</span>
-                </div>
-                <span class="plan-feature-text">{{ feature }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="plan-footer-enhanced">
-            <a routerLink="/contacto" class="plan-button-enhanced">
-              <span>Solicitar cotización</span>
-              <span class="material-icons">arrow_forward</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Final Rediseñado -->
-  <section class="project-cta-enhanced">
-    <div class="cta-background-gradient"></div>
-    <div class="cta-particles"></div>
-    <div class="cta-shapes">
-      <div class="cta-shape cta-shape-1"></div>
-      <div class="cta-shape cta-shape-2"></div>
-      <div class="cta-shape cta-shape-3"></div>
-    </div>
-    <div class="container">
-      <div class="cta-content-enhanced">
-        <div class="cta-badge-enhanced">
-          <span class="material-icons">auto_awesome</span>
-          <span>Transforma tu Negocio</span>
-        </div>
-        <h3 class="cta-title-enhanced">
-          ¿Listo para tu próximo
-          <span class="cta-title-highlight">proyecto?</span>
-        </h3>
-        <p class="cta-description-enhanced">
-          Hablemos de cómo podemos llevar tu negocio al siguiente nivel digital.
-          <br>
-          Juntos crearemos algo extraordinario.
-        </p>
-        <div class="cta-buttons-enhanced">
-          <a routerLink="/contacto" class="cta-btn-primary-enhanced">
-            <span class="btn-icon-wrapper">
-              <span class="material-icons">rocket_launch</span>
-            </span>
-            <span class="btn-text">Iniciar proyecto</span>
-            <span class="btn-arrow">
-              <span class="material-icons">arrow_forward</span>
-            </span>
-            <div class="btn-shine"></div>
+        <div class="cs-cta-actions">
+          <a routerLink="/contacto" class="cs-btn cs-btn-primary cs-btn-lg">
+            <span class="material-icons">forum</span>
+            Iniciar proyecto
           </a>
-          <a routerLink="/portafolio" class="cta-btn-secondary-enhanced">
-            <span class="btn-icon-wrapper">
-              <span class="material-icons">collections</span>
-            </span>
-            <span class="btn-text">Ver más proyectos</span>
-            <span class="btn-arrow">
-              <span class="material-icons">arrow_forward</span>
-            </span>
+          <a routerLink="/portafolio" class="cs-btn cs-btn-ghost cs-btn-lg">
+            <span class="material-icons">apps</span>
+            Más proyectos
           </a>
         </div>
-        <div class="cta-trust-badges">
-          <div class="trust-badge">
-            <span class="material-icons">verified</span>
-            <span>Garantía de calidad</span>
-          </div>
-          <div class="trust-badge">
-            <span class="material-icons">security</span>
-            <span>100% seguro</span>
-          </div>
-          <div class="trust-badge">
-            <span class="material-icons">schedule</span>
-            <span>Entrega rápida</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
-</div>
+
+</ng-container>

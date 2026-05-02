@@ -9,6 +9,7 @@ interface Project {
   imageUrl: string;
   imageUrl2: string;
   imageUrl3?: string;
+  galleryImages?: string[];
   description: string;
   technologies: string[];
   technologyImages?: string[];
@@ -42,10 +43,16 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       id: 'liceum',
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
-      imageUrl: 'assets/portfolio/liceum-portfolio.png',
-      imageUrl2: 'assets/portfolio/liceum-interior.png',
-      imageUrl3: 'assets/portfolio/liceum-extra.png',
-      description: 'Sitio web institucional para centro de investigación y entrenamiento en cirugía endoscópica, laparoscópica y robótica',
+      imageUrl: 'assets/portfolio/liceum-inicio.png',
+      imageUrl2: 'assets/portfolio/liceum-cursos.png',
+      imageUrl3: 'assets/portfolio/liceum-curso-seleccionado.png',
+      galleryImages: [
+        'assets/portfolio/liceum-inicio.png',
+        'assets/portfolio/liceum-cursos.png',
+        'assets/portfolio/liceum-curso-seleccionado.png',
+        'assets/portfolio/liceum-incripcion.png'
+      ],
+      description: 'Plataforma institucional y comercial para cursos médicos, inscripciones y comunicación académica.',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
       technologyImages: [
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
@@ -85,13 +92,19 @@ export class PortafolioSeleccionadoComponent implements OnInit {
       }
     },
     {
-      id: 'oncomed',
-      title: 'Oncomed',
-      category: 'Clínica Oncológica',
-      imageUrl: 'assets/portfolio/oncomed-portfolio.png',
-      imageUrl2: 'assets/portfolio/oncomed-interior.png',
-      imageUrl3: 'assets/portfolio/oncomed-extra.png',
-      description: 'Sitio web oficial de la Clínica Oncomed, centro médico especializado en tratamientos oncológicos',
+      id: 'omed',
+      title: 'OMED',
+      category: 'Clínica Especializada',
+      imageUrl: 'assets/portfolio/omed-inicio.png',
+      imageUrl2: 'assets/portfolio/omed-especialidades-medicas.png',
+      imageUrl3: 'assets/portfolio/omed-sobre-nosotros.png',
+      galleryImages: [
+        'assets/portfolio/omed-inicio.png',
+        'assets/portfolio/omed-especialidades-medicas.png',
+        'assets/portfolio/omed-sede-cusco.png',
+        'assets/portfolio/omed-sobre-nosotros.png'
+      ],
+      description: 'Sitio web médico para presentar sedes, especialidades y rutas claras de contacto para pacientes.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Angular Material', 'SEO On-Page'],
       technologyImages: [
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
@@ -116,7 +129,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           { label: 'Visibilidad Google', value: 'Mejorada', icon: 'search' },
           { label: 'Posicionamiento Local', value: 'Cusco/Tacna', icon: 'location_on' },
           { label: 'Vistas del Sitio', value: '15+', icon: 'visibility' },
-          { label: 'Dominio', value: 'oncomed.pe', icon: 'domain' }
+          { label: 'Web Médica', value: 'OMED', icon: 'domain' }
         ],
         businessImpact: [
           'Mayor visibilidad en Google y mejor posicionamiento local',
@@ -126,18 +139,21 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         ],
         problem: 'Oncomed necesitaba modernizar su presencia digital y mejorar la comunicación con pacientes mediante una interfaz profesional.',
         solution: 'NeoWeb desarrolló un sitio web moderno, optimizado para buscadores y responsive, consolidando la presencia digital profesional.',
-        websiteUrl: 'https://oncomed.pe',
+        websiteUrl: '#',
         type: 'Sitio Web Profesional'
       }
     },
     {
       id: 'omed-financial',
-      title: 'Sistema de Gestión Financiera OMED',
+      title: 'Gestión Financiera OMED',
       category: 'Digitalización de Procesos',
-      imageUrl: 'assets/portfolio/gestion-omed-portfolio.png',
-      imageUrl2: 'assets/portfolio/gestion-omed-interior.png',
-      imageUrl3: 'assets/portfolio/gestion-omed-extra.png',
-      description: 'Sistema web completo para la administración financiera, médica y operativa de la Clínica OMED',
+      imageUrl: 'assets/portfolio/gestion-financiera-omed-login.png',
+      imageUrl2: 'assets/portfolio/gestion-financiera-omed-login.png',
+      imageUrl3: 'assets/portfolio/gestion-financiera-omed-login.png',
+      galleryImages: [
+        'assets/portfolio/gestion-financiera-omed-login.png'
+      ],
+      description: 'Sistema web interno para la administración financiera, médica y operativa de la Clínica OMED.',
       technologies: ['Angular 19', 'TypeScript', 'RxJS', 'Chart.js', 'Angular Material', 'REST API', 'JWT Auth', 'MySQL', 'jsPDF', 'xlsx'],
       technologyImages: [
         'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
@@ -174,6 +190,159 @@ export class PortafolioSeleccionadoComponent implements OnInit {
         solution: 'NeoWeb desarrolló un sistema integral con módulos de gestión, dashboard interactivo y reportes automáticos para control total.',
         websiteUrl: '#',
         type: 'Digitalización de Procesos'
+      }
+    },
+    {
+      id: 'sml-web',
+      title: 'Santa María Laura',
+      category: 'Colegio Privado · Lima',
+      imageUrl: 'assets/portfolio/sml-inicio.png',
+      imageUrl2: 'assets/portfolio/sml-educacion-formativa.png',
+      imageUrl3: 'assets/portfolio/sml-infraestructura.png',
+      galleryImages: [
+        'assets/portfolio/sml-inicio.png',
+        'assets/portfolio/sml-educacion-formativa.png',
+        'assets/portfolio/sml-infraestructura.png',
+        'assets/portfolio/sml-blog.png'
+      ],
+      description: 'Sitio institucional para el colegio privado Santa María Laura: comunica su propuesta educativa, niveles, infraestructura y proceso de admisión 2026.',
+      technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'
+      ],
+      features: [
+        'Inicio institucional con propuesta de valor',
+        'Sección "Institución" con misión y visión',
+        'Niveles: Inicial, Primaria y Secundaria',
+        'Servicios y propuesta educativa formativa',
+        'Galería de infraestructura del colegio',
+        'Blog institucional con noticias',
+        'Módulo destacado de Admisión 2026',
+        'Diseño responsive completo'
+      ],
+      serviceType: 'pagina-web',
+      results: {
+        title: 'Imagen Educativa Profesional',
+        metrics: [
+          { label: 'Niveles educativos', value: 'Inicial · Primaria · Secundaria', icon: 'school' },
+          { label: 'Admisión 2026', value: 'Activa', icon: 'how_to_reg' },
+          { label: 'Contenido editorial', value: 'Blog institucional', icon: 'article' },
+          { label: 'Experiencia', value: 'Responsive', icon: 'devices' }
+        ],
+        businessImpact: [
+          'Presentación clara de la propuesta educativa "sólida, humana y de excelencia"',
+          'Información ordenada de niveles, infraestructura y servicios',
+          'Canal directo para padres interesados en la admisión 2026',
+          'Refuerzo de la imagen institucional como colegio de referencia'
+        ],
+        problem: 'Santa María Laura necesitaba una presencia digital profesional para mostrar su propuesta educativa y captar familias interesadas en el proceso de admisión.',
+        solution: 'NeoWeb diseñó una web institucional con jerarquía clara, secciones por nivel, blog y un módulo destacado de admisión 2026.',
+        websiteUrl: 'https://www.santamarialaura.edu.pe',
+        type: 'Sitio Web Institucional'
+      }
+    },
+    {
+      id: 'sml-portal',
+      title: 'Portal SML',
+      category: 'Plataforma Educativa Interna',
+      imageUrl: 'assets/portfolio/sml-portal-login.png',
+      imageUrl2: 'assets/portfolio/sml-portal-login.png',
+      imageUrl3: 'assets/portfolio/sml-portal-login.png',
+      galleryImages: [
+        'assets/portfolio/sml-portal-login.png'
+      ],
+      description: 'Plataforma educativa integral del colegio Santa María Laura: gestión académica, comunicación profesores‑padres y acceso privado por rol.',
+      technologies: ['Angular', 'TypeScript', 'JWT Auth', 'REST API', 'Responsive UI'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg'
+      ],
+      features: [
+        'Inicio de sesión seguro con credenciales del colegio',
+        'Gestión académica: notas, asistencia y cursos',
+        'Comunicación directa profesores ↔ padres',
+        'Datos siempre actualizados en tiempo real',
+        'Roles diferenciados (alumno, profesor, padre, admin)',
+        'Recuperación de contraseña asistida',
+        'Interfaz responsive para móvil y desktop',
+        'Base preparada para nuevos módulos'
+      ],
+      serviceType: 'full-digital',
+      results: {
+        title: 'Plataforma Educativa Integral',
+        metrics: [
+          { label: 'Gestión académica', value: 'Notas · Asistencia · Cursos', icon: 'menu_book' },
+          { label: 'Comunicación', value: 'Profesores ↔ Padres', icon: 'forum' },
+          { label: 'Acceso', value: 'Privado por rol', icon: 'lock' },
+          { label: 'Datos', value: 'Tiempo real', icon: 'bolt' }
+        ],
+        businessImpact: [
+          'Centraliza notas, asistencia y cursos en un solo lugar',
+          'Comunicación directa entre profesores y padres al instante',
+          'Información siempre actualizada en tiempo real',
+          'Credenciales gestionadas por administración del colegio'
+        ],
+        problem: 'El colegio necesitaba ordenar la información académica y abrir un canal de comunicación directo con padres y alumnos sin depender de canales informales.',
+        solution: 'NeoWeb implementó un portal privado con autenticación, módulos de gestión académica y comunicación, accesible para toda la comunidad escolar.',
+        websiteUrl: '#',
+        type: 'Plataforma Educativa'
+      }
+    },
+    {
+      id: 'hombre-universal',
+      title: 'Hombre Universal',
+      category: 'Publicación Editorial · Cultura',
+      imageUrl: 'assets/portfolio/hombre-universal-inicio.png',
+      imageUrl2: 'assets/portfolio/hombre-universal-articulos.png',
+      imageUrl3: 'assets/portfolio/hombre-universal-acerca-de.png',
+      galleryImages: [
+        'assets/portfolio/hombre-universal-inicio.png',
+        'assets/portfolio/hombre-universal-acerca-de.png',
+        'assets/portfolio/hombre-universal-articulos.png',
+        'assets/portfolio/hombre-universal-login.png'
+      ],
+      description: 'Publicación digital orientada al descubrimiento del Hombre Trascendental: una síntesis de ciencia, arte, filosofía y educación para personas en búsqueda de sentido y crecimiento interior.',
+      technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'
+      ],
+      features: [
+        'Inicio editorial con identidad sobria',
+        'Página "Acerca de" con la propuesta del proyecto',
+        'Artículos del autor sobre trascendencia',
+        'Ensayos y libretos como formatos diferenciados',
+        'Acceso de lectores registrados',
+        'Tipografía editorial premium',
+        'Estructura SEO orientada a contenido',
+        'Diseño responsive para lectura en móvil'
+      ],
+      serviceType: 'pagina-web',
+      results: {
+        title: 'Plataforma Editorial de Pensamiento',
+        metrics: [
+          { label: 'Ejes', value: 'Ciencia · Arte · Filosofía', icon: 'auto_stories' },
+          { label: 'Formatos', value: 'Artículos · Ensayos · Libretos', icon: 'article' },
+          { label: 'Acceso', value: 'Lectores registrados', icon: 'login' },
+          { label: 'Identidad', value: 'Editorial premium', icon: 'workspace_premium' }
+        ],
+        businessImpact: [
+          'Espacio digital para que el autor publique sus escritos sobre trascendencia',
+          'Audiencia segmentada de lectores en búsqueda de sentido y crecimiento',
+          'Identidad editorial sobria que transmite profundidad y autoridad',
+          'Base preparada para suscripciones, comentarios y comunidad'
+        ],
+        problem: 'El proyecto Hombre Universal necesitaba una plataforma digital seria, sobria y editorial para publicar escritos sobre ciencia, arte, filosofía y espiritualidad, dirigida a personas en búsqueda de trascendencia.',
+        solution: 'NeoWeb construyó una publicación digital con tipografía editorial, secciones por formato (artículos, ensayos, libretos), acceso de lectores y una estética sobria coherente con el tono del contenido.',
+        websiteUrl: 'https://hombreuniversal.com',
+        type: 'Plataforma Editorial'
       }
     }
   ];
@@ -579,6 +748,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
 
   getProjectImages(): string[] {
     if (!this.project) return [];
+    if (this.project.galleryImages?.length) return this.project.galleryImages;
     const images: string[] = [
       this.project.imageUrl,
       this.project.imageUrl2,
