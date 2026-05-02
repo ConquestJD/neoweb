@@ -93,28 +93,28 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  // Portafolio preview (carrusel) - Proyectos reales
+  // Portafolio preview - Proyectos reales
   portfolioProjects = [
     {
-      title: 'Liceum',
+      title: 'LICEUM',
       category: 'Tienda Virtual',
-      imageUrl: '/assets/liceum-1.png',
-      description: 'Sitio web institucional para centro de investigación y entrenamiento en cirugía endoscópica, laparoscópica y robótica',
-      result: 'Presencia digital profesional'
+      imageUrl: '/assets/portfolio/liceum-inicio.png',
+      description: 'Plataforma de cursos médicos con inscripción online y experiencia institucional.',
+      result: 'Inscripciones digitales y presencia internacional'
     },
     {
-      title: 'Oncomed',
+      title: 'OMED',
       category: 'Sitio Web Profesional',
-      imageUrl: '/assets/omed-1.png',
-      description: 'Sitio web oficial de la Clínica Oncomed, centro médico especializado en tratamientos oncológicos',
-      result: 'Presencia digital profesional'
+      imageUrl: '/assets/portfolio/omed-inicio.png',
+      description: 'Sitio médico profesional para sedes, especialidades y comunicación con pacientes.',
+      result: 'Mayor confianza y claridad para pacientes'
     },
     {
-      title: 'Sistema de Gestión Financiera OMED',
+      title: 'Gestión Financiera OMED',
       category: 'Digitalización de Procesos',
-      imageUrl: '/assets/gomed-1.png',
-      description: 'Sistema web completo para la administración financiera, médica y operativa de la Clínica OMED',
-      result: 'Automatización total de procesos'
+      imageUrl: '/assets/portfolio/gestion-financiera-omed-login.png',
+      description: 'Sistema interno para ordenar la operación financiera y administrativa.',
+      result: 'Control operativo en tiempo real'
     }
   ];
 
@@ -160,6 +160,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Desarrollo 100% con código real',
       description: 'Construimos tu página desde cero con código personalizado, sin plantillas, sin Wix, sin WordPress. Esto garantiza rendimiento, seguridad y un diseño único para tu negocio.',
+      icon: 'code',
+      points: ['Arquitectura limpia', 'Mejor rendimiento'],
       image: '/assets/home/codigo.png',
       position: 'left',
       visible: false
@@ -167,6 +169,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Diseños que convierten en ventas',
       description: 'Cada sección, color y estructura está pensada estratégicamente para generar clientes, aumentar leads y mejorar tu presencia digital.',
+      icon: 'trending_up',
+      points: ['Jerarquía comercial', 'CTAs claros'],
       image: '/assets/home/disenos.png',
       position: 'right',
       visible: false
@@ -174,6 +178,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Adaptados al mercado peruano',
       description: 'Conocemos cómo compran y qué necesitan los usuarios en el Perú. Creamos soluciones que funcionan con patrones locales de consumo.',
+      icon: 'location_on',
+      points: ['Copy local', 'Confianza inmediata'],
       image: '/assets/home/peru.png',
       position: 'left',
       visible: false
@@ -181,67 +187,96 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Acompañamiento y soporte directo',
       description: 'Te guiamos en todo el proceso: mejoras, recomendaciones, actualizaciones y soporte técnico rápido cuando lo necesites.',
+      icon: 'support_agent',
+      points: ['Comunicación directa', 'Mejoras continuas'],
       image: '/assets/home/soporte.png',
       position: 'right',
       visible: false
     }
   ];
 
-  // Servicios disponibles
+  // Servicios con fotos reales (Unsplash, curadas para combinar con la marca)
   services = [
-    { 
-      name: 'Página Web', 
-      route: '/servicios/pagina-web', 
+    {
+      name: 'Página Web',
+      route: '/servicios/pagina-web',
       icon: 'language',
-      description: 'Sitios web profesionales diseñados para tu negocio con diseño moderno y optimizado.'
+      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=900&q=80',
+      tag: 'Identidad',
+      outcome: 'Presencia corporativa confiable',
+      description: 'Sitios institucionales a medida, con diseño claro y código optimizado.'
     },
-    { 
-      name: 'Landing Page', 
-      route: '/servicios/landing-page', 
+    {
+      name: 'Landing Page',
+      route: '/servicios/landing-page',
       icon: 'rocket_launch',
-      description: 'Páginas de alto rendimiento diseñadas para convertir visitantes en clientes.'
+      image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80',
+      tag: 'Conversión',
+      outcome: 'Campañas con más conversión',
+      description: 'Páginas de alto rendimiento pensadas para captar leads y vender.'
     },
-    { 
-      name: 'Tienda Virtual', 
-      route: '/servicios/tienda-virtual', 
-      icon: 'shopping_cart',
-      description: 'E-commerce completo con catálogo optimizado y pasarelas de pago seguras.'
+    {
+      name: 'Tienda Virtual',
+      route: '/servicios/tienda-virtual',
+      icon: 'shopping_bag',
+      image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=900&q=80',
+      tag: 'E‑commerce',
+      outcome: 'Catálogo listo para vender',
+      description: 'E‑commerce con catálogo, carrito y pasarela de pagos integrados.'
     },
-    { 
-      name: 'Google Ads', 
-      route: '/servicios/google-ads', 
+    {
+      name: 'Google Ads',
+      route: '/servicios/google-ads',
       icon: 'ads_click',
-      description: 'Campañas publicitarias en Google para atraer clientes potenciales.'
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
+      tag: 'Performance',
+      outcome: 'Tráfico medible y segmentado',
+      description: 'Campañas en Google para atraer clientes potenciales con presupuesto claro.'
     },
-    { 
-      name: 'Marketing Digital', 
-      route: '/servicios/marketing-digital', 
+    {
+      name: 'Marketing Digital',
+      route: '/servicios/marketing-digital',
       icon: 'campaign',
-      description: 'Estrategias digitales integrales para hacer crecer tu presencia online.'
+      image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=900&q=80',
+      tag: 'Estrategia',
+      outcome: 'Comunicación constante de marca',
+      description: 'Estrategia, contenido y redes para hacer crecer tu presencia online.'
     },
-    { 
-      name: 'Rediseño de Páginas Web', 
-      route: '/servicios/rediseno-paginas-web', 
-      icon: 'refresh',
-      description: 'Moderniza y optimiza tu sitio web existente con las últimas tendencias.'
+    {
+      name: 'Rediseño Web',
+      route: '/servicios/rediseno-paginas-web',
+      icon: 'autorenew',
+      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=900&q=80',
+      tag: 'Renovación',
+      outcome: 'Imagen renovada y profesional',
+      description: 'Modernizamos tu sitio actual con mejor UX, performance y conversión.'
     },
-    { 
-      name: 'Aplicaciones Móviles', 
-      route: '/servicios/aplicaciones-moviles', 
-      icon: 'phone_android',
+    {
+      name: 'Apps Móviles',
+      route: '/servicios/aplicaciones-moviles',
+      icon: 'phone_iphone',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80',
+      tag: 'Producto',
+      outcome: 'Experiencias móviles fluidas',
       description: 'Apps nativas e híbridas para iOS y Android con diseño intuitivo.'
     },
-    { 
-      name: 'Consultoría SEO', 
-      route: '/servicios/consultoria-seo', 
-      icon: 'search',
-      description: 'Optimización para motores de búsqueda y posicionamiento orgánico.'
+    {
+      name: 'Consultoría SEO',
+      route: '/servicios/consultoria-seo',
+      icon: 'travel_explore',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+      tag: 'Visibilidad',
+      outcome: 'Mejor visibilidad orgánica',
+      description: 'Optimización técnica y de contenidos para escalar en buscadores.'
     },
-    { 
-      name: 'Digitalización de Procesos', 
-      route: '/servicios/digitalizacion-procesos', 
+    {
+      name: 'Digitalización de Procesos',
+      route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
-      description: 'Automatiza y digitaliza los procesos de tu empresa con soluciones personalizadas.'
+      image: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=900&q=80',
+      tag: 'Automatización',
+      outcome: 'Operación ordenada y automatizada',
+      description: 'Automatizamos procesos internos para ganar tiempo y reducir errores.'
     }
   ];
 
