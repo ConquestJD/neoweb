@@ -4,8 +4,10 @@ Allow: /inicio
 Allow: /servicios/
 Allow: /portafolio
 Allow: /nosotros
-Allow: /blog
 Allow: /contacto
+
+# Blog despublicado: no rastrear ni indexar
+Disallow: /blog
 
 # Bloquear áreas administrativas (si existen)
 Disallow: /admin/

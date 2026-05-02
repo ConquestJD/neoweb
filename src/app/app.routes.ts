@@ -72,14 +72,14 @@ export const routes: Routes = [
     title: 'Nosotros - Agencia Digital NeoWeb | Equipo de Desarrollo Web en Perú'
   },
   {
-    path: 'blog',
-    loadComponent: () => import('./features/blog/blog.component').then(m => m.BlogComponent),
-    title: 'Blog - NeoWeb | Artículos y Tutoriales'
+    path: 'blog/:slug',
+    redirectTo: '/404',
+    pathMatch: 'full'
   },
   {
-    path: 'blog/:slug',
-    loadComponent: () => import('./features/selected-blog/selected-blog').then(m => m.SelectedBlog),
-    title: 'Artículo - NeoWeb | Blog'
+    path: 'blog',
+    redirectTo: '/404',
+    pathMatch: 'full'
   },
   {
     path: 'contacto',
