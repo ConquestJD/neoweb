@@ -177,7 +177,7 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
         'Formulario + WhatsApp',
         'SEO básico (título, descripción, etiquetas)',
         'Certificado SSL',
-        'Hosting + dominio 1 año',
+        'Hosting + dominio gratis por 6 meses; luego mantenimiento mensual',
         'Entrega: 1 semana'
       ]
     },
@@ -194,7 +194,7 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
         'Google Analytics + Tag Manager',
         'SEO on-page básico',
         'Optimización de velocidad ligera',
-        'Hosting + dominio 1 año',
+        'Hosting + dominio gratis por 6 meses; luego mantenimiento mensual',
         'Entrega: 1-2 semanas'
       ]
     },
@@ -210,7 +210,7 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
         'Integraciones API básicas (CRM, correos, etc.)',
         'SEO completo',
         'Optimización de velocidad PRO',
-        'Hosting + dominio 1 año',
+        'Hosting + dominio gratis por 6 meses; luego mantenimiento mensual',
         'Entrega: 2-3 semanas'
       ]
     }
