@@ -37,6 +37,28 @@ footer .grid {
   }
 }
 
+/* Logo: legible en móvil y desktop */
+footer .footer-logo {
+  display: block;
+  height: 4.5rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (min-width: 768px) {
+  footer .footer-logo {
+    height: 5.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  footer .footer-logo {
+    height: 6.25rem;
+  }
+}
+
 /* Logo y descripción */
 footer h2 {
   font-family: 'Poppins', sans-serif;

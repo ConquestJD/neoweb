@@ -83,12 +83,6 @@
            class="nav-link">
           Nosotros
         </a>
-        <a routerLink="/blog"
-           routerLinkActive="nav-link-active"
-           [routerLinkActiveOptions]="{exact: false}"
-           class="nav-link">
-          Blog
-        </a>
         <button
           (click)="navigateTo('/contacto')"
           class="btn-primary btn-navbar">
@@ -177,14 +171,6 @@
          class="nav-link-mobile">
         <span class="material-icons">groups</span>
         <span>Nosotros</span>
-      </a>
-      <a routerLink="/blog"
-         (click)="closeMenu()"
-         routerLinkActive="nav-link-mobile-active"
-         [routerLinkActiveOptions]="{exact: false}"
-         class="nav-link-mobile">
-        <span class="material-icons">article</span>
-        <span>Blog</span>
       </a>
       <button
         (click)="navigateTo('/contacto')"
