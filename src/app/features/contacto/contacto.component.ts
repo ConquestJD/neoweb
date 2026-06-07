@@ -65,14 +65,14 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
       ]
     },
     {
-      question: '¿Incluyen soporte?',
-      answer: 'Sí, todos nuestros proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.',
+      question: '¿Incluye soporte?',
+      answer: 'Sí, todos mis proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.',
       icon: 'support_agent',
       isOpen: false
     },
     {
-      question: '¿Trabajan remoto?',
-      answer: 'Sí, colaboramos completamente de forma remota con clientes en toda Latinoamérica, utilizando herramientas modernas de comunicación y gestión de proyectos.',
+      question: '¿Trabajas remoto?',
+      answer: 'Sí, trabajo completamente de forma remota con clientes en todo el Perú y Latinoamérica, usando herramientas modernas de comunicación y gestión de proyectos.',
       icon: 'public',
       isOpen: false
     }
