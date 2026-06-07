@@ -37,7 +37,7 @@ export class BlogComponent {
       content: '',
       imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
       category: 'Negocios Digitales',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '28 Oct 2025',
       readTime: '8 min'
     },
@@ -49,7 +49,7 @@ export class BlogComponent {
       content: '',
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
       category: 'Ventas Online',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '25 Oct 2025',
       readTime: '10 min'
     },
@@ -61,7 +61,7 @@ export class BlogComponent {
       content: '',
       imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop',
       category: 'Decisiones Digitales',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '20 Oct 2025',
       readTime: '7 min'
     },
@@ -73,7 +73,7 @@ export class BlogComponent {
       content: '',
       imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop',
       category: 'Diseño Web',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '15 Oct 2025',
       readTime: '6 min'
     },
@@ -85,7 +85,7 @@ export class BlogComponent {
       content: '',
       imageUrl: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=800&h=500&fit=crop',
       category: 'Marketing Digital',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '10 Oct 2025',
       readTime: '9 min'
     },
@@ -97,7 +97,7 @@ export class BlogComponent {
       content: '',
       imageUrl: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&h=500&fit=crop',
       category: 'Diseño Web',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '30 Oct 2025',
       readTime: '12 min'
     },
