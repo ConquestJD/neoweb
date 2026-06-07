@@ -86,7 +86,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Optimización del flujo administrativo con automatización'
         ],
         problem: 'LICEUM necesitaba presencia digital profesional para promocionar sus cursos de cirugía mínimamente invasiva y facilitar las inscripciones online.',
-        solution: 'NeoWeb desarrolló una plataforma web completa con sistema de pagos integrado, permitiendo inscripciones online y mayor alcance internacional.',
+        solution: 'Desarrollé una plataforma web completa con sistema de pagos integrado, permitiendo inscripciones online y mayor alcance internacional.',
         websiteUrl: 'https://www.liceum.pe',
         type: 'Tienda Virtual'
       }
@@ -138,7 +138,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Transparencia y confianza al mostrar perfiles del staff médico'
         ],
         problem: 'Oncomed necesitaba modernizar su presencia digital y mejorar la comunicación con pacientes mediante una interfaz profesional.',
-        solution: 'NeoWeb desarrolló un sitio web moderno, optimizado para buscadores y responsive, consolidando la presencia digital profesional.',
+        solution: 'Desarrollé un sitio web moderno, optimizado para buscadores y responsive, consolidando la presencia digital profesional.',
         websiteUrl: '#',
         type: 'Sitio Web Profesional'
       }
@@ -187,7 +187,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Dashboard con gráficos avanzados y reportes inteligentes'
         ],
         problem: 'La Clínica OMED necesitaba centralizar la administración financiera, médica y operativa de sus sedes eliminando procesos manuales.',
-        solution: 'NeoWeb desarrolló un sistema integral con módulos de gestión, dashboard interactivo y reportes automáticos para control total.',
+        solution: 'Desarrollé un sistema integral con módulos de gestión, dashboard interactivo y reportes automáticos para control total.',
         websiteUrl: '#',
         type: 'Digitalización de Procesos'
       }
@@ -239,7 +239,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Refuerzo de la imagen institucional como colegio de referencia'
         ],
         problem: 'Santa María Laura necesitaba una presencia digital profesional para mostrar su propuesta educativa y captar familias interesadas en el proceso de admisión.',
-        solution: 'NeoWeb diseñó una web institucional con jerarquía clara, secciones por nivel, blog y un módulo destacado de admisión 2026.',
+        solution: 'Diseñé una web institucional con jerarquía clara, secciones por nivel, blog y un módulo destacado de admisión 2026.',
         websiteUrl: 'https://www.santamarialaura.edu.pe',
         type: 'Sitio Web Institucional'
       }
@@ -288,7 +288,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Credenciales gestionadas por administración del colegio'
         ],
         problem: 'El colegio necesitaba ordenar la información académica y abrir un canal de comunicación directo con padres y alumnos sin depender de canales informales.',
-        solution: 'NeoWeb implementó un portal privado con autenticación, módulos de gestión académica y comunicación, accesible para toda la comunidad escolar.',
+        solution: 'Implementé un portal privado con autenticación, módulos de gestión académica y comunicación, accesible para toda la comunidad escolar.',
         websiteUrl: '#',
         type: 'Plataforma Educativa'
       }
@@ -340,7 +340,7 @@ export class PortafolioSeleccionadoComponent implements OnInit {
           'Base preparada para suscripciones, comentarios y comunidad'
         ],
         problem: 'El proyecto Hombre Universal necesitaba una plataforma digital seria, sobria y editorial para publicar escritos sobre ciencia, arte, filosofía y espiritualidad, dirigida a personas en búsqueda de trascendencia.',
-        solution: 'NeoWeb construyó una publicación digital con tipografía editorial, secciones por formato (artículos, ensayos, libretos), acceso de lectores y una estética sobria coherente con el tono del contenido.',
+        solution: 'Construí una publicación digital con tipografía editorial, secciones por formato (artículos, ensayos, libretos), acceso de lectores y una estética sobria coherente con el tono del contenido.',
         websiteUrl: 'https://hombreuniversal.com',
         type: 'Plataforma Editorial'
       }
