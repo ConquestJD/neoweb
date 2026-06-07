@@ -39,7 +39,7 @@ export class SelectedBlog implements OnInit {
       excerpt: 'Descubre cómo una presencia digital profesional puede transformar tu negocio y aumentar tus ventas.',
       imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
       category: 'Negocios Digitales',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '28 Oct 2025',
       readTime: '8 min',
       content: [
@@ -85,7 +85,7 @@ export class SelectedBlog implements OnInit {
       excerpt: 'Estrategias comprobadas para convertir visitantes en clientes y aumentar significativamente tus ingresos.',
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
       category: 'Ventas Online',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '25 Oct 2025',
       readTime: '10 min',
       content: [
@@ -137,7 +137,7 @@ export class SelectedBlog implements OnInit {
       excerpt: 'Guía completa para elegir la mejor solución digital según tus objetivos de negocio y presupuesto.',
       imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=600&fit=crop',
       category: 'Decisiones Digitales',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '20 Oct 2025',
       readTime: '7 min',
       content: [
@@ -197,7 +197,7 @@ export class SelectedBlog implements OnInit {
       excerpt: 'El 60% de las búsquedas se realizan desde móviles. Si tu web no es responsive, estás perdiendo más de la mitad de tus clientes.',
       imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop',
       category: 'Diseño Web',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '15 Oct 2025',
       readTime: '6 min',
       content: [
@@ -257,7 +257,7 @@ export class SelectedBlog implements OnInit {
       excerpt: 'Estrategias simples y efectivas para aparecer en los primeros resultados cuando tus clientes buscan lo que ofreces.',
       imageUrl: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=1200&h=600&fit=crop',
       category: 'Marketing Digital',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '10 Oct 2025',
       readTime: '9 min',
       content: [
@@ -326,7 +326,7 @@ export class SelectedBlog implements OnInit {
       excerpt: 'Descubre las tendencias de diseño web que están dominando 2025 y cómo pueden transformar la presencia digital de tu negocio.',
       imageUrl: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=1200&h=600&fit=crop',
       category: 'Diseño Web',
-      author: 'Equipo NeoWeb',
+      author: 'NeoWeb',
       date: '30 Oct 2025',
       readTime: '12 min',
       content: [

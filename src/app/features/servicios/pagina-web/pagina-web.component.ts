@@ -102,31 +102,31 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis y Planificación',
-      description: 'Analizamos tu negocio, objetivos y competencia para crear una estrategia digital personalizada',
+      description: 'Analizo tu negocio, objetivos y competencia para crear una estrategia digital personalizada',
       icon: 'assessment'
     },
     {
       step: '02',
       title: 'Diseño y Prototipado',
-      description: 'Creamos diseños modernos y funcionales que reflejan la identidad de tu marca',
+      description: 'Creo diseños modernos y funcionales que reflejan la identidad de tu marca',
       icon: 'palette'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Desarrollamos tu sitio web desde cero con código limpio, optimizado y escalable',
+      description: 'Desarrollo tu sitio web desde cero con código limpio, optimizado y escalable',
       icon: 'code'
     },
     {
       step: '04',
       title: 'Optimización y Testing',
-      description: 'Probamos en todos los dispositivos y optimizamos velocidad, SEO y experiencia de usuario',
+      description: 'Pruebo en todos los dispositivos y optimizo velocidad, SEO y experiencia de usuario',
       icon: 'speed'
     },
     {
       step: '05',
       title: 'Lanzamiento y Soporte',
-      description: 'Publicamos tu sitio web y te brindamos soporte continuo para asegurar su éxito',
+      description: 'Publico tu sitio web y te brindo soporte continuo para asegurar su éxito',
       icon: 'launch'
     }
   ];
@@ -135,7 +135,7 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
     {
       icon: 'code',
       title: 'Código Limpio y Optimizado',
-      description: 'Desarrollamos desde cero con código limpio, sin dependencias innecesarias. Tu sitio es rápido, seguro y fácil de mantener.'
+      description: 'Desarrollo desde cero con código limpio, sin dependencias innecesarias. Tu sitio es rápido, seguro y fácil de mantener.'
     },
     {
       icon: 'speed',
@@ -155,7 +155,7 @@ export class PaginaWebComponent implements OnInit, AfterViewInit {
     {
       icon: 'trending_up',
       title: 'Escalabilidad Garantizada',
-      description: 'Tu sitio puede crecer sin restricciones. Agregamos funcionalidades cuando las necesites.'
+      description: 'Tu sitio puede crecer sin restricciones. Agrego funcionalidades cuando las necesites.'
     },
     {
       icon: 'support_agent',

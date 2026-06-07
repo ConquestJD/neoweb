@@ -76,31 +76,31 @@ export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis de Procesos',
-      description: 'Mapeamos tus procesos actuales, identificamos ineficiencias y oportunidades de automatización',
+      description: 'Mapeo tus procesos actuales, identifico ineficiencias y oportunidades de automatización',
       icon: 'assessment'
     },
     {
       step: '02',
       title: 'Diseño de Solución',
-      description: 'Diseñamos la solución digital personalizada que optimiza y automatiza tus procesos',
+      description: 'Diseño la solución digital personalizada que optimiza y automatiza tus procesos',
       icon: 'design_services'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Desarrollamos sistema personalizado desde cero con código limpio y escalable',
+      description: 'Desarrollo un sistema personalizado desde cero con código limpio y escalable',
       icon: 'code'
     },
     {
       step: '04',
       title: 'Implementación y Migración',
-      description: 'Implementamos la solución, migramos datos y capacitamos a tu equipo',
+      description: 'Implemento la solución, migro datos y capacito a tu equipo',
       icon: 'sync'
     },
     {
       step: '05',
       title: 'Optimización Continua',
-      description: 'Monitoreamos el sistema y optimizamos continuamente para mejor rendimiento',
+      description: 'Monitoreo el sistema y optimizo continuamente para mejor rendimiento',
       icon: 'trending_up'
     }
   ];
@@ -109,12 +109,12 @@ export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
     {
       icon: 'code',
       title: 'Sistema Personalizado',
-      description: 'Desarrollado desde cero para tus procesos específicos. No adaptamos software genérico, creamos la solución perfecta.'
+      description: 'Desarrollado desde cero para tus procesos específicos. No adapto software genérico, creo la solución perfecta.'
     },
     {
       icon: 'auto_awesome',
       title: 'Automatización Inteligente',
-      description: 'Automatizamos procesos complejos con lógica de negocio personalizada que se adapta a tus necesidades.'
+      description: 'Automatizo procesos complejos con lógica de negocio personalizada que se adapta a tus necesidades.'
     },
     {
       icon: 'dashboard',
@@ -124,7 +124,7 @@ export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
     {
       icon: 'integration_instructions',
       title: 'Integraciones Completas',
-      description: 'Conectamos con cualquier sistema existente: ERP, CRM, contabilidad, sin limitaciones.'
+      description: 'Conecto con cualquier sistema existente: ERP, CRM, contabilidad, sin limitaciones.'
     },
     {
       icon: 'security',
@@ -134,7 +134,7 @@ export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
     {
       icon: 'trending_up',
       title: 'Escalabilidad Garantizada',
-      description: 'Código arquitecturado para crecer con tu negocio. Agregamos funcionalidades sin reconstruir.'
+      description: 'Código arquitecturado para crecer con tu negocio. Agrego funcionalidades sin reconstruir.'
     }
   ];
 

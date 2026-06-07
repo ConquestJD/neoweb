@@ -76,31 +76,31 @@ export class ConsultoriaSeoComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Auditoría SEO Completa',
-      description: 'Analizamos tu sitio web, competencia y palabras clave para identificar oportunidades',
+      description: 'Analizo tu sitio web, competencia y palabras clave para identificar oportunidades',
       icon: 'search'
     },
     {
       step: '02',
       title: 'Estrategia Personalizada',
-      description: 'Desarrollamos estrategia SEO específica para tu industria y objetivos de negocio',
+      description: 'Desarrollo una estrategia SEO específica para tu industria y objetivos de negocio',
       icon: 'lightbulb'
     },
     {
       step: '03',
       title: 'Optimización Técnica',
-      description: 'Mejoramos estructura, velocidad, mobile-friendliness y aspectos técnicos del SEO',
+      description: 'Mejoro estructura, velocidad, mobile-friendliness y aspectos técnicos del SEO',
       icon: 'build'
     },
     {
       step: '04',
       title: 'Optimización de Contenido',
-      description: 'Optimizamos contenido existente y creamos nuevo contenido estratégico para SEO',
+      description: 'Optimizo contenido existente y creo nuevo contenido estratégico para SEO',
       icon: 'edit'
     },
     {
       step: '05',
       title: 'Monitoreo y Reportes',
-      description: 'Monitoreamos rankings, tráfico y conversiones con reportes mensuales detallados',
+      description: 'Monitoreo rankings, tráfico y conversiones con reportes mensuales detallados',
       icon: 'assessment'
     }
   ];
@@ -109,7 +109,7 @@ export class ConsultoriaSeoComponent implements OnInit, AfterViewInit {
     {
       icon: 'code',
       title: 'Optimización Técnica Profunda',
-      description: 'Revisamos y optimizamos el código de tu sitio para cumplir con todos los estándares de Google.'
+      description: 'Reviso y optimizo el código de tu sitio para cumplir con todos los estándares de Google.'
     },
     {
       icon: 'search',

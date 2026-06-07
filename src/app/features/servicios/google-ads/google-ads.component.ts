@@ -76,25 +76,25 @@ export class GoogleAdsComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Auditoría y Estrategia',
-      description: 'Analizamos tu negocio, competencia y palabras clave para crear una estrategia publicitaria efectiva',
+      description: 'Analizo tu negocio, competencia y palabras clave para crear una estrategia publicitaria efectiva',
       icon: 'search'
     },
     {
       step: '02',
       title: 'Configuración de Campañas',
-      description: 'Creamos y configuramos tus campañas con segmentación precisa y presupuesto optimizado',
+      description: 'Creo y configuro tus campañas con segmentación precisa y presupuesto optimizado',
       icon: 'settings'
     },
     {
       step: '03',
       title: 'Optimización Continua',
-      description: 'Monitoreamos y optimizamos diariamente para mejorar el ROI y reducir costos por conversión',
+      description: 'Monitoreo y optimizo diariamente para mejorar el ROI y reducir costos por conversión',
       icon: 'trending_up'
     },
     {
       step: '04',
       title: 'Análisis y Reportes',
-      description: 'Generamos reportes detallados con insights accionables para mejorar continuamente',
+      description: 'Genero reportes detallados con insights accionables para mejorar continuamente',
       icon: 'assessment'
     }
   ];
@@ -108,7 +108,7 @@ export class GoogleAdsComponent implements OnInit, AfterViewInit {
     {
       icon: 'analytics',
       title: 'Tracking Avanzado',
-      description: 'Implementamos tracking personalizado para medir cada conversión y optimizar en tiempo real.'
+      description: 'Implemento tracking personalizado para medir cada conversión y optimizar en tiempo real.'
     },
     {
       icon: 'tune',
@@ -123,12 +123,12 @@ export class GoogleAdsComponent implements OnInit, AfterViewInit {
     {
       icon: 'integration_instructions',
       title: 'Integraciones Completas',
-      description: 'Conectamos con tu CRM, sitio web y herramientas de análisis para un seguimiento completo.'
+      description: 'Conecto con tu CRM, sitio web y herramientas de análisis para un seguimiento completo.'
     },
     {
       icon: 'support_agent',
       title: 'Gestión Profesional',
-      description: 'Equipo experto que gestiona tu cuenta como si fuera nuestra, con atención personalizada.'
+      description: 'Gestiono tu cuenta como si fuera mía, con atención personalizada y trato directo.'
     }
   ];
 

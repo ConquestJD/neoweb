@@ -76,25 +76,25 @@ export class MarketingDigitalComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis de Marca y Audiencia',
-      description: 'Estudiamos tu marca, competencia y audiencia objetivo para crear estrategias efectivas',
+      description: 'Estudio tu marca, competencia y audiencia objetivo para crear estrategias efectivas',
       icon: 'person_search'
     },
     {
       step: '02',
       title: 'Estrategia de Contenido',
-      description: 'Desarrollamos calendario editorial y estrategia de contenido que conecta con tu audiencia',
+      description: 'Desarrollo calendario editorial y estrategia de contenido que conecta con tu audiencia',
       icon: 'content_copy'
     },
     {
       step: '03',
       title: 'Ejecución Multi-Canal',
-      description: 'Gestionamos tus redes sociales, email marketing y campañas de forma coordinada',
+      description: 'Gestiono tus redes sociales, email marketing y campañas de forma coordinada',
       icon: 'campaign'
     },
     {
       step: '04',
       title: 'Análisis y Optimización',
-      description: 'Medimos resultados, analizamos métricas y optimizamos continuamente para mejores resultados',
+      description: 'Mido resultados, analizo métricas y optimizo continuamente para mejores resultados',
       icon: 'analytics'
     }
   ];
@@ -108,7 +108,7 @@ export class MarketingDigitalComponent implements OnInit, AfterViewInit {
     {
       icon: 'campaign',
       title: 'Gestión Integral',
-      description: 'Gestionamos todos tus canales digitales de forma coordinada para máxima efectividad.'
+      description: 'Gestiono todos tus canales digitales de forma coordinada para máxima efectividad.'
     },
     {
       icon: 'analytics',
@@ -123,12 +123,12 @@ export class MarketingDigitalComponent implements OnInit, AfterViewInit {
     {
       icon: 'auto_awesome',
       title: 'Contenido de Calidad',
-      description: 'Creamos contenido original y de valor que posiciona tu marca como autoridad en tu industria.'
+      description: 'Creo contenido original y de valor que posiciona tu marca como autoridad en tu industria.'
     },
     {
       icon: 'support_agent',
       title: 'Soporte Continuo',
-      description: 'Equipo dedicado que gestiona tu presencia digital y responde rápidamente a tus necesidades.'
+      description: 'Gestiono personalmente tu presencia digital y respondo rápidamente a tus necesidades.'
     }
   ];
 

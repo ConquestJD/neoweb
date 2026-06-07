@@ -92,19 +92,19 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     {
       step: '01',
       title: 'Análisis de Conversión',
-      description: 'Estudiamos tu audiencia objetivo y creamos una estrategia de conversión personalizada',
+      description: 'Estudio tu audiencia objetivo y creo una estrategia de conversión personalizada',
       icon: 'analytics'
     },
     {
       step: '02',
       title: 'Copywriting y Diseño',
-      description: 'Desarrollamos mensajes persuasivos y diseño visual que guía al usuario hacia la acción',
+      description: 'Desarrollo mensajes persuasivos y diseño visual que guía al usuario hacia la acción',
       icon: 'edit'
     },
     {
       step: '03',
       title: 'Desarrollo Full Code',
-      description: 'Construimos tu landing page desde cero con código optimizado para máxima velocidad',
+      description: 'Construyo tu landing page desde cero con código optimizado para máxima velocidad',
       icon: 'code'
     },
     {
@@ -116,7 +116,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     {
       step: '05',
       title: 'Integración y Lanzamiento',
-      description: 'Conectamos con tus herramientas de marketing y lanzamos tu landing page lista para convertir',
+      description: 'Conecto con tus herramientas de marketing y lanzo tu landing page lista para convertir',
       icon: 'integration_instructions'
     }
   ];
@@ -145,7 +145,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     {
       icon: 'integration_instructions',
       title: 'Integraciones Flexibles',
-      description: 'Conectamos con cualquier CRM, email marketing o herramienta sin limitaciones de plantillas.'
+      description: 'Conecto con cualquier CRM, email marketing o herramienta sin limitaciones de plantillas.'
     },
     {
       icon: 'trending_up',
