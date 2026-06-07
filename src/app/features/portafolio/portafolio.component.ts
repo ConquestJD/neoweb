@@ -259,30 +259,30 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   ];
 
-  // Estadísticas actualizadas del portafolio
+  // Estadísticas reales del portafolio
   stats = [
     {
-      number: '15+',
-      label: 'Proyectos Completados',
+      number: '6',
+      label: 'Proyectos entregados',
       icon: 'rocket_launch',
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      number: '98%',
-      label: 'Clientes Satisfechos',
-      icon: 'thumb_up',
+      number: '4',
+      label: 'Clientes reales',
+      icon: 'groups',
       color: 'from-green-500 to-emerald-500'
     },
     {
-      number: '2.5x',
-      label: 'Promedio de Crecimiento',
-      icon: 'trending_up',
+      number: 'Multi-país',
+      label: 'Alcance (Perú · El Salvador · Bolivia)',
+      icon: 'public',
       color: 'from-purple-500 to-violet-500'
     },
     {
-      number: '24/7',
-      label: 'Soporte Técnico',
-      icon: 'support_agent',
+      number: 'Full-stack',
+      label: 'Front + Back end',
+      icon: 'code',
       color: 'from-orange-500 to-red-500'
     }
   ];
