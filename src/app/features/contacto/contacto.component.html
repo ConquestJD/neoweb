@@ -44,6 +44,77 @@
   </div>
 </section>
 
+<!-- Formulario de Contacto -->
+<section class="contact-form-section" data-section-id="contact-form">
+  <div class="container">
+    <div class="contact-form-wrapper">
+      <div class="contact-form-intro">
+        <div class="contact-form-badge">
+          <span class="material-icons">edit_note</span>
+          <span>Cuéntame tu proyecto</span>
+        </div>
+        <h2 class="contact-form-title">Solicita tu cotización gratis</h2>
+        <p class="contact-form-subtitle">
+          Déjame tus datos y una breve descripción. Te respondo por WhatsApp en menos de 24 horas con una propuesta clara.
+        </p>
+        <ul class="contact-form-points">
+          <li><span class="material-icons">check_circle</span> Respuesta en menos de 24h</li>
+          <li><span class="material-icons">check_circle</span> Consulta y cotización sin costo</li>
+          <li><span class="material-icons">check_circle</span> Trato directo con el desarrollador</li>
+        </ul>
+      </div>
+
+      <form class="contact-form-card" #contactForm="ngForm" (ngSubmit)="enviarPorWhatsApp()" novalidate>
+        <div class="form-field">
+          <label for="nombre">Nombre <span class="form-required">*</span></label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Tu nombre o el de tu negocio"
+            [(ngModel)]="form.nombre"
+            required>
+        </div>
+
+        <div class="form-field">
+          <label for="contacto">WhatsApp o correo <span class="form-required">*</span></label>
+          <input
+            type="text"
+            id="contacto"
+            name="contacto"
+            placeholder="Ej: 999 888 777 o tu@correo.com"
+            [(ngModel)]="form.contacto"
+            required>
+        </div>
+
+        <div class="form-field">
+          <label for="servicio">¿Qué necesitas?</label>
+          <select id="servicio" name="servicio" [(ngModel)]="form.servicio">
+            <option value="" disabled selected>Selecciona un servicio</option>
+            <option *ngFor="let s of servicios" [value]="s">{{ s }}</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            placeholder="Cuéntame brevemente qué quieres lograr"
+            [(ngModel)]="form.mensaje"></textarea>
+        </div>
+
+        <button type="submit" class="contact-form-submit" [disabled]="!formValido">
+          <span class="material-icons">send</span>
+          <span>Enviar por WhatsApp</span>
+        </button>
+        <p class="contact-form-note">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- Canales de Contacto Mejorados -->
 <section class="contact-channels-creative">
   <div class="channels-background"></div>

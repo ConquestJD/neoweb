@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, AfterViewInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ContactLinksComponent } from '../../shared/components/contact-links/contact-links.component';
 
 interface FAQ {
   question: string;
@@ -14,13 +14,38 @@ interface FAQ {
 @Component({
   selector: 'app-contacto',
   standalone: true,
-  imports: [CommonModule, RouterModule, ContactLinksComponent],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
+  // Número de WhatsApp de destino (sin + ni espacios)
+  private readonly whatsappNumber = '51942820836';
+
+  // Modelo del formulario de contacto
+  form = {
+    nombre: '',
+    contacto: '',
+    servicio: '',
+    mensaje: ''
+  };
+
+  // Servicios disponibles para el selector
+  servicios = [
+    'Página web',
+    'Landing page',
+    'Tienda virtual (e-commerce)',
+    'Rediseño de web',
+    'Aplicación móvil',
+    'Sistema / digitalización de procesos',
+    'Google Ads / Marketing digital',
+    'Consultoría SEO',
+    'Otro'
+  ];
+
   // Estados de visibilidad para animaciones de scroll
   sectionsVisible: { [key: string]: string } = {
+    'contact-form': 'visible',
     'contact-methods': 'visible',
     'schedule': 'visible',
     'faq': 'visible'
@@ -114,11 +139,34 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  // Enlaces de contacto con información adicional
-
   toggleFaq(index: number) {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
   }
 
+  // Validación mínima: nombre + algún dato de contacto
+  get formValido(): boolean {
+    return this.form.nombre.trim().length > 1 && this.form.contacto.trim().length > 4;
+  }
+
+  // Arma el mensaje y abre WhatsApp con el texto pre-rellenado
+  enviarPorWhatsApp() {
+    if (!this.formValido) {
+      return;
+    }
+
+    const lineas = [
+      `Hola, soy ${this.form.nombre.trim()}.`,
+      this.form.servicio ? `Me interesa: ${this.form.servicio}.` : '',
+      this.form.mensaje.trim() ? `Detalle: ${this.form.mensaje.trim()}` : '',
+      `Mi contacto: ${this.form.contacto.trim()}`
+    ].filter(Boolean);
+
+    const texto = encodeURIComponent(lineas.join('\n'));
+    const url = `https://wa.me/${this.whatsappNumber}?text=${texto}`;
+
+    if (isPlatformBrowser(this.platformId)) {
+      window.open(url, '_blank');
+    }
+  }
 }
 
