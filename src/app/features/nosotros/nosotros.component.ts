@@ -19,74 +19,64 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
     'stats': 'visible'
   };
 
-  // Valores de la empresa
+  // Cómo trabajo con cada cliente
   values = [
     {
-      icon: 'visibility',
-      title: 'Visibilidad Digital',
-      description: 'Ayudamos a tu negocio a ser encontrado por más clientes potenciales en internet.'
+      icon: 'handshake',
+      title: 'Trato directo',
+      description: 'Hablas conmigo, no con un intermediario. Comunicación clara y decisiones rápidas en todo el proyecto.'
     },
     {
-      icon: 'trending_up',
-      title: 'Crecimiento Online',
-      description: 'Creamos estrategias digitales que impulsan el crecimiento de tu empresa.'
+      icon: 'code',
+      title: 'Código a medida',
+      description: 'Desarrollo desde cero con código real, sin plantillas ni WordPress. Mejor rendimiento, seguridad y diseño único.'
     },
     {
       icon: 'speed',
-      title: 'Rapidez y Eficiencia',
-      description: 'Entregamos proyectos de calidad en tiempos récord, sin comprometer la excelencia.'
+      title: 'Rapidez y eficiencia',
+      description: 'Entrego proyectos de calidad en tiempos razonables, manteniendo siempre la atención al detalle.'
     },
     {
       icon: 'support',
-      title: 'Soporte Continuo',
-      description: 'Estamos contigo en cada paso, ofreciendo soporte técnico y asesoría permanente.'
+      title: 'Soporte cercano',
+      description: 'Te acompaño después de la entrega con mejoras, ajustes y soporte técnico cuando lo necesites.'
     }
   ];
 
-  // Estadísticas de la empresa
+  // Métricas reales
   stats = [
     {
       number: '2025',
-      label: 'Año de Fundación',
+      label: 'Inicio del proyecto',
       icon: 'calendar_today'
     },
     {
-      number: '100+',
-      label: 'Proyectos Completados',
+      number: '6',
+      label: 'Proyectos entregados',
       icon: 'check_circle'
     },
     {
-      number: '50+',
-      label: 'Clientes Satisfechos',
+      number: '4',
+      label: 'Clientes reales',
       icon: 'people'
     },
     {
-      number: '24/7',
-      label: 'Soporte Disponible',
+      number: '<24h',
+      label: 'Respuesta inicial',
       icon: 'support_agent'
     }
   ];
 
-  // Tecnologías con imágenes
+  // Tecnologías con imágenes (stack real)
   technologies = [
     { 
-      name: 'Angular 20', 
+      name: 'Angular', 
       image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
       icon: 'code'
     },
     { 
-      name: 'React 18', 
+      name: 'React', 
       image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-      icon: 'code'
-    },
-    { 
-      name: 'Vue.js 3', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
-      icon: 'code'
-    },
-    { 
-      name: 'Node.js', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
       icon: 'code'
     },
     { 
@@ -95,18 +85,28 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
       icon: 'code'
     },
     { 
-      name: 'TailwindCSS', 
-      image: 'https://api.iconify.design/devicon:tailwindcss.svg?color=%2306b6d4',
+      name: 'JavaScript', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
       icon: 'code'
     },
     { 
-      name: 'Firebase', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg',
+      name: 'Node.js', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
       icon: 'code'
     },
     { 
-      name: 'MongoDB', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+      name: 'Python', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'FastAPI', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'MySQL', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
       icon: 'code'
     },
     { 
@@ -115,13 +115,23 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
       icon: 'code'
     },
     { 
-      name: 'AWS', 
-      image: 'https://api.iconify.design/logos:aws.svg',
+      name: 'MongoDB', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
       icon: 'code'
     },
     { 
-      name: 'Docker', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+      name: 'TailwindCSS', 
+      image: 'https://api.iconify.design/devicon:tailwindcss.svg?color=%2306b6d4',
+      icon: 'code'
+    },
+    { 
+      name: 'Angular Material', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg',
+      icon: 'code'
+    },
+    { 
+      name: 'Firebase', 
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg',
       icon: 'code'
     },
     { 
@@ -133,41 +143,6 @@ export class NosotrosComponent implements OnInit, OnDestroy, AfterViewInit {
       name: 'Figma', 
       image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
       icon: 'code'
-    },
-    { 
-      name: 'Adobe XD', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xd/xd-plain.svg',
-      icon: 'code'
-    },
-    { 
-      name: 'Spring Boot', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg',
-      icon: 'code'
-    },
-    { 
-      name: 'React Native', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-      icon: 'phone_android'
-    },
-    { 
-      name: 'Flutter', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg',
-      icon: 'phone_android'
-    },
-    { 
-      name: 'Ionic', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ionic/ionic-original.svg',
-      icon: 'phone_android'
-    },
-    { 
-      name: 'Swift', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg',
-      icon: 'phone_iphone'
-    },
-    { 
-      name: 'Kotlin', 
-      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg',
-      icon: 'phone_android'
     }
   ];
 
