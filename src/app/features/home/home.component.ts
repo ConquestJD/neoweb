@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       title: 'Adaptados al mercado peruano',
-      description: 'Conocemos cómo compran y qué necesitan los usuarios en el Perú. Creamos soluciones que funcionan con patrones locales de consumo.',
+      description: 'Conozco cómo compran y qué necesitan los usuarios en el Perú. Creo soluciones que funcionan con patrones locales de consumo.',
       icon: 'location_on',
       points: ['Copy local', 'Confianza inmediata'],
       image: '/assets/home/peru.png',
