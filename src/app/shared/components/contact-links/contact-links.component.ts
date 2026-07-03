@@ -27,7 +27,7 @@ export class ContactLinksComponent {
       name: 'Instagram',
       url: 'https://instagram.com/neoweb.agency',
       icon: 'instagram',
-      gradient: 'from-pink-600 to-purple-600'
+      gradient: 'from-gray-700 to-gray-900'
     },
     {
       name: 'WhatsApp',

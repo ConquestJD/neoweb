@@ -143,7 +143,7 @@ export class DigitalizacionProcesosComponent implements OnInit, AfterViewInit {
       name: 'START',
       price: 'S/ 1,500',
       icon: 'star',
-      color: 'from-violet-500 to-purple-500',
+      color: 'from-gray-600 to-gray-800',
       features: [
         '1 proceso digitalizado',
         'Formularios / flujos básicos'

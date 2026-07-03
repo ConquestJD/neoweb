@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   display: block;
 }
 
@@ -26,7 +26,7 @@ section {
   display: flex;
   align-items: center;
   padding: 120px 0 80px;
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4c1d95 60%, #6b21a8 100%);
+  background: linear-gradient(135deg, #111113 0%, #27272a 30%, #18181b 60%, #000000 100%);
   overflow: hidden;
   isolation: isolate;
 }
@@ -38,9 +38,9 @@ section {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 15% 25%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 85% 75%, rgba(107, 70, 193, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
   background-size: 100% 100%;
   pointer-events: none;
   z-index: 1;
@@ -87,10 +87,10 @@ section {
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
-  color: #c4b5fd;
+  color: #d4d4d8;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -102,8 +102,8 @@ section {
 }
 
 .hero-blog-badge:hover {
-  background: rgba(139, 92, 246, 0.25);
-  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
 
@@ -123,7 +123,7 @@ section {
 }
 
 .hero-blog-title-highlight {
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -138,7 +138,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #a1a1aa 100%);
   border-radius: 2px;
   opacity: 0.3;
   z-index: -1;
@@ -183,9 +183,9 @@ section {
 }
 
 .hero-blog-btn-primary {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #52525b 0%, #3f3f46 100%);
   color: #ffffff;
-  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5);
 }
 
 .hero-blog-btn-primary::before {
@@ -205,8 +205,8 @@ section {
 
 .hero-blog-btn-primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.7);
-  background: linear-gradient(135deg, #9d6af7 0%, #8b4ef0 100%);
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, #71717a 0%, #3f3f46 100%);
 }
 
 .hero-blog-btn-primary:active {
@@ -372,15 +372,15 @@ section {
 
 .filter-item-active {
   background: #f8fafc;
-  border-color: #8b5cf6;
-  color: #6b46c1;
+  border-color: #52525b;
+  color: #27272a;
   font-weight: 600;
 }
 
 .filter-item-active:hover {
   background: #f1f5f9;
-  border-color: #7c3aed;
-  color: #5b21b6;
+  border-color: #3f3f46;
+  color: #18181b;
 }
 
 .filter-icon-minimal {
@@ -398,7 +398,7 @@ section {
 }
 
 .filter-item-active .filter-icon-minimal .material-icons {
-  color: #8b5cf6;
+  color: #52525b;
 }
 
 .filter-label-minimal {
@@ -417,7 +417,7 @@ section {
 
 .filter-indicator-minimal .material-icons {
   font-size: 18px;
-  color: #8b5cf6;
+  color: #52525b;
 }
 
 /* Blog Posts Enhanced */
@@ -442,7 +442,7 @@ section {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   font-weight: 900;
-  color: #8b5cf6;
+  color: #52525b;
   line-height: 1;
 }
 
@@ -474,8 +474,8 @@ section {
 
 .post-card-enhanced:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .post-hover-effect {
@@ -484,7 +484,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(107, 70, 193, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.02) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -540,9 +540,9 @@ section {
   padding: 8px 14px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
-  color: #6b46c1;
+  color: #27272a;
   font-size: 0.8rem;
   font-weight: 600;
   z-index: 2;
@@ -550,9 +550,9 @@ section {
 }
 
 .post-card-enhanced:hover .post-category-badge {
-  background: #8b5cf6;
+  background: #52525b;
   color: #ffffff;
-  border-color: #8b5cf6;
+  border-color: #52525b;
   transform: scale(1.05);
 }
 
@@ -611,7 +611,7 @@ section {
 }
 
 .post-card-enhanced:hover .post-title {
-  color: #6b46c1;
+  color: #27272a;
 }
 
 .post-excerpt {
@@ -650,7 +650,7 @@ section {
 .post-author .material-icons,
 .post-date .material-icons {
   font-size: 16px;
-  color: #8b5cf6;
+  color: #52525b;
 }
 
 .post-footer {
@@ -663,14 +663,14 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #8b5cf6;
+  color: #52525b;
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
 }
 
 .post-card-enhanced:hover .post-read-more {
-  color: #6b46c1;
+  color: #27272a;
   gap: 12px;
 }
 
@@ -696,14 +696,14 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(107, 70, 193, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
   border-radius: 50%;
-  border: 2px solid rgba(139, 92, 246, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .empty-icon .material-icons {
   font-size: 40px;
-  color: #8b5cf6;
+  color: #52525b;
 }
 
 .empty-title {
@@ -875,7 +875,7 @@ section {
 .blog-cta-enhanced {
   position: relative;
   padding: 100px 0;
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4c1d95 60%, #6b21a8 100%);
+  background: linear-gradient(135deg, #111113 0%, #27272a 30%, #18181b 60%, #000000 100%);
   overflow: hidden;
   isolation: isolate;
 }
@@ -887,9 +887,9 @@ section {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(107, 70, 193, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
   background-size: 100% 100%;
   pointer-events: none;
   z-index: 1;
@@ -944,7 +944,7 @@ section {
 .cta-shape-1 {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, #a855f7, #9333ea);
+  background: linear-gradient(135deg, #52525b, #27272a);
   top: -100px;
   left: -100px;
   animation-delay: 0s;
@@ -953,7 +953,7 @@ section {
 .cta-shape-2 {
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: linear-gradient(135deg, #71717a, #3f3f46);
   bottom: -80px;
   right: -80px;
   animation-delay: 7s;
@@ -962,7 +962,7 @@ section {
 .cta-shape-3 {
   width: 250px;
   height: 250px;
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(135deg, #52525b, #3f3f46);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -990,10 +990,10 @@ section {
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
-  color: #c4b5fd;
+  color: #d4d4d8;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -1024,8 +1024,8 @@ section {
 }
 
 .cta-badge-enhanced:hover {
-  background: rgba(139, 92, 246, 0.25);
-  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
 
@@ -1046,7 +1046,7 @@ section {
 }
 
 .cta-title-highlight {
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1061,7 +1061,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #a1a1aa 100%);
   border-radius: 2px;
   opacity: 0.3;
   z-index: -1;
@@ -1106,9 +1106,9 @@ section {
 }
 
 .cta-btn-primary-enhanced {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #52525b 0%, #3f3f46 100%);
   color: #ffffff;
-  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5);
 }
 
 .btn-shine {
@@ -1127,8 +1127,8 @@ section {
 
 .cta-btn-primary-enhanced:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.7);
-  background: linear-gradient(135deg, #9d6af7 0%, #8b4ef0 100%);
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, #71717a 0%, #3f3f46 100%);
 }
 
 .cta-btn-primary-enhanced:active {
@@ -1215,19 +1215,19 @@ section {
 }
 
 .cta-feature-item:hover {
-  color: #c4b5fd;
+  color: #d4d4d8;
   transform: translateY(-2px);
 }
 
 .cta-feature-item .material-icons {
   font-size: 22px;
-  color: #8b5cf6;
+  color: #52525b;
   transition: all 0.3s ease;
 }
 
 .cta-feature-item:hover .material-icons {
   transform: scale(1.2) rotate(5deg);
-  color: #a78bfa;
+  color: #a1a1aa;
 }
 
 .cta-feature-divider {

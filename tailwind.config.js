@@ -6,10 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'neo-blue': '#6B46C1',
-        'neo-violet': '#8B5CF6',
-        'neo-light': '#C4B5FD',
-        'neo-dark': '#1E1B4B',
+        'neo-blue': '#27272A',
+        'neo-violet': '#52525B',
+        'neo-light': '#D4D4D8',
+        'neo-dark': '#111113',
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
@@ -17,8 +17,8 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-neo': 'linear-gradient(135deg, #6B46C1 0%, #7C3AED 50%, #8B5CF6 100%)',
-        'gradient-neo-reverse': 'linear-gradient(135deg, #C4B5FD 0%, #8B5CF6 50%, #6B46C1 100%)',
+        'gradient-neo': 'linear-gradient(135deg, #000000 0%, #27272A 50%, #52525B 100%)',
+        'gradient-neo-reverse': 'linear-gradient(135deg, #D4D4D8 0%, #52525B 50%, #000000 100%)',
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',

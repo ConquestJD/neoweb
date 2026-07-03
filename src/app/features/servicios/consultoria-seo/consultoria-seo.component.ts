@@ -155,7 +155,7 @@ export class ConsultoriaSeoComponent implements OnInit, AfterViewInit {
       price: 'S/ 900',
       period: '/mes',
       icon: 'rocket_launch',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-gray-700 to-gray-900',
       featured: true,
       features: [
         'SEO técnico',

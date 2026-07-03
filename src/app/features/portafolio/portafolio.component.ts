@@ -277,7 +277,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
       number: 'Multi-país',
       label: 'Alcance (Perú · El Salvador · Bolivia)',
       icon: 'public',
-      color: 'from-purple-500 to-violet-500'
+      color: 'from-gray-600 to-gray-800'
     },
     {
       number: 'Full-stack',

@@ -154,7 +154,7 @@ export class AplicacionesMovilesComponent implements OnInit, AfterViewInit {
       name: 'PRO',
       price: 'S/ 7,500',
       icon: 'rocket_launch',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-gray-700 to-gray-900',
       featured: true,
       features: [
         'Login + BD',

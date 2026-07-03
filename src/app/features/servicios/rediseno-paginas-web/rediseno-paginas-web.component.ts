@@ -143,7 +143,7 @@ export class RedisenoPaginasWebComponent implements OnInit, AfterViewInit {
       name: 'START',
       price: 'S/ 800',
       icon: 'star',
-      color: 'from-indigo-500 to-blue-500',
+      color: 'from-gray-600 to-gray-800',
       features: [
         'Modernización estética',
         'Ajustes de contenido',
@@ -154,7 +154,7 @@ export class RedisenoPaginasWebComponent implements OnInit, AfterViewInit {
       name: 'PRO',
       price: 'S/ 1,400',
       icon: 'rocket_launch',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-gray-700 to-gray-900',
       featured: true,
       features: [
         'Rediseño completo de front-end',

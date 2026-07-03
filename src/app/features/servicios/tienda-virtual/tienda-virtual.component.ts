@@ -153,7 +153,7 @@ export class TiendaVirtualComponent implements OnInit, AfterViewInit {
       name: 'START',
       price: 'S/ 2,500',
       icon: 'star',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-gray-700 to-gray-900',
       features: [
         'Hasta 50 productos',
         'Secciones: Inicio, Tienda, Categorías simples, Producto, Carrito, Checkout, Contacto',

@@ -172,7 +172,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       name: 'PRO',
       price: 'S/ 800',
       icon: 'rocket_launch',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-gray-700 to-gray-900',
       featured: true,
       features: [
         '6-7 bloques: Hero, Beneficios, Cómo Funciona, Planes/Servicios, Testimonios, FAQ, CTA final',
