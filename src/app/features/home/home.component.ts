@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
+
   scrollY = 0;
 
   // Portafolio preview - Proyectos reales
@@ -165,6 +167,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {}
 
   ngAfterViewInit() {
+    const video = this.heroVideo?.nativeElement;
+    if (video) {
+      video.play().catch(() => {});
+    }
+
     setTimeout(() => {
       this.checkScroll();
     }, 50);
