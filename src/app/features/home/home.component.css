@@ -291,7 +291,7 @@ section {
   pointer-events: none;
   transform: scale(0.5);
   transform-origin: top left;
-  padding: px 12px;
+  padding: 10px 12px;
   border-radius: 999px;
   background: #ffffff;
   color: #0f0a28;
