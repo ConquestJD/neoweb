@@ -165,7 +165,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   get carouselTransform(): string {
-    const slideShare = 78;
+    const slideShare = 62;
     const gap = 1.25;
     const centerOffset = (100 - slideShare) / 2;
     return `translateX(calc(-${this.activeServiceIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
