@@ -34,50 +34,51 @@
 <section class="services-section">
   <div class="container">
     <header class="services-header">
-      <h2>Lo que hacemos</h2>
-      <p>Soluciones concretas para vender más y crecer online.</p>
+      <div class="services-header-top">
+        <button
+          type="button"
+          class="services-nav-btn"
+          (click)="prevService($event)"
+          aria-label="Servicio anterior">
+          <span class="material-icons" aria-hidden="true">chevron_left</span>
+        </button>
+        <div class="services-header-copy">
+          <h2>Lo que hacemos</h2>
+          <p>Soluciones concretas para vender más y crecer online.</p>
+        </div>
+        <button
+          type="button"
+          class="services-nav-btn"
+          (click)="nextService($event)"
+          aria-label="Siguiente servicio">
+          <span class="material-icons" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+      <p class="services-active-label">{{ services[activeServiceIndex].name }}</p>
     </header>
 
     <div
       class="services-carousel"
       tabindex="0"
       (keydown)="onCarouselKeydown($event)">
-      <button
-        type="button"
-        class="carousel-btn carousel-btn-prev"
-        (click)="prevService($event)"
-        aria-label="Servicio anterior">
-        <span class="material-icons" aria-hidden="true">chevron_left</span>
-      </button>
-
       <div class="carousel-viewport">
-        <div
-          class="carousel-track"
-          [style.transform]="'translateX(-' + activeServiceIndex * 100 + '%)'">
+        <div class="carousel-track" [style.transform]="carouselTransform">
           <a
-            *ngFor="let service of services"
+            *ngFor="let service of services; let i = index"
             [routerLink]="service.route"
             class="carousel-slide"
+            [class.is-active]="i === activeServiceIndex"
             [attr.aria-label]="'Ver servicio ' + service.name">
             <img [src]="service.image" [alt]="service.name" loading="lazy">
             <div class="carousel-slide-overlay" aria-hidden="true"></div>
-            <div class="carousel-slide-content">
-              <span class="carousel-slide-tag">{{ service.tag }}</span>
+            <div class="carousel-slide-top">
               <h3>{{ service.name }}</h3>
-              <p>{{ service.outcome }}</p>
-              <span class="carousel-slide-cta">Ver servicio</span>
+              <p>{{ service.description }}</p>
             </div>
+            <p class="carousel-slide-audience">{{ service.audience }}</p>
           </a>
         </div>
       </div>
-
-      <button
-        type="button"
-        class="carousel-btn carousel-btn-next"
-        (click)="nextService($event)"
-        aria-label="Siguiente servicio">
-        <span class="material-icons" aria-hidden="true">chevron_right</span>
-      </button>
 
       <div class="carousel-dots">
         <button

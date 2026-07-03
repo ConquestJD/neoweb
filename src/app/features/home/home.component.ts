@@ -89,16 +89,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBhZ2luYSUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
       tag: 'Identidad',
       outcome: 'Presencia corporativa confiable',
-      description: 'Sitios institucionales a medida, con diseño claro y código optimizado.'
-    },
-    {
-      name: 'Landing Page',
-      route: '/servicios/landing-page',
-      icon: 'rocket_launch',
-      image: 'https://images.unsplash.com/photo-1648134859177-66e35b61e106?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      tag: 'Conversión',
-      outcome: 'Campañas con más conversión',
-      description: 'Páginas de alto rendimiento pensadas para captar leads y vender.'
+      description: 'Sitios institucionales a medida, con diseño claro y código optimizado.',
+      audience: 'Para empresas que necesitan presencia profesional online'
     },
     {
       name: 'Tienda Virtual',
@@ -107,7 +99,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
       tag: 'E‑commerce',
       outcome: 'Catálogo listo para vender',
-      description: 'E‑commerce con catálogo, carrito y pasarela de pagos integrados.'
+      description: 'E‑commerce con catálogo, carrito y pasarela de pagos integrados.',
+      audience: 'Para negocios que quieren vender productos en internet'
     },
     {
       name: 'Google Ads',
@@ -116,7 +109,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://plus.unsplash.com/premium_photo-1685208166965-d04149118ca5?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29vZ2xlJTIwYWRzfGVufDB8fDB8fHww',
       tag: 'Performance',
       outcome: 'Tráfico medible y segmentado',
-      description: 'Campañas en Google para atraer clientes potenciales con presupuesto claro.'
+      description: 'Campañas en Google para atraer clientes potenciales con presupuesto claro.',
+      audience: 'Para quienes buscan clientes con publicidad medible'
     },
     {
       name: 'Marketing Digital',
@@ -125,7 +119,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hcmtldGluZyUyMGRpZ2l0YWx8ZW58MHx8MHx8fDA%3D',
       tag: 'Estrategia',
       outcome: 'Comunicación constante de marca',
-      description: 'Estrategia, contenido y redes para hacer crecer tu presencia online.'
+      description: 'Estrategia, contenido y redes para hacer crecer tu presencia online.',
+      audience: 'Para marcas que quieren crecer en redes y contenido'
     },
     {
       name: 'Rediseño Web',
@@ -134,7 +129,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://images.unsplash.com/photo-1657812159077-90649115008c?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmVkaXNlJUMzJUIxbyUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
       tag: 'Renovación',
       outcome: 'Imagen renovada y profesional',
-      description: 'Modernizamos tu sitio actual con mejor UX, performance y conversión.'
+      description: 'Modernizamos tu sitio actual con mejor UX, performance y conversión.',
+      audience: 'Para sitios actuales que no generan resultados'
     },
     {
       name: 'Apps Móviles',
@@ -143,7 +139,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://images.unsplash.com/photo-1633250391894-397930e3f5f2?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcHMlMjBtb3ZpbGVzJTIwZGVzYXJyb2xsb3xlbnwwfHwwfHx8MA%3D%3D',
       tag: 'Producto',
       outcome: 'Experiencias móviles fluidas',
-      description: 'Apps nativas e híbridas para iOS y Android con diseño intuitivo.'
+      description: 'Apps nativas e híbridas para iOS y Android con diseño intuitivo.',
+      audience: 'Para negocios que necesitan llegar al móvil'
     },
     {
       name: 'Consultoría SEO',
@@ -152,7 +149,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       tag: 'Visibilidad',
       outcome: 'Mejor visibilidad orgánica',
-      description: 'Optimización técnica y de contenidos para escalar en buscadores.'
+      description: 'Optimización técnica y de contenidos para escalar en buscadores.',
+      audience: 'Para quienes quieren más tráfico orgánico'
     },
     {
       name: 'Digitalización de Procesos',
@@ -161,9 +159,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: 'https://plus.unsplash.com/premium_photo-1661443822504-0e382dbc1e48?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRpZ2l0YWxpemFjaW9uJTIwZGUlMjBwcm9jZXNvc3xlbnwwfHwwfHx8MA%3D%3D',
       tag: 'Automatización',
       outcome: 'Operación ordenada y automatizada',
-      description: 'Automatizamos procesos internos para ganar tiempo y reducir errores.'
+      description: 'Automatizamos procesos internos para ganar tiempo y reducir errores.',
+      audience: 'Para equipos que quieren ordenar su operación'
     }
   ];
+
+  get carouselTransform(): string {
+    const slideShare = 78;
+    const gap = 1.25;
+    const centerOffset = (100 - slideShare) / 2;
+    return `translateX(calc(-${this.activeServiceIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
+  }
 
   ngOnInit() {}
 
@@ -310,10 +316,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.scrollTimeout = null;
     }
 
-    if (this.initTimeout) {
-      clearTimeout(this.initTimeout);
-      this.initTimeout = null;
-    }
+
 
     this.stopHeroVideo();
   }
