@@ -166,20 +166,58 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {}
 
-  ngAfterViewInit() {
-    const video = this.heroVideo?.nativeElement;
-    if (video) {
-      video.play().catch(() => {});
-    }
+  private scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+  private initTimeout: ReturnType<typeof setTimeout> | null = null;
+  private destroyed = false;
+  private lastScrollTime = 0;
+  private readonly scrollThrottle = 100;
 
-    setTimeout(() => {
-      this.checkScroll();
+  ngAfterViewInit() {
+    this.initHeroVideo();
+
+    this.initTimeout = setTimeout(() => {
+      if (!this.destroyed) {
+        this.checkScroll();
+      }
     }, 50);
   }
 
-  private scrollTimeout: any;
-  private lastScrollTime = 0;
-  private readonly scrollThrottle = 100; // ms
+  private initHeroVideo() {
+    const video = this.heroVideo?.nativeElement;
+    if (!video) {
+      return;
+    }
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const tryPlay = () => {
+      if (this.destroyed) {
+        return;
+      }
+      video.play().catch(() => {});
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      tryPlay();
+      return;
+    }
+
+    video.addEventListener('canplay', tryPlay, { once: true });
+    video.load();
+  }
+
+  private stopHeroVideo() {
+    const video = this.heroVideo?.nativeElement;
+    if (!video) {
+      return;
+    }
+
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
 
   @HostListener('window:scroll', [])
   onScroll() {
@@ -204,6 +242,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private elementCache: { [key: string]: Element | null } = {};
 
   checkScroll() {
+    if (this.destroyed) {
+      return;
+    }
+
     this.diferenciales.forEach((diferencial, index) => {
       if (!diferencial.visible) {
         const elementId = `diferencial-${index}`;
@@ -231,8 +273,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.destroyed = true;
+
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
+      this.scrollTimeout = null;
     }
+
+    if (this.initTimeout) {
+      clearTimeout(this.initTimeout);
+      this.initTimeout = null;
+    }
+
+    this.stopHeroVideo();
   }
 }
