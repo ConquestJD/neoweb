@@ -14,73 +14,82 @@
       <source src="/assets/home/hero.mp4" type="video/mp4">
       <source src="/assets/home/hero.mov" type="video/mp4">
     </video>
+    <div class="hero-video-overlay" aria-hidden="true"></div>
   </div>
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title-enhanced">
-        Desarrollo Web y Marketing Digital Profesional en Perú
+        Un sitio web impulsa<br>tu negocio
       </h1>
+      <a routerLink="/contacto" class="hero-cta">Contactar</a>
       <p class="hero-description-enhanced">
-        Soy desarrollador full-stack en Perú, especializado en crear sitios web personalizados, tiendas virtuales y estrategias de marketing digital para negocios que buscan crecer. Desarrollo a medida, sin WordPress, con código optimizado.
+        Sitios a medida para que te encuentren y vendan más.
       </p>
     </div>
   </div>
 </section>
 
 
-<!-- Servicios de agencia digital -->
-<section class="services-section-v2">
+<!-- Servicios -->
+<section class="services-section">
   <div class="container">
-    <header class="services-v2-header">
-      <span class="services-v2-eyebrow">
-        <span class="services-v2-dot"></span>
-        Servicios
-      </span>
-      <h2 class="services-v2-title">
-        Soluciones digitales
-        <span class="services-v2-title-accent">de extremo a extremo</span>
-      </h2>
-      <p class="services-v2-subtitle">
-        Diseño, desarrollo y marketing trabajados de principio a fin por la misma persona. Cada servicio está pensado para resolver un objetivo concreto: vender más, ordenar tu operación o consolidar tu marca.
-      </p>
+    <header class="services-header">
+      <h2>Lo que hacemos</h2>
+      <p>Soluciones concretas para vender más y crecer online.</p>
     </header>
 
-    <div class="services-v2-grid">
-      <article
-        *ngFor="let service of services; let i = index"
-        class="service-v2-card"
-        [attr.data-index]="i + 1">
-        <a [routerLink]="service.route" class="service-v2-link" [attr.aria-label]="'Ver servicio ' + service.name">
-          <div class="service-v2-visual">
-            <img [src]="service.image" [alt]="service.name + ' - servicio NeoWeb'" loading="lazy">
-            <span class="service-v2-overlay"></span>
-            <span class="service-v2-tag">{{ service.tag }}</span>
-            <span class="service-v2-icon-badge">
-              <span class="material-icons">{{ service.icon }}</span>
-            </span>
-          </div>
+    <div
+      class="services-carousel"
+      tabindex="0"
+      (keydown)="onCarouselKeydown($event)">
+      <button
+        type="button"
+        class="carousel-btn carousel-btn-prev"
+        (click)="prevService($event)"
+        aria-label="Servicio anterior">
+        <span class="material-icons" aria-hidden="true">chevron_left</span>
+      </button>
 
-          <div class="service-v2-body">
-            <div class="service-v2-meta">
-              <span class="service-v2-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-              <span class="service-v2-divider"></span>
-              <span class="service-v2-label">Servicio</span>
+      <div class="carousel-viewport">
+        <div
+          class="carousel-track"
+          [style.transform]="'translateX(-' + activeServiceIndex * 100 + '%)'">
+          <a
+            *ngFor="let service of services"
+            [routerLink]="service.route"
+            class="carousel-slide"
+            [attr.aria-label]="'Ver servicio ' + service.name">
+            <img [src]="service.image" [alt]="service.name" loading="lazy">
+            <div class="carousel-slide-overlay" aria-hidden="true"></div>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-tag">{{ service.tag }}</span>
+              <h3>{{ service.name }}</h3>
+              <p>{{ service.outcome }}</p>
+              <span class="carousel-slide-cta">Ver servicio</span>
             </div>
-            <h3 class="service-v2-name">{{ service.name }}</h3>
-            <p class="service-v2-desc">{{ service.description }}</p>
-            <div class="service-v2-footer">
-              <span class="service-v2-outcome">
-                <span class="material-icons">check_circle</span>
-                {{ service.outcome }}
-              </span>
-              <span class="service-v2-cta">
-                Ver detalle
-                <span class="material-icons">arrow_forward</span>
-              </span>
-            </div>
-          </div>
-        </a>
-      </article>
+          </a>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="carousel-btn carousel-btn-next"
+        (click)="nextService($event)"
+        aria-label="Siguiente servicio">
+        <span class="material-icons" aria-hidden="true">chevron_right</span>
+      </button>
+
+      <div class="carousel-dots">
+        <button
+          *ngFor="let service of services; let i = index"
+          type="button"
+          class="carousel-dot"
+          [class.active]="i === activeServiceIndex"
+          (click)="goToService(i, $event)"
+          [attr.aria-label]="'Ir a ' + service.name"
+          [attr.aria-current]="i === activeServiceIndex ? 'true' : null">
+        </button>
+      </div>
     </div>
   </div>
 </section>
