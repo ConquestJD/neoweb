@@ -1,6 +1,23 @@
 import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+
+type HomeService = {
+  name: string;
+  route: string;
+  icon: string;
+  image: string;
+  tag: string;
+  outcome: string;
+  description: string;
+  audience: string;
+};
+
+type CarouselSlide = {
+  service: HomeService;
+  serviceIndex: number;
+  key: string;
+};
 
 @Component({
   selector: 'app-home',
@@ -12,8 +29,19 @@ import { RouterModule } from '@angular/router';
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
 
+  constructor(private router: Router) {}
+
   scrollY = 0;
   activeServiceIndex = 0;
+  trackIndex = 1;
+  trackTransitionEnabled = true;
+  servicesVisible = false;
+  carouselTransitioning = false;
+  carouselCursorLabel = '';
+  carouselCursorShown = false;
+  carouselCursorX = 0;
+  carouselCursorY = 0;
+  carouselSlides: CarouselSlide[] = [];
 
   // Portafolio preview - Proyectos reales
   portfolioProjects = [
@@ -168,28 +196,259 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const slideShare = 62;
     const gap = 1.25;
     const centerOffset = (100 - slideShare) / 2;
-    return `translateX(calc(-${this.activeServiceIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
+    return `translateX(calc(-${this.trackIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
   }
 
-  ngOnInit() {}
+  formatServiceIndex(index: number): string {
+    return (index + 1).toString().padStart(2, '0');
+  }
+
+  trackCarouselSlide(_index: number, slide: CarouselSlide): string {
+    return slide.key;
+  }
+
+  private readonly indicatorGapPx = 8;
+  private readonly carouselTransitionMs = 900;
+  private readonly carouselCursorOffsetX = 10;
+  private readonly carouselCursorOffsetY = 14;
+
+  get indicatorThumbWidth(): string {
+    const count = this.services.length;
+    return `calc((100% - ${(count - 1) * this.indicatorGapPx}px) / ${count})`;
+  }
+
+  get indicatorThumbOffset(): string {
+    const index = this.activeServiceIndex;
+    const count = this.services.length;
+    const gap = this.indicatorGapPx;
+    const segment = `(100% - ${(count - 1) * gap}px) / ${count}`;
+    return `calc(${index} * (${segment} + ${gap}px))`;
+  }
+
+  onSlideClick(slideTrackIndex: number, event: Event) {
+    this.clearCarouselCursor();
+
+    if (slideTrackIndex === this.trackIndex) {
+      void this.router.navigateByUrl(this.services[this.activeServiceIndex].route);
+      return;
+    }
+
+    event.preventDefault();
+    const slide = this.carouselSlides[slideTrackIndex];
+    this.moveToTrackIndex(slideTrackIndex, slide.serviceIndex);
+  }
+
+  onSlideHover(slideTrackIndex: number, event: MouseEvent) {
+    if (this.carouselCursorHideTimeout) {
+      clearTimeout(this.carouselCursorHideTimeout);
+      this.carouselCursorHideTimeout = null;
+    }
+
+    let label: string;
+    if (slideTrackIndex === this.trackIndex - 1) {
+      label = 'Anterior';
+    } else if (slideTrackIndex === this.trackIndex + 1) {
+      label = 'Siguiente';
+    } else {
+      this.hideCarouselCursor();
+      return;
+    }
+
+    const wasHidden = !this.carouselCursorShown;
+    this.carouselCursorLabel = label;
+    this.updateCarouselCursorPosition(event);
+
+    if (wasHidden) {
+      this.carouselCursorShown = false;
+      requestAnimationFrame(() => {
+        if (!this.destroyed && this.carouselCursorLabel === label) {
+          this.carouselCursorShown = true;
+        }
+      });
+    } else {
+      this.carouselCursorShown = true;
+    }
+  }
+
+  onSlideHoverMove(event: MouseEvent) {
+    if (this.carouselCursorLabel) {
+      this.updateCarouselCursorPosition(event);
+    }
+  }
+
+  clearCarouselCursor() {
+    this.hideCarouselCursor();
+  }
+
+  private hideCarouselCursor() {
+    if (!this.carouselCursorLabel && !this.carouselCursorShown) {
+      return;
+    }
+
+    this.carouselCursorShown = false;
+
+    if (this.carouselCursorHideTimeout) {
+      clearTimeout(this.carouselCursorHideTimeout);
+    }
+
+    this.carouselCursorHideTimeout = setTimeout(() => {
+      if (!this.carouselCursorShown) {
+        this.carouselCursorLabel = '';
+      }
+      this.carouselCursorHideTimeout = null;
+    }, 220);
+  }
+
+  private updateCarouselCursorPosition(event: MouseEvent) {
+    this.carouselCursorX = event.clientX + this.carouselCursorOffsetX;
+    this.carouselCursorY = event.clientY + this.carouselCursorOffsetY;
+  }
+
+  onSlideKeydown(slideTrackIndex: number, event: KeyboardEvent) {
+    if (event.key !== 'Enter' && event.key !== ' ') {
+      return;
+    }
+
+    event.preventDefault();
+    this.onSlideClick(slideTrackIndex, event);
+  }
+
+  private moveToTrackIndex(trackIndex: number, serviceIndex: number) {
+    if (trackIndex === this.trackIndex && serviceIndex === this.activeServiceIndex) {
+      return;
+    }
+
+    this.trackIndex = trackIndex;
+    this.activeServiceIndex = serviceIndex;
+    this.triggerCarouselTransition();
+    this.scheduleCloneReset();
+  }
+
+  private scheduleCloneReset() {
+    if (this.carouselResetTimeout) {
+      clearTimeout(this.carouselResetTimeout);
+    }
+
+    this.carouselResetTimeout = setTimeout(() => {
+      if (!this.destroyed) {
+        this.realignCarouselTrack();
+      }
+    }, this.carouselTransitionMs);
+  }
+
+  private realignCarouselTrack() {
+    const count = this.services.length;
+    if (count === 0) {
+      return;
+    }
+
+    if (this.trackIndex >= count * 2) {
+      this.jumpTrackWithoutTransition(this.trackIndex - count);
+    } else if (this.trackIndex < count) {
+      this.jumpTrackWithoutTransition(this.trackIndex + count);
+    }
+  }
+
+  private jumpTrackWithoutTransition(trackIndex: number) {
+    this.trackTransitionEnabled = false;
+    this.trackIndex = trackIndex;
+
+    requestAnimationFrame(() => {
+      if (this.destroyed) {
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        if (!this.destroyed) {
+          this.trackTransitionEnabled = true;
+        }
+      });
+    });
+  }
+
+  private buildCarouselSlides() {
+    const count = this.services.length;
+    if (count === 0) {
+      this.carouselSlides = [];
+      this.trackIndex = 0;
+      return;
+    }
+
+    const buildSet = (prefix: string): CarouselSlide[] =>
+      this.services.map((service, index) => ({
+        service,
+        serviceIndex: index,
+        key: `${prefix}-${index}`
+      }));
+
+    this.carouselSlides = [
+      ...buildSet('set-a'),
+      ...buildSet('set-b'),
+      ...buildSet('set-c')
+    ];
+    this.trackIndex = count;
+    this.activeServiceIndex = 0;
+  }
+
+  private triggerCarouselTransition() {
+    if (this.carouselTransitionTimeout) {
+      clearTimeout(this.carouselTransitionTimeout);
+    }
+
+    this.carouselTransitioning = true;
+    this.carouselTransitionTimeout = setTimeout(() => {
+      if (!this.destroyed) {
+        this.carouselTransitioning = false;
+      }
+    }, this.carouselTransitionMs);
+  }
+
+  ngOnInit() {
+    this.buildCarouselSlides();
+  }
 
   nextService(event?: Event) {
     event?.preventDefault();
     event?.stopPropagation();
-    this.activeServiceIndex = (this.activeServiceIndex + 1) % this.services.length;
+    const count = this.services.length;
+    if (count === 0) {
+      return;
+    }
+
+    const nextActive = (this.activeServiceIndex + 1) % count;
+    this.moveToTrackIndex(this.trackIndex + 1, nextActive);
   }
 
   prevService(event?: Event) {
     event?.preventDefault();
     event?.stopPropagation();
-    this.activeServiceIndex =
-      (this.activeServiceIndex - 1 + this.services.length) % this.services.length;
+    const count = this.services.length;
+    if (count === 0) {
+      return;
+    }
+
+    const nextActive = (this.activeServiceIndex - 1 + count) % count;
+    this.moveToTrackIndex(this.trackIndex - 1, nextActive);
   }
 
   goToService(index: number, event?: Event) {
     event?.preventDefault();
     event?.stopPropagation();
-    this.activeServiceIndex = index;
+
+    const count = this.services.length;
+    if (count === 0 || index === this.activeServiceIndex) {
+      return;
+    }
+
+    const current = this.activeServiceIndex;
+    const forwardSteps = (index - current + count) % count;
+    const backwardSteps = (current - index + count) % count;
+
+    if (forwardSteps <= backwardSteps) {
+      this.moveToTrackIndex(this.trackIndex + forwardSteps, index);
+    } else {
+      this.moveToTrackIndex(this.trackIndex - backwardSteps, index);
+    }
   }
 
   onCarouselKeydown(event: KeyboardEvent) {
@@ -204,6 +463,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private scrollTimeout: ReturnType<typeof setTimeout> | null = null;
   private initTimeout: ReturnType<typeof setTimeout> | null = null;
+  private carouselTransitionTimeout: ReturnType<typeof setTimeout> | null = null;
+  private carouselResetTimeout: ReturnType<typeof setTimeout> | null = null;
+  private carouselCursorHideTimeout: ReturnType<typeof setTimeout> | null = null;
   private destroyed = false;
   private lastScrollTime = 0;
   private readonly scrollThrottle = 100;
@@ -290,6 +552,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         });
       }
     });
+
+    if (!this.servicesVisible) {
+      this.animateOnScroll('services-section', () => {
+        this.servicesVisible = true;
+      });
+    }
   }
 
   animateOnScroll(elementId: string, callback: () => void) {
@@ -316,7 +584,25 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.scrollTimeout = null;
     }
 
+    if (this.initTimeout) {
+      clearTimeout(this.initTimeout);
+      this.initTimeout = null;
+    }
 
+    if (this.carouselTransitionTimeout) {
+      clearTimeout(this.carouselTransitionTimeout);
+      this.carouselTransitionTimeout = null;
+    }
+
+    if (this.carouselResetTimeout) {
+      clearTimeout(this.carouselResetTimeout);
+      this.carouselResetTimeout = null;
+    }
+
+    if (this.carouselCursorHideTimeout) {
+      clearTimeout(this.carouselCursorHideTimeout);
+      this.carouselCursorHideTimeout = null;
+    }
 
     this.stopHeroVideo();
   }
