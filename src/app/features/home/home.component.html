@@ -34,7 +34,8 @@
 <section
   class="services-section"
   id="services-section"
-  [class.is-visible]="servicesVisible">
+  [class.is-visible]="servicesVisible"
+  [class.is-intro-done]="servicesIntroDone">
   <span
     *ngIf="carouselCursorLabel"
     class="carousel-cursor-label"
@@ -64,7 +65,7 @@
   </div>
 
   <div
-    class="services-carousel services-reveal services-reveal-delay-3"
+    class="services-carousel"
     tabindex="0"
     (keydown)="onCarouselKeydown($event)"
     (mouseleave)="clearCarouselCursor()">

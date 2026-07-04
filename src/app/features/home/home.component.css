@@ -259,7 +259,45 @@ section {
 }
 
 .services-reveal-delay-4 {
-  transition-delay: 0.4s;
+  transition-delay: 0.95s;
+}
+
+.services-section:not(.is-visible) .carousel-slide {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+.services-section.is-visible:not(.is-intro-done) .carousel-slide:not(.is-prev):not(.is-active):not(.is-next) {
+  opacity: 0;
+}
+
+.services-section.is-visible:not(.is-intro-done) .carousel-slide.is-prev {
+  animation: carouselSlideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.32s backwards;
+}
+
+.services-section.is-visible:not(.is-intro-done) .carousel-slide.is-active {
+  animation: carouselSlideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.48s backwards;
+}
+
+.services-section.is-visible:not(.is-intro-done) .carousel-slide.is-next {
+  animation: carouselSlideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.64s backwards;
+}
+
+.services-section.is-intro-done .carousel-slide {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes carouselSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .services-section.is-visible .services-nav-item {
@@ -546,7 +584,7 @@ section {
 }
 
 .services-section.is-visible .carousel-indicator-caption {
-  animation: indicatorCaptionIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.45s backwards;
+  animation: indicatorCaptionIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.88s backwards;
 }
 
 @keyframes indicatorCaptionIn {
@@ -564,6 +602,7 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .services-reveal,
   .services-section.is-visible .services-nav-item,
+  .carousel-slide,
   .carousel-track,
   .carousel-indicator-thumb,
   .carousel-slide img,
@@ -585,6 +624,15 @@ section {
   .services-section.is-visible .services-reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .services-section.is-intro-done .carousel-slide,
+  .services-section.is-visible .carousel-slide.is-prev,
+  .services-section.is-visible .carousel-slide.is-active,
+  .services-section.is-visible .carousel-slide.is-next {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 
   .cta-section.is-visible .cta-container,

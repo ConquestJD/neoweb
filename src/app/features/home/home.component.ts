@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   trackIndex = 1;
   trackTransitionEnabled = true;
   servicesVisible = false;
+  servicesIntroDone = false;
   whyShowcaseEntered = false;
   whyTitleRevealed = false;
   whyRevealedListCount = 0;
@@ -532,6 +533,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private carouselResetTimeout: ReturnType<typeof setTimeout> | null = null;
   private carouselCursorHideTimeout: ReturnType<typeof setTimeout> | null = null;
   private whyIntroTimeouts: ReturnType<typeof setTimeout>[] = [];
+  private servicesIntroTimeout: ReturnType<typeof setTimeout> | null = null;
   private destroyed = false;
   private lastScrollTime = 0;
   private readonly scrollThrottle = 100;
@@ -650,7 +652,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (!this.servicesVisible) {
       this.animateOnScroll('services-section', () => {
-        this.servicesVisible = true;
+        this.playServicesIntro();
       });
     }
 
@@ -675,6 +677,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         callback();
       }
     }
+  }
+
+  private playServicesIntro() {
+    if (this.servicesVisible || this.destroyed) {
+      return;
+    }
+
+    this.servicesVisible = true;
+
+    const prefersReducedMotion = typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      this.servicesIntroDone = true;
+      return;
+    }
+
+    if (this.servicesIntroTimeout) {
+      clearTimeout(this.servicesIntroTimeout);
+    }
+
+    this.servicesIntroTimeout = setTimeout(() => {
+      if (!this.destroyed) {
+        this.servicesIntroDone = true;
+      }
+      this.servicesIntroTimeout = null;
+    }, 1300);
   }
 
   private playWhyShowcaseIntro() {
@@ -761,6 +790,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.destroyed = true;
     this.clearWhyIntroTimeouts();
+
+    if (this.servicesIntroTimeout) {
+      clearTimeout(this.servicesIntroTimeout);
+      this.servicesIntroTimeout = null;
+    }
 
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
