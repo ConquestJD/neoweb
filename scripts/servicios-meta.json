@@ -1,0 +1,298 @@
+{
+  "pagina-web": {
+    "pageTitle": "Agencia de Desarrollo Web en Perú | Páginas Web Personalizadas | NeoWeb",
+    "hero": {
+      "badgeIcon": "web",
+      "badgeText": "Página web",
+      "titleLine1": "Sitio corporativo",
+      "titleHighlight": "profesional",
+      "description": "Autoridad, claridad y performance para tu marca. Diseño premium y base técnica lista para SEO."
+    },
+    "plansSubtitle": "Desde S/ 500 hasta S/ 1,200 según alcance. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Secciones",
+      "titleLine1": "Todo lo que",
+      "titleHighlight": "incluye",
+      "subtitle": "Todas las secciones y funcionalidades necesarias para un sitio web corporativo completo."
+    },
+    "includes": [
+      { "icon": "rocket_launch", "title": "Hero y propuesta de valor", "description": "Mensajes claros y CTA definidos." },
+      { "icon": "business", "title": "Servicios y diferenciales", "description": "Catálogo ordenado y beneficios." },
+      { "icon": "folder", "title": "Portafolio y casos", "description": "Resultados y credenciales." },
+      { "icon": "star", "title": "Testimonios y FAQ", "description": "Confianza y claridad." },
+      { "icon": "article", "title": "Blog y SEO", "description": "Contenido optimizado y técnico listo." },
+      { "icon": "mail", "title": "Contacto y lead gen", "description": "Formularios y analítica." }
+    ],
+    "showBenefitsSection": true,
+    "processSection": {
+      "titleLine1": "Método de",
+      "titleHighlight": "trabajo",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Full Code",
+      "titleLine1": "Código propio y",
+      "titleHighlight": "optimizado",
+      "subtitle": "Desarrollo a medida, listo para escalar y posicionar."
+    },
+    "ctaSection": {
+      "theme": "dark",
+      "titleLine1": "¿Listo para tu",
+      "titleHighlight": "sitio corporativo?",
+      "description": "Construyo un sitio serio, veloz y que comunique autoridad."
+    }
+  },
+  "tienda-virtual": {
+    "pageTitle": "Tienda Virtual - NeoWeb | E-commerce Completo",
+    "hero": {
+      "badgeIcon": "shopping_cart",
+      "badgeText": "eCommerce",
+      "titleLine1": "Tienda virtual",
+      "titleHighlight": "completa",
+      "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
+    },
+    "plansSubtitle": "Desde S/ 2,500 hasta S/ 8,000 según funcionalidades y catálogo. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Incluye",
+      "titleLine1": "Funcionalidades",
+      "titleHighlight": "clave",
+      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda virtual."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo",
+      "titleHighlight": "trabajo",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Full Code",
+      "titleLine1": "Desarrollo a",
+      "titleHighlight": "medida",
+      "subtitle": "Arquitectura segura, performance y SEO listos."
+    },
+    "ctaSection": {
+      "theme": "dark",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "vender online?",
+      "description": "Lanza tu tienda con catálogo, pagos y envíos listos."
+    }
+  },
+  "google-ads": {
+    "pageTitle": "Google Ads - NeoWeb | Publicidad en Google",
+    "hero": {
+      "badgeIcon": "campaign",
+      "badgeText": "Google Ads",
+      "titleLine1": "Performance en",
+      "titleHighlight": "Google Ads",
+      "description": "Campañas estratégicas, segmentación precisa y optimización continua para atraer clientes calificados."
+    },
+    "plansSubtitle": "Desde S/ 400/mes hasta S/ 1,500/mes según inversión y alcance.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Características",
+      "titleLine1": "Qué",
+      "titleHighlight": "incluye",
+      "subtitle": "Gestión completa de campañas Google Ads para maximizar tu ROI y atraer clientes calificados."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo",
+      "titleHighlight": "gestiono",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Beneficios",
+      "titleLine1": "Gestión",
+      "titleHighlight": "profesional",
+      "subtitle": "Optimización manual, experimentos controlados y reportes claros."
+    },
+    "ctaSection": {
+      "theme": "dark",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "aparecer en Google?",
+      "description": "Llevo tu marca a los primeros resultados con campañas estratégicas."
+    }
+  },
+  "marketing-digital": {
+    "pageTitle": "Agencia de Marketing Digital en Perú | Estrategias Digitales | NeoWeb",
+    "hero": {
+      "badgeIcon": "trending_up",
+      "badgeText": "Marketing digital",
+      "titleLine1": "Growth y performance",
+      "titleHighlight": "multicanal",
+      "description": "Estrategias integrales: paid, social, email y CRO para atraer, convertir y retener clientes."
+    },
+    "plansSubtitle": "Desde S/ 600/mes hasta S/ 1,800/mes según inversión y alcance.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Servicios",
+      "titleLine1": "Cobertura",
+      "titleHighlight": "completa",
+      "subtitle": "Estrategias integrales de marketing digital para todos tus canales y objetivos."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo",
+      "titleHighlight": "ejecuto",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "KPI",
+      "titleLine1": "Resultados que",
+      "titleHighlight": "medimos",
+      "subtitle": "Métricas claras y resultados tangibles para tu estrategia de marketing."
+    },
+    "ctaSection": {
+      "theme": "light",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "escalar tu marketing?",
+      "description": "Diseño y ejecuto tu estrategia con foco en ROI."
+    }
+  },
+  "rediseno-paginas-web": {
+    "pageTitle": "Rediseño de Páginas Web - NeoWeb | Modernización Web",
+    "hero": {
+      "badgeIcon": "refresh",
+      "badgeText": "Rediseño web",
+      "titleLine1": "Moderniza tu sitio",
+      "titleHighlight": "actual",
+      "description": "Renuevo tu web con diseño limpio, velocidad y SEO técnico listo para competir."
+    },
+    "plansSubtitle": "Desde S/ 800 hasta S/ 2,500 según alcance y complejidad. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Enfoque",
+      "titleLine1": "Lo que",
+      "titleHighlight": "mejoro",
+      "subtitle": "Transformo tu sitio actual en una experiencia moderna, rápida y optimizada."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo abordo el",
+      "titleHighlight": "rediseño",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Beneficios",
+      "titleLine1": "Impacto del",
+      "titleHighlight": "rediseño",
+      "subtitle": "Mejoras medibles en conversión, velocidad y experiencia."
+    },
+    "ctaSection": {
+      "theme": "dark",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "modernizar tu sitio?",
+      "description": "Rediseño tu web con una experiencia clara, rápida y optimizada."
+    }
+  },
+  "aplicaciones-moviles": {
+    "pageTitle": "Aplicaciones Móviles - NeoWeb | Apps iOS y Android",
+    "hero": {
+      "badgeIcon": "phone_android",
+      "badgeText": "Apps móviles",
+      "titleLine1": "Apps nativas e",
+      "titleHighlight": "híbridas",
+      "description": "Lleva tu producto al bolsillo de tus usuarios con UX clara, performance y seguridad."
+    },
+    "plansSubtitle": "Desde S/ 4,000 hasta S/ 12,000+ según alcance y plataformas.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Características",
+      "titleLine1": "Lo que",
+      "titleHighlight": "incluye",
+      "subtitle": "Todas las funcionalidades y características necesarias para una app móvil completa."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo",
+      "titleHighlight": "construyo",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Full Code",
+      "titleLine1": "Desarrollo a",
+      "titleHighlight": "medida",
+      "subtitle": "Arquitectura segura, escalable y lista para stores."
+    },
+    "ctaSection": {
+      "theme": "dark",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "lanzar tu app?",
+      "description": "Construyo tu app con UX clara y performance de nivel producción."
+    }
+  },
+  "consultoria-seo": {
+    "pageTitle": "Agencia SEO en Perú | Consultoría SEO y Posicionamiento | NeoWeb",
+    "hero": {
+      "badgeIcon": "search",
+      "badgeText": "Consultoría SEO",
+      "titleLine1": "SEO técnico y de",
+      "titleHighlight": "contenidos",
+      "description": "Auditoría, optimización on-page y estrategia de contenidos para aparecer cuando tus clientes buscan."
+    },
+    "plansSubtitle": "Desde S/ 400/mes hasta S/ 1,500/mes según alcance.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Auditoría",
+      "titleLine1": "Qué",
+      "titleHighlight": "cubro",
+      "subtitle": "Cobertura completa en auditoría, optimización y estrategia de contenidos SEO."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo trabajo el",
+      "titleHighlight": "SEO",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Resultados",
+      "titleLine1": "Lo que busco",
+      "titleHighlight": "lograr",
+      "subtitle": "Objetivos claros y resultados medibles para tu estrategia SEO."
+    },
+    "ctaSection": {
+      "theme": "light",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "posicionar mejor?",
+      "description": "Optimicemos tu sitio para aparecer cuando tus clientes te buscan."
+    }
+  },
+  "digitalizacion-procesos": {
+    "pageTitle": "Digitalización de Procesos - NeoWeb | Automatización",
+    "hero": {
+      "badgeIcon": "settings",
+      "badgeText": "Digitalización",
+      "titleLine1": "Automatiza y optimiza tus",
+      "titleHighlight": "procesos",
+      "description": "Sistemas a medida para aumentar eficiencia, reducir costos y dar visibilidad a tus operaciones."
+    },
+    "plansSubtitle": "Desde S/ 1,500 hasta S/ 20,000 según alcance y complejidad.",
+    "includesSection": {
+      "badgeIcon": "check_circle",
+      "badgeText": "Funcionalidades",
+      "titleLine1": "Qué",
+      "titleHighlight": "resuelvo",
+      "subtitle": "Sistemas personalizados para automatizar y optimizar todos tus procesos de negocio."
+    },
+    "showBenefitsSection": false,
+    "processSection": {
+      "titleLine1": "Cómo",
+      "titleHighlight": "implemento",
+      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+    },
+    "fullcodeSection": {
+      "badgeText": "Beneficios",
+      "titleLine1": "Impacto del",
+      "titleHighlight": "proyecto",
+      "subtitle": "Transformación digital completa y resultados medibles."
+    },
+    "ctaSection": {
+      "theme": "dark",
+      "titleLine1": "¿Listo para",
+      "titleHighlight": "digitalizar procesos?",
+      "description": "Automatiza tareas y gana eficiencia con una solución a medida."
+    }
+  }
+}

@@ -21,10 +21,10 @@ interface PricingPlan {
 export class PricingTableComponent {
   plans: PricingPlan[] = [
     {
-      name: 'Landing Page',
-      price: 'S/600',
-      description: 'Ideal para presentar un producto o servicio',
-      icon: 'rocket_launch',
+      name: 'Página Web START',
+      price: 'S/500',
+      description: 'Sitio corporativo esencial para empezar',
+      icon: 'language',
       features: [
         'Diseño moderno y responsive',
         'Sección hero impactante',
@@ -36,7 +36,7 @@ export class PricingTableComponent {
     },
     {
       name: 'Sitio Web Profesional',
-      price: 'S/1,200',
+      price: 'S/900',
       description: 'Para negocios que necesitan presencia digital completa',
       icon: 'business',
       recommended: true,

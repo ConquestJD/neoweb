@@ -12,36 +12,28 @@ import { RouterModule } from '@angular/router';
 export class FooterComponent {
   currentYear = new Date().getFullYear();
 
-  socialLinks = [
-    { 
-      name: 'Facebook', 
-      url: 'https://www.facebook.com/profile.php?id=61583086977279', 
-      icon: 'facebook'
-    },
-    { 
-      name: 'Instagram', 
-      url: 'https://instagram.com/neoweb.agency', 
-      icon: 'instagram'
-    },
-    { 
-      name: 'WhatsApp', 
-      url: 'https://wa.me/51942820836', 
-      icon: 'whatsapp'
-    }
+  navLinks = [
+    { index: '01', label: 'Inicio', route: '/inicio' },
+    { index: '02', label: 'Portafolio', route: '/portafolio' },
+    { index: '03', label: 'Nosotros', route: '/nosotros' },
+    { index: '04', label: 'Contacto', route: '/contacto' }
   ];
 
-  quickLinks = [
-    { name: 'Inicio', route: '/inicio' },
-    { name: 'Servicios', route: '/servicios' },
-    { name: 'Portafolio', route: '/portafolio' },
-    { name: 'Nosotros', route: '/nosotros' }
+  serviceLinks = [
+    { label: 'Página Web', route: '/servicios/pagina-web' },
+    { label: 'Tienda Virtual', route: '/servicios/tienda-virtual' },
+    { label: 'Google Ads', route: '/servicios/google-ads' },
+    { label: 'Marketing Digital', route: '/servicios/marketing-digital' },
+    { label: 'Rediseño Web', route: '/servicios/rediseno-paginas-web' },
+    { label: 'Apps Móviles', route: '/servicios/aplicaciones-moviles' },
+    { label: 'Consultoría SEO', route: '/servicios/consultoria-seo' },
+    { label: 'Digitalización', route: '/servicios/digitalizacion-procesos' }
   ];
 
-  services = [
-    'Landing Page',
-    'Sitio Web Profesional',
-    'E-commerce',
-    'Full Digital'
+  contactLinks = [
+    { label: 'WhatsApp', url: 'https://wa.me/51942820836' },
+    { label: 'Instagram', url: 'https://instagram.com/neoweb.agency' },
+    { label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61583086977279' },
+    { label: 'contacto@neoweb.website', url: 'mailto:contacto@neoweb.website' }
   ];
 }
-

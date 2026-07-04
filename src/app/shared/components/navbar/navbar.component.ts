@@ -55,14 +55,6 @@ export class NavbarComponent {
       image: 'https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBhZ2luYSUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
     },
     {
-      name: 'Landing Page',
-      short: 'Páginas de alta conversión',
-      route: '/servicios/landing-page',
-      icon: 'rocket_launch',
-      image: 'https://images.unsplash.com/photo-1648134859177-66e35b61e106?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-
-    },
-    {
       name: 'Tienda Virtual',
       short: 'E-commerce listo para vender',
       route: '/servicios/tienda-virtual',
