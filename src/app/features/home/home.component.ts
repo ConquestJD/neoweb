@@ -41,7 +41,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   trackIndex = 1;
   trackTransitionEnabled = true;
   servicesVisible = false;
-  whyShowcaseVisible = false;
+  whyShowcaseEntered = false;
+  whyTitleRevealed = false;
+  whyRevealedListCount = 0;
+  whyBgRevealed = false;
+  whyDetailRevealed = false;
   ctaVisible = false;
   activeProcessIndex = 0;
   ctaMagnetX = 0;
@@ -107,42 +111,42 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       description: 'Cada sección, color y estructura está pensada estratégicamente para tu marca: identidad visual propia y una experiencia que guía al usuario hacia la conversión.',
       icon: 'palette',
       points: ['Identidad visual propia', 'UX pensado para convertir'],
-      image: '/assets/home/diseno-web.png'
+      image: '/assets/home/por que neoweb/diseño web.jpg'
     },
     {
       title: 'Código real, no plantillas',
       description: 'Construimos tu página desde cero con código personalizado, sin plantillas, sin Wix, sin WordPress. Esto garantiza rendimiento, seguridad y un diseño único para tu negocio.',
       icon: 'code',
       points: ['Sin Wix ni WordPress', 'Mejor rendimiento y seguridad'],
-      image: '/assets/home/codigo-real.png'
+      image: '/assets/home/por que neoweb/codigo real.jpg'
     },
     {
       title: 'Correo empresarial profesional',
       description: 'Configuramos tu correo corporativo con el dominio de tu negocio, para que tu marca se vea más seria y confiable en cada comunicación.',
       icon: 'alternate_email',
       points: ['nombre@tuempresa.com', 'Mayor credibilidad'],
-      image: '/assets/home/correo-empresarial.png'
+      image: '/assets/home/por que neoweb/correo empresarial.png'
     },
     {
       title: 'Optimización SEO desde la base',
       description: 'Estructuramos el sitio para que los buscadores lo entiendan desde el día uno: metadatos, velocidad y contenido pensado para posicionar.',
       icon: 'travel_explore',
       points: ['Estructura indexable', 'Mejor posicionamiento'],
-      image: '/assets/home/seo.png'
+      image: '/assets/home/por que neoweb/seo.png'
     },
     {
       title: 'Velocidad y rendimiento',
       description: 'Optimizamos cada recurso para que tu página cargue rápido en cualquier dispositivo, mejorando la experiencia y el posicionamiento.',
       icon: 'speed',
       points: ['Carga rápida', 'Optimizado para móvil'],
-      image: '/assets/home/velocidad.png'
+      image: '/assets/home/por que neoweb/velocidad.png'
     },
     {
       title: 'Soporte y acompañamiento',
       description: 'Te guiamos en todo el proceso: mejoras, recomendaciones, actualizaciones y soporte técnico rápido cuando lo necesites.',
       icon: 'support_agent',
       points: ['Comunicación directa', 'Mejoras continuas'],
-      image: '/assets/home/soporte.png'
+      image: '/assets/home/por que neoweb/soporte.jpg'
     }
   ];
 
@@ -527,6 +531,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private carouselTransitionTimeout: ReturnType<typeof setTimeout> | null = null;
   private carouselResetTimeout: ReturnType<typeof setTimeout> | null = null;
   private carouselCursorHideTimeout: ReturnType<typeof setTimeout> | null = null;
+  private whyIntroTimeouts: ReturnType<typeof setTimeout>[] = [];
   private destroyed = false;
   private lastScrollTime = 0;
   private readonly scrollThrottle = 100;
@@ -637,9 +642,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    if (!this.whyShowcaseVisible) {
+    if (!this.whyShowcaseEntered) {
       this.animateOnScroll('why-showcase', () => {
-        this.whyShowcaseVisible = true;
+        this.playWhyShowcaseIntro();
       });
     }
 
@@ -672,6 +677,59 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  private playWhyShowcaseIntro() {
+    if (this.whyShowcaseEntered || this.destroyed) {
+      return;
+    }
+
+    this.whyShowcaseEntered = true;
+
+    const prefersReducedMotion = typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      this.whyTitleRevealed = true;
+      this.whyRevealedListCount = this.diferenciales.length;
+      this.whyBgRevealed = true;
+      this.whyDetailRevealed = true;
+      return;
+    }
+
+    this.scheduleWhyIntro(120, () => {
+      this.whyTitleRevealed = true;
+    });
+
+    const listStart = 520;
+    const listStagger = 110;
+
+    this.diferenciales.forEach((_, index) => {
+      this.scheduleWhyIntro(listStart + index * listStagger, () => {
+        this.whyRevealedListCount = index + 1;
+      });
+    });
+
+    const bgDelay = listStart + this.diferenciales.length * listStagger + 320;
+    this.scheduleWhyIntro(bgDelay, () => {
+      this.whyBgRevealed = true;
+      this.whyDetailRevealed = true;
+    });
+  }
+
+  private scheduleWhyIntro(delayMs: number, callback: () => void) {
+    const timeoutId = setTimeout(() => {
+      if (!this.destroyed) {
+        callback();
+      }
+    }, delayMs);
+
+    this.whyIntroTimeouts.push(timeoutId);
+  }
+
+  private clearWhyIntroTimeouts() {
+    this.whyIntroTimeouts.forEach(clearTimeout);
+    this.whyIntroTimeouts = [];
+  }
+
   setActiveDiferencial(index: number) {
     this.activeDiferencialIndex = index;
   }
@@ -702,6 +760,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyed = true;
+    this.clearWhyIntroTimeouts();
 
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);

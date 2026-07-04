@@ -134,47 +134,48 @@
 
 <!-- Por qué NeoWeb -->
 <section class="why-neoweb-section">
-  <div class="container">
-    <div class="why-neoweb-header">
-      <h2 class="why-neoweb-label">Por qué NeoWeb</h2>
-      <p class="why-neoweb-intro-copy">La idea sigue siendo simple: construir activos digitales claros, rápidos y confiables. La ejecución ahora se centra en decisiones profesionales, no en adornos que distraen.</p>
+  <div class="why-showcase"
+       id="why-showcase"
+       [class.why-entered]="whyShowcaseEntered"
+       [class.why-bg-revealed]="whyBgRevealed">
+    <div class="why-showcase-bg" aria-hidden="true">
+      <div *ngFor="let diferencial of diferenciales; let i = index"
+           class="why-showcase-bg-layer"
+           [class.is-active]="i === activeDiferencialIndex"
+           [style.background-image]="'url(\'' + diferencial.image + '\')'">
+      </div>
     </div>
+    <div class="why-showcase-mask" aria-hidden="true"></div>
 
-    <div class="why-showcase" id="why-showcase" [class.why-visible]="whyShowcaseVisible">
-      <ul class="why-list">
-        <li *ngFor="let diferencial of diferenciales; let i = index">
-          <button type="button"
-                  class="why-list-item"
-                  [class.is-active]="i === activeDiferencialIndex"
-                  (mouseenter)="setActiveDiferencial(i)"
-                  (focus)="setActiveDiferencial(i)"
-                  (click)="setActiveDiferencial(i)">
-            <span class="why-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-            <span class="why-list-title">{{ diferencial.title }}</span>
-            <span class="material-icons why-list-arrow">arrow_outward</span>
-          </button>
-        </li>
-      </ul>
+    <div class="why-showcase-inner">
+      <div class="why-neoweb-header">
+        <h2 class="why-neoweb-label" [class.is-revealed]="whyTitleRevealed">Por qué NeoWeb</h2>
+      </div>
 
-      <div class="why-showcase-media">
-        <div class="why-showcase-frame">
-          <div *ngFor="let diferencial of diferenciales; let i = index"
-               class="why-showcase-image"
-               [class.is-active]="i === activeDiferencialIndex"
-               [style.background-image]="'url(' + diferencial.image + ')'"
-               role="img"
-               [attr.aria-label]="diferencial.title">
-          </div>
-          <div class="why-showcase-scrim"></div>
-          <div class="why-showcase-caption">
-            <p class="why-showcase-description">{{ diferenciales[activeDiferencialIndex].description }}</p>
-            <ul class="why-showcase-points">
-              <li *ngFor="let point of diferenciales[activeDiferencialIndex].points">
-                <span class="material-icons">check</span>
-                {{ point }}
-              </li>
-            </ul>
-          </div>
+      <div class="why-showcase-body">
+        <ul class="why-list">
+          <li *ngFor="let diferencial of diferenciales; let i = index">
+            <button type="button"
+                    class="why-list-item"
+                    [class.is-revealed]="i < whyRevealedListCount"
+                    [class.is-active]="i === activeDiferencialIndex"
+                    (mouseenter)="setActiveDiferencial(i)"
+                    (focus)="setActiveDiferencial(i)"
+                    (click)="setActiveDiferencial(i)">
+              <span class="why-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+              <span class="why-list-title">{{ diferencial.title }}</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="why-showcase-detail" [class.is-revealed]="whyDetailRevealed">
+          <p class="why-showcase-description">{{ diferenciales[activeDiferencialIndex].description }}</p>
+          <ul class="why-showcase-points">
+            <li *ngFor="let point of diferenciales[activeDiferencialIndex].points">
+              <span class="material-icons">check</span>
+              {{ point }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
