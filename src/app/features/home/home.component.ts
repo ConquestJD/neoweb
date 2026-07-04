@@ -28,14 +28,20 @@ type CarouselSlide = {
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
+  @ViewChild('portfolioTrack') portfolioTrack?: ElementRef<HTMLDivElement>;
 
   constructor(private router: Router) {}
 
   scrollY = 0;
   activeServiceIndex = 0;
+  activeDiferencialIndex = 0;
+  portfolioScrollProgress = 0;
+  canScrollPortfolioPrev = false;
+  canScrollPortfolioNext = true;
   trackIndex = 1;
   trackTransitionEnabled = true;
   servicesVisible = false;
+  whyShowcaseVisible = false;
   carouselTransitioning = false;
   carouselCursorLabel = '';
   carouselCursorShown = false;
@@ -46,65 +52,92 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   // Portafolio preview - Proyectos reales
   portfolioProjects = [
     {
+      id: 'liceum',
       title: 'LICEUM',
       category: 'Tienda Virtual',
       imageUrl: '/assets/portfolio/liceum-inicio.png',
-      description: 'Plataforma de cursos médicos con inscripción online y experiencia institucional.',
       result: 'Inscripciones online con pago integrado y alcance en El Salvador y Bolivia'
     },
     {
+      id: 'omed',
       title: 'OMED',
       category: 'Sitio Web Profesional',
       imageUrl: '/assets/portfolio/omed-inicio.png',
-      description: 'Sitio médico profesional para sedes, especialidades y comunicación con pacientes.',
       result: 'Web para 2 sedes (Cusco y Tacna) con mejor posicionamiento local'
     },
     {
+      id: 'omed-financial',
       title: 'Gestión Financiera OMED',
       category: 'Digitalización de Procesos',
       imageUrl: '/assets/portfolio/gestion-financiera-omed-login.png',
-      description: 'Sistema interno para ordenar la operación financiera y administrativa.',
       result: 'Sistema con 8+ módulos y control financiero en tiempo real'
+    },
+    {
+      id: 'sml-web',
+      title: 'Santa María Laura',
+      category: 'Colegio Privado',
+      imageUrl: '/assets/portfolio/sml-inicio.png',
+      result: 'Presencia institucional con admisión 2026 activa y blog educativo'
+    },
+    {
+      id: 'sml-portal',
+      title: 'Portal SML',
+      category: 'Plataforma Educativa',
+      imageUrl: '/assets/portfolio/sml-portal-login.png',
+      result: 'Gestión académica y comunicación profesores-padres en tiempo real'
+    },
+    {
+      id: 'hombre-universal',
+      title: 'Hombre Universal',
+      category: 'Publicación Editorial',
+      imageUrl: '/assets/portfolio/hombre-universal-inicio.png',
+      result: 'Plataforma editorial premium para difundir pensamiento y filosofía'
     }
   ];
 
-  // Diferenciales para scroll experience
+  // Diferenciales para showcase interactivo
   diferenciales = [
     {
-      title: 'Desarrollo 100% con código real',
+      title: 'Diseño web a tu medida',
+      description: 'Cada sección, color y estructura está pensada estratégicamente para tu marca: identidad visual propia y una experiencia que guía al usuario hacia la conversión.',
+      icon: 'palette',
+      points: ['Identidad visual propia', 'UX pensado para convertir'],
+      image: '/assets/home/diseno-web.png'
+    },
+    {
+      title: 'Código real, no plantillas',
       description: 'Construimos tu página desde cero con código personalizado, sin plantillas, sin Wix, sin WordPress. Esto garantiza rendimiento, seguridad y un diseño único para tu negocio.',
       icon: 'code',
-      points: ['Arquitectura limpia', 'Mejor rendimiento'],
-      image: '/assets/home/codigo.png',
-      position: 'left',
-      visible: false
+      points: ['Sin Wix ni WordPress', 'Mejor rendimiento y seguridad'],
+      image: '/assets/home/codigo-real.png'
     },
     {
-      title: 'Diseños que convierten en ventas',
-      description: 'Cada sección, color y estructura está pensada estratégicamente para generar clientes, aumentar leads y mejorar tu presencia digital.',
-      icon: 'trending_up',
-      points: ['Jerarquía comercial', 'CTAs claros'],
-      image: '/assets/home/disenos.png',
-      position: 'right',
-      visible: false
+      title: 'Correo empresarial profesional',
+      description: 'Configuramos tu correo corporativo con el dominio de tu negocio, para que tu marca se vea más seria y confiable en cada comunicación.',
+      icon: 'alternate_email',
+      points: ['nombre@tuempresa.com', 'Mayor credibilidad'],
+      image: '/assets/home/correo-empresarial.png'
     },
     {
-      title: 'Adaptados al mercado peruano',
-      description: 'Conozco cómo compran y qué necesitan los usuarios en el Perú. Creo soluciones que funcionan con patrones locales de consumo.',
-      icon: 'location_on',
-      points: ['Copy local', 'Confianza inmediata'],
-      image: '/assets/home/peru.png',
-      position: 'left',
-      visible: false
+      title: 'Optimización SEO desde la base',
+      description: 'Estructuramos el sitio para que los buscadores lo entiendan desde el día uno: metadatos, velocidad y contenido pensado para posicionar.',
+      icon: 'travel_explore',
+      points: ['Estructura indexable', 'Mejor posicionamiento'],
+      image: '/assets/home/seo.png'
     },
     {
-      title: 'Acompañamiento y soporte directo',
+      title: 'Velocidad y rendimiento',
+      description: 'Optimizamos cada recurso para que tu página cargue rápido en cualquier dispositivo, mejorando la experiencia y el posicionamiento.',
+      icon: 'speed',
+      points: ['Carga rápida', 'Optimizado para móvil'],
+      image: '/assets/home/velocidad.png'
+    },
+    {
+      title: 'Soporte y acompañamiento',
       description: 'Te guiamos en todo el proceso: mejoras, recomendaciones, actualizaciones y soporte técnico rápido cuando lo necesites.',
       icon: 'support_agent',
       points: ['Comunicación directa', 'Mejoras continuas'],
-      image: '/assets/home/soporte.png',
-      position: 'right',
-      visible: false
+      image: '/assets/home/soporte.png'
     }
   ];
 
@@ -476,8 +509,40 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.initTimeout = setTimeout(() => {
       if (!this.destroyed) {
         this.checkScroll();
+        this.onPortfolioScroll();
       }
     }, 50);
+  }
+
+  onPortfolioScroll() {
+    const track = this.portfolioTrack?.nativeElement;
+    if (!track) {
+      return;
+    }
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    this.portfolioScrollProgress = maxScroll > 0
+      ? Math.min(100, Math.max(0, (track.scrollLeft / maxScroll) * 100))
+      : 0;
+
+    this.canScrollPortfolioPrev = track.scrollLeft > 4;
+    this.canScrollPortfolioNext = track.scrollLeft < maxScroll - 4;
+  }
+
+  scrollPortfolio(direction: 'prev' | 'next') {
+    const track = this.portfolioTrack?.nativeElement;
+    if (!track) {
+      return;
+    }
+
+    const card = track.querySelector('.portfolio-item') as HTMLElement | null;
+    const gap = parseFloat(getComputedStyle(track).columnGap || '32') || 32;
+    const step = (card?.offsetWidth ?? track.clientWidth * 0.8) + gap;
+
+    track.scrollBy({
+      left: direction === 'next' ? step : -step,
+      behavior: 'smooth'
+    });
   }
 
   private initHeroVideo() {
@@ -544,14 +609,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    this.diferenciales.forEach((diferencial, index) => {
-      if (!diferencial.visible) {
-        const elementId = `diferencial-${index}`;
-        this.animateOnScroll(elementId, () => {
-          diferencial.visible = true;
-        });
-      }
-    });
+    if (!this.whyShowcaseVisible) {
+      this.animateOnScroll('why-showcase', () => {
+        this.whyShowcaseVisible = true;
+      });
+    }
 
     if (!this.servicesVisible) {
       this.animateOnScroll('services-section', () => {
@@ -574,6 +636,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         callback();
       }
     }
+  }
+
+  setActiveDiferencial(index: number) {
+    this.activeDiferencialIndex = index;
   }
 
   ngOnDestroy() {

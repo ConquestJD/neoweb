@@ -47,24 +47,17 @@
                   <span class="material-icons">arrow_forward</span>
                 </a>
               </div>
-              <div class="megamenu-grid">
-                <a *ngFor="let service of services"
+              <div class="megamenu-list">
+                <a *ngFor="let service of services; let i = index"
                    [routerLink]="service.route"
                    (click)="navigateTo(service.route)"
-                   class="megamenu-card"
+                   class="megamenu-row"
+                   [style.--row-index]="i"
                    [attr.aria-label]="'Ver servicio ' + service.name">
-                  <span class="megamenu-thumb">
-                    <img [src]="service.image" [alt]="service.name" loading="lazy">
-                    <span class="megamenu-thumb-overlay"></span>
-                    <span class="megamenu-thumb-icon">
-                      <span class="material-icons">{{ service.icon }}</span>
-                    </span>
-                  </span>
-                  <span class="megamenu-card-body">
-                    <span class="megamenu-card-name">{{ service.name }}</span>
-                    <span class="megamenu-card-short">{{ service.short }}</span>
-                  </span>
-                  <span class="material-icons megamenu-card-arrow">arrow_outward</span>
+                  <span class="megamenu-row-index">{{ (i + 1) | number: '2.0-0' }}</span>
+                  <span class="megamenu-row-name">{{ service.name }}</span>
+                  <span class="megamenu-row-short">{{ service.short }}</span>
+                  <span class="material-icons megamenu-row-arrow">arrow_outward</span>
                 </a>
               </div>
             </div>
@@ -139,19 +132,16 @@
         <div *ngIf="isServicesDropdownOpen"
              class="mobile-services-submenu"
              [@slideDown]>
-          <a *ngFor="let service of services"
+          <a *ngFor="let service of services; let i = index"
              [routerLink]="service.route"
              (click)="navigateTo(service.route)"
              class="mobile-submenu-item">
-            <span class="mobile-submenu-thumb">
-              <img [src]="service.image" [alt]="service.name" loading="lazy">
-              <span class="mobile-submenu-thumb-overlay"></span>
-              <span class="material-icons">{{ service.icon }}</span>
-            </span>
+            <span class="mobile-submenu-index">{{ (i + 1) | number: '2.0-0' }}</span>
             <span class="mobile-submenu-text">
               <span class="mobile-submenu-name">{{ service.name }}</span>
               <span class="mobile-submenu-short">{{ service.short }}</span>
             </span>
+            <span class="material-icons mobile-submenu-arrow">arrow_outward</span>
           </a>
         </div>
       </div>

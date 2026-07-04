@@ -135,71 +135,48 @@
 <!-- Por qué NeoWeb -->
 <section class="why-neoweb-section">
   <div class="container">
-    <div class="why-neoweb-layout">
-      <div class="why-neoweb-intro">
-        <p class="pill">Por qué NeoWeb</p>
-        <h2>Desarrollo web con criterio de negocio</h2>
-        <p>La idea sigue siendo simple: construir activos digitales claros, rápidos y confiables. La ejecución ahora se centra en decisiones profesionales, no en adornos que distraen.</p>
-        <div class="why-neoweb-proof">
-          <div>
-            <strong>100%</strong>
-            <span>Código a medida</span>
-          </div>
-          <div>
-            <strong>Perú</strong>
-            <span>Mercado local</span>
-          </div>
-          <div>
-            <strong>24h</strong>
-            <span>Respuesta inicial</span>
-          </div>
-        </div>
-      </div>
-      <div class="why-neoweb-panel">
-        <div class="why-dashboard-card">
-          <div class="why-dashboard-header">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="why-dashboard-body">
-            <div class="why-dashboard-line wide"></div>
-            <div class="why-dashboard-line"></div>
-            <div class="why-dashboard-grid">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div class="why-dashboard-progress">
-              <span style="width: 82%"></span>
-            </div>
-          </div>
-        </div>
-        <div class="why-floating-note">
-          <span class="material-icons">verified</span>
-          <div>
-            <strong>Diseño orientado a confianza</strong>
-            <p>Jerarquía clara, mensajes concretos y experiencia responsive.</p>
-          </div>
-        </div>
-      </div>
+    <div class="why-neoweb-header">
+      <h2 class="why-neoweb-label">Por qué NeoWeb</h2>
+      <p class="why-neoweb-intro-copy">La idea sigue siendo simple: construir activos digitales claros, rápidos y confiables. La ejecución ahora se centra en decisiones profesionales, no en adornos que distraen.</p>
     </div>
 
-    <div class="why-neoweb-grid">
-      <article *ngFor="let diferencial of diferenciales; let i = index" class="why-neoweb-card" [id]="'diferencial-' + i" [class.why-visible]="diferencial.visible">
-        <div class="why-card-icon">
-          <span class="material-icons">{{ diferencial.icon }}</span>
+    <div class="why-showcase" id="why-showcase" [class.why-visible]="whyShowcaseVisible">
+      <ul class="why-list">
+        <li *ngFor="let diferencial of diferenciales; let i = index">
+          <button type="button"
+                  class="why-list-item"
+                  [class.is-active]="i === activeDiferencialIndex"
+                  (mouseenter)="setActiveDiferencial(i)"
+                  (focus)="setActiveDiferencial(i)"
+                  (click)="setActiveDiferencial(i)">
+            <span class="why-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="why-list-title">{{ diferencial.title }}</span>
+            <span class="material-icons why-list-arrow">arrow_outward</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="why-showcase-media">
+        <div class="why-showcase-frame">
+          <div *ngFor="let diferencial of diferenciales; let i = index"
+               class="why-showcase-image"
+               [class.is-active]="i === activeDiferencialIndex"
+               [style.background-image]="'url(' + diferencial.image + ')'"
+               role="img"
+               [attr.aria-label]="diferencial.title">
+          </div>
+          <div class="why-showcase-scrim"></div>
+          <div class="why-showcase-caption">
+            <p class="why-showcase-description">{{ diferenciales[activeDiferencialIndex].description }}</p>
+            <ul class="why-showcase-points">
+              <li *ngFor="let point of diferenciales[activeDiferencialIndex].points">
+                <span class="material-icons">check</span>
+                {{ point }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <span class="why-card-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-        <h3>{{ diferencial.title }}</h3>
-        <p>{{ diferencial.description }}</p>
-        <ul>
-          <li *ngFor="let point of diferencial.points">
-            <span class="material-icons">check</span>
-            {{ point }}
-          </li>
-        </ul>
-      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -213,39 +190,47 @@
         <h2 class="portfolio-title-enhanced">Portafolio de Proyectos: Casos de Éxito en Perú</h2>
         <p class="portfolio-subtitle-enhanced">Proyectos reales que demuestran mi experiencia en desarrollo web y soluciones digitales para empresas peruanas.</p>
       </div>
-      <button routerLink="/portafolio" class="portfolio-view-all-btn">
-        <span>Ver todo</span>
-        <span class="material-icons">arrow_forward</span>
-      </button>
+      <div class="portfolio-header-actions">
+        <div class="portfolio-nav-arrows">
+          <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('prev')" [disabled]="!canScrollPortfolioPrev" aria-label="Proyecto anterior">
+            <span class="material-icons">arrow_back</span>
+          </button>
+          <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('next')" [disabled]="!canScrollPortfolioNext" aria-label="Siguiente proyecto">
+            <span class="material-icons">arrow_forward</span>
+          </button>
+        </div>
+        <button routerLink="/portafolio" class="portfolio-view-all-btn">
+          <span>Ver todo</span>
+          <span class="material-icons">arrow_forward</span>
+        </button>
+      </div>
     </div>
-    <div class="portfolio-grid-enhanced">
-      <div *ngFor="let project of portfolioProjects | slice:0:3" class="portfolio-card-enhanced">
-        <div class="portfolio-card-inner">
-          <div class="portfolio-image-wrapper">
-            <img [src]="project.imageUrl" [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'" class="portfolio-image">
-            <div class="portfolio-image-overlay">
-              <div class="portfolio-overlay-content">
-                <span class="material-icons">visibility</span>
-                <span>Ver proyecto</span>
-              </div>
-            </div>
-            <div class="portfolio-image-glow"></div>
-          </div>
-          <div class="portfolio-card-content">
-            <div class="portfolio-category">
-              <span class="material-icons">folder</span>
-              <span>{{ project.category }}</span>
-            </div>
-            <h3 class="portfolio-project-title">{{ project.title }}</h3>
-            <p class="portfolio-project-description">{{ project.result }}</p>
-            <div class="portfolio-result">
+
+    <div class="portfolio-scroll-wrapper">
+      <div class="portfolio-track" #portfolioTrack (scroll)="onPortfolioScroll()">
+        <a *ngFor="let project of portfolioProjects; let i = index"
+           [routerLink]="['/portafolio', project.id]"
+           class="portfolio-item">
+          <span class="portfolio-item-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <img [src]="project.imageUrl" [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'" class="portfolio-image">
+          <div class="portfolio-item-scrim"></div>
+          <span class="portfolio-item-cta">
+            <span class="material-icons">arrow_outward</span>
+          </span>
+          <div class="portfolio-item-info">
+            <span class="portfolio-item-category">{{ project.category }}</span>
+            <h3 class="portfolio-item-title">{{ project.title }}</h3>
+            <p class="portfolio-item-result">
               <span class="material-icons">check_circle</span>
               <span>{{ project.result }}</span>
-            </div>
+            </p>
           </div>
-          <div class="portfolio-card-decoration"></div>
-        </div>
+        </a>
       </div>
+    </div>
+
+    <div class="portfolio-scroll-progress">
+      <span class="portfolio-scroll-progress-thumb" [style.width.%]="portfolioScrollProgress"></span>
     </div>
   </div>
 </section>
