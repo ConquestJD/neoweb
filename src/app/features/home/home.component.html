@@ -235,156 +235,54 @@
   </div>
 </section>
 
-<!-- Proceso (mejorado) -->
+<!-- Proceso -->
 <section class="process-section">
   <div class="container">
     <div class="process-header">
-      <p class="pill">Proceso</p>
-      <h2 class="process-title">Proceso de Trabajo: Cómo Desarrollo Cada Proyecto</h2>
-      <p class="process-subtitle">Metodología clara, entregables medibles y acompañamiento en cada etapa de tu proyecto. Un proceso estructurado que garantiza resultados.</p>
+      <h2 class="process-label">Proceso</h2>
+      <p class="process-intro">Metodología clara, entregables medibles y acompañamiento en cada etapa de tu proyecto. Un proceso estructurado que garantiza resultados.</p>
     </div>
 
-    <div class="process-timeline-wrapper">
-      <div class="process-timeline">
-        <div class="process-line"></div>
-        
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="process-step-card">
-              <div class="process-icon-wrapper">
-                <div class="process-icon-bg"></div>
-                <span class="material-icons process-icon">search</span>
-                <div class="process-number">01</div>
-              </div>
-              <div class="process-content">
-                <h3 class="process-step-title">Discovery</h3>
-                <p class="process-step-description">Objetivos, alcance y priorización para entender el reto de negocio. Analizo tu mercado y competencia.</p>
-                <div class="process-deliverables">
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Kickoff meeting</span>
-                  </span>
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Brief completo</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="process-step">
-            <div class="process-step-card">
-              <div class="process-icon-wrapper">
-                <div class="process-icon-bg"></div>
-                <span class="material-icons process-icon">brush</span>
-                <div class="process-number">02</div>
-              </div>
-              <div class="process-content">
-                <h3 class="process-step-title">UX & UI</h3>
-                <p class="process-step-description">Wireframes, diseño visual y microcopys orientados a conversión. Cada elemento pensado para generar resultados.</p>
-                <div class="process-deliverables">
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Prototipo navegable</span>
-                  </span>
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Design system</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="process-step">
-            <div class="process-step-card">
-              <div class="process-icon-wrapper">
-                <div class="process-icon-bg"></div>
-                <span class="material-icons process-icon">code</span>
-                <div class="process-number">03</div>
-              </div>
-              <div class="process-content">
-                <h3 class="process-step-title">Desarrollo</h3>
-                <p class="process-step-description">Código a medida, performance optimizado, SEO técnico y QA continuo. Desarrollo limpio y escalable.</p>
-                <div class="process-deliverables">
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Entregables parciales</span>
-                  </span>
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Code review</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="process-step">
-            <div class="process-step-card">
-              <div class="process-icon-wrapper">
-                <div class="process-icon-bg"></div>
-                <span class="material-icons process-icon">rocket_launch</span>
-                <div class="process-number">04</div>
-              </div>
-              <div class="process-content">
-                <h3 class="process-step-title">Lanzamiento</h3>
-                <p class="process-step-description">Go-live, optimización, analítica configurada y handoff con soporte cercano. Tu proyecto listo para crecer.</p>
-                <div class="process-deliverables">
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Checklist completo</span>
-                  </span>
-                  <span class="deliverable-item">
-                    <span class="material-icons">check_circle</span>
-                    <span>Métricas y reportes</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="process-accordion" role="tablist">
+      <button *ngFor="let step of processSteps; let i = index"
+              type="button"
+              class="process-panel"
+              role="tab"
+              [class.is-expanded]="i === activeProcessIndex"
+              [attr.aria-selected]="i === activeProcessIndex"
+              (mouseenter)="setActiveProcess(i)"
+              (focus)="setActiveProcess(i)"
+              (click)="setActiveProcess(i)">
+        <span class="process-panel-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+        <span class="process-panel-label">{{ step.title }}</span>
+        <div class="process-panel-detail">
+          <p>{{ step.description }}</p>
+          <ul>
+            <li *ngFor="let item of step.deliverables">{{ item }}</li>
+          </ul>
         </div>
-      </div>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- CTA Final (mejorado) -->
+<!-- CTA Final -->
 <section class="cta-section">
+  <p class="cta-headline-outline" aria-hidden="true">Impulsa tu negocio en el mercado peruano</p>
   <div class="cta-container">
-    <div class="cta-content">
-      <div class="cta-badge">
-        <span class="material-icons">rocket_launch</span>
-        <span>Listo para comenzar</span>
-      </div>
-      <h2 class="cta-title">Impulsa tu negocio en el mercado peruano</h2>
-      <p class="cta-description">Soy un desarrollador peruano listo para ayudarte a crecer. Agendemos una llamada y conversemos sobre tu proyecto.</p>
-      <div class="cta-buttons">
-        <button routerLink="/contacto" class="cta-button-primary">
-          <span class="material-icons">chat</span>
-          <span>Hablar ahora</span>
-        </button>
-        <button routerLink="/portafolio" class="cta-button-secondary">
-          <span class="material-icons">work</span>
-          <span>Ver portafolio</span>
-        </button>
-      </div>
-      <div class="cta-features">
-        <div class="cta-feature">
-          <span class="material-icons">check_circle</span>
-          <span>Respuesta en 24h</span>
-        </div>
-        <div class="cta-feature">
-          <span class="material-icons">check_circle</span>
-          <span>Consulta gratuita</span>
-        </div>
-        <div class="cta-feature">
-          <span class="material-icons">check_circle</span>
-          <span>Proyectos personalizados</span>
-        </div>
-      </div>
+    <div class="cta-magnet-wrap"
+         (mousemove)="onCtaMouseMove($event)"
+         (mouseleave)="onCtaMouseLeave()">
+      <a routerLink="/contacto"
+         class="cta-magnet-btn"
+         [class.is-active]="ctaMagnetActive"
+         [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
+        <span>Hablemos</span>
+      </a>
     </div>
-    <div class="cta-decoration"></div>
+    <a routerLink="/portafolio" class="cta-link-secondary">
+      <span>Ver portafolio</span>
+      <span class="material-icons">arrow_forward</span>
+    </a>
   </div>
 </section>

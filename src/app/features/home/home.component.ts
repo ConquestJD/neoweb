@@ -42,6 +42,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   trackTransitionEnabled = true;
   servicesVisible = false;
   whyShowcaseVisible = false;
+  activeProcessIndex = 0;
+  ctaMagnetX = 0;
+  ctaMagnetY = 0;
+  ctaMagnetActive = false;
   carouselTransitioning = false;
   carouselCursorLabel = '';
   carouselCursorShown = false;
@@ -138,6 +142,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'support_agent',
       points: ['Comunicación directa', 'Mejoras continuas'],
       image: '/assets/home/soporte.png'
+    }
+  ];
+
+  processSteps = [
+    {
+      title: 'Discovery',
+      description: 'Objetivos, alcance y priorización para entender el reto de negocio. Analizo tu mercado y competencia.',
+      deliverables: ['Kickoff meeting', 'Brief completo']
+    },
+    {
+      title: 'UX & UI',
+      description: 'Wireframes, diseño visual y microcopys orientados a conversión. Cada elemento pensado para generar resultados.',
+      deliverables: ['Prototipo navegable', 'Design system']
+    },
+    {
+      title: 'Desarrollo',
+      description: 'Código a medida, performance optimizado, SEO técnico y QA continuo. Desarrollo limpio y escalable.',
+      deliverables: ['Entregables parciales', 'Code review']
+    },
+    {
+      title: 'Lanzamiento',
+      description: 'Go-live, optimización, analítica configurada y handoff con soporte cercano. Tu proyecto listo para crecer.',
+      deliverables: ['Checklist completo', 'Métricas y reportes']
     }
   ];
 
@@ -640,6 +667,30 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setActiveDiferencial(index: number) {
     this.activeDiferencialIndex = index;
+  }
+
+  setActiveProcess(index: number) {
+    this.activeProcessIndex = index;
+  }
+
+  onCtaMouseMove(event: MouseEvent) {
+    const wrap = event.currentTarget as HTMLElement;
+    const rect = wrap.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const maxOffset = 24;
+    const deltaX = (event.clientX - centerX) * 0.18;
+    const deltaY = (event.clientY - centerY) * 0.18;
+
+    this.ctaMagnetX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+    this.ctaMagnetY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+    this.ctaMagnetActive = true;
+  }
+
+  onCtaMouseLeave() {
+    this.ctaMagnetX = 0;
+    this.ctaMagnetY = 0;
+    this.ctaMagnetActive = false;
   }
 
   ngOnDestroy() {
