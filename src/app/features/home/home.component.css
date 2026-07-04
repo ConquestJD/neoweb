@@ -570,9 +570,11 @@ section {
   .carousel-indicator-index,
   .carousel-indicator-name,
   .carousel-cursor-label,
-  .cta-section::before,
-  .cta-headline-outline,
-  .cta-magnet-wrap::before,
+  .cta-magnet-inner::before,
+  .cta-magnet-btn,
+  .cta-magnet-btn::before,
+  .cta-magnet-btn::after,
+  .cta-magnet-btn span,
   .cta-container,
   .cta-link-secondary {
     transition: none !important;
@@ -1223,29 +1225,6 @@ section {
   overflow: hidden;
 }
 
-.cta-section::before {
-  content: '';
-  position: absolute;
-  inset: -20%;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.04) 0%, transparent 40%);
-  animation: ctaAmbientDrift 10s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes ctaAmbientDrift {
-  0% {
-    transform: translate3d(-2%, -1%, 0) scale(1);
-    opacity: 0.6;
-  }
-
-  100% {
-    transform: translate3d(2%, 1%, 0) scale(1.06);
-    opacity: 1;
-  }
-}
-
 .cta-headline-outline {
   position: absolute;
   inset: 0;
@@ -1263,20 +1242,6 @@ section {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
   pointer-events: none;
   user-select: none;
-  animation: ctaHeadlinePulse 8s ease-in-out infinite;
-}
-
-@keyframes ctaHeadlinePulse {
-  0%,
-  100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.015);
-  }
 }
 
 .cta-container {
@@ -1305,29 +1270,6 @@ section {
   position: relative;
 }
 
-.cta-magnet-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 8%;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  animation: ctaRingPulse 3.2s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes ctaRingPulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.35;
-  }
-
-  50% {
-    transform: scale(1.1);
-    opacity: 0.75;
-  }
-}
-
 .cta-magnet-inner {
   position: relative;
   z-index: 1;
@@ -1335,7 +1277,25 @@ section {
   will-change: transform;
 }
 
+.cta-magnet-inner::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(255, 255, 255, 0.65);
+  animation: ctaCircleOrbit 4.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ctaCircleOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .cta-magnet-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1352,13 +1312,79 @@ section {
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  overflow: visible;
+  animation: ctaCircleBreathe 3.6s ease-in-out infinite;
+  transition: box-shadow 0.35s ease;
+}
+
+.cta-magnet-btn::before,
+.cta-magnet-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  animation: ctaCircleRipple 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.cta-magnet-btn::after {
+  animation-delay: 1.4s;
+}
+
+@keyframes ctaCircleBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes ctaCircleRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+.cta-magnet-btn span {
+  position: relative;
+  z-index: 1;
+  animation: ctaLabelPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes ctaLabelPulse {
+  0%,
+  100% {
+    letter-spacing: 0.04em;
+    opacity: 1;
+  }
+
+  50% {
+    letter-spacing: 0.1em;
+    opacity: 0.88;
+  }
 }
 
 .cta-magnet-btn:hover,
 .cta-magnet-inner.is-active .cta-magnet-btn {
-  transform: scale(1.04);
-  box-shadow: 0 0 80px rgba(255, 255, 255, 0.22), 0 24px 60px rgba(0, 0, 0, 0.45);
+  animation-play-state: paused;
+  transform: scale(1.06);
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.28), 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.cta-magnet-inner.is-active::before,
+.cta-magnet-btn:hover::before,
+.cta-magnet-btn:hover::after {
+  animation-play-state: paused;
 }
 
 .cta-link-secondary {
