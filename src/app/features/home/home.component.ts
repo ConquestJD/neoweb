@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   trackTransitionEnabled = true;
   servicesVisible = false;
   whyShowcaseVisible = false;
+  ctaVisible = false;
   activeProcessIndex = 0;
   ctaMagnetX = 0;
   ctaMagnetY = 0;
@@ -647,6 +648,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.servicesVisible = true;
       });
     }
+
+    if (!this.ctaVisible) {
+      this.animateOnScroll('cta-section', () => {
+        this.ctaVisible = true;
+      });
+    }
   }
 
   animateOnScroll(elementId: string, callback: () => void) {
@@ -678,7 +685,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const rect = wrap.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    const maxOffset = 24;
+    const maxOffset = window.innerWidth <= 768 ? 12 : 24;
     const deltaX = (event.clientX - centerX) * 0.18;
     const deltaY = (event.clientY - centerY) * 0.18;
 

@@ -256,6 +256,7 @@
         <span class="process-panel-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
         <span class="process-panel-label">{{ step.title }}</span>
         <div class="process-panel-detail">
+          <h3 class="process-panel-detail-title">{{ step.title }}</h3>
           <p>{{ step.description }}</p>
           <ul>
             <li *ngFor="let item of step.deliverables">{{ item }}</li>
@@ -267,18 +268,19 @@
 </section>
 
 <!-- CTA Final -->
-<section class="cta-section">
+<section class="cta-section" id="cta-section" [class.is-visible]="ctaVisible">
   <p class="cta-headline-outline" aria-hidden="true">Impulsa tu negocio en el mercado peruano</p>
   <div class="cta-container">
     <div class="cta-magnet-wrap"
          (mousemove)="onCtaMouseMove($event)"
          (mouseleave)="onCtaMouseLeave()">
-      <a routerLink="/contacto"
-         class="cta-magnet-btn"
-         [class.is-active]="ctaMagnetActive"
-         [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
-        <span>Hablemos</span>
-      </a>
+      <div class="cta-magnet-inner"
+           [class.is-active]="ctaMagnetActive"
+           [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
+        <a routerLink="/contacto" class="cta-magnet-btn">
+          <span>Hablemos</span>
+        </a>
+      </div>
     </div>
     <a routerLink="/portafolio" class="cta-link-secondary">
       <span>Ver portafolio</span>
