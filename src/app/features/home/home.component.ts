@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   scrollY = 0;
   activeServiceIndex = 0;
   activeDiferencialIndex = 0;
-  portfolioPageIndex = 0;
   trackIndex = 1;
   trackTransitionEnabled = true;
   servicesVisible = false;
@@ -155,30 +154,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: '/assets/home/por que neoweb/soporte.jpg'
     }
   ];
-
-  get portfolioPageCount(): number {
-    return Math.ceil(this.portfolioProjects.length / 2);
-  }
-
-  get visiblePortfolioProjects() {
-    const start = this.portfolioPageIndex * 2;
-    return this.portfolioProjects.slice(start, start + 2);
-  }
-
-  get canScrollPortfolioPrev(): boolean {
-    return this.portfolioPageIndex > 0;
-  }
-
-  get canScrollPortfolioNext(): boolean {
-    return this.portfolioPageIndex < this.portfolioPageCount - 1;
-  }
-
-  get portfolioScrollProgress(): number {
-    if (this.portfolioPageCount <= 0) {
-      return 0;
-    }
-    return ((this.portfolioPageIndex + 1) / this.portfolioPageCount) * 100;
-  }
 
   processSteps = [
     {
@@ -578,17 +553,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 50);
   }
 
-  scrollPortfolio(direction: 'prev' | 'next') {
-    if (direction === 'prev' && this.canScrollPortfolioPrev) {
-      this.portfolioPageIndex -= 1;
-      return;
-    }
-
-    if (direction === 'next' && this.canScrollPortfolioNext) {
-      this.portfolioPageIndex += 1;
-    }
-  }
-
   private initHeroVideo() {
     const video = this.heroVideo?.nativeElement;
     if (!video) {
@@ -718,7 +682,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.portfolioIntroDone = true;
       }
       this.portfolioIntroTimeout = null;
-    }, 1200);
+    }, 1800);
   }
 
   private playServicesIntro() {

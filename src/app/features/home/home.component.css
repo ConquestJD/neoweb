@@ -1142,44 +1142,6 @@ section {
   transition-delay: 0.28s;
 }
 
-.portfolio-nav {
-  display: flex;
-  gap: 8px;
-}
-
-.portfolio-nav-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  padding: 4px;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.82);
-  cursor: pointer;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.portfolio-nav-btn .material-icons {
-  font-size: 22px;
-}
-
-.portfolio-nav-btn:hover:not(:disabled) {
-  opacity: 1;
-  transform: translateX(2px);
-}
-
-.portfolio-nav-btn:first-child:hover:not(:disabled) {
-  transform: translateX(-2px);
-}
-
-.portfolio-nav-btn:disabled {
-  opacity: 0.28;
-  cursor: default;
-}
-
 .portfolio-view-all-link {
   position: relative;
   display: inline-block;
@@ -1215,14 +1177,14 @@ section {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 1.5vw, 20px);
+  gap: clamp(14px, 1.8vw, 24px);
   width: 100%;
 }
 
 .portfolio-card {
   position: relative;
   width: 100%;
-  height: min(52vh, 560px);
+  height: min(68vh, 720px);
   display: block;
   overflow: hidden;
   color: inherit;
@@ -1338,27 +1300,6 @@ section {
   color: rgba(255, 255, 255, 0.68);
 }
 
-.portfolio-progress {
-  position: relative;
-  height: 2px;
-  margin-top: 28px;
-  background: rgba(255, 235, 210, 0.15);
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.5s ease 0.55s;
-}
-
-.portfolio-section.is-visible .portfolio-progress {
-  opacity: 1;
-}
-
-.portfolio-progress-thumb {
-  display: block;
-  height: 100%;
-  background: rgba(255, 235, 210, 0.65);
-  transition: width 0.15s ease-out;
-}
-
 @media (max-width: 968px) {
   .portfolio-header {
     grid-template-columns: 1fr;
@@ -1379,7 +1320,7 @@ section {
   }
 
   .portfolio-card {
-    height: min(48vh, 420px);
+    height: min(58vh, 520px);
   }
 
   .portfolio-marquee {
@@ -1399,7 +1340,6 @@ section {
   .portfolio-label,
   .portfolio-intro,
   .portfolio-header-actions,
-  .portfolio-progress,
   .portfolio-card {
     opacity: 1 !important;
     transform: none !important;

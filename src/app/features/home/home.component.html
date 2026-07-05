@@ -201,21 +201,13 @@
       <div class="portfolio-header-side">
         <p class="portfolio-intro">Proyectos reales que demuestran experiencia en desarrollo web y soluciones digitales para empresas peruanas.</p>
         <div class="portfolio-header-actions">
-          <div class="portfolio-nav">
-            <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('prev')" [disabled]="!canScrollPortfolioPrev" aria-label="Par anterior">
-              <span class="material-icons">arrow_back</span>
-            </button>
-            <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('next')" [disabled]="!canScrollPortfolioNext" aria-label="Par siguiente">
-              <span class="material-icons">arrow_forward</span>
-            </button>
-          </div>
           <a routerLink="/portafolio" class="portfolio-view-all-link">Ver todo</a>
         </div>
       </div>
     </div>
 
     <div class="portfolio-grid">
-      <a *ngFor="let project of visiblePortfolioProjects; let i = index"
+      <a *ngFor="let project of portfolioProjects; let i = index"
          [routerLink]="['/portafolio', project.id]"
          class="portfolio-card"
          [style.--card-index]="i">
@@ -228,10 +220,6 @@
           <p class="portfolio-card-result">{{ project.result }}</p>
         </div>
       </a>
-    </div>
-
-    <div class="portfolio-progress">
-      <span class="portfolio-progress-thumb" [style.width.%]="portfolioScrollProgress"></span>
     </div>
   </div>
 </section>
