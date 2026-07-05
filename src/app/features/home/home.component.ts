@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   activeProcessIndex = 0;
   faqVisible = false;
   faqIntroDone = false;
-  activeFaqIndex = 0;
+  activeFaqIndex = -1;
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
