@@ -53,6 +53,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · '
   ];
   activeProcessIndex = 0;
+  faqVisible = false;
+  faqIntroDone = false;
+  activeFaqIndex = 0;
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
@@ -179,6 +182,26 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       description: 'Go-live, optimización, analítica configurada y handoff con soporte cercano. Tu proyecto listo para crecer.',
       deliverables: ['Checklist completo', 'Métricas y reportes'],
       image: '/assets/home/por que neoweb/velocidad.png'
+    }
+  ];
+
+  homeFaqs = [
+    {
+      question: '¿Cuánto tarda un proyecto?',
+      answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
+      details: [
+        'Landing Page: 1 semana',
+        'Sitio corporativo: 2 semanas',
+        'eCommerce/App: más de 1 mes según alcance'
+      ]
+    },
+    {
+      question: '¿Incluye soporte?',
+      answer: 'Sí, todos mis proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.'
+    },
+    {
+      question: '¿Trabajas remoto?',
+      answer: 'Sí, trabajo completamente de forma remota con clientes en todo el Perú y Latinoamérica, usando herramientas modernas de comunicación y gestión de proyectos.'
     }
   ];
 
@@ -522,6 +545,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private carouselCursorHideTimeout: ReturnType<typeof setTimeout> | null = null;
   private servicesIntroTimeout: ReturnType<typeof setTimeout> | null = null;
   private portfolioIntroTimeout: ReturnType<typeof setTimeout> | null = null;
+  private faqIntroTimeout: ReturnType<typeof setTimeout> | null = null;
   private whyIntroTimeouts: ReturnType<typeof setTimeout>[] = [];
   private destroyed = false;
   private lastScrollTime = 0;
@@ -619,6 +643,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     }
 
+    if (!this.faqVisible) {
+      this.animateOnScroll('faq-section', () => {
+        this.playFaqIntro();
+      });
+    }
+
     if (!this.ctaVisible) {
       this.animateOnScroll('cta-section', () => {
         this.ctaVisible = true;
@@ -667,6 +697,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
       this.portfolioIntroTimeout = null;
     }, 1800);
+  }
+
+  private playFaqIntro() {
+    if (this.faqVisible || this.destroyed) {
+      return;
+    }
+
+    this.faqVisible = true;
+
+    const prefersReducedMotion = typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      this.faqIntroDone = true;
+      return;
+    }
+
+    if (this.faqIntroTimeout) {
+      clearTimeout(this.faqIntroTimeout);
+    }
+
+    this.faqIntroTimeout = setTimeout(() => {
+      if (!this.destroyed) {
+        this.faqIntroDone = true;
+      }
+      this.faqIntroTimeout = null;
+    }, 1200);
   }
 
   private playServicesIntro() {
@@ -757,6 +814,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.activeProcessIndex = index;
   }
 
+  toggleFaq(index: number) {
+    this.activeFaqIndex = this.activeFaqIndex === index ? -1 : index;
+  }
+
   onCtaMouseMove(event: MouseEvent) {
     const wrap = event.currentTarget as HTMLElement;
     const rect = wrap.getBoundingClientRect();
@@ -789,6 +850,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.portfolioIntroTimeout) {
       clearTimeout(this.portfolioIntroTimeout);
       this.portfolioIntroTimeout = null;
+    }
+
+    if (this.faqIntroTimeout) {
+      clearTimeout(this.faqIntroTimeout);
+      this.faqIntroTimeout = null;
     }
 
     if (this.scrollTimeout) {

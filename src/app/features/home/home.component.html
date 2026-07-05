@@ -267,6 +267,48 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section
+  class="faq-section"
+  id="faq-section"
+  [class.is-visible]="faqVisible"
+  [class.is-intro-done]="faqIntroDone">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <h2 class="faq-label">Preguntas frecuentes</h2>
+      <p class="faq-intro">Resuelvo las dudas más comunes sobre tiempos, soporte y forma de trabajo antes de que escribas.</p>
+    </div>
+
+    <div class="faq-list">
+      <div
+        *ngFor="let faq of homeFaqs; let i = index"
+        class="faq-item"
+        [class.is-open]="i === activeFaqIndex"
+        [style.--faq-index]="i">
+        <button
+          type="button"
+          class="faq-trigger"
+          (click)="toggleFaq(i)"
+          [attr.aria-expanded]="i === activeFaqIndex">
+          <span class="faq-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <span class="faq-question">{{ faq.question }}</span>
+          <span class="material-icons faq-chevron" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-panel" [attr.aria-hidden]="i !== activeFaqIndex">
+          <div class="faq-panel-inner">
+            <p class="faq-answer">{{ faq.answer }}</p>
+            <ul *ngIf="faq.details?.length" class="faq-details">
+              <li *ngFor="let detail of faq.details">{{ detail }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a routerLink="/contacto" class="faq-contact-link">¿Otra duda? Escríbenos</a>
+  </div>
+</section>
+
 <!-- CTA Final -->
 <section class="cta-section" id="cta-section" [class.is-visible]="ctaVisible">
   <p class="cta-headline-outline" aria-hidden="true">Impulsa tu negocio<br>en el mercado peruano</p>
