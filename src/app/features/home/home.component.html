@@ -205,13 +205,21 @@
       </div>
     </div>
 
-    <div class="portfolio-grid">
+    <div class="portfolio-grid" #portfolioGrid>
       <a *ngFor="let project of portfolioProjects; let i = index"
-         [routerLink]="['/portafolio', project.id]"
-         class="portfolio-card"
+         [routerLink]="project.id === 'yachaytambo' ? '/portafolio' : ['/portafolio', project.id]"
+         class="portfolio-card portfolio-card--scroll"
          [style.--card-index]="i">
         <span class="material-icons portfolio-card-arrow">arrow_outward</span>
-        <img [src]="project.imageUrl" [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'" class="portfolio-card-image">
+        <div class="portfolio-card-media">
+          <img
+            [src]="project.scrollUrl"
+            [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'"
+            class="portfolio-card-image portfolio-card-image--scroll"
+            loading="eager"
+            decoding="async"
+            fetchpriority="low">
+        </div>
         <div class="portfolio-card-scrim"></div>
         <div class="portfolio-card-info">
           <span class="portfolio-card-category">{{ project.category }}</span>

@@ -1238,11 +1238,30 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.portfolio-card:hover .portfolio-card-image {
-  transform: scale(1.03);
+.portfolio-card-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.portfolio-card-image--scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: unset;
+  object-position: top center;
+  transform: translate3d(0, 0, 0);
+  transition: none;
+  backface-visibility: hidden;
+}
+
+.portfolio-card.is-scrolling .portfolio-card-image--scroll {
+  will-change: transform;
 }
 
 .portfolio-card-scrim {
@@ -1342,6 +1361,10 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .portfolio-marquee-track {
     animation: none !important;
+  }
+
+  .portfolio-card.is-scrolling .portfolio-card-image--scroll {
+    will-change: auto;
   }
 
   .portfolio-label,

@@ -19,6 +19,14 @@ type CarouselSlide = {
   key: string;
 };
 
+type HomePortfolioProject = {
+  id: string;
+  title: string;
+  category: string;
+  scrollUrl: string;
+  result: string;
+};
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -30,6 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
   @ViewChild('servicesCarousel') servicesCarousel?: ElementRef<HTMLElement>;
   @ViewChild('carouselCursor') carouselCursor?: ElementRef<HTMLElement>;
+  @ViewChild('portfolioGrid') portfolioGrid?: ElementRef<HTMLElement>;
 
   constructor(
     private router: Router,
@@ -71,48 +80,34 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   carouselTransform = '';
 
   // Portafolio preview - Proyectos reales
-  portfolioProjects = [
-    {
-      id: 'liceum',
-      title: 'LICEUM',
-      category: 'Tienda Online',
-      imageUrl: '/assets/portfolio/liceum-inicio.png',
-      result: 'Inscripciones online con pago integrado y alcance en El Salvador y Bolivia'
-    },
+  portfolioProjects: HomePortfolioProject[] = [
     {
       id: 'omed',
       title: 'OMED',
       category: 'Sitio Web Profesional',
-      imageUrl: '/assets/portfolio/omed-inicio.png',
+      scrollUrl: '/assets/portfolio/scrolls/omed-scroll.jpg',
       result: 'Web para 2 sedes (Cusco y Tacna) con mejor posicionamiento local'
-    },
-    {
-      id: 'omed-financial',
-      title: 'Gestión Financiera OMED',
-      category: 'Software a Medida',
-      imageUrl: '/assets/portfolio/gestion-financiera-omed-login.png',
-      result: 'Sistema con 8+ módulos y control financiero en tiempo real'
     },
     {
       id: 'sml-web',
       title: 'Santa María Laura',
       category: 'Colegio Privado',
-      imageUrl: '/assets/portfolio/sml-inicio.png',
+      scrollUrl: '/assets/portfolio/scrolls/sml-scroll.jpg',
       result: 'Presencia institucional con admisión 2026 activa y blog educativo'
-    },
-    {
-      id: 'sml-portal',
-      title: 'Portal SML',
-      category: 'Plataforma Educativa',
-      imageUrl: '/assets/portfolio/sml-portal-login.png',
-      result: 'Gestión académica y comunicación profesores-padres en tiempo real'
     },
     {
       id: 'hombre-universal',
       title: 'Hombre Universal',
       category: 'Publicación Editorial',
-      imageUrl: '/assets/portfolio/hombre-universal-inicio.png',
+      scrollUrl: '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg',
       result: 'Plataforma editorial premium para difundir pensamiento y filosofía'
+    },
+    {
+      id: 'yachaytambo',
+      title: 'Yachay Tambo',
+      category: 'Turismo & Cultura',
+      scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.jpg',
+      result: 'Sitio web para experiencias de turismo y cultura en los Andes'
     }
   ];
 
@@ -434,6 +429,198 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  private portfolioScrollEnabled = false;
+  private portfolioActiveCard: HTMLElement | null = null;
+  private portfolioStepTimer: ReturnType<typeof setInterval> | null = null;
+  private portfolioStepTimeout: ReturnType<typeof setTimeout> | null = null;
+  private readonly portfolioCycles = new WeakMap<HTMLElement, { step: number; maxSteps: number; stepPx: number }>();
+  private readonly portfolioSectionStepPx = 1080;
+  private readonly portfolioStepIntervalMs = 3200;
+  private readonly portfolioStepDurationMs = 1100;
+  private readonly portfolioStepEasing = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+  private readonly onPortfolioMouseOver = (event: MouseEvent) => {
+    const card = (event.target as Element).closest('.portfolio-card--scroll') as HTMLElement | null;
+    if (!card || card === this.portfolioActiveCard) {
+      return;
+    }
+
+    if (this.portfolioActiveCard) {
+      this.stopPortfolioScroll(true, this.portfolioActiveCard);
+    }
+
+    this.portfolioActiveCard = card;
+    this.startPortfolioScrollCycle(card);
+  };
+
+  private readonly onPortfolioMouseOut = (event: MouseEvent) => {
+    const card = (event.target as Element).closest('.portfolio-card--scroll') as HTMLElement | null;
+    if (!card || card !== this.portfolioActiveCard) {
+      return;
+    }
+
+    const related = event.relatedTarget as Node | null;
+    if (related && card.contains(related)) {
+      return;
+    }
+
+    this.stopPortfolioScroll(true, card);
+    this.portfolioActiveCard = null;
+  };
+
+  private getPortfolioStepPx(img: HTMLImageElement, media: HTMLElement): number {
+    if (!img.naturalWidth) {
+      return this.portfolioSectionStepPx;
+    }
+
+    return this.portfolioSectionStepPx * (media.clientWidth / img.naturalWidth);
+  }
+
+  private getPortfolioMaxSteps(img: HTMLImageElement, media: HTMLElement, stepPx: number): number {
+    const displayedHeight = (img.naturalHeight / img.naturalWidth) * media.clientWidth;
+    const maxScroll = Math.max(0, displayedHeight - media.clientHeight);
+    return Math.max(0, Math.floor(maxScroll / stepPx));
+  }
+
+  private setPortfolioImageY(img: HTMLImageElement, y: number, animate: boolean) {
+    img.style.transition = animate
+      ? `transform ${this.portfolioStepDurationMs}ms ${this.portfolioStepEasing}`
+      : 'none';
+    img.style.transform = `translate3d(0, ${y}px, 0)`;
+  }
+
+  private startPortfolioScrollCycle(card: HTMLElement) {
+    const img = card.querySelector('.portfolio-card-image--scroll') as HTMLImageElement | null;
+    const media = card.querySelector('.portfolio-card-media') as HTMLElement | null;
+    if (!img || !media) {
+      return;
+    }
+
+    const begin = () => {
+      if (this.destroyed || this.portfolioActiveCard !== card) {
+        return;
+      }
+
+      if (!img.naturalWidth) {
+        return;
+      }
+
+      const stepPx = this.getPortfolioStepPx(img, media);
+      const maxSteps = this.getPortfolioMaxSteps(img, media, stepPx);
+      if (maxSteps <= 0) {
+        return;
+      }
+
+      this.stopPortfolioScroll(false, card);
+      card.classList.add('is-scrolling');
+      this.portfolioCycles.set(card, { step: 0, maxSteps, stepPx });
+      this.setPortfolioImageY(img, 0, false);
+
+      const advance = () => {
+        if (this.destroyed || this.portfolioActiveCard !== card) {
+          return;
+        }
+
+        const state = this.portfolioCycles.get(card);
+        if (!state) {
+          return;
+        }
+
+        state.step = state.step >= state.maxSteps ? 0 : state.step + 1;
+        this.setPortfolioImageY(img, -state.step * state.stepPx, true);
+      };
+
+      this.portfolioStepTimeout = setTimeout(() => {
+        if (this.destroyed || this.portfolioActiveCard !== card) {
+          return;
+        }
+
+        advance();
+        this.portfolioStepTimer = setInterval(advance, this.portfolioStepIntervalMs);
+      }, 700);
+    };
+
+    if (img.complete && img.naturalWidth) {
+      begin();
+    } else {
+      img.addEventListener('load', begin, { once: true });
+    }
+  }
+
+  private stopPortfolioScroll(reset = false, card?: HTMLElement | null) {
+    if (this.portfolioStepTimer) {
+      clearInterval(this.portfolioStepTimer);
+      this.portfolioStepTimer = null;
+    }
+
+    if (this.portfolioStepTimeout) {
+      clearTimeout(this.portfolioStepTimeout);
+      this.portfolioStepTimeout = null;
+    }
+
+    const target = card ?? this.portfolioActiveCard;
+    if (!target) {
+      return;
+    }
+
+    target.classList.remove('is-scrolling');
+
+    if (reset) {
+      const img = target.querySelector('.portfolio-card-image--scroll') as HTMLImageElement | null;
+      const state = this.portfolioCycles.get(target);
+      if (state) {
+        state.step = 0;
+      }
+
+      if (img) {
+        this.setPortfolioImageY(img, 0, true);
+      }
+    }
+  }
+
+  private preloadPortfolioScrollImages() {
+    for (const project of this.portfolioProjects) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = project.scrollUrl;
+    }
+  }
+
+  private setupPortfolioScrollImages() {
+    const grid = this.portfolioGrid?.nativeElement;
+    if (!grid) {
+      return;
+    }
+
+    this.portfolioScrollEnabled = typeof window !== 'undefined'
+      && window.matchMedia('(hover: hover) and (pointer: fine)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    this.preloadPortfolioScrollImages();
+
+    if (!this.portfolioScrollEnabled) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      grid.addEventListener('mouseover', this.onPortfolioMouseOver);
+      grid.addEventListener('mouseout', this.onPortfolioMouseOut);
+    });
+  }
+
+  private teardownPortfolioScrollListeners() {
+    this.stopPortfolioScroll(true);
+    this.portfolioActiveCard = null;
+
+    const grid = this.portfolioGrid?.nativeElement;
+    if (!grid) {
+      return;
+    }
+
+    grid.removeEventListener('mouseover', this.onPortfolioMouseOver);
+    grid.removeEventListener('mouseout', this.onPortfolioMouseOut);
+  }
+
   onSlideKeydown(slideTrackIndex: number, event: KeyboardEvent) {
     if (event.key !== 'Enter' && event.key !== ' ') {
       return;
@@ -610,6 +797,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.initHeroVideo();
     this.setupCarouselCursorListeners();
+    this.setupPortfolioScrollImages();
 
     this.initTimeout = setTimeout(() => {
       if (!this.destroyed) {
@@ -899,6 +1087,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.destroyed = true;
     this.teardownCarouselCursorListeners();
+    this.teardownPortfolioScrollListeners();
     this.clearWhyIntroTimeouts();
 
     if (this.servicesIntroTimeout) {
