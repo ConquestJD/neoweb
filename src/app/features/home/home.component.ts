@@ -439,34 +439,59 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly portfolioStepDurationMs = 1100;
   private readonly portfolioStepEasing = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
-  private readonly onPortfolioMouseOver = (event: MouseEvent) => {
-    const card = (event.target as Element).closest('.portfolio-card--scroll') as HTMLElement | null;
-    if (!card || card === this.portfolioActiveCard) {
+  private readonly portfolioCardEnterHandlers = new WeakMap<HTMLElement, () => void>();
+  private readonly portfolioCardLeaveHandlers = new WeakMap<HTMLElement, () => void>();
+
+  private bindPortfolioCard(card: HTMLElement) {
+    if (this.portfolioCardEnterHandlers.has(card)) {
       return;
     }
 
-    if (this.portfolioActiveCard) {
-      this.stopPortfolioScroll(true, this.portfolioActiveCard);
-    }
+    const onEnter = () => {
+      if (this.portfolioActiveCard && this.portfolioActiveCard !== card) {
+        this.stopPortfolioScroll(true, this.portfolioActiveCard);
+      }
 
-    this.portfolioActiveCard = card;
-    this.startPortfolioScrollCycle(card);
-  };
+      this.portfolioActiveCard = card;
+      this.startPortfolioScrollCycle(card);
+    };
 
-  private readonly onPortfolioMouseOut = (event: MouseEvent) => {
-    const card = (event.target as Element).closest('.portfolio-card--scroll') as HTMLElement | null;
-    if (!card || card !== this.portfolioActiveCard) {
+    const onLeave = () => {
+      if (this.portfolioActiveCard !== card) {
+        return;
+      }
+
+      this.stopPortfolioScroll(true, card);
+      this.portfolioActiveCard = null;
+    };
+
+    this.portfolioCardEnterHandlers.set(card, onEnter);
+    this.portfolioCardLeaveHandlers.set(card, onLeave);
+    card.addEventListener('mouseenter', onEnter);
+    card.addEventListener('mouseleave', onLeave);
+  }
+
+  private unbindPortfolioCards() {
+    const grid = this.portfolioGrid?.nativeElement;
+    if (!grid) {
       return;
     }
 
-    const related = event.relatedTarget as Node | null;
-    if (related && card.contains(related)) {
-      return;
-    }
+    grid.querySelectorAll('.portfolio-card--scroll').forEach((node) => {
+      const card = node as HTMLElement;
+      const onEnter = this.portfolioCardEnterHandlers.get(card);
+      const onLeave = this.portfolioCardLeaveHandlers.get(card);
 
-    this.stopPortfolioScroll(true, card);
-    this.portfolioActiveCard = null;
-  };
+      if (onEnter) {
+        card.removeEventListener('mouseenter', onEnter);
+      }
+
+      if (onLeave) {
+        card.removeEventListener('mouseleave', onLeave);
+      }
+    });
+
+  }
 
   private getPortfolioStepPx(img: HTMLImageElement, media: HTMLElement): number {
     if (!img.naturalWidth) {
@@ -479,7 +504,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private getPortfolioMaxSteps(img: HTMLImageElement, media: HTMLElement, stepPx: number): number {
     const displayedHeight = (img.naturalHeight / img.naturalWidth) * media.clientWidth;
     const maxScroll = Math.max(0, displayedHeight - media.clientHeight);
-    return Math.max(0, Math.floor(maxScroll / stepPx));
+    if (maxScroll <= 0 || stepPx <= 0) {
+      return 0;
+    }
+
+    return Math.max(1, Math.floor(maxScroll / stepPx));
   }
 
   private setPortfolioImageY(img: HTMLImageElement, y: number, animate: boolean) {
@@ -603,22 +632,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.ngZone.runOutsideAngular(() => {
-      grid.addEventListener('mouseover', this.onPortfolioMouseOver);
-      grid.addEventListener('mouseout', this.onPortfolioMouseOut);
+      grid.querySelectorAll('.portfolio-card--scroll').forEach((node) => {
+        this.bindPortfolioCard(node as HTMLElement);
+      });
     });
   }
 
   private teardownPortfolioScrollListeners() {
     this.stopPortfolioScroll(true);
     this.portfolioActiveCard = null;
-
-    const grid = this.portfolioGrid?.nativeElement;
-    if (!grid) {
-      return;
-    }
-
-    grid.removeEventListener('mouseover', this.onPortfolioMouseOver);
-    grid.removeEventListener('mouseout', this.onPortfolioMouseOut);
+    this.unbindPortfolioCards();
   }
 
   onSlideKeydown(slideTrackIndex: number, event: KeyboardEvent) {
