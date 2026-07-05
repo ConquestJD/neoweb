@@ -233,7 +233,17 @@
     </div>
   </div>
 
-  <div class="process-accordion" role="tablist">
+  <div class="process-accordion-wrap">
+    <div class="process-accordion-bg" aria-hidden="true">
+      <div *ngFor="let step of processSteps; let i = index"
+           class="process-accordion-bg-layer"
+           [class.is-active]="i === activeProcessIndex"
+           [style.background-image]="'url(\'' + step.image + '\')'">
+      </div>
+    </div>
+    <div class="process-accordion-scrim" aria-hidden="true"></div>
+
+    <div class="process-accordion" role="tablist">
       <button *ngFor="let step of processSteps; let i = index"
               type="button"
               class="process-panel"
@@ -253,6 +263,7 @@
           </ul>
         </div>
       </button>
+    </div>
   </div>
 </section>
 
