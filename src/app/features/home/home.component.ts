@@ -167,25 +167,25 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Discovery',
       description: 'Objetivos, alcance y priorización para entender el reto de negocio. Analizo tu mercado y competencia.',
       deliverables: ['Kickoff meeting', 'Brief completo'],
-      image: '/assets/home/por que neoweb/seo.png'
+      image: '/assets/home/proceso/discovery.jpg'
     },
     {
       title: 'UX & UI',
       description: 'Wireframes, diseño visual y microcopys orientados a conversión. Cada elemento pensado para generar resultados.',
       deliverables: ['Prototipo navegable', 'Design system'],
-      image: '/assets/home/por que neoweb/diseño web.jpg'
+      image: '/assets/home/proceso/uxui.jpg'
     },
     {
       title: 'Desarrollo',
       description: 'Código a medida, performance optimizado, SEO técnico y QA continuo. Desarrollo limpio y escalable.',
       deliverables: ['Entregables parciales', 'Code review'],
-      image: '/assets/home/por que neoweb/codigo real.jpg'
+      image: '/assets/home/proceso/desarrollo.jpg'
     },
     {
       title: 'Lanzamiento',
       description: 'Go-live, optimización, analítica configurada y handoff con soporte cercano. Tu proyecto listo para crecer.',
       deliverables: ['Checklist completo', 'Métricas y reportes'],
-      image: '/assets/home/por que neoweb/velocidad.png'
+      image: '/assets/home/proceso/lanzamiento.jpg'
     }
   ];
 
