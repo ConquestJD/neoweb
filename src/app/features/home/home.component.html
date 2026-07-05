@@ -226,13 +226,14 @@
 
 <!-- Proceso -->
 <section class="process-section">
-  <div class="container">
+  <div class="process-inner">
     <div class="process-header">
       <h2 class="process-label">Proceso</h2>
       <p class="process-intro">Metodología clara, entregables medibles y acompañamiento en cada etapa de tu proyecto. Un proceso estructurado que garantiza resultados.</p>
     </div>
+  </div>
 
-    <div class="process-accordion" role="tablist">
+  <div class="process-accordion" role="tablist">
       <button *ngFor="let step of processSteps; let i = index"
               type="button"
               class="process-panel"
@@ -252,7 +253,6 @@
           </ul>
         </div>
       </button>
-    </div>
   </div>
 </section>
 
