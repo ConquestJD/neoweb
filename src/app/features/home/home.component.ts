@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
@@ -28,8 +28,13 @@ type CarouselSlide = {
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
+  @ViewChild('servicesCarousel') servicesCarousel?: ElementRef<HTMLElement>;
+  @ViewChild('carouselCursor') carouselCursor?: ElementRef<HTMLElement>;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private ngZone: NgZone
+  ) {}
 
   scrollY = 0;
   activeServiceIndex = 0;
@@ -62,9 +67,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   carouselTransitioning = false;
   carouselCursorLabel = '';
   carouselCursorShown = false;
-  carouselCursorX = 0;
-  carouselCursorY = 0;
   carouselSlides: CarouselSlide[] = [];
+  carouselTransform = '';
 
   // Portafolio preview - Proyectos reales
   portfolioProjects = [
@@ -287,13 +291,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  get carouselTransform(): string {
-    const slideShare = 62;
-    const gap = 1.25;
-    const centerOffset = (100 - slideShare) / 2;
-    return `translateX(calc(-${this.trackIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
-  }
-
   formatServiceIndex(index: number): string {
     return (index + 1).toString().padStart(2, '0');
   }
@@ -365,12 +362,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  onSlideHoverMove(event: MouseEvent) {
-    if (this.carouselCursorLabel) {
-      this.updateCarouselCursorPosition(event);
-    }
-  }
-
   clearCarouselCursor() {
     this.hideCarouselCursor();
   }
@@ -395,8 +386,52 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private updateCarouselCursorPosition(event: MouseEvent) {
-    this.carouselCursorX = event.clientX + this.carouselCursorOffsetX;
-    this.carouselCursorY = event.clientY + this.carouselCursorOffsetY;
+    const cursor = this.carouselCursor?.nativeElement;
+    if (!cursor) {
+      return;
+    }
+
+    cursor.style.left = `${event.clientX + this.carouselCursorOffsetX}px`;
+    cursor.style.top = `${event.clientY + this.carouselCursorOffsetY}px`;
+  }
+
+  private readonly onCarouselMouseMove = (event: MouseEvent) => {
+    if (!this.carouselCursorLabel) {
+      return;
+    }
+
+    this.updateCarouselCursorPosition(event);
+  };
+
+  private setupCarouselCursorListeners() {
+    const carousel = this.servicesCarousel?.nativeElement;
+    if (!carousel) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      carousel.addEventListener('mousemove', this.onCarouselMouseMove, { passive: true });
+    });
+  }
+
+  private teardownCarouselCursorListeners() {
+    const carousel = this.servicesCarousel?.nativeElement;
+    carousel?.removeEventListener('mousemove', this.onCarouselMouseMove);
+  }
+
+  private syncCarouselTransform() {
+    const slideShare = 62;
+    const gap = 1.25;
+    const centerOffset = (100 - slideShare) / 2;
+    this.carouselTransform = `translateX(calc(-${this.trackIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
+  }
+
+  private preloadServiceImages() {
+    for (const service of this.services) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = service.image;
+    }
   }
 
   onSlideKeydown(slideTrackIndex: number, event: KeyboardEvent) {
@@ -415,6 +450,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.trackIndex = trackIndex;
     this.activeServiceIndex = serviceIndex;
+    this.syncCarouselTransform();
     this.triggerCarouselTransition();
     this.scheduleCloneReset();
   }
@@ -447,6 +483,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private jumpTrackWithoutTransition(trackIndex: number) {
     this.trackTransitionEnabled = false;
     this.trackIndex = trackIndex;
+    this.syncCarouselTransform();
 
     requestAnimationFrame(() => {
       if (this.destroyed) {
@@ -483,6 +520,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     ];
     this.trackIndex = count;
     this.activeServiceIndex = 0;
+    this.syncCarouselTransform();
   }
 
   private triggerCarouselTransition() {
@@ -571,6 +609,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.initHeroVideo();
+    this.setupCarouselCursorListeners();
 
     this.initTimeout = setTimeout(() => {
       if (!this.destroyed) {
@@ -750,6 +789,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.servicesVisible = true;
+    this.preloadServiceImages();
 
     const prefersReducedMotion = typeof window !== 'undefined'
       && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -858,6 +898,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyed = true;
+    this.teardownCarouselCursorListeners();
     this.clearWhyIntroTimeouts();
 
     if (this.servicesIntroTimeout) {

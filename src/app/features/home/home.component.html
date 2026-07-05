@@ -37,11 +37,10 @@
   [class.is-visible]="servicesVisible"
   [class.is-intro-done]="servicesIntroDone">
   <span
-    *ngIf="carouselCursorLabel"
+    #carouselCursor
     class="carousel-cursor-label"
     [class.is-visible]="carouselCursorShown"
-    [style.left.px]="carouselCursorX"
-    [style.top.px]="carouselCursorY"
+    [class.is-hidden]="!carouselCursorLabel"
     aria-hidden="true">
     {{ carouselCursorLabel }}
   </span>
@@ -65,6 +64,7 @@
   </div>
 
   <div
+    #servicesCarousel
     class="services-carousel"
     tabindex="0"
     (keydown)="onCarouselKeydown($event)"
@@ -85,7 +85,6 @@
           tabindex="0"
           (click)="onSlideClick(i, $event)"
           (mouseenter)="onSlideHover(i, $event)"
-          (mousemove)="onSlideHoverMove($event)"
           (mouseleave)="clearCarouselCursor()"
           (keydown)="onSlideKeydown(i, $event)"
           [attr.aria-label]="
@@ -97,7 +96,7 @@
                   ? 'Siguiente: ' + slide.service.name
                   : 'Mostrar ' + slide.service.name + ' en el carrusel'
           ">
-          <img [src]="slide.service.image" [alt]="slide.service.name" loading="lazy">
+          <img [src]="slide.service.image" [alt]="slide.service.name" loading="lazy" decoding="async">
           <div class="carousel-slide-overlay" aria-hidden="true"></div>
           <div class="carousel-slide-top">
             <h3>{{ slide.service.name }}</h3>

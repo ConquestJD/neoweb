@@ -380,6 +380,10 @@ section {
   transform: scale(1);
 }
 
+.carousel-cursor-label.is-hidden {
+  visibility: hidden;
+}
+
 .services-carousel:focus-visible {
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.12);
 }
@@ -398,22 +402,6 @@ section {
 
 .carousel-track.no-transition {
   transition: none;
-}
-
-.carousel-track.is-transitioning .carousel-slide.is-active .carousel-slide-top {
-  animation: carouselCopyIn 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes carouselCopyIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .carousel-slide {
@@ -443,6 +431,11 @@ section {
   cursor: pointer;
 }
 
+.carousel-slide:not(.is-active):not(.is-prev):not(.is-next) {
+  content-visibility: auto;
+  contain-intrinsic-size: 62vw 80vh;
+}
+
 .carousel-slide img {
   width: 100%;
   height: 100%;
@@ -450,25 +443,10 @@ section {
   object-fit: cover;
   display: block;
   border-radius: 8px;
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carousel-slide.is-active img {
   transform: scale(1);
-}
-
-.carousel-track.is-transitioning .carousel-slide.is-active img {
-  animation: carouselImageFocus 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes carouselImageFocus {
-  0% {
-    transform: scale(1.012);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 }
 
 .carousel-slide-overlay {
