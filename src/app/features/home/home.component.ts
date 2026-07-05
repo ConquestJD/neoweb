@@ -187,21 +187,39 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   homeFaqs = [
     {
-      question: '¿Cuánto tarda un proyecto?',
-      answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
+      question: '¿Cuánto cuesta un proyecto?',
+      answer: 'Depende del tipo de solución y su alcance. Estas son referencias orientativas:',
       details: [
-        'Landing Page: 1 semana',
-        'Sitio corporativo: 2 semanas',
-        'eCommerce/App: más de 1 mes según alcance'
+        'Página web: desde S/ 500',
+        'Tienda online: desde S/ 2,500',
+        'Software a medida: desde S/ 1,500',
+        'Marketing digital: desde S/ 600/mes'
       ]
     },
     {
+      question: '¿Cuánto tarda un proyecto?',
+      answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
+      details: [
+        'Landing page: 1 semana',
+        'Sitio corporativo: 2 semanas',
+        'Tienda online o app: más de 1 mes según alcance'
+      ]
+    },
+    {
+      question: '¿Usan WordPress, Wix o plantillas?',
+      answer: 'No. Desarrollo cada proyecto desde cero con código personalizado. Eso garantiza mejor rendimiento, seguridad, diseño único y un sitio pensado para tu negocio, no para encajar en una plantilla genérica.'
+    },
+    {
+      question: '¿Dominio y hosting están incluidos?',
+      answer: 'En proyectos web (página, tienda o rediseño) incluyo dominio y hosting gratis los primeros 6 meses. Después puedes continuar con un plan de mantenimiento mensual o migrar a tu propio proveedor.'
+    },
+    {
       question: '¿Incluye soporte?',
-      answer: 'Sí, todos mis proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.'
+      answer: 'Sí. Todos los proyectos incluyen soporte post-entrega y puedes contratar mantenimiento opcional para actualizaciones, mejoras y respuesta prioritaria cuando lo necesites.'
     },
     {
       question: '¿Trabajas remoto?',
-      answer: 'Sí, trabajo completamente de forma remota con clientes en todo el Perú y Latinoamérica, usando herramientas modernas de comunicación y gestión de proyectos.'
+      answer: 'Sí. Trabajo de forma remota con clientes en todo el Perú y Latinoamérica, con reuniones por videollamada, seguimiento claro y entregables documentados en cada etapa.'
     }
   ];
 
@@ -723,7 +741,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.faqIntroDone = true;
       }
       this.faqIntroTimeout = null;
-    }, 1200);
+    }, 1900);
   }
 
   private playServicesIntro() {

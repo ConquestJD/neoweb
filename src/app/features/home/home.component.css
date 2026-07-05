@@ -1922,8 +1922,9 @@ section {
 /* ----- FAQ: acordeon editorial ----- */
 .faq-section {
   padding: 100px 0 0;
-  background: #fafafa;
+  background: #000000;
   position: relative;
+  color: #ffffff;
 }
 
 .faq-inner {
@@ -1948,7 +1949,7 @@ section {
   font-size: clamp(2.75rem, 5.5vw, 4.75rem);
   font-weight: 700;
   line-height: 1.05;
-  color: #18181b;
+  color: #ffffff;
   letter-spacing: -0.02em;
   opacity: 0;
   transform: translateY(20px);
@@ -1960,7 +1961,7 @@ section {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.05rem;
   line-height: 1.65;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.55);
   max-width: 520px;
   font-weight: 400;
   opacity: 0;
@@ -1981,11 +1982,11 @@ section {
 }
 
 .faq-list {
-  border-top: 1px solid rgba(24, 24, 27, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .faq-item {
-  border-bottom: 1px solid rgba(24, 24, 27, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   opacity: 0;
   transform: translateY(24px);
 }
@@ -2023,7 +2024,7 @@ section {
   background: transparent;
   cursor: pointer;
   text-align: left;
-  color: #18181b;
+  color: #ffffff;
 }
 
 .faq-number {
@@ -2031,12 +2032,12 @@ section {
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #a1a1aa;
+  color: rgba(255, 255, 255, 0.35);
   transition: color 0.25s ease;
 }
 
 .faq-item.is-open .faq-number {
-  color: #18181b;
+  color: rgba(255, 235, 210, 0.85);
 }
 
 .faq-question {
@@ -2049,13 +2050,13 @@ section {
 
 .faq-chevron {
   font-size: 24px;
-  color: #71717a;
+  color: rgba(255, 255, 255, 0.45);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
 }
 
 .faq-item.is-open .faq-chevron {
   transform: rotate(180deg);
-  color: #18181b;
+  color: #ffffff;
 }
 
 .faq-panel {
@@ -2079,7 +2080,7 @@ section {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.98rem;
   line-height: 1.65;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.62);
   font-weight: 400;
 }
 
@@ -2098,20 +2099,20 @@ section {
   font-size: 0.92rem;
   font-weight: 500;
   line-height: 1.5;
-  color: #18181b;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .faq-details li::before {
   content: '—';
   margin-right: 8px;
-  color: #a1a1aa;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .faq-contact-link {
   display: inline-block;
   margin-top: 36px;
   position: relative;
-  color: #18181b;
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 0.95rem;
@@ -2128,7 +2129,7 @@ section {
   right: 0;
   bottom: -4px;
   height: 1px;
-  background: #18181b;
+  background: rgba(255, 235, 210, 0.75);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2141,7 +2142,7 @@ section {
 }
 
 .faq-contact-link:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 .faq-contact-link:hover::after {
