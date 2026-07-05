@@ -1196,7 +1196,7 @@ section {
 }
 
 .portfolio-section.is-visible:not(.is-intro-done) .portfolio-card {
-  animation: portfolioCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation: portfolioCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: calc(0.38s + var(--card-index, 0) * 0.1s);
 }
 
@@ -1992,7 +1992,7 @@ section {
 }
 
 .faq-section.is-visible:not(.is-intro-done) .faq-item {
-  animation: faqItemIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation: faqItemIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: calc(0.32s + var(--faq-index, 0) * 0.1s);
 }
 
