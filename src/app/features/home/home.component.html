@@ -183,28 +183,34 @@
   </div>
 </section>
 
-<!-- Portafolio preview (mejorado) -->
-<section class="portfolio-section-enhanced">
-  <div class="container">
-    <div class="portfolio-header-enhanced">
-      <div class="portfolio-header-content">
-        <p class="pill">Portafolio</p>
-        <h2 class="portfolio-title-enhanced">Portafolio de Proyectos: Casos de Éxito en Perú</h2>
-        <p class="portfolio-subtitle-enhanced">Proyectos reales que demuestran mi experiencia en desarrollo web y soluciones digitales para empresas peruanas.</p>
-      </div>
-      <div class="portfolio-header-actions">
-        <div class="portfolio-nav-arrows">
-          <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('prev')" [disabled]="!canScrollPortfolioPrev" aria-label="Proyecto anterior">
-            <span class="material-icons">arrow_back</span>
-          </button>
-          <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('next')" [disabled]="!canScrollPortfolioNext" aria-label="Siguiente proyecto">
-            <span class="material-icons">arrow_forward</span>
-          </button>
+<!-- Portafolio -->
+<section
+  class="portfolio-section"
+  id="portfolio-section"
+  [class.is-visible]="portfolioVisible"
+  [class.is-intro-done]="portfolioIntroDone">
+  <div class="portfolio-marquee" aria-hidden="true" [class.is-revealed]="portfolioVisible">
+    <div class="portfolio-marquee-track">
+      <span *ngFor="let copy of portfolioMarqueeCopies">{{ copy }}</span>
+    </div>
+  </div>
+
+  <div class="portfolio-inner">
+    <div class="portfolio-header">
+      <h2 class="portfolio-label">Portafolio</h2>
+      <div class="portfolio-header-side">
+        <p class="portfolio-intro">Proyectos reales que demuestran experiencia en desarrollo web y soluciones digitales para empresas peruanas.</p>
+        <div class="portfolio-header-actions">
+          <div class="portfolio-nav">
+            <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('prev')" [disabled]="!canScrollPortfolioPrev" aria-label="Proyecto anterior">
+              <span class="material-icons">arrow_back</span>
+            </button>
+            <button type="button" class="portfolio-nav-btn" (click)="scrollPortfolio('next')" [disabled]="!canScrollPortfolioNext" aria-label="Siguiente proyecto">
+              <span class="material-icons">arrow_forward</span>
+            </button>
+          </div>
+          <a routerLink="/portafolio" class="portfolio-view-all-link">Ver todo</a>
         </div>
-        <button routerLink="/portafolio" class="portfolio-view-all-btn">
-          <span>Ver todo</span>
-          <span class="material-icons">arrow_forward</span>
-        </button>
       </div>
     </div>
 
@@ -212,27 +218,23 @@
       <div class="portfolio-track" #portfolioTrack (scroll)="onPortfolioScroll()">
         <a *ngFor="let project of portfolioProjects; let i = index"
            [routerLink]="['/portafolio', project.id]"
-           class="portfolio-item">
-          <span class="portfolio-item-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-          <img [src]="project.imageUrl" [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'" class="portfolio-image">
-          <div class="portfolio-item-scrim"></div>
-          <span class="portfolio-item-cta">
-            <span class="material-icons">arrow_outward</span>
-          </span>
-          <div class="portfolio-item-info">
-            <span class="portfolio-item-category">{{ project.category }}</span>
-            <h3 class="portfolio-item-title">{{ project.title }}</h3>
-            <p class="portfolio-item-result">
-              <span class="material-icons">check_circle</span>
-              <span>{{ project.result }}</span>
-            </p>
+           class="portfolio-card"
+           [style.--card-index]="i">
+          <span class="portfolio-card-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <span class="material-icons portfolio-card-arrow">arrow_outward</span>
+          <img [src]="project.imageUrl" [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'" class="portfolio-card-image">
+          <div class="portfolio-card-scrim"></div>
+          <div class="portfolio-card-info">
+            <span class="portfolio-card-category">{{ project.category }}</span>
+            <h3 class="portfolio-card-title">{{ project.title }}</h3>
+            <p class="portfolio-card-result">{{ project.result }}</p>
           </div>
         </a>
       </div>
     </div>
 
-    <div class="portfolio-scroll-progress">
-      <span class="portfolio-scroll-progress-thumb" [style.width.%]="portfolioScrollProgress"></span>
+    <div class="portfolio-progress">
+      <span class="portfolio-progress-thumb" [style.width.%]="portfolioScrollProgress"></span>
     </div>
   </div>
 </section>

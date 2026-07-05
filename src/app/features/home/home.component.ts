@@ -48,6 +48,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   whyBgRevealed = false;
   whyDetailRevealed = false;
   ctaVisible = false;
+  portfolioVisible = false;
+  portfolioIntroDone = false;
+  portfolioMarqueeCopies = [
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · '
+  ];
   activeProcessIndex = 0;
   ctaMagnetX = 0;
   ctaMagnetY = 0;
@@ -532,8 +540,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private carouselTransitionTimeout: ReturnType<typeof setTimeout> | null = null;
   private carouselResetTimeout: ReturnType<typeof setTimeout> | null = null;
   private carouselCursorHideTimeout: ReturnType<typeof setTimeout> | null = null;
-  private whyIntroTimeouts: ReturnType<typeof setTimeout>[] = [];
   private servicesIntroTimeout: ReturnType<typeof setTimeout> | null = null;
+  private portfolioIntroTimeout: ReturnType<typeof setTimeout> | null = null;
+  private whyIntroTimeouts: ReturnType<typeof setTimeout>[] = [];
   private destroyed = false;
   private lastScrollTime = 0;
   private readonly scrollThrottle = 100;
@@ -570,7 +579,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    const card = track.querySelector('.portfolio-item') as HTMLElement | null;
+    const card = track.querySelector('.portfolio-card') as HTMLElement | null;
     const gap = parseFloat(getComputedStyle(track).columnGap || '32') || 32;
     const step = (card?.offsetWidth ?? track.clientWidth * 0.8) + gap;
 
@@ -656,6 +665,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     }
 
+    if (!this.portfolioVisible) {
+      this.animateOnScroll('portfolio-section', () => {
+        this.playPortfolioIntro();
+      });
+    }
+
     if (!this.ctaVisible) {
       this.animateOnScroll('cta-section', () => {
         this.ctaVisible = true;
@@ -677,6 +692,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         callback();
       }
     }
+  }
+
+  private playPortfolioIntro() {
+    if (this.portfolioVisible || this.destroyed) {
+      return;
+    }
+
+    this.portfolioVisible = true;
+
+    const prefersReducedMotion = typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      this.portfolioIntroDone = true;
+      return;
+    }
+
+    if (this.portfolioIntroTimeout) {
+      clearTimeout(this.portfolioIntroTimeout);
+    }
+
+    this.portfolioIntroTimeout = setTimeout(() => {
+      if (!this.destroyed) {
+        this.portfolioIntroDone = true;
+      }
+      this.portfolioIntroTimeout = null;
+    }, 1200);
   }
 
   private playServicesIntro() {
@@ -794,6 +836,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.servicesIntroTimeout) {
       clearTimeout(this.servicesIntroTimeout);
       this.servicesIntroTimeout = null;
+    }
+
+    if (this.portfolioIntroTimeout) {
+      clearTimeout(this.portfolioIntroTimeout);
+      this.portfolioIntroTimeout = null;
     }
 
     if (this.scrollTimeout) {
