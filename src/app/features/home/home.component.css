@@ -1068,9 +1068,10 @@ section {
 .portfolio-inner {
   position: relative;
   z-index: 1;
-  max-width: 1120px;
+  width: min(96vw, 1440px);
+  max-width: none;
   margin: 0 auto;
-  padding: 48px clamp(16px, 3.5vw, 48px) 72px;
+  padding: 48px clamp(12px, 2vw, 24px) 72px;
 }
 
 .portfolio-header {
@@ -1211,33 +1212,17 @@ section {
   transform-origin: left;
 }
 
-.portfolio-scroll-wrapper {
-  position: relative;
-  margin-right: calc(-1 * clamp(16px, 3.5vw, 48px));
-  padding-right: clamp(16px, 3.5vw, 48px);
-}
-
-.portfolio-track {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 4px 0 12px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.portfolio-track::-webkit-scrollbar {
-  display: none;
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 20px);
+  width: 100%;
 }
 
 .portfolio-card {
   position: relative;
-  flex: 0 0 auto;
-  width: min(72vw, 420px);
-  height: min(68vh, 520px);
-  scroll-snap-align: start;
+  width: 100%;
+  height: min(52vh, 560px);
   display: block;
   overflow: hidden;
   color: inherit;
@@ -1296,18 +1281,6 @@ section {
   inset: 0;
   background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.88) 100%);
   pointer-events: none;
-}
-
-.portfolio-card-number {
-  position: absolute;
-  top: 20px;
-  left: 22px;
-  z-index: 2;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.65);
 }
 
 .portfolio-card-arrow {
@@ -1394,26 +1367,23 @@ section {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .portfolio-inner {
-    padding: 36px 16px 56px;
+    width: min(94vw, 100%);
+    padding: 36px 12px 56px;
   }
 
-  .portfolio-marquee {
-    padding-top: 20px;
-  }
-
-  .portfolio-nav {
-    display: none;
-  }
-
-  .portfolio-track {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
     gap: 14px;
   }
 
   .portfolio-card {
-    width: min(84vw, 360px);
-    height: min(62vh, 440px);
+    height: min(48vh, 420px);
+  }
+
+  .portfolio-marquee {
+    padding-top: 20px;
   }
 
   .portfolio-card-info {

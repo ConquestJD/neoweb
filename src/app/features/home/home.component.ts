@@ -28,16 +28,13 @@ type CarouselSlide = {
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
-  @ViewChild('portfolioTrack') portfolioTrack?: ElementRef<HTMLDivElement>;
 
   constructor(private router: Router) {}
 
   scrollY = 0;
   activeServiceIndex = 0;
   activeDiferencialIndex = 0;
-  portfolioScrollProgress = 0;
-  canScrollPortfolioPrev = false;
-  canScrollPortfolioNext = true;
+  portfolioPageIndex = 0;
   trackIndex = 1;
   trackTransitionEnabled = true;
   servicesVisible = false;
@@ -158,6 +155,30 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: '/assets/home/por que neoweb/soporte.jpg'
     }
   ];
+
+  get portfolioPageCount(): number {
+    return Math.ceil(this.portfolioProjects.length / 2);
+  }
+
+  get visiblePortfolioProjects() {
+    const start = this.portfolioPageIndex * 2;
+    return this.portfolioProjects.slice(start, start + 2);
+  }
+
+  get canScrollPortfolioPrev(): boolean {
+    return this.portfolioPageIndex > 0;
+  }
+
+  get canScrollPortfolioNext(): boolean {
+    return this.portfolioPageIndex < this.portfolioPageCount - 1;
+  }
+
+  get portfolioScrollProgress(): number {
+    if (this.portfolioPageCount <= 0) {
+      return 0;
+    }
+    return ((this.portfolioPageIndex + 1) / this.portfolioPageCount) * 100;
+  }
 
   processSteps = [
     {
@@ -553,40 +574,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.initTimeout = setTimeout(() => {
       if (!this.destroyed) {
         this.checkScroll();
-        this.onPortfolioScroll();
       }
     }, 50);
   }
 
-  onPortfolioScroll() {
-    const track = this.portfolioTrack?.nativeElement;
-    if (!track) {
-      return;
-    }
-
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    this.portfolioScrollProgress = maxScroll > 0
-      ? Math.min(100, Math.max(0, (track.scrollLeft / maxScroll) * 100))
-      : 0;
-
-    this.canScrollPortfolioPrev = track.scrollLeft > 4;
-    this.canScrollPortfolioNext = track.scrollLeft < maxScroll - 4;
-  }
-
   scrollPortfolio(direction: 'prev' | 'next') {
-    const track = this.portfolioTrack?.nativeElement;
-    if (!track) {
+    if (direction === 'prev' && this.canScrollPortfolioPrev) {
+      this.portfolioPageIndex -= 1;
       return;
     }
 
-    const card = track.querySelector('.portfolio-card') as HTMLElement | null;
-    const gap = parseFloat(getComputedStyle(track).columnGap || '32') || 32;
-    const step = (card?.offsetWidth ?? track.clientWidth * 0.8) + gap;
-
-    track.scrollBy({
-      left: direction === 'next' ? step : -step,
-      behavior: 'smooth'
-    });
+    if (direction === 'next' && this.canScrollPortfolioNext) {
+      this.portfolioPageIndex += 1;
+    }
   }
 
   private initHeroVideo() {
