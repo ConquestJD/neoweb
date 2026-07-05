@@ -223,13 +223,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   ];
 
-  // Servicios con fotos reales (Unsplash, curadas para combinar con la marca)
+  // Servicios con imágenes locales
   services = [
     {
       name: 'Página Web',
       route: '/servicios/pagina-web',
       icon: 'language',
-      image: 'https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBhZ2luYSUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/pagina web.jpg',
       tag: 'Identidad',
       outcome: 'Presencia corporativa confiable',
       description: 'Sitios institucionales a medida, con diseño claro y código optimizado.',
@@ -239,7 +239,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Tienda Online',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
-      image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
+      image: '/assets/services/tienda online.jpg',
       tag: 'E‑commerce',
       outcome: 'Catálogo listo para vender',
       description: 'E‑commerce con catálogo, carrito y pasarela de pagos integrados.',
@@ -249,7 +249,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Marketing Digital',
       route: '/servicios/marketing-digital',
       icon: 'campaign',
-      image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hcmtldGluZyUyMGRpZ2l0YWx8ZW58MHx8MHx8fDA%3D',
+      image: '/assets/services/marketing.jpg',
       tag: 'Estrategia',
       outcome: 'Comunicación constante de marca',
       description: 'Estrategia, contenido y redes para hacer crecer tu presencia online.',
@@ -259,7 +259,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Rediseño Web',
       route: '/servicios/rediseno-paginas-web',
       icon: 'autorenew',
-      image: 'https://images.unsplash.com/photo-1657812159077-90649115008c?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmVkaXNlJUMzJUIxbyUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/rediseño.jpg',
       tag: 'Renovación',
       outcome: 'Imagen renovada y profesional',
       description: 'Modernizamos tu sitio actual con mejor UX, performance y conversión.',
@@ -269,7 +269,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Apps Móviles',
       route: '/servicios/aplicaciones-moviles',
       icon: 'phone_iphone',
-      image: 'https://images.unsplash.com/photo-1633250391894-397930e3f5f2?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcHMlMjBtb3ZpbGVzJTIwZGVzYXJyb2xsb3xlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/app movil.jpg',
       tag: 'Producto',
       outcome: 'Experiencias móviles fluidas',
       description: 'Apps nativas e híbridas para iOS y Android con diseño intuitivo.',
@@ -279,7 +279,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Software a Medida',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
-      image: 'https://plus.unsplash.com/premium_photo-1661443822504-0e382dbc1e48?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRpZ2l0YWxpemFjaW9uJTIwZGUlMjBwcm9jZXNvc3xlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/software a medida.jpg',
       tag: 'Automatización',
       outcome: 'Operación ordenada y automatizada',
       description: 'Software personalizado para automatizar procesos y ganar eficiencia.',

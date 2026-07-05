@@ -45,21 +45,21 @@ export class NavbarComponent {
   @Input() isScrolled = false;
   isServicesDropdownOpen = false;
 
-  // Servicios con fotos reales curadas (Unsplash, tono claro/coherente con la marca)
+  // Servicios con imágenes locales
   services: ServiceMenuItem[] = [
     {
       name: 'Página Web',
       short: 'Sitios corporativos a medida',
       route: '/servicios/pagina-web',
       icon: 'language',
-      image: 'https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBhZ2luYSUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/pagina web.jpg',
     },
     {
       name: 'Tienda Online',
       short: 'E-commerce listo para vender',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
-      image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
+      image: '/assets/services/tienda online.jpg',
 
     },
     {
@@ -67,7 +67,7 @@ export class NavbarComponent {
       short: 'Estrategia y contenido',
       route: '/servicios/marketing-digital',
       icon: 'campaign',
-      image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1hcmtldGluZyUyMGRpZ2l0YWx8ZW58MHx8MHx8fDA%3D',
+      image: '/assets/services/marketing.jpg',
 
     },
     {
@@ -75,7 +75,7 @@ export class NavbarComponent {
       short: 'Renovamos tu sitio actual',
       route: '/servicios/rediseno-paginas-web',
       icon: 'autorenew',
-      image: 'https://images.unsplash.com/photo-1657812159077-90649115008c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmVkaXNlJUMzJUIxbyUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/rediseño.jpg',
 
     },
     {
@@ -83,7 +83,7 @@ export class NavbarComponent {
       short: 'iOS y Android nativos',
       route: '/servicios/aplicaciones-moviles',
       icon: 'phone_iphone',
-      image: 'https://images.unsplash.com/photo-1633250391894-397930e3f5f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcHMlMjBtb3ZpbGVzJTIwZGVzYXJyb2xsb3xlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/app movil.jpg',
 
     },
     {
@@ -91,7 +91,7 @@ export class NavbarComponent {
       short: 'Sistemas y apps personalizados',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
-      image: 'https://plus.unsplash.com/premium_photo-1661443822504-0e382dbc1e48?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRpZ2l0YWxpemFjaW9uJTIwZGUlMjBwcm9jZXNvc3xlbnwwfHwwfHx8MA%3D%3D',
+      image: '/assets/services/software a medida.jpg',
 
     }
   ];
