@@ -34,12 +34,11 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
   servicios = [
     'Página web',
     'Landing page',
-    'Tienda virtual (e-commerce)',
+    'Tienda online (e-commerce)',
     'Rediseño de web',
     'Aplicación móvil',
-    'Sistema / digitalización de procesos',
-    'Google Ads / Marketing digital',
-    'Consultoría SEO',
+    'Software a medida',
+    'Marketing digital',
     'Otro'
   ];
 

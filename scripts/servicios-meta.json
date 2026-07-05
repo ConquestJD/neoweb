@@ -44,11 +44,11 @@
     }
   },
   "tienda-virtual": {
-    "pageTitle": "Tienda Virtual - NeoWeb | E-commerce Completo",
+    "pageTitle": "Tienda Online - NeoWeb | E-commerce Completo",
     "hero": {
       "badgeIcon": "shopping_cart",
       "badgeText": "eCommerce",
-      "titleLine1": "Tienda virtual",
+      "titleLine1": "Tienda online",
       "titleHighlight": "completa",
       "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
     },
@@ -58,7 +58,7 @@
       "badgeText": "Incluye",
       "titleLine1": "Funcionalidades",
       "titleHighlight": "clave",
-      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda virtual."
+      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda online."
     },
     "showBenefitsSection": false,
     "processSection": {
@@ -77,42 +77,6 @@
       "titleLine1": "¿Listo para",
       "titleHighlight": "vender online?",
       "description": "Lanza tu tienda con catálogo, pagos y envíos listos."
-    }
-  },
-  "google-ads": {
-    "pageTitle": "Google Ads - NeoWeb | Publicidad en Google",
-    "hero": {
-      "badgeIcon": "campaign",
-      "badgeText": "Google Ads",
-      "titleLine1": "Performance en",
-      "titleHighlight": "Google Ads",
-      "description": "Campañas estratégicas, segmentación precisa y optimización continua para atraer clientes calificados."
-    },
-    "plansSubtitle": "Desde S/ 400/mes hasta S/ 1,500/mes según inversión y alcance.",
-    "includesSection": {
-      "badgeIcon": "check_circle",
-      "badgeText": "Características",
-      "titleLine1": "Qué",
-      "titleHighlight": "incluye",
-      "subtitle": "Gestión completa de campañas Google Ads para maximizar tu ROI y atraer clientes calificados."
-    },
-    "showBenefitsSection": false,
-    "processSection": {
-      "titleLine1": "Cómo",
-      "titleHighlight": "gestiono",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
-    },
-    "fullcodeSection": {
-      "badgeText": "Beneficios",
-      "titleLine1": "Gestión",
-      "titleHighlight": "profesional",
-      "subtitle": "Optimización manual, experimentos controlados y reportes claros."
-    },
-    "ctaSection": {
-      "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "aparecer en Google?",
-      "description": "Llevo tu marca a los primeros resultados con campañas estratégicas."
     }
   },
   "marketing-digital": {
@@ -223,49 +187,13 @@
       "description": "Construyo tu app con UX clara y performance de nivel producción."
     }
   },
-  "consultoria-seo": {
-    "pageTitle": "Agencia SEO en Perú | Consultoría SEO y Posicionamiento | NeoWeb",
-    "hero": {
-      "badgeIcon": "search",
-      "badgeText": "Consultoría SEO",
-      "titleLine1": "SEO técnico y de",
-      "titleHighlight": "contenidos",
-      "description": "Auditoría, optimización on-page y estrategia de contenidos para aparecer cuando tus clientes buscan."
-    },
-    "plansSubtitle": "Desde S/ 400/mes hasta S/ 1,500/mes según alcance.",
-    "includesSection": {
-      "badgeIcon": "check_circle",
-      "badgeText": "Auditoría",
-      "titleLine1": "Qué",
-      "titleHighlight": "cubro",
-      "subtitle": "Cobertura completa en auditoría, optimización y estrategia de contenidos SEO."
-    },
-    "showBenefitsSection": false,
-    "processSection": {
-      "titleLine1": "Cómo trabajo el",
-      "titleHighlight": "SEO",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
-    },
-    "fullcodeSection": {
-      "badgeText": "Resultados",
-      "titleLine1": "Lo que busco",
-      "titleHighlight": "lograr",
-      "subtitle": "Objetivos claros y resultados medibles para tu estrategia SEO."
-    },
-    "ctaSection": {
-      "theme": "light",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "posicionar mejor?",
-      "description": "Optimicemos tu sitio para aparecer cuando tus clientes te buscan."
-    }
-  },
   "digitalizacion-procesos": {
-    "pageTitle": "Digitalización de Procesos - NeoWeb | Automatización",
+    "pageTitle": "Software a Medida - NeoWeb | Desarrollo Personalizado",
     "hero": {
       "badgeIcon": "settings",
-      "badgeText": "Digitalización",
-      "titleLine1": "Automatiza y optimiza tus",
-      "titleHighlight": "procesos",
+      "badgeText": "Software a medida",
+      "titleLine1": "Desarrollamos",
+      "titleHighlight": "software a medida",
       "description": "Sistemas a medida para aumentar eficiencia, reducir costos y dar visibilidad a tus operaciones."
     },
     "plansSubtitle": "Desde S/ 1,500 hasta S/ 20,000 según alcance y complejidad.",
@@ -290,9 +218,9 @@
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "digitalizar procesos?",
-      "description": "Automatiza tareas y gana eficiencia con una solución a medida."
+      "titleLine1": "¿Listo para tu",
+      "titleHighlight": "software a medida?",
+      "description": "Automatiza tareas y gana eficiencia con una solución personalizada."
     }
   }
 }

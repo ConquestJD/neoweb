@@ -309,11 +309,11 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "tienda-virtual": {
     "slug": "tienda-virtual",
-    "pageTitle": "Tienda Virtual - NeoWeb | E-commerce Completo",
+    "pageTitle": "Tienda Online - NeoWeb | E-commerce Completo",
     "hero": {
       "badgeIcon": "shopping_cart",
       "badgeText": "eCommerce",
-      "titleLine1": "Tienda virtual",
+      "titleLine1": "Tienda online",
       "titleHighlight": "completa",
       "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
     },
@@ -323,7 +323,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "badgeText": "Incluye",
       "titleLine1": "Funcionalidades",
       "titleHighlight": "clave",
-      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda virtual."
+      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda online."
     },
     "includes": [
       {
@@ -423,7 +423,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "step": "03",
         "title": "Desarrollo Full Code",
-        "description": "Construyo tu tienda virtual desde cero con código optimizado, carrito inteligente y pasarelas de pago",
+        "description": "Construyo tu tienda online desde cero con código optimizado, carrito inteligente y pasarelas de pago",
         "icon": "code"
       },
       {
@@ -514,189 +514,6 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
           "Integraciones API externas",
           "SEO completo",
           "Optimización de rendimiento"
-        ]
-      }
-    ]
-  },
-  "google-ads": {
-    "slug": "google-ads",
-    "pageTitle": "Google Ads - NeoWeb | Publicidad en Google",
-    "hero": {
-      "badgeIcon": "campaign",
-      "badgeText": "Google Ads",
-      "titleLine1": "Performance en",
-      "titleHighlight": "Google Ads",
-      "description": "Campañas estratégicas, segmentación precisa y optimización continua para atraer clientes calificados."
-    },
-    "plansSubtitle": "Desde S/ 400/mes hasta S/ 1,500/mes según inversión y alcance.",
-    "includesSection": {
-      "badgeIcon": "check_circle",
-      "badgeText": "Características",
-      "titleLine1": "Qué",
-      "titleHighlight": "incluye",
-      "subtitle": "Gestión completa de campañas Google Ads para maximizar tu ROI y atraer clientes calificados."
-    },
-    "includes": [
-      {
-        "icon": "ads_click",
-        "title": "Campañas Optimizadas",
-        "description": "Estrategias personalizadas para tu negocio"
-      },
-      {
-        "icon": "trending_up",
-        "title": "ROI Medible",
-        "description": "Seguimiento completo de resultados"
-      },
-      {
-        "icon": "person_search",
-        "title": "Segmentación Precisa",
-        "description": "Llega a tu audiencia ideal"
-      },
-      {
-        "icon": "analytics",
-        "title": "Reportes Detallados",
-        "description": "Análisis continuo de rendimiento"
-      }
-    ],
-    "showBenefitsSection": false,
-    "processSection": {
-      "titleLine1": "Cómo",
-      "titleHighlight": "gestiono",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
-    },
-    "fullcodeSection": {
-      "badgeText": "Beneficios",
-      "titleLine1": "Gestión",
-      "titleHighlight": "profesional",
-      "subtitle": "Optimización manual, experimentos controlados y reportes claros."
-    },
-    "ctaSection": {
-      "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "aparecer en Google?",
-      "description": "Llevo tu marca a los primeros resultados con campañas estratégicas."
-    },
-    "features": [
-      {
-        "icon": "ads_click",
-        "title": "Campañas Optimizadas",
-        "description": "Estrategias personalizadas para tu negocio"
-      },
-      {
-        "icon": "trending_up",
-        "title": "ROI Medible",
-        "description": "Seguimiento completo de resultados"
-      },
-      {
-        "icon": "person_search",
-        "title": "Segmentación Precisa",
-        "description": "Llega a tu audiencia ideal"
-      },
-      {
-        "icon": "analytics",
-        "title": "Reportes Detallados",
-        "description": "Análisis continuo de rendimiento"
-      }
-    ],
-    "methodology": [
-      {
-        "step": "01",
-        "title": "Auditoría y Estrategia",
-        "description": "Analizo tu negocio, competencia y palabras clave para crear una estrategia publicitaria efectiva",
-        "icon": "search"
-      },
-      {
-        "step": "02",
-        "title": "Configuración de Campañas",
-        "description": "Creo y configuro tus campañas con segmentación precisa y presupuesto optimizado",
-        "icon": "settings"
-      },
-      {
-        "step": "03",
-        "title": "Optimización Continua",
-        "description": "Monitoreo y optimizo diariamente para mejorar el ROI y reducir costos por conversión",
-        "icon": "trending_up"
-      },
-      {
-        "step": "04",
-        "title": "Análisis y Reportes",
-        "description": "Genero reportes detallados con insights accionables para mejorar continuamente",
-        "icon": "assessment"
-      }
-    ],
-    "fullCodeBenefits": [
-      {
-        "icon": "code",
-        "title": "Configuración Personalizada",
-        "description": "Cada campaña está configurada específicamente para tu negocio, sin plantillas genéricas."
-      },
-      {
-        "icon": "analytics",
-        "title": "Tracking Avanzado",
-        "description": "Implemento tracking personalizado para medir cada conversión y optimizar en tiempo real."
-      },
-      {
-        "icon": "tune",
-        "title": "Optimización Manual",
-        "description": "Ajustes manuales basados en datos reales, no algoritmos automáticos que desperdician presupuesto."
-      },
-      {
-        "icon": "trending_up",
-        "title": "ROI Maximizado",
-        "description": "Estrategias personalizadas que maximizan el retorno de inversión de cada sol invertido."
-      },
-      {
-        "icon": "integration_instructions",
-        "title": "Integraciones Completas",
-        "description": "Conecto con tu CRM, sitio web y herramientas de análisis para un seguimiento completo."
-      },
-      {
-        "icon": "support_agent",
-        "title": "Gestión Profesional",
-        "description": "Gestiono tu cuenta como si fuera mía, con atención personalizada y trato directo."
-      }
-    ],
-    "plans": [
-      {
-        "name": "START",
-        "price": "S/ 400",
-        "period": "/mes",
-        "icon": "star",
-        "color": "from-green-500 to-emerald-500",
-        "features": [
-          "1 campaña",
-          "Segmentación básica",
-          "Configuración de conversiones",
-          "Reporte mensual"
-        ]
-      },
-      {
-        "name": "PRO",
-        "price": "S/ 900",
-        "period": "/mes",
-        "icon": "rocket_launch",
-        "color": "from-blue-500 to-cyan-500",
-        "featured": true,
-        "features": [
-          "2-3 campañas",
-          "Optimización constante",
-          "Remarketing",
-          "Extensiones",
-          "Reportes profesionales"
-        ]
-      },
-      {
-        "name": "PREMIUM",
-        "price": "S/ 1,500",
-        "period": "/mes",
-        "icon": "diamond",
-        "color": "from-orange-500 to-red-500",
-        "features": [
-          "Estrategia completa",
-          "A/B Testing",
-          "Funnels",
-          "Integración con CRM",
-          "Reunión mensual"
         ]
       }
     ]
@@ -1249,197 +1066,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       }
     ]
   },
-  "consultoria-seo": {
-    "slug": "consultoria-seo",
-    "pageTitle": "Agencia SEO en Perú | Consultoría SEO y Posicionamiento | NeoWeb",
-    "hero": {
-      "badgeIcon": "search",
-      "badgeText": "Consultoría SEO",
-      "titleLine1": "SEO técnico y de",
-      "titleHighlight": "contenidos",
-      "description": "Auditoría, optimización on-page y estrategia de contenidos para aparecer cuando tus clientes buscan."
-    },
-    "plansSubtitle": "Desde S/ 400/mes hasta S/ 1,500/mes según alcance.",
-    "includesSection": {
-      "badgeIcon": "check_circle",
-      "badgeText": "Auditoría",
-      "titleLine1": "Qué",
-      "titleHighlight": "cubro",
-      "subtitle": "Cobertura completa en auditoría, optimización y estrategia de contenidos SEO."
-    },
-    "includes": [
-      {
-        "icon": "search",
-        "title": "Auditoría SEO",
-        "description": "Análisis completo de tu sitio web"
-      },
-      {
-        "icon": "trending_up",
-        "title": "Optimización",
-        "description": "Mejora de posicionamiento orgánico"
-      },
-      {
-        "icon": "analytics",
-        "title": "Keyword Research",
-        "description": "Investigación de palabras clave"
-      },
-      {
-        "icon": "content_copy",
-        "title": "Contenido Optimizado",
-        "description": "Estrategia de contenido SEO"
-      }
-    ],
-    "showBenefitsSection": false,
-    "processSection": {
-      "titleLine1": "Cómo trabajo el",
-      "titleHighlight": "SEO",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
-    },
-    "fullcodeSection": {
-      "badgeText": "Resultados",
-      "titleLine1": "Lo que busco",
-      "titleHighlight": "lograr",
-      "subtitle": "Objetivos claros y resultados medibles para tu estrategia SEO."
-    },
-    "ctaSection": {
-      "theme": "light",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "posicionar mejor?",
-      "description": "Optimicemos tu sitio para aparecer cuando tus clientes te buscan."
-    },
-    "features": [
-      {
-        "icon": "search",
-        "title": "Auditoría SEO",
-        "description": "Análisis completo de tu sitio web"
-      },
-      {
-        "icon": "trending_up",
-        "title": "Optimización",
-        "description": "Mejora de posicionamiento orgánico"
-      },
-      {
-        "icon": "analytics",
-        "title": "Keyword Research",
-        "description": "Investigación de palabras clave"
-      },
-      {
-        "icon": "content_copy",
-        "title": "Contenido Optimizado",
-        "description": "Estrategia de contenido SEO"
-      }
-    ],
-    "methodology": [
-      {
-        "step": "01",
-        "title": "Auditoría SEO Completa",
-        "description": "Analizo tu sitio web, competencia y palabras clave para identificar oportunidades",
-        "icon": "search"
-      },
-      {
-        "step": "02",
-        "title": "Estrategia Personalizada",
-        "description": "Desarrollo una estrategia SEO específica para tu industria y objetivos de negocio",
-        "icon": "lightbulb"
-      },
-      {
-        "step": "03",
-        "title": "Optimización Técnica",
-        "description": "Mejoro estructura, velocidad, mobile-friendliness y aspectos técnicos del SEO",
-        "icon": "build"
-      },
-      {
-        "step": "04",
-        "title": "Optimización de Contenido",
-        "description": "Optimizo contenido existente y creo nuevo contenido estratégico para SEO",
-        "icon": "edit"
-      },
-      {
-        "step": "05",
-        "title": "Monitoreo y Reportes",
-        "description": "Monitoreo rankings, tráfico y conversiones con reportes mensuales detallados",
-        "icon": "assessment"
-      }
-    ],
-    "fullCodeBenefits": [
-      {
-        "icon": "code",
-        "title": "Optimización Técnica Profunda",
-        "description": "Reviso y optimizo el código de tu sitio para cumplir con todos los estándares de Google."
-      },
-      {
-        "icon": "search",
-        "title": "Estrategia Personalizada",
-        "description": "Cada estrategia SEO está diseñada específicamente para tu negocio y audiencia objetivo."
-      },
-      {
-        "icon": "analytics",
-        "title": "Análisis Detallado",
-        "description": "Herramientas profesionales y análisis manual para identificar oportunidades reales."
-      },
-      {
-        "icon": "trending_up",
-        "title": "Resultados Sostenibles",
-        "description": "SEO técnico y de contenido que genera resultados a largo plazo sin depender de trucos."
-      },
-      {
-        "icon": "link",
-        "title": "Linkbuilding Estratégico",
-        "description": "Estrategias de linkbuilding interno y externo basadas en contenido de calidad."
-      },
-      {
-        "icon": "support_agent",
-        "title": "Seguimiento Continuo",
-        "description": "Monitoreo constante y ajustes basados en cambios de algoritmos y tendencias."
-      }
-    ],
-    "plans": [
-      {
-        "name": "START",
-        "price": "S/ 400",
-        "period": "/mes",
-        "icon": "star",
-        "color": "from-yellow-500 to-amber-500",
-        "features": [
-          "Auditoría básica",
-          "Palabras clave"
-        ]
-      },
-      {
-        "name": "PRO",
-        "price": "S/ 900",
-        "period": "/mes",
-        "icon": "rocket_launch",
-        "color": "from-gray-700 to-gray-900",
-        "featured": true,
-        "features": [
-          "SEO técnico",
-          "Optimización contenido",
-          "Reportes"
-        ]
-      },
-      {
-        "name": "PREMIUM",
-        "price": "S/ 1,500",
-        "period": "/mes",
-        "icon": "diamond",
-        "color": "from-orange-500 to-red-500",
-        "features": [
-          "Estrategia completa",
-          "Linkbuilding interno",
-          "Monitoreo en tiempo real"
-        ]
-      }
-    ]
-  },
   "digitalizacion-procesos": {
     "slug": "digitalizacion-procesos",
-    "pageTitle": "Digitalización de Procesos - NeoWeb | Automatización",
+    "pageTitle": "Software a Medida - NeoWeb | Desarrollo Personalizado",
     "hero": {
       "badgeIcon": "settings",
-      "badgeText": "Digitalización",
-      "titleLine1": "Automatiza y optimiza tus",
-      "titleHighlight": "procesos",
+      "badgeText": "Software a medida",
+      "titleLine1": "Desarrollamos",
+      "titleHighlight": "software a medida",
       "description": "Sistemas a medida para aumentar eficiencia, reducir costos y dar visibilidad a tus operaciones."
     },
     "plansSubtitle": "Desde S/ 1,500 hasta S/ 20,000 según alcance y complejidad.",
@@ -1486,9 +1120,9 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "digitalizar procesos?",
-      "description": "Automatiza tareas y gana eficiencia con una solución a medida."
+      "titleLine1": "¿Listo para tu",
+      "titleHighlight": "software a medida?",
+      "description": "Automatiza tareas y gana eficiencia con una solución personalizada."
     },
     "features": [
       {
@@ -1619,11 +1253,9 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
 export const SERVICIO_SLUGS = [
   "pagina-web",
   "tienda-virtual",
-  "google-ads",
   "marketing-digital",
   "rediseno-paginas-web",
   "aplicaciones-moviles",
-  "consultoria-seo",
   "digitalizacion-procesos"
 ] as const;
 

@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       id: 'liceum',
       title: 'LICEUM',
-      category: 'Tienda Virtual',
+      category: 'Tienda Online',
       imageUrl: '/assets/portfolio/liceum-inicio.png',
       result: 'Inscripciones online con pago integrado y alcance en El Salvador y Bolivia'
     },
@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       id: 'omed-financial',
       title: 'Gestión Financiera OMED',
-      category: 'Digitalización de Procesos',
+      category: 'Software a Medida',
       imageUrl: '/assets/portfolio/gestion-financiera-omed-login.png',
       result: 'Sistema con 8+ módulos y control financiero en tiempo real'
     },
@@ -195,7 +195,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       audience: 'Para empresas que necesitan presencia profesional online'
     },
     {
-      name: 'Tienda Virtual',
+      name: 'Tienda Online',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
       image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
@@ -203,16 +203,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       outcome: 'Catálogo listo para vender',
       description: 'E‑commerce con catálogo, carrito y pasarela de pagos integrados.',
       audience: 'Para negocios que quieren vender productos en internet'
-    },
-    {
-      name: 'Google Ads',
-      route: '/servicios/google-ads',
-      icon: 'ads_click',
-      image: 'https://plus.unsplash.com/premium_photo-1685208166965-d04149118ca5?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29vZ2xlJTIwYWRzfGVufDB8fDB8fHww',
-      tag: 'Performance',
-      outcome: 'Tráfico medible y segmentado',
-      description: 'Campañas en Google para atraer clientes potenciales con presupuesto claro.',
-      audience: 'Para quienes buscan clientes con publicidad medible'
     },
     {
       name: 'Marketing Digital',
@@ -245,23 +235,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       audience: 'Para negocios que necesitan llegar al móvil'
     },
     {
-      name: 'Consultoría SEO',
-      route: '/servicios/consultoria-seo',
-      icon: 'travel_explore',
-      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      tag: 'Visibilidad',
-      outcome: 'Mejor visibilidad orgánica',
-      description: 'Optimización técnica y de contenidos para escalar en buscadores.',
-      audience: 'Para quienes quieren más tráfico orgánico'
-    },
-    {
-      name: 'Digitalización de Procesos',
+      name: 'Software a Medida',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
       image: 'https://plus.unsplash.com/premium_photo-1661443822504-0e382dbc1e48?w=1400&auto=format&fit=crop&q=75&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRpZ2l0YWxpemFjaW9uJTIwZGUlMjBwcm9jZXNvc3xlbnwwfHwwfHx8MA%3D%3D',
       tag: 'Automatización',
       outcome: 'Operación ordenada y automatizada',
-      description: 'Automatizamos procesos internos para ganar tiempo y reducir errores.',
+      description: 'Software personalizado para automatizar procesos y ganar eficiencia.',
       audience: 'Para equipos que quieren ordenar su operación'
     }
   ];

@@ -114,7 +114,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
         problem: 'LICEUM necesitaba presencia digital profesional para promocionar sus cursos de cirugía mínimamente invasiva y facilitar las inscripciones online.',
         solution: 'Desarrollé una plataforma web completa con sistema de pagos integrado, permitiendo inscripciones online y mayor alcance internacional.',
         websiteUrl: 'https://www.liceum.pe',
-        type: 'Tienda Virtual'
+        type: 'Tienda Online'
       }
     },
     {
@@ -148,7 +148,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
     {
       id: 'omed-financial',
       title: 'Gestión Financiera OMED',
-      category: 'Digitalización de Procesos',
+      category: 'Software a Medida',
       imageUrl: 'assets/portfolio/gestion-financiera-omed-login.png',
       imageUrl2: 'assets/portfolio/gestion-financiera-omed-login.png',
       description: 'Sistema web interno para la administración financiera, médica y operativa de la Clínica OMED.',
@@ -170,7 +170,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
         problem: 'La Clínica OMED necesitaba centralizar la administración financiera, médica y operativa de sus sedes eliminando procesos manuales.',
         solution: 'Desarrollé un sistema integral con módulos de gestión, dashboard interactivo y reportes automáticos para control total.',
         websiteUrl: '#',
-        type: 'Digitalización de Procesos'
+        type: 'Software a Medida'
       }
     },
     {

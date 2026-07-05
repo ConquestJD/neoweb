@@ -55,19 +55,11 @@ export class NavbarComponent {
       image: 'https://images.unsplash.com/photo-1481487196290-c152efe083f5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBhZ2luYSUyMHdlYnxlbnwwfHwwfHx8MA%3D%3D',
     },
     {
-      name: 'Tienda Virtual',
+      name: 'Tienda Online',
       short: 'E-commerce listo para vender',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
       image: 'https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWNvbW1lcmNlfGVufDB8fDB8fHww',
-
-    },
-    {
-      name: 'Google Ads',
-      short: 'Campañas medibles en Google',
-      route: '/servicios/google-ads',
-      icon: 'ads_click',
-      image: 'https://plus.unsplash.com/premium_photo-1685208166965-d04149118ca5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29vZ2xlJTIwYWRzfGVufDB8fDB8fHww',
 
     },
     {
@@ -95,16 +87,8 @@ export class NavbarComponent {
 
     },
     {
-      name: 'Consultoría SEO',
-      short: 'Visibilidad en buscadores',
-      route: '/servicios/consultoria-seo',
-      icon: 'travel_explore',
-      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1251&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-
-    },
-    {
-      name: 'Digitalizació  n',
-      short: 'Procesos automatizados',
+      name: 'Software a medida',
+      short: 'Sistemas y apps personalizados',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
       image: 'https://plus.unsplash.com/premium_photo-1661443822504-0e382dbc1e48?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRpZ2l0YWxpemFjaW9uJTIwZGUlMjBwcm9jZXNvc3xlbnwwfHwwfHx8MA%3D%3D',

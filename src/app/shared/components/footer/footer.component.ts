@@ -21,13 +21,11 @@ export class FooterComponent {
 
   serviceLinks = [
     { label: 'Página Web', route: '/servicios/pagina-web' },
-    { label: 'Tienda Virtual', route: '/servicios/tienda-virtual' },
-    { label: 'Google Ads', route: '/servicios/google-ads' },
+    { label: 'Tienda Online', route: '/servicios/tienda-virtual' },
     { label: 'Marketing Digital', route: '/servicios/marketing-digital' },
     { label: 'Rediseño Web', route: '/servicios/rediseno-paginas-web' },
     { label: 'Apps Móviles', route: '/servicios/aplicaciones-moviles' },
-    { label: 'Consultoría SEO', route: '/servicios/consultoria-seo' },
-    { label: 'Digitalización', route: '/servicios/digitalizacion-procesos' }
+    { label: 'Software a medida', route: '/servicios/digitalizacion-procesos' }
   ];
 
   contactLinks = [

@@ -9,22 +9,18 @@ const outFile = path.join(root, 'src/app/features/servicios/servicios.data.ts');
 const slugs = [
   'pagina-web',
   'tienda-virtual',
-  'google-ads',
   'marketing-digital',
   'rediseno-paginas-web',
   'aplicaciones-moviles',
-  'consultoria-seo',
   'digitalizacion-procesos'
 ];
 
 const folderMap = {
   'pagina-web': 'pagina-web',
   'tienda-virtual': 'tienda-virtual',
-  'google-ads': 'google-ads',
   'marketing-digital': 'marketing-digital',
   'rediseno-paginas-web': 'rediseno-paginas-web',
   'aplicaciones-moviles': 'aplicaciones-moviles',
-  'consultoria-seo': 'consultoria-seo',
   'digitalizacion-procesos': 'digitalizacion-procesos'
 };
 
