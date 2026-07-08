@@ -15,6 +15,16 @@
   isolation: isolate;
 }
 
+.con-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/contacto/contacto-hero.jpg');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.35;
+  transform: scale(1.02);
+}
+
 .con-hero-overlay {
   position: absolute;
   inset: 0;
