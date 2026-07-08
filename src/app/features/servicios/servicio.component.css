@@ -89,7 +89,14 @@
   padding: 0;
   background: #000000;
   overflow: hidden;
-  isolation: isolate;
+}
+
+.svc-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .svc-hero-bg {
@@ -101,22 +108,21 @@
   background-position: center;
   transform: scale(1.06);
   animation: svcHeroDrift 14s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
 }
 
 .svc-hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  pointer-events: none;
-  background:
-    rgba(0, 0, 0, 0.32),
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.48) 38%,
-      rgba(0, 0, 0, 0.42) 62%,
-      rgba(0, 0, 0, 0.68) 100%
-    );
+  background-color: rgba(0, 0, 0, 0.18);
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 48%,
+    rgba(0, 0, 0, 0.08) 80%
+  );
 }
 
 @keyframes svcHeroDrift {
@@ -127,7 +133,7 @@
 
 .svc-hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,6 +174,7 @@
   letter-spacing: -0.02em;
   color: #ffffff;
   text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
   opacity: 0;
   animation: svcHeroReveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.2s;
@@ -182,10 +189,11 @@
 .svc-hero-desc {
   width: min(100%, 620px);
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.95);
   font-family: var(--label);
   font-size: 0.9375rem;
   line-height: 1.5;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
   opacity: 0;
   animation: svcHeroReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.78s;

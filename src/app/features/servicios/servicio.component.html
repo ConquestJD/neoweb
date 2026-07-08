@@ -2,11 +2,12 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="svc-hero">
-    <div
-      class="svc-hero-bg"
-      [style.background-image]="getServiceHeroBackground()"
-      aria-hidden="true"></div>
-    <div class="svc-hero-overlay" aria-hidden="true"></div>
+    <div class="svc-hero-backdrop" aria-hidden="true">
+      <div
+        class="svc-hero-bg"
+        [style.background-image]="getServiceHeroBackground()"></div>
+      <div class="svc-hero-overlay"></div>
+    </div>
     <div class="svc-hero-inner">
       <p class="svc-hero-eyebrow">
         <span class="material-icons" aria-hidden="true">{{ s.hero.badgeIcon }}</span>
