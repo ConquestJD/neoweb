@@ -1,256 +1,124 @@
 <!-- Nosotros NeoWeb -->
 
-<!-- Hero Mejorado -->
-<section class="hero-nosotros-enhanced">
-  <div class="hero-nosotros-background"></div>
-  <div class="hero-nosotros-particles"></div>
-  <div class="container">
-    <div class="hero-nosotros-content">
-      <div class="hero-nosotros-badge">
-        <span class="material-icons">code</span>
-        <span>Desarrollador full-stack</span>
+<section class="nos-hero">
+  <div class="nos-hero-bg" aria-hidden="true"></div>
+  <div class="nos-hero-overlay" aria-hidden="true"></div>
+  <div class="nos-hero-inner">
+    <h1 class="nos-hero-title">
+      Desarrollo web con<br>código sólido y trato directo
+    </h1>
+    <a routerLink="/contacto" class="nos-hero-cta">Contactar</a>
+    <p class="nos-hero-desc">
+      Soy desarrollador full-stack y estudiante de ingeniería de software. Diseño y construyo sitios web, tiendas online y sistemas a medida para negocios que quieren vender más por internet.
+    </p>
+  </div>
+</section>
+
+<section class="nos-section nos-historia" data-section="historia" [class.is-visible]="sectionVisible.historia">
+  <div class="nos-inner">
+    <div class="nos-header">
+      <h2 class="nos-label">Mi historia</h2>
+      <p class="nos-intro">De estudiante de ingeniería a tu desarrollador de confianza, con foco en resultados reales para pymes peruanas.</p>
+    </div>
+
+    <div class="nos-historia-grid">
+      <div class="nos-historia-copy">
+        <p>Empecé NeoWeb en 2025 con una idea simple: ofrecer desarrollo web profesional, con código real (sin plantillas, sin WordPress), accesible para pymes y emprendedores peruanos.</p>
+        <p>Cada proyecto lo trabajo de principio a fin: diseño, front-end, back-end y soporte. Comunicación directa, decisiones rápidas y un producto hecho a tu medida.</p>
+        <div class="nos-stats">
+          <div *ngFor="let stat of stats" class="nos-stat">
+            <span class="nos-stat-value">{{ stat.value }}</span>
+            <span class="nos-stat-label">{{ stat.label }}</span>
+          </div>
+        </div>
       </div>
-      <h1 class="hero-nosotros-title">
-        Desarrollo web con
-        <span class="hero-nosotros-title-highlight">código sólido</span> y
-        <span class="hero-nosotros-title-highlight">trato directo</span>
-      </h1>
-      <p class="hero-nosotros-description">
-        Soy desarrollador full-stack y estudiante de ingeniería de software. Diseño y construyo sitios web, tiendas online y sistemas a medida para negocios que quieren vender más por internet. Trabajas directamente conmigo, sin intermediarios.
-      </p>
-      <div class="hero-nosotros-buttons">
-        <button routerLink="/contacto" class="hero-nosotros-btn-primary">
-          <span class="material-icons">handshake</span>
-          <span>Trabajemos juntos</span>
-        </button>
-        <button routerLink="/portafolio" class="hero-nosotros-btn-secondary">
-          <span class="material-icons">folder</span>
-          <span>Ver portafolio</span>
-        </button>
-      </div>
-      <div class="hero-nosotros-scroll-indicator">
-        <span class="material-icons">keyboard_arrow_down</span>
+      <figure class="nos-figure">
+        <img src="/assets/historia.png" alt="Desarrollador full-stack NeoWeb" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="nos-section nos-purpose" data-section="purpose" [class.is-visible]="sectionVisible.purpose">
+  <div class="nos-inner">
+    <div class="nos-header nos-header--center">
+      <h2 class="nos-label">Misión y visión</h2>
+      <p class="nos-intro">Lo que me mueve y hacia dónde voy con cada proyecto.</p>
+    </div>
+
+    <div class="nos-purpose-grid">
+      <article *ngFor="let item of missionVision" class="nos-purpose-card">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <ul>
+          <li *ngFor="let point of item.points">{{ point }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="nos-section nos-valores" data-section="valores" [class.is-visible]="sectionVisible.valores">
+  <div class="nos-inner">
+    <div class="nos-header">
+      <h2 class="nos-label nos-label--light">Cómo trabajo</h2>
+      <p class="nos-intro nos-intro--light">Principios que guían cada proyecto y cada conversación con mis clientes.</p>
+    </div>
+
+    <ul class="nos-valores-list">
+      <li *ngFor="let value of values; let i = index" class="nos-valor-item">
+        <span class="nos-valor-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+        <div class="nos-valor-body">
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="nos-section nos-tech" data-section="tech" [class.is-visible]="sectionVisible.tech">
+  <div class="nos-inner">
+    <div class="nos-header nos-header--center">
+      <h2 class="nos-label">Tecnologías</h2>
+      <p class="nos-intro">Herramientas modernas que elijo por desempeño, estabilidad y escalabilidad.</p>
+    </div>
+
+    <div class="nos-tech-grid">
+      <div *ngFor="let tech of technologies" class="nos-tech-card">
+        <img
+          [src]="tech.image"
+          [alt]="tech.name"
+          class="nos-tech-logo"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="nos-tech-fallback" style="display: none;">
+          <span class="material-icons">{{ tech.icon }}</span>
+        </span>
+        <span class="nos-tech-name">{{ tech.name }}</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Historia (mejorada) -->
-<section class="historia-section-enhanced">
-  <div class="container">
-    <div class="historia-content-wrapper">
-      <div class="historia-text-content">
-        <div class="historia-badge-wrapper">
-          <p class="pill">
-            <span class="material-icons">history</span>
-            <span>Mi historia</span>
-          </p>
-        </div>
-        <h2 class="historia-title-enhanced">De estudiante de ingeniería a tu desarrollador de confianza</h2>
-        <div class="historia-description-wrapper">
-          <p class="historia-description">
-            Empecé NeoWeb en 2025 con una idea simple: ofrecer desarrollo web profesional, con código real (sin plantillas, sin WordPress), accesible para pymes y emprendedores peruanos.
-          </p>
-          <p class="historia-description">
-            Cada proyecto lo trabajo de principio a fin: diseño, front-end, back-end y soporte. Esto significa comunicación directa, decisiones rápidas y un producto hecho a tu medida, no una plantilla más.
-          </p>
-        </div>
-        <div class="historia-stats">
-          <div class="historia-stat-card">
-            <div class="historia-stat-icon">
-              <span class="material-icons">calendar_today</span>
-            </div>
-            <div class="historia-stat-content">
-              <div class="historia-stat-value">2025</div>
-              <div class="historia-stat-label">Inicio del proyecto</div>
-            </div>
-          </div>
-          <div class="historia-stat-card">
-            <div class="historia-stat-icon">
-              <span class="material-icons">rocket_launch</span>
-            </div>
-            <div class="historia-stat-content">
-              <div class="historia-stat-value">6</div>
-              <div class="historia-stat-label">Proyectos entregados</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="historia-image-wrapper">
-        <div class="historia-image-container">
-          <div class="historia-image-glow"></div>
-          <img src="/assets/historia.png" alt="Desarrollador full-stack NeoWeb" class="historia-image">
-          <div class="historia-image-decoration"></div>
-        </div>
+<section class="cta-section" data-section="cta" id="cta-section" [class.is-visible]="ctaVisible">
+  <p class="cta-headline-outline" aria-hidden="true">Trabajemos<br>juntos</p>
+  <div class="cta-container">
+    <div class="cta-magnet-wrap"
+         (mousemove)="onCtaMouseMove($event)"
+         (mouseleave)="onCtaMouseLeave()">
+      <div class="cta-magnet-inner"
+           [class.is-active]="ctaMagnetActive"
+           [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
+        <a routerLink="/contacto" class="cta-magnet-btn">
+          <span>Hablemos</span>
+        </a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Misión y Visión (mejorada) -->
-<section class="mision-vision-section-enhanced">
-  <div class="container">
-    <div class="mision-vision-header">
-      <p class="pill">
-        <span class="material-icons">lightbulb</span>
-        <span>Propósito</span>
-      </p>
-      <h2 class="mision-vision-title">Misión y visión</h2>
-      <p class="mision-vision-subtitle">Lo que me mueve y hacia dónde voy.</p>
-    </div>
-    <div class="mision-vision-grid">
-      <div class="mision-vision-card">
-        <div class="mision-vision-card-inner">
-          <div class="mision-vision-icon-wrapper">
-            <div class="mision-vision-icon-bg"></div>
-            <span class="material-icons mision-vision-icon">flag</span>
-            <div class="mision-vision-icon-glow"></div>
-          </div>
-          <div class="mision-vision-content">
-            <h3 class="mision-vision-card-title">Misión</h3>
-            <p class="mision-vision-card-description">
-              Darle a cada negocio una presencia digital profesional, rápida y clara, con código a medida y un trato cercano que entienda sus objetivos reales.
-            </p>
-            <div class="mision-vision-features">
-              <div class="mision-vision-feature">
-                <span class="material-icons">check_circle</span>
-                <span>Desarrollo accesible y a medida</span>
-              </div>
-              <div class="mision-vision-feature">
-                <span class="material-icons">check_circle</span>
-                <span>Enfoque en conversión</span>
-              </div>
-            </div>
-          </div>
-          <div class="mision-vision-card-decoration"></div>
-        </div>
-      </div>
-      <div class="mision-vision-card">
-        <div class="mision-vision-card-inner">
-          <div class="mision-vision-icon-wrapper">
-            <div class="mision-vision-icon-bg"></div>
-            <span class="material-icons mision-vision-icon">visibility</span>
-            <div class="mision-vision-icon-glow"></div>
-          </div>
-          <div class="mision-vision-content">
-            <h3 class="mision-vision-card-title">Visión</h3>
-            <p class="mision-vision-card-description">
-              Convertirme en el desarrollador de confianza de pymes y emprendedores que buscan resultados medibles y un sitio que de verdad trabaje por su negocio.
-            </p>
-            <div class="mision-vision-features">
-              <div class="mision-vision-feature">
-                <span class="material-icons">check_circle</span>
-                <span>Relaciones a largo plazo</span>
-              </div>
-              <div class="mision-vision-feature">
-                <span class="material-icons">check_circle</span>
-                <span>Resultados reales</span>
-              </div>
-            </div>
-          </div>
-          <div class="mision-vision-card-decoration"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Valores (mejorada) -->
-<section class="valores-section-enhanced">
-  <div class="container">
-    <div class="valores-header">
-      <p class="pill">
-        <span class="material-icons">favorite</span>
-        <span>Cómo trabajo</span>
-      </p>
-      <h2 class="valores-title">Lo que puedes esperar de mí</h2>
-      <p class="valores-subtitle">Principios que guían cada proyecto y cada conversación con mis clientes.</p>
-    </div>
-    <div class="valores-grid">
-      <div *ngFor="let value of values; let i = index" class="valor-card">
-        <div class="valor-card-inner">
-          <div class="valor-icon-wrapper">
-            <div class="valor-icon-bg"></div>
-            <span class="material-icons valor-icon">{{ value.icon }}</span>
-            <div class="valor-icon-glow"></div>
-            <div class="valor-number">{{ i + 1 }}</div>
-          </div>
-          <div class="valor-content">
-            <h3 class="valor-title">{{ value.title }}</h3>
-            <p class="valor-description">{{ value.description }}</p>
-            <div class="valor-decoration-line"></div>
-          </div>
-          <div class="valor-card-decoration"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Tecnologías (mejorada) -->
-<section class="tecnologias-section-enhanced">
-  <div class="container">
-    <div class="tecnologias-header">
-      <p class="pill">
-        <span class="material-icons">code</span>
-        <span>Toolstack</span>
-      </p>
-      <h2 class="tecnologias-title">Tecnologías que utilizo</h2>
-      <p class="tecnologias-subtitle">Herramientas modernas que elijo por desempeño, estabilidad y escalabilidad.</p>
-    </div>
-    <div class="tecnologias-grid">
-      <div *ngFor="let tech of technologies" class="tecnologia-card">
-        <div class="tecnologia-card-inner">
-          <div class="tecnologia-icon-wrapper">
-            <img [src]="tech.image" [alt]="tech.name" class="tecnologia-logo" 
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="tecnologia-icon-fallback" style="display: none;">
-              <span class="material-icons tecnologia-icon">{{ tech.icon }}</span>
-            </div>
-          </div>
-          <span class="tecnologia-name">{{ tech.name }}</span>
-          <div class="tecnologia-card-decoration"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Final (mejorada) -->
-<section class="cta-final-section-enhanced">
-  <div class="cta-final-background-pattern"></div>
-  <div class="container">
-    <div class="cta-final-content">
-      <div class="cta-final-badge">
-        <span class="material-icons">rocket_launch</span>
-        <span>Siguiente paso</span>
-      </div>
-      <h2 class="cta-final-title">¿Listo para trabajar juntos?</h2>
-      <p class="cta-final-description">Cuéntame sobre tu sitio, tienda o producto digital y definamos juntos un plan claro para hacer crecer tu negocio.</p>
-      <div class="cta-final-buttons">
-        <button routerLink="/contacto" class="cta-final-btn-primary">
-          <span class="material-icons">phone</span>
-          <span>Agendar llamada</span>
-        </button>
-        <button routerLink="/portafolio" class="cta-final-btn-secondary">
-          <span class="material-icons">work</span>
-          <span>Ver portafolio</span>
-        </button>
-      </div>
-      <div class="cta-final-features">
-        <div class="cta-final-feature">
-          <span class="material-icons">schedule</span>
-          <span>Respuesta en 24h</span>
-        </div>
-        <div class="cta-final-feature">
-          <span class="material-icons">gift</span>
-          <span>Consulta gratuita</span>
-        </div>
-        <div class="cta-final-feature">
-          <span class="material-icons">verified</span>
-          <span>Trato directo conmigo</span>
-        </div>
-      </div>
-    </div>
+    <a routerLink="/portafolio" class="cta-link-secondary">
+      <span>Ver portafolio</span>
+      <span class="material-icons">arrow_forward</span>
+    </a>
   </div>
 </section>
