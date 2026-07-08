@@ -3,16 +3,15 @@ RewriteEngine On
 # First, handle specific static files
 RewriteRule ^robots\.txt$ /robots.txt [L]
 RewriteRule ^sitemap\.xml$ /sitemap.xml [L]
-RewriteRule ^favicon\.ico$ /favicon.ico [L]
-RewriteRule ^neoweb\.ico$ /neoweb.ico [L]
+RewriteRule ^favicon\.ico$ /logo.ico [L]
+RewriteRule ^logo\.ico$ /logo.ico [L]
 
 # Handle Angular routes - but don't rewrite existing files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/robots\.txt$
 RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
-RewriteCond %{REQUEST_URI} !^/favicon\.ico$
-RewriteCond %{REQUEST_URI} !^/neoweb\.ico$
+RewriteCond %{REQUEST_URI} !^/logo\.ico$
 RewriteCond %{REQUEST_URI} !^/assets/
 RewriteRule ^(.*)$ /index.html [QSA,L]
 

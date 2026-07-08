@@ -23,7 +23,6 @@ import { getServicioBySlug, ServicioConfig } from './servicios.data';
  *  Hero:        heroImage en servicios.data.ts → /assets/services/*.jpg
  *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
  *  Incluye:     /assets/services/incluye/{slug}-{n}.jpg      n = índice del item
- *  Beneficios:  /assets/services/beneficios/{slug}-{n}.jpg   n = índice del beneficio
  *  Proceso:     /assets/services/proceso/{slug}-{n}.jpg      n = índice del paso
  *  Full Code:   /assets/services/fullcode/{slug}.jpg         una sola imagen de fondo
  *
@@ -206,10 +205,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getIncludeImage(slug: string, index: number): string {
     return `/assets/services/incluye/${slug}-${index + 1}.jpg`;
-  }
-
-  getBenefitImage(slug: string, index: number): string {
-    return `/assets/services/beneficios/${slug}-${index + 1}.jpg`;
   }
 
   getStepImage(slug: string, index: number): string {

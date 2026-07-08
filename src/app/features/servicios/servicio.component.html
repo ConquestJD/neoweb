@@ -103,34 +103,6 @@
     </div>
   </section>
   
-  <!-- ===================== BENEFICIOS ===================== -->
-  <section
-    *ngIf="s.showBenefitsSection && s.benefits"
-    class="svc-benefits svc-reveal"
-    [class.is-visible]="sectionsVisible['benefits']"
-    data-section-id="benefits">
-    <div class="svc-inner">
-      <div class="svc-header">
-        <h2 class="svc-label">Beneficios</h2>
-        <p class="svc-intro">Impacto directo para tu negocio con un sitio bien construido.</p>
-      </div>
-    </div>
-    <div class="svc-benefits-gallery">
-      <figure *ngFor="let benefit of s.benefits; let i = index" class="svc-benefit-tile" [style.--item-index]="i">
-        <img
-          class="svc-benefit-img"
-          [src]="getBenefitImage(s.slug, i)"
-          (error)="onImgError($event)"
-          [alt]="benefit.title"
-          loading="lazy">
-        <figcaption class="svc-benefit-copy">
-          <h3 class="svc-benefit-title">{{ benefit.title }}</h3>
-          <p class="svc-benefit-desc">{{ benefit.description }}</p>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-  
   <!-- ===================== PROCESO ===================== -->
   <section class="svc-process svc-reveal" [class.is-visible]="sectionsVisible['process']" data-section-id="process">
     <div class="svc-inner">
