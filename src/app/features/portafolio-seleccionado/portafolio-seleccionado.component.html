@@ -1,86 +1,59 @@
-<!-- ===========================================================
-     Portafolio · Detalle (case study) — rediseñado pro
-     Las imágenes son mockups laptop+phone con fondo transparente:
-     se muestran completas (object-fit: contain) sobre fondos cuidados.
-     =========================================================== -->
+<ng-container *ngIf="showPage && project">
 
-<ng-container *ngIf="project">
+  <!-- Hero -->
+  <section class="ps-hero">
+    <div class="ps-hero-bg" [style.background-image]="getHeroBackground()" aria-hidden="true"></div>
+    <div class="ps-hero-overlay" aria-hidden="true"></div>
 
-  <!-- ==========================================================
-       HERO — incluye breadcrumb fusionado (sin franja blanca)
-       ========================================================== -->
-  <section class="cs-hero">
-    <div class="cs-hero-bg"></div>
-    <div class="cs-hero-grid"></div>
-    <div class="cs-hero-orb cs-hero-orb-1"></div>
-    <div class="cs-hero-orb cs-hero-orb-2"></div>
-
-    <!-- Breadcrumb integrado en el hero (mismo morado, sin fondo blanco) -->
-    <div class="cs-breadcrumb-wrap">
-      <div class="container cs-breadcrumb-inner">
-        <a routerLink="/portafolio" class="cs-breadcrumb-back">
-          <span class="material-icons">arrow_back</span>
-          <span>Volver al portafolio</span>
-        </a>
-        <ol class="cs-breadcrumb-trail" aria-label="Migas de pan">
-          <li><a routerLink="/inicio">Inicio</a></li>
-          <li><span class="material-icons">chevron_right</span></li>
-          <li><a routerLink="/portafolio">Portafolio</a></li>
-          <li><span class="material-icons">chevron_right</span></li>
-          <li class="cs-current">{{ project.title }}</li>
-        </ol>
-      </div>
+    <div class="ps-inner ps-breadcrumb">
+      <a routerLink="/portafolio" class="ps-back">
+        <span class="material-icons" aria-hidden="true">arrow_back</span>
+        <span>Volver al portafolio</span>
+      </a>
     </div>
 
-    <div class="container cs-hero-inner">
-      <div class="cs-hero-text">
-        <span class="cs-hero-tag">
-          <span class="cs-hero-dot"></span>
-          {{ project.results.type }}
-        </span>
-        <p class="cs-hero-cat">{{ project.category }}</p>
-        <h1 class="cs-title">{{ project.title }}</h1>
-        <p class="cs-lede">{{ project.description }}</p>
-
-        <div class="cs-hero-actions">
-          <a [href]="project.results.websiteUrl"
-             target="_blank" rel="noopener"
-             class="cs-btn cs-btn-primary"
-             *ngIf="project.results.websiteUrl !== '#'">
-            <span class="material-icons">open_in_new</span>
+    <div class="ps-inner ps-hero-grid">
+      <div class="ps-hero-copy">
+        <p class="ps-hero-eyebrow">{{ project.results.type }}</p>
+        <p class="ps-hero-cat">{{ project.category }}</p>
+        <h1 class="ps-hero-title">{{ project.title }}</h1>
+        <p class="ps-hero-desc">{{ project.description }}</p>
+        <div class="ps-hero-actions">
+          <a
+            *ngIf="project.results.websiteUrl !== '#'"
+            [href]="project.results.websiteUrl"
+            target="_blank"
+            rel="noopener"
+            class="ps-hero-cta">
             Visitar sitio
           </a>
-          <a routerLink="/contacto" class="cs-btn cs-btn-ghost">
-            <span class="material-icons">forum</span>
-            Quiero algo similar
-          </a>
+          <a routerLink="/contacto" class="ps-hero-link">Quiero algo similar</a>
         </div>
       </div>
 
-      <!-- Mockup principal sin fondo, solo glow detrás -->
-      <div class="cs-hero-shot">
-        <div class="cs-hero-shot-glow"></div>
-        <img [src]="project.imageUrl" [alt]="project.title + ' - mockup principal'">
+      <div class="ps-hero-media">
+        <img [src]="'/' + project.imageUrl" [alt]="project.title + ' — vista principal'" loading="eager">
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       OVERVIEW + FACT SHEET
-       ========================================================== -->
-  <section class="cs-overview">
-    <div class="container">
-      <div class="cs-overview-grid">
-        <div class="cs-overview-main">
-          <p class="cs-eyebrow">Resumen</p>
-          <h2 class="cs-section-title">{{ project.results.title }}</h2>
-          <p class="cs-prose">{{ project.results.solution }}</p>
-          <p class="cs-prose cs-prose-muted">{{ project.results.problem }}</p>
+  <!-- Resumen -->
+  <section class="ps-section" data-section="overview" [class.is-visible]="sectionVisible['overview']">
+    <div class="ps-inner">
+      <div class="ps-header">
+        <h2 class="ps-label">Resumen</h2>
+        <p class="ps-intro">{{ project.results.title }}</p>
+      </div>
+
+      <div class="ps-overview-grid">
+        <div class="ps-overview-main">
+          <p class="ps-prose">{{ project.results.solution }}</p>
+          <p class="ps-prose ps-prose-muted">{{ project.results.problem }}</p>
         </div>
 
-        <aside class="cs-fact-sheet">
-          <h3 class="cs-fact-title">Ficha del proyecto</h3>
-          <dl class="cs-fact-list">
+        <aside class="ps-facts">
+          <h3 class="ps-facts-title">Ficha del proyecto</h3>
+          <dl class="ps-facts-list">
             <div>
               <dt>Cliente</dt>
               <dd>{{ project.title }}</dd>
@@ -98,7 +71,7 @@
               <dd>
                 <a [href]="project.results.websiteUrl" target="_blank" rel="noopener">
                   Ver sitio
-                  <span class="material-icons">north_east</span>
+                  <span class="material-icons" aria-hidden="true">north_east</span>
                 </a>
               </dd>
             </div>
@@ -108,262 +81,208 @@
     </div>
   </section>
 
-  <!-- ==========================================================
-       IMPACTO
-       ========================================================== -->
-  <section class="cs-impact">
-    <div class="container">
-      <header class="cs-impact-header">
-        <p class="cs-eyebrow">Impacto</p>
-        <h2 class="cs-section-title">Resultados clave</h2>
-        <p class="cs-impact-sub">
-          Indicadores reales luego de la implementación. Construido con un foco claro
-          en negocio y métricas medibles.
-        </p>
-      </header>
+  <!-- Impacto -->
+  <section class="ps-section ps-section-muted" data-section="impact" [class.is-visible]="sectionVisible['impact']">
+    <div class="ps-inner">
+      <div class="ps-header">
+        <h2 class="ps-label">Impacto</h2>
+        <p class="ps-intro">Indicadores clave después de la implementación.</p>
+      </div>
 
-      <div class="cs-impact-grid">
-        <article *ngFor="let metric of project.results.metrics" class="cs-impact-card">
-          <span class="cs-impact-icon">
-            <span class="material-icons">{{ metric.icon }}</span>
-          </span>
-          <strong class="cs-impact-value">{{ metric.value }}</strong>
-          <span class="cs-impact-label">{{ metric.label }}</span>
+      <div class="ps-metrics">
+        <article *ngFor="let metric of project.results.metrics; let i = index" class="ps-metric" [style.--item-index]="i">
+          <span class="material-icons ps-metric-icon" aria-hidden="true">{{ metric.icon }}</span>
+          <strong class="ps-metric-value">{{ metric.value }}</strong>
+          <span class="ps-metric-label">{{ metric.label }}</span>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       PROBLEMA / SOLUCIÓN
-       ========================================================== -->
-  <section class="cs-story">
-    <div class="container">
-      <div class="cs-story-grid">
-        <article class="cs-story-card cs-story-problem">
-          <span class="cs-story-icon">
-            <span class="material-icons">help_outline</span>
-          </span>
-          <span class="cs-story-kicker">El reto</span>
-          <h3>Punto de partida</h3>
+  <!-- Reto / Solución -->
+  <section class="ps-section" data-section="story" [class.is-visible]="sectionVisible['story']">
+    <div class="ps-inner">
+      <div class="ps-story-grid">
+        <article class="ps-story-card" [style.--item-index]="0">
+          <span class="ps-story-kicker">El reto</span>
+          <h3 class="ps-story-title">Punto de partida</h3>
           <p>{{ project.results.problem }}</p>
         </article>
-        <article class="cs-story-card cs-story-solution">
-          <span class="cs-story-icon">
-            <span class="material-icons">auto_awesome</span>
-          </span>
-          <span class="cs-story-kicker">Mi solución</span>
-          <h3>Cómo lo resolví</h3>
+        <article class="ps-story-card ps-story-card-dark" [style.--item-index]="1">
+          <span class="ps-story-kicker">La solución</span>
+          <h3 class="ps-story-title">Cómo lo resolví</h3>
           <p>{{ project.results.solution }}</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       CAPACIDADES
-       ========================================================== -->
-  <section class="cs-capabilities">
-    <div class="container">
-      <header class="cs-section-header">
-        <p class="cs-eyebrow">Capacidades</p>
-        <h2 class="cs-section-title">Funcionalidades implementadas</h2>
-        <p class="cs-section-sub">
-          Cada funcionalidad fue priorizada por su impacto directo en la operación y la conversión.
-        </p>
-      </header>
-
-      <div class="cs-cap-grid">
-        <div *ngFor="let feature of project.features; let i = index" class="cs-cap-card">
-          <span class="cs-cap-num">{{ formatNumber(i + 1) }}</span>
-          <span class="cs-cap-icon">
-            <span class="material-icons">{{ getFeatureIcon(feature) }}</span>
-          </span>
-          <p>{{ feature }}</p>
-        </div>
+  <!-- Capacidades -->
+  <section class="ps-section ps-section-dark" data-section="features" [class.is-visible]="sectionVisible['features']">
+    <div class="ps-inner">
+      <div class="ps-header ps-header-light">
+        <h2 class="ps-label ps-label-light">Capacidades</h2>
+        <p class="ps-intro ps-intro-light">Funcionalidades implementadas con impacto directo en la operación.</p>
       </div>
+
+      <ul class="ps-feature-list">
+        <li *ngFor="let feature of project.features; let i = index" class="ps-feature-item" [style.--item-index]="i">
+          <span class="ps-feature-num">{{ formatNumber(i + 1) }}</span>
+          <span class="ps-feature-text">{{ feature }}</span>
+          <span class="material-icons ps-feature-arrow" aria-hidden="true">arrow_outward</span>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ==========================================================
-       BUSINESS IMPACT
-       ========================================================== -->
-  <section class="cs-business" *ngIf="project.results.businessImpact?.length">
-    <div class="container">
-      <div class="cs-business-grid">
-        <div class="cs-business-text">
-          <p class="cs-eyebrow cs-eyebrow-light">Negocio</p>
-          <h2 class="cs-section-title cs-section-title-light">Lo que cambió para el cliente</h2>
-          <p class="cs-business-sub">Resultados tangibles más allá del producto digital.</p>
-        </div>
-        <ul class="cs-business-list">
-          <li *ngFor="let impact of project.results.businessImpact">
-            <span class="material-icons">check_circle</span>
-            <span>{{ impact }}</span>
-          </li>
-        </ul>
+  <!-- Negocio -->
+  <section
+    *ngIf="project.results.businessImpact?.length"
+    class="ps-section"
+    data-section="business"
+    [class.is-visible]="sectionVisible['business']">
+    <div class="ps-inner">
+      <div class="ps-header">
+        <h2 class="ps-label">Para el negocio</h2>
+        <p class="ps-intro">Resultados tangibles más allá del producto digital.</p>
       </div>
+
+      <ul class="ps-impact-list">
+        <li *ngFor="let impact of project.results.businessImpact; let i = index" [style.--item-index]="i">
+          <span class="material-icons" aria-hidden="true">check</span>
+          <span>{{ impact }}</span>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ==========================================================
-       GALERÍA — mockups transparentes en cards claras
-       ========================================================== -->
-  <section class="cs-gallery" *ngIf="getProjectImages().length > 1">
-    <div class="container">
-      <header class="cs-section-header">
-        <p class="cs-eyebrow">Galería</p>
-        <h2 class="cs-section-title">Vista detallada</h2>
-        <p class="cs-section-sub">Capturas reales del proyecto en producción.</p>
-      </header>
+  <!-- Galería -->
+  <section
+    *ngIf="getProjectImages().length > 1"
+    class="ps-section ps-section-muted"
+    data-section="gallery"
+    [class.is-visible]="sectionVisible['gallery']">
+    <div class="ps-inner">
+      <div class="ps-header">
+        <h2 class="ps-label">Galería</h2>
+        <p class="ps-intro">Capturas reales del proyecto en producción.</p>
+      </div>
 
-      <div class="cs-gallery-grid">
-        <figure *ngFor="let img of getProjectImages(); let i = index"
-                class="cs-gallery-item"
-                [class.cs-gallery-item-wide]="i === 0">
-          <div class="cs-gallery-frame">
-            <img [src]="img" [alt]="project.title + ' captura ' + (i + 1)">
-          </div>
-          <figcaption>
-            <span>{{ project.title }}</span>
-            <span class="cs-gallery-num">{{ formatNumber(i + 1) }}</span>
-          </figcaption>
+      <div class="ps-gallery">
+        <figure *ngFor="let img of getProjectImages(); let i = index" class="ps-gallery-item" [style.--item-index]="i">
+          <img [src]="'/' + img" [alt]="project.title + ' captura ' + (i + 1)" loading="lazy">
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       STACK — chips con logos reales
-       ========================================================== -->
-  <section class="cs-stack">
-    <div class="container">
-      <header class="cs-section-header">
-        <p class="cs-eyebrow">Stack</p>
-        <h2 class="cs-section-title">Tecnologías utilizadas</h2>
-        <p class="cs-section-sub">Construcción 100% a medida con un stack moderno y mantenible.</p>
-      </header>
-
-      <!-- Logos destacados (cuando hay technologyImages) -->
-      <div class="cs-stack-logos" *ngIf="project.technologyImages?.length">
-        <div *ngFor="let logo of project.technologyImages; let i = index" class="cs-stack-logo-card">
-          <img [src]="logo" [alt]="project.technologies[i] || 'Tecnología'" loading="lazy">
-          <span class="cs-stack-logo-name">{{ project.technologies[i] || '' }}</span>
-        </div>
+  <!-- Stack -->
+  <section class="ps-section" data-section="stack" [class.is-visible]="sectionVisible['stack']">
+    <div class="ps-inner">
+      <div class="ps-header">
+        <h2 class="ps-label">Stack</h2>
+        <p class="ps-intro">Tecnologías utilizadas en la construcción del proyecto.</p>
       </div>
 
-      <!-- Stack completo en chips -->
-      <div class="cs-stack-grid">
-        <div *ngFor="let tech of project.technologies" class="cs-stack-chip">
-          <span class="material-icons">code</span>
+      <div class="ps-stack-grid">
+        <span *ngFor="let tech of project.technologies; let i = index" class="ps-stack-chip" [style.--item-index]="i">
           {{ tech }}
-        </div>
+        </span>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       PLANES (si existen)
-       ========================================================== -->
-  <section class="cs-plans" *ngIf="servicePlans?.length">
-    <div class="container">
-      <header class="cs-section-header">
-        <p class="cs-eyebrow">Inversión</p>
-        <h2 class="cs-section-title">¿Quieres algo similar?</h2>
-        <p class="cs-section-sub">Planes orientativos para proyectos del mismo tipo.</p>
-      </header>
+  <!-- Planes -->
+  <section
+    *ngIf="servicePlans?.length"
+    class="ps-section ps-section-muted"
+    data-section="plans"
+    [class.is-visible]="sectionVisible['plans']">
+    <div class="ps-inner">
+      <div class="ps-header">
+        <h2 class="ps-label">Inversión</h2>
+        <p class="ps-intro">Planes orientativos para proyectos del mismo tipo.</p>
+      </div>
 
-      <div class="cs-plans-grid" [class.cs-plans-single]="servicePlans.length === 1">
-        <article *ngFor="let plan of servicePlans"
-                 class="cs-plan-card"
-                 [class.cs-plan-featured]="plan.featured">
-          <span *ngIf="plan.featured" class="cs-plan-ribbon">Recomendado</span>
-          <span class="cs-plan-icon">
-            <span class="material-icons">{{ plan.icon }}</span>
-          </span>
-          <h3 class="cs-plan-name">{{ plan.name }}</h3>
-          <div class="cs-plan-price">{{ plan.price }}</div>
-          <ul class="cs-plan-features">
-            <li *ngFor="let f of plan.features">
-              <span class="material-icons">check</span>
-              <span>{{ f }}</span>
-            </li>
+      <div class="ps-plans-grid" [class.ps-plans-single]="servicePlans.length === 1">
+        <article
+          *ngFor="let plan of servicePlans; let i = index"
+          class="ps-plan-card"
+          [class.ps-plan-card--dark]="plan.featured"
+          [class.ps-plan-card--light]="!plan.featured"
+          [style.--item-index]="i">
+          <div class="ps-plan-head">
+            <p class="ps-plan-name">{{ plan.name }}</p>
+            <span *ngIf="plan.featured" class="ps-plan-tag">Recomendado</span>
+          </div>
+          <p class="ps-plan-price">{{ plan.price }}</p>
+          <ul class="ps-plan-features">
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
           </ul>
-          <a routerLink="/contacto" class="cs-btn cs-btn-primary cs-btn-block">
-            Solicitar este plan
-            <span class="material-icons">arrow_forward</span>
-          </a>
+          <a routerLink="/contacto" class="ps-plan-cta">Solicitar plan</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       PROYECTOS RELACIONADOS — cards editoriales con mockup transparente
-       ========================================================== -->
-  <section class="cs-related" *ngIf="relatedProjects.length">
-    <div class="container">
-      <header class="cs-section-header cs-section-header-row">
+  <!-- Relacionados -->
+  <section
+    *ngIf="relatedProjects.length"
+    class="ps-section"
+    data-section="related"
+    [class.is-visible]="sectionVisible['related']">
+    <div class="ps-inner">
+      <div class="ps-header ps-header-row">
         <div>
-          <p class="cs-eyebrow">Más casos</p>
-          <h2 class="cs-section-title">Proyectos relacionados</h2>
-          <p class="cs-section-sub">Otros proyectos del mismo tipo de servicio que también podrían interesarte.</p>
+          <h2 class="ps-label">Más casos</h2>
+          <p class="ps-intro">Proyectos relacionados que también podrían interesarte.</p>
         </div>
-        <a routerLink="/portafolio" class="cs-related-link">
+        <a routerLink="/portafolio" class="ps-link">
           Ver todo el portafolio
-          <span class="material-icons">arrow_forward</span>
+          <span class="material-icons" aria-hidden="true">arrow_forward</span>
         </a>
-      </header>
+      </div>
 
-      <div class="cs-related-grid">
-        <a *ngFor="let related of relatedProjects"
-           [routerLink]="['/portafolio', related.id]"
-           class="cs-related-card">
-          <div class="cs-related-mockup">
-            <div class="cs-related-glow"></div>
-            <img [src]="related.imageUrl" [alt]="related.title" loading="lazy">
-            <span class="cs-related-tag">{{ related.results.type }}</span>
-          </div>
-          <div class="cs-related-body">
-            <span class="cs-related-cat">{{ related.category }}</span>
-            <h3>{{ related.title }}</h3>
-            <p>{{ related.description }}</p>
-            <span class="cs-related-cta">
-              Ver caso completo
-              <span class="material-icons">arrow_forward</span>
-            </span>
+      <div class="ps-related-grid">
+        <a
+          *ngFor="let related of relatedProjects; let i = index"
+          [routerLink]="['/portafolio', related.id]"
+          class="ps-related-card"
+          [style.--item-index]="i">
+          <div class="ps-related-media">
+            <img [src]="'/' + related.imageUrl" [alt]="related.title" loading="lazy">
+            <div class="ps-related-scrim" aria-hidden="true"></div>
+            <div class="ps-related-info">
+              <span class="ps-related-type">{{ related.results.type }}</span>
+              <h3>{{ related.title }}</h3>
+            </div>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================================
-       CTA
-       ========================================================== -->
-  <section class="cs-cta">
-    <div class="cs-cta-bg"></div>
-    <div class="container">
-      <div class="cs-cta-card">
-        <div>
-          <span class="cs-cta-eyebrow">
-            <span class="material-icons">rocket_launch</span>
-            Trabajemos juntos
-          </span>
-          <h2>Construyamos tu próximo caso de éxito</h2>
-          <p>Cuéntame tu reto. Te respondo en menos de 24 horas con una propuesta clara.</p>
-        </div>
-        <div class="cs-cta-actions">
-          <a routerLink="/contacto" class="cs-btn cs-btn-primary cs-btn-lg">
-            <span class="material-icons">forum</span>
-            Iniciar proyecto
-          </a>
-          <a routerLink="/portafolio" class="cs-btn cs-btn-ghost cs-btn-lg">
-            <span class="material-icons">apps</span>
-            Más proyectos
+  <!-- CTA -->
+  <section class="cta-section" data-section="cta" [class.is-visible]="ctaVisible">
+    <p class="cta-headline-outline" aria-hidden="true">Tu próximo caso<br>de éxito</p>
+    <div class="cta-container">
+      <div
+        class="cta-magnet-wrap"
+        (mousemove)="onCtaMouseMove($event)"
+        (mouseleave)="onCtaMouseLeave()">
+        <div
+          class="cta-magnet-inner"
+          [class.is-active]="ctaMagnetActive"
+          [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
+          <a routerLink="/contacto" class="cta-magnet-btn">
+            <span>Hablemos</span>
           </a>
         </div>
       </div>
+      <a routerLink="/portafolio" class="cta-link-secondary">
+        <span>Más proyectos</span>
+        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+      </a>
     </div>
   </section>
 

@@ -31,45 +31,33 @@
         </h2>
         <p class="svc-intro">{{ s.plansSubtitle }}</p>
       </div>
-    </div>
-  
-    <div class="svc-plans-list">
-      <article
-        *ngFor="let plan of s.plans; let i = index"
-        class="svc-plan-spread"
-        [class.is-featured]="plan.featured"
-        [style.--item-index]="i">
-  
-        <div class="svc-plan-media">
-          <img
-            class="svc-plan-img"
-            [src]="getPlanImage(s.slug, i)"
-            (error)="onImgError($event)"
-            [alt]="'Plan ' + plan.name"
-            loading="lazy">
-          <span class="svc-plan-media-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
-        </div>
-  
-        <div class="svc-inner svc-plan-body">
-          <div class="svc-plan-top">
-            <p class="svc-plan-name">Plan {{ plan.name }}</p>
+
+      <div class="svc-plans-grid">
+        <article
+          *ngFor="let plan of s.plans; let i = index"
+          class="svc-plan-card"
+          [class.svc-plan-card--dark]="plan.featured"
+          [class.svc-plan-card--light]="!plan.featured"
+          [style.--item-index]="i">
+
+          <div class="svc-plan-card-head">
+            <p class="svc-plan-name">{{ plan.name }}</p>
             <span *ngIf="plan.featured" class="svc-plan-tag">Más elegido</span>
           </div>
-  
+
           <p class="svc-plan-price">
             {{ plan.price }}<span *ngIf="plan.period" class="svc-plan-period">{{ plan.period }}</span>
           </p>
-  
+
           <ul class="svc-plan-features">
             <li *ngFor="let feature of plan.features">{{ feature }}</li>
           </ul>
-  
-          <a routerLink="/contacto" class="svc-plan-link" [class.svc-plan-link-light]="plan.featured">
-            <span>Elegir plan {{ plan.name }}</span>
-            <span class="material-icons" aria-hidden="true">arrow_outward</span>
+
+          <a routerLink="/contacto" class="svc-plan-cta">
+            Elegir {{ plan.name }}
           </a>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   </section>
   

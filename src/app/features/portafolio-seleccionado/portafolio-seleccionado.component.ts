@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectorRef, NgZone } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 interface Project {
   id: string;
@@ -33,10 +34,27 @@ interface Project {
   templateUrl: './portafolio-seleccionado.component.html',
   styleUrl: './portafolio-seleccionado.component.css'
 })
-export class PortafolioSeleccionadoComponent implements OnInit {
+export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, OnDestroy {
   project: Project | null = null;
+  showPage = true;
   relatedProjects: Project[] = [];
   servicePlans: any[] = [];
+  sectionVisible: Record<string, boolean> = {};
+  ctaVisible = false;
+  ctaMagnetX = 0;
+  ctaMagnetY = 0;
+  ctaMagnetActive = false;
+
+  private routeSub?: Subscription;
+  private sectionObserver?: IntersectionObserver;
+  private destroyed = false;
+  private isFirstProjectLoad = true;
+
+  private readonly heroScrollImages: Record<string, string> = {
+    'omed': '/assets/portfolio/scrolls/omed-scroll.jpg',
+    'sml-web': '/assets/portfolio/scrolls/sml-scroll.jpg',
+    'hombre-universal': '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg'
+  };
   
   allProjects: Project[] = [
     {
@@ -536,7 +554,10 @@ export class PortafolioSeleccionadoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef,
+    private ngZone: NgZone
   ) {}
 
   formatNumber(num: number): string {
@@ -757,39 +778,151 @@ export class PortafolioSeleccionadoComponent implements OnInit {
     return images;
   }
 
+  getHeroBackground(): string {
+    const scroll = this.project ? this.heroScrollImages[this.project.id] : null;
+    const path = scroll ?? '/assets/portfolio/portafolio-hero.jpg';
+    return `url("${encodeURI(path)}")`;
+  }
+
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const projectId = params.get('id');
-      if (projectId) {
-        this.project = this.allProjects.find(p => p.id === projectId) || null;
-        if (!this.project) {
-          this.router.navigate(['/portafolio']);
-        } else {
-          // Cargar proyectos relacionados (excluyendo el actual)
-          this.relatedProjects = this.allProjects
-            .filter(p => p.id !== projectId && p.serviceType === this.project!.serviceType)
-            .slice(0, 3);
-          
-          // Si no hay suficientes del mismo tipo, agregar otros
-          if (this.relatedProjects.length < 3) {
-            const otherProjects = this.allProjects
-              .filter(p => p.id !== projectId && !this.relatedProjects.find(rp => rp.id === p.id))
-              .slice(0, 3 - this.relatedProjects.length);
-            this.relatedProjects = [...this.relatedProjects, ...otherProjects];
-          }
-          
-          // Cargar planes del servicio
-          // Caso especial: Sistema de Gestión Financiera OMED usa planes de digitalización de procesos
-          const serviceTypeForPlans = this.project.id === 'omed-financial' 
-            ? 'digitalizacion-procesos' 
-            : this.project.serviceType;
-          this.servicePlans = this.plansByService[serviceTypeForPlans] || [];
-        }
-      } else {
-        this.router.navigate(['/portafolio']);
-      }
-      window.scrollTo(0, 0);
+    this.routeSub = this.route.paramMap.subscribe(params => {
+      this.loadProject(params.get('id'));
     });
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId) && this.project) {
+      setTimeout(() => this.setupScrollAnimations(), 150);
+    }
+  }
+
+  ngOnDestroy() {
+    this.destroyed = true;
+    this.routeSub?.unsubscribe();
+    this.sectionObserver?.disconnect();
+  }
+
+  private loadProject(projectId: string | null) {
+    if (!projectId) {
+      void this.router.navigate(['/portafolio']);
+      return;
+    }
+
+    const found = this.allProjects.find(p => p.id === projectId) || null;
+    if (!found) {
+      void this.router.navigate(['/portafolio']);
+      return;
+    }
+
+    const shouldRemount = !this.isFirstProjectLoad;
+    this.isFirstProjectLoad = false;
+
+    if (shouldRemount && isPlatformBrowser(this.platformId)) {
+      this.showPage = false;
+      this.sectionObserver?.disconnect();
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      this.cdr.detectChanges();
+    }
+
+    this.project = found;
+    this.sectionVisible = {};
+    this.ctaVisible = false;
+    this.ctaMagnetX = 0;
+    this.ctaMagnetY = 0;
+    this.ctaMagnetActive = false;
+
+    this.relatedProjects = this.allProjects
+      .filter(p => p.id !== projectId && p.serviceType === found.serviceType)
+      .slice(0, 3);
+
+    if (this.relatedProjects.length < 3) {
+      const otherProjects = this.allProjects
+        .filter(p => p.id !== projectId && !this.relatedProjects.find(rp => rp.id === p.id))
+        .slice(0, 3 - this.relatedProjects.length);
+      this.relatedProjects = [...this.relatedProjects, ...otherProjects];
+    }
+
+    const serviceTypeForPlans = found.id === 'omed-financial'
+      ? 'digitalizacion-procesos'
+      : found.serviceType;
+    this.servicePlans = this.plansByService[serviceTypeForPlans] || [];
+
+    if (!shouldRemount) {
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.setupScrollAnimations(), 150);
+      }
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      if (this.destroyed) {
+        return;
+      }
+
+      this.showPage = true;
+      this.cdr.detectChanges();
+
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.setupScrollAnimations(), 150);
+      }
+    });
+  }
+
+  setupScrollAnimations() {
+    if (!isPlatformBrowser(this.platformId) || this.destroyed) {
+      return;
+    }
+
+    this.sectionObserver?.disconnect();
+
+    this.sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const sectionId = entry.target.getAttribute('data-section');
+        if (!sectionId) {
+          return;
+        }
+
+        this.ngZone.run(() => {
+          if (sectionId === 'cta') {
+            this.ctaVisible = true;
+          } else {
+            this.sectionVisible[sectionId] = true;
+          }
+          this.cdr.markForCheck();
+        });
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('[data-section]').forEach(section => {
+      this.sectionObserver?.observe(section);
+    });
+  }
+
+  onCtaMouseMove(event: MouseEvent) {
+    const wrap = event.currentTarget as HTMLElement;
+    const rect = wrap.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const maxOffset = window.innerWidth <= 768 ? 12 : 24;
+    const deltaX = (event.clientX - centerX) * 0.18;
+    const deltaY = (event.clientY - centerY) * 0.18;
+
+    this.ctaMagnetX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+    this.ctaMagnetY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+    this.ctaMagnetActive = true;
+  }
+
+  onCtaMouseLeave() {
+    this.ctaMagnetX = 0;
+    this.ctaMagnetY = 0;
+    this.ctaMagnetActive = false;
   }
 }
 
