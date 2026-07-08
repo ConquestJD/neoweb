@@ -1,72 +1,34 @@
 <!-- Contacto NeoWeb -->
 
-<!-- Hero del Contacto -->
-<section class="hero-contacto-enhanced">
-  <div class="hero-contacto-background"></div>
-  <div class="hero-contacto-particles"></div>
-  <div class="container">
-    <div class="hero-contacto-content">
-      <div class="hero-contacto-badge">
-        <span class="material-icons">handshake</span>
-        <span>Hablemos</span>
-      </div>
-      <h1 class="hero-contacto-title">
-        Conecta con
-        <span class="hero-contacto-title-highlight">NeoWeb</span>
-      </h1>
-      <p class="hero-contacto-description">
-        Cuéntame sobre tu sitio, tienda o campaña. Te respondo en menos de 24h y te ayudo a aterrizar un plan claro para hacer crecer tu negocio.
-      </p>
-      <div class="hero-contacto-buttons">
-        <button routerLink="/portafolio" class="hero-contacto-btn-secondary">
-          <span class="material-icons">work</span>
-          <span>Ver portafolio</span>
-        </button>
-      </div>
-      <div class="hero-contacto-features">
-        <div class="hero-contacto-feature">
-          <span class="material-icons">schedule</span>
-          <span>Respuesta en 24h</span>
-        </div>
-        <div class="hero-contacto-feature">
-          <span class="material-icons">gift</span>
-          <span>Consulta gratuita</span>
-        </div>
-        <div class="hero-contacto-feature">
-          <span class="material-icons">verified</span>
-          <span>Proyectos garantizados</span>
-        </div>
-      </div>
-      <div class="hero-contacto-scroll-indicator">
-        <span class="material-icons">keyboard_arrow_down</span>
-      </div>
-    </div>
+<section class="con-hero">
+  <div class="con-hero-overlay" aria-hidden="true"></div>
+  <div class="con-hero-inner">
+    <h1 class="con-hero-title">Hablemos de<br>tu proyecto</h1>
+    <p class="con-hero-desc">
+      Cuéntame sobre tu sitio, tienda o campaña. Te respondo en menos de 24h con un plan claro para hacer crecer tu negocio.
+    </p>
+    <a routerLink="/portafolio" class="con-hero-link">Ver portafolio</a>
   </div>
 </section>
 
-<!-- Formulario de Contacto -->
-<section class="contact-form-section" data-section-id="contact-form">
-  <div class="container">
-    <div class="contact-form-wrapper">
-      <div class="contact-form-intro">
-        <div class="contact-form-badge">
-          <span class="material-icons">edit_note</span>
-          <span>Cuéntame tu proyecto</span>
-        </div>
-        <h2 class="contact-form-title">Solicita tu cotización gratis</h2>
-        <p class="contact-form-subtitle">
+<section class="con-section con-form" data-section="form" [class.is-visible]="sectionVisible.form">
+  <div class="con-inner">
+    <div class="con-form-grid">
+      <div class="con-form-intro">
+        <h2 class="con-label">Cuéntame tu proyecto</h2>
+        <p class="con-intro">
           Déjame tus datos y una breve descripción. Te respondo por WhatsApp en menos de 24 horas con una propuesta clara.
         </p>
-        <ul class="contact-form-points">
-          <li><span class="material-icons">check_circle</span> Respuesta en menos de 24h</li>
-          <li><span class="material-icons">check_circle</span> Consulta y cotización sin costo</li>
-          <li><span class="material-icons">check_circle</span> Trato directo con el desarrollador</li>
+        <ul class="con-points">
+          <li>Respuesta en menos de 24h</li>
+          <li>Consulta y cotización sin costo</li>
+          <li>Trato directo con el desarrollador</li>
         </ul>
       </div>
 
-      <form class="contact-form-card" #contactForm="ngForm" (ngSubmit)="enviarPorWhatsApp()" novalidate>
-        <div class="form-field">
-          <label for="nombre">Nombre <span class="form-required">*</span></label>
+      <form class="con-form-card" #contactForm="ngForm" (ngSubmit)="enviarPorWhatsApp()" novalidate>
+        <div class="con-field">
+          <label for="nombre">Nombre <span class="con-required">*</span></label>
           <input
             type="text"
             id="nombre"
@@ -76,8 +38,8 @@
             required>
         </div>
 
-        <div class="form-field">
-          <label for="contacto">WhatsApp o correo <span class="form-required">*</span></label>
+        <div class="con-field">
+          <label for="contacto">WhatsApp o correo <span class="con-required">*</span></label>
           <input
             type="text"
             id="contacto"
@@ -87,7 +49,7 @@
             required>
         </div>
 
-        <div class="form-field">
+        <div class="con-field">
           <label for="servicio">¿Qué necesitas?</label>
           <select id="servicio" name="servicio" [(ngModel)]="form.servicio">
             <option value="" disabled selected>Selecciona un servicio</option>
@@ -95,7 +57,7 @@
           </select>
         </div>
 
-        <div class="form-field">
+        <div class="con-field">
           <label for="mensaje">Mensaje</label>
           <textarea
             id="mensaje"
@@ -105,284 +67,98 @@
             [(ngModel)]="form.mensaje"></textarea>
         </div>
 
-        <button type="submit" class="contact-form-submit" [disabled]="!formValido">
-          <span class="material-icons">send</span>
-          <span>Enviar por WhatsApp</span>
+        <button type="submit" class="con-submit" [disabled]="!formValido">
+          Enviar por WhatsApp
         </button>
-        <p class="contact-form-note">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+        <p class="con-form-note">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- Canales de Contacto Mejorados -->
-<section class="contact-channels-creative">
-  <div class="channels-background"></div>
-  <div class="channels-pattern"></div>
-  <div class="container">
-    <div class="channels-header-creative">
-      <div class="channels-badge-creative">
-        <span class="material-icons">connect_without_contact</span>
-        <span>Múltiples formas de contacto</span>
-      </div>
-      <h2 class="channels-title-creative">Formas de contactarme</h2>
-      <p class="channels-subtitle-creative">Elige el canal que prefieras, estoy disponible para ayudarte a hacer crecer tu negocio</p>
+<section class="con-section con-channels" data-section="channels" [class.is-visible]="sectionVisible.channels">
+  <div class="con-inner">
+    <div class="con-header con-header--center">
+      <h2 class="con-label">Canales de contacto</h2>
+      <p class="con-intro">Elige el canal que prefieras. Estoy disponible para ayudarte a hacer crecer tu negocio.</p>
     </div>
-    <div class="channels-grid-creative">
-      <a href="https://wa.me/51942820836" target="_blank" class="channel-card-creative">
-        <div class="channel-card-glow-whatsapp"></div>
-        <div class="channel-card-inner-creative">
-          <div class="channel-icon-creative-wrapper">
-            <div class="channel-icon-creative-bg channel-icon-whatsapp-creative">
-              <div class="icon-pulse"></div>
-            </div>
-            <span class="material-icons channel-icon-creative">call</span>
-            <div class="channel-icon-particles">
-              <div class="particle"></div>
-              <div class="particle"></div>
-              <div class="particle"></div>
-            </div>
-          </div>
-          <div class="channel-content-creative">
-            <div class="channel-header-creative">
-              <h3 class="channel-title-creative">WhatsApp</h3>
-              <div class="channel-status-badge status-instant">
-                <span class="material-icons">flash_on</span>
-                <span>Inmediato</span>
-              </div>
-            </div>
-            <p class="channel-description-creative">Háblame al instante. Resuelvo tus dudas en tiempo real y te ayudo a definir tu proyecto.</p>
-            <div class="channel-action-creative">
-              <span class="channel-link-text-creative">Abrir WhatsApp</span>
-              <div class="channel-arrow-wrapper">
-                <span class="material-icons channel-arrow-creative">arrow_forward</span>
-              </div>
-            </div>
-          </div>
-          <div class="channel-accent-line"></div>
-        </div>
+
+    <div class="con-channels-grid">
+      <a href="https://wa.me/51942820836" target="_blank" rel="noopener noreferrer" class="con-channel-card">
+        <span class="material-icons con-channel-icon">call</span>
+        <h3>WhatsApp</h3>
+        <p>Respuesta inmediata para resolver dudas y definir tu proyecto.</p>
+        <span class="con-channel-link">Abrir WhatsApp <span class="material-icons">arrow_forward</span></span>
       </a>
-      <a href="mailto:contacto@neoweb.website" class="channel-card-creative">
-        <div class="channel-card-glow-email"></div>
-        <div class="channel-card-inner-creative">
-          <div class="channel-icon-creative-wrapper">
-            <div class="channel-icon-creative-bg channel-icon-email-creative">
-              <div class="icon-pulse"></div>
-            </div>
-            <span class="material-icons channel-icon-creative">mail</span>
-            <div class="channel-icon-particles">
-              <div class="particle"></div>
-              <div class="particle"></div>
-              <div class="particle"></div>
-            </div>
-          </div>
-          <div class="channel-content-creative">
-            <div class="channel-header-creative">
-              <h3 class="channel-title-creative">Email</h3>
-              <div class="channel-status-badge status-24h">
-                <span class="material-icons">schedule</span>
-                <span>24 horas</span>
-              </div>
-            </div>
-            <p class="channel-description-creative">Envíame tu brief o consulta detallada. Te respondo en menos de 24 horas con una propuesta personalizada.</p>
-            <div class="channel-action-creative">
-              <span class="channel-link-text-creative">contacto@neoweb.website</span>
-              <div class="channel-arrow-wrapper">
-                <span class="material-icons channel-arrow-creative">arrow_forward</span>
-              </div>
-            </div>
-          </div>
-          <div class="channel-accent-line"></div>
-        </div>
+
+      <a href="mailto:contacto@neoweb.website" class="con-channel-card">
+        <span class="material-icons con-channel-icon">mail</span>
+        <h3>Email</h3>
+        <p>Envíame tu brief o consulta detallada. Respondo en menos de 24 horas.</p>
+        <span class="con-channel-link">contacto@neoweb.website <span class="material-icons">arrow_forward</span></span>
       </a>
-      <div class="channel-card-creative channel-card-social-creative">
-        <div class="channel-card-glow-social"></div>
-        <div class="channel-card-inner-creative">
-          <div class="channel-icon-creative-wrapper">
-            <div class="channel-icon-creative-bg channel-icon-social-creative">
-              <div class="icon-pulse"></div>
-            </div>
-            <span class="material-icons channel-icon-creative">share</span>
-            <div class="channel-icon-particles">
-              <div class="particle"></div>
-              <div class="particle"></div>
-              <div class="particle"></div>
-            </div>
-          </div>
-          <div class="channel-content-creative">
-            <div class="channel-header-creative">
-              <h3 class="channel-title-creative">Redes Sociales</h3>
-            <div class="channel-status-badge status-social">
-              <span class="material-icons">public</span>
-              <span>2 canales</span>
-            </div>
-            </div>
-            <p class="channel-description-creative">Sígueme y contáctame a través de mis redes sociales. Estoy activo en todas las plataformas.</p>
-            <div class="social-links-creative">
-              <a href="https://instagram.com/neoweb.agency" target="_blank" class="social-link-creative social-instagram">
-                <div class="social-icon-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </div>
-                <span class="social-label">Instagram</span>
-                <span class="material-icons social-arrow">arrow_forward</span>
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61583086977279" target="_blank" class="social-link-creative social-facebook">
-                <div class="social-icon-wrapper">
-                  <span class="material-icons">facebook</span>
-                </div>
-                <span class="social-label">Facebook</span>
-                <span class="material-icons social-arrow">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-          <div class="channel-accent-line"></div>
+
+      <div class="con-channel-card con-channel-card--social">
+        <span class="material-icons con-channel-icon">share</span>
+        <h3>Redes sociales</h3>
+        <p>Sígueme y contáctame a través de mis redes.</p>
+        <div class="con-social-links">
+          <a href="https://instagram.com/neoweb.agency" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61583086977279" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Horarios Mejorados -->
-<section class="schedule-section-enhanced">
-  <div class="schedule-background"></div>
-  <div class="container">
-    <div class="schedule-wrapper">
-      <div class="schedule-header">
-        <div class="schedule-icon-wrapper">
-          <div class="schedule-icon-bg"></div>
-          <span class="material-icons schedule-icon">schedule</span>
-          <div class="schedule-icon-glow"></div>
-        </div>
-        <h2 class="schedule-title">Horario de atención</h2>
-        <p class="schedule-subtitle">Estoy disponible para ayudarte en estos horarios</p>
-      </div>
-      <div class="schedule-grid">
-        <div class="schedule-card">
-          <div class="schedule-card-inner">
-            <div class="schedule-day-header">
-              <span class="material-icons schedule-day-icon">work</span>
-              <h3 class="schedule-day">Lunes a Viernes</h3>
-            </div>
-            <div class="schedule-time">
-              <span class="schedule-time-start">9:00 AM</span>
-              <span class="schedule-time-separator">-</span>
-              <span class="schedule-time-end">8:00 PM</span>
-            </div>
-            <div class="schedule-badge schedule-badge-open">
-              <span class="material-icons">check_circle</span>
-              <span>Disponible</span>
-            </div>
-          </div>
-        </div>
-        <div class="schedule-card">
-          <div class="schedule-card-inner">
-            <div class="schedule-day-header">
-              <span class="material-icons schedule-day-icon">weekend</span>
-              <h3 class="schedule-day">Sábados</h3>
-            </div>
-            <div class="schedule-time">
-              <span class="schedule-time-start">10:00 AM</span>
-              <span class="schedule-time-separator">-</span>
-              <span class="schedule-time-end">4:00 PM</span>
-            </div>
-            <div class="schedule-badge schedule-badge-limited">
-              <span class="material-icons">schedule</span>
-              <span>Horario reducido</span>
-            </div>
-          </div>
-        </div>
-        <div class="schedule-card">
-          <div class="schedule-card-inner">
-            <div class="schedule-day-header">
-              <span class="material-icons schedule-day-icon">event_busy</span>
-              <h3 class="schedule-day">Domingos</h3>
-            </div>
-            <div class="schedule-time schedule-time-closed">
-              <span>Cerrado</span>
-            </div>
-            <div class="schedule-badge schedule-badge-closed">
-              <span class="material-icons">block</span>
-              <span>No disponible</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="schedule-footer">
-        <div class="schedule-response-info">
-          <div class="response-icon">
-            <span class="material-icons">flash_on</span>
-          </div>
-          <div class="response-content">
-            <div class="response-label">Respuesta típica</div>
-            <div class="response-value">&lt; 24 horas</div>
-          </div>
-        </div>
-      </div>
+<section class="con-section con-schedule" data-section="schedule" [class.is-visible]="sectionVisible.schedule">
+  <div class="con-inner">
+    <div class="con-header">
+      <h2 class="con-label">Horario de atención</h2>
+      <p class="con-intro">Disponibilidad habitual para reuniones y consultas.</p>
     </div>
+
+    <div class="con-schedule-grid">
+      <article *ngFor="let item of schedule" class="con-schedule-card">
+        <h3>{{ item.day }}</h3>
+        <p class="con-schedule-time">{{ item.time }}</p>
+        <span class="con-schedule-badge" [class]="item.badgeClass">{{ item.badge }}</span>
+      </article>
+    </div>
+
+    <p class="con-schedule-note">Respuesta típica: <strong>&lt; 24 horas</strong></p>
   </div>
 </section>
 
-<!-- FAQ Mejorado -->
-<section class="faq-section-enhanced">
-  <div class="faq-background"></div>
-  <div class="faq-pattern"></div>
-  <div class="container">
-    <div class="faq-wrapper">
-      <div class="faq-header">
-        <div class="faq-badge">
-          <span class="material-icons">help_outline</span>
-          <span>FAQ rápido</span>
-        </div>
-        <h2 class="faq-title">
-          Preguntas
-          <span class="faq-title-highlight">frecuentes</span>
-        </h2>
-        <p class="faq-subtitle">Resolviendo dudas comunes sobre tiempos, soporte y metodología de trabajo.</p>
-      </div>
-      <div class="faq-list">
-        <div 
-          *ngFor="let faq of faqs; let i = index"
-          class="faq-item"
-          [class.faq-item-open]="faq.isOpen"
-          [style.animation-delay]="i * 0.1 + 's'">
-          <button 
-            class="faq-question"
-            (click)="toggleFaq(i)"
-            [attr.aria-expanded]="faq.isOpen">
-            <div class="faq-question-content">
-              <div class="faq-icon-wrapper">
-                <span class="material-icons faq-icon">{{ faq.icon }}</span>
-              </div>
-              <h3 class="faq-question-text">{{ faq.question }}</h3>
-            </div>
-            <span class="material-icons faq-arrow">expand_more</span>
-          </button>
-          <div class="faq-answer-wrapper">
-            <div class="faq-answer">
-              <p class="faq-answer-text">{{ faq.answer }}</p>
-              <div *ngIf="faq.details" class="faq-details">
-                <div *ngFor="let detail of faq.details" class="faq-detail-item">
-                  <span class="material-icons faq-detail-icon">check_circle</span>
-                  <span>{{ detail }}</span>
-                </div>
-              </div>
-            </div>
+<section class="faq-section" data-section="faq" [class.is-visible]="sectionVisible.faq" [class.is-intro-done]="faqIntroDone">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <h2 class="faq-label">Preguntas frecuentes</h2>
+      <p class="faq-intro">Tiempos, soporte y forma de trabajo: lo esencial antes de iniciar tu proyecto.</p>
+    </div>
+
+    <div class="faq-list">
+      <div
+        *ngFor="let faq of faqs; let i = index"
+        class="faq-item"
+        [class.is-open]="i === activeFaqIndex"
+        [style.--faq-index]="i">
+        <button
+          type="button"
+          class="faq-trigger"
+          (click)="toggleFaq(i)"
+          [attr.aria-expanded]="i === activeFaqIndex">
+          <span class="faq-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <span class="faq-question">{{ faq.question }}</span>
+          <span class="material-icons faq-chevron" aria-hidden="true">expand_more</span>
+        </button>
+        <div class="faq-panel" [attr.aria-hidden]="i !== activeFaqIndex">
+          <div class="faq-panel-inner">
+            <p class="faq-answer">{{ faq.answer }}</p>
+            <ul *ngIf="faq.details?.length" class="faq-details">
+              <li *ngFor="let detail of faq.details">{{ detail }}</li>
+            </ul>
           </div>
-        </div>
-      </div>
-      <div class="faq-footer">
-        <div class="faq-footer-content">
-          <span class="material-icons faq-footer-icon">chat_bubble_outline</span>
-          <div class="faq-footer-text">
-            <p class="faq-footer-title">¿No encuentras tu respuesta?</p>
-            <p class="faq-footer-subtitle">Contáctame directamente y te ayudaré con cualquier duda</p>
-          </div>
-          <a routerLink="/contacto" class="faq-footer-button">
-            <span>Contactar ahora</span>
-            <span class="material-icons">arrow_forward</span>
-          </a>
         </div>
       </div>
     </div>

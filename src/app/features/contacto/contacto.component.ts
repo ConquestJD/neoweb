@@ -1,15 +1,13 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, AfterViewInit, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-interface FAQ {
+type ContactFaq = {
   question: string;
   answer: string;
-  icon: string;
-  isOpen: boolean;
   details?: string[];
-}
+};
 
 @Component({
   selector: 'app-contacto',
@@ -18,11 +16,9 @@ interface FAQ {
   templateUrl: './contacto.component.html',
   styleUrl: './contacto.component.css'
 })
-export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
-  // Número de WhatsApp de destino (sin + ni espacios)
+export class ContactoComponent implements AfterViewInit, OnDestroy {
   private readonly whatsappNumber = '51942820836';
 
-  // Modelo del formulario de contacto
   form = {
     nombre: '',
     contacto: '',
@@ -30,7 +26,6 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
     mensaje: ''
   };
 
-  // Servicios disponibles para el selector
   servicios = [
     'Página web',
     'Landing page',
@@ -42,21 +37,26 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
     'Otro'
   ];
 
-  // Estados de visibilidad para animaciones de scroll
-  sectionsVisible: { [key: string]: string } = {
-    'contact-form': 'visible',
-    'contact-methods': 'visible',
-    'schedule': 'visible',
-    'faq': 'visible'
+  sectionVisible = {
+    form: false,
+    channels: false,
+    schedule: false,
+    faq: false
   };
 
-  // FAQs
-  faqs: FAQ[] = [
+  faqIntroDone = false;
+  activeFaqIndex = -1;
+
+  schedule = [
+    { day: 'Lunes a Viernes', time: '9:00 AM – 8:00 PM', badge: 'Disponible', badgeClass: 'is-open' },
+    { day: 'Sábados', time: '10:00 AM – 4:00 PM', badge: 'Horario reducido', badgeClass: 'is-limited' },
+    { day: 'Domingos', time: 'Cerrado', badge: 'No disponible', badgeClass: 'is-closed' }
+  ];
+
+  faqs: ContactFaq[] = [
     {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
-      icon: 'schedule',
-      isOpen: false,
       details: [
         'Landing Page: 1 semana',
         'Sitio corporativo: 2 semanas',
@@ -65,89 +65,67 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
     },
     {
       question: '¿Incluye soporte?',
-      answer: 'Sí, todos mis proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.',
-      icon: 'support_agent',
-      isOpen: false
+      answer: 'Sí, todos mis proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.'
     },
     {
       question: '¿Trabajas remoto?',
-      answer: 'Sí, trabajo completamente de forma remota con clientes en todo el Perú y Latinoamérica, usando herramientas modernas de comunicación y gestión de proyectos.',
-      icon: 'public',
-      isOpen: false
+      answer: 'Sí, trabajo completamente de forma remota con clientes en todo el Perú y Latinoamérica, usando herramientas modernas de comunicación y gestión de proyectos.'
     }
   ];
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
-  ) {}
+  private sectionObserver?: IntersectionObserver;
+  private faqIntroTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.cleanupWebGL();
-    }
-  }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        this.setupScrollAnimations();
-      }, 100);
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
     }
+
+    this.sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const sectionId = entry.target.getAttribute('data-section');
+        if (!sectionId || !(sectionId in this.sectionVisible)) {
+          return;
+        }
+
+        this.sectionVisible[sectionId as keyof typeof this.sectionVisible] = true;
+
+        if (sectionId === 'faq') {
+          this.playFaqIntro();
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -48px 0px'
+    });
+
+    document.querySelectorAll('[data-section]').forEach((section) => {
+      this.sectionObserver?.observe(section);
+    });
   }
 
   ngOnDestroy() {
-    // Cleanup si es necesario
-  }
+    this.sectionObserver?.disconnect();
 
-  cleanupWebGL() {
-    // Limpiar elementos Spline que puedan estar causando errores WebGL
-    const splineElements = document.querySelectorAll('spline-viewer');
-    splineElements.forEach(element => {
-      if (element && element.parentNode) {
-        element.parentNode.removeChild(element);
-      }
-    });
-  }
-
-  setupScrollAnimations() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.ngZone.run(() => {
-            const sectionId = entry.target.getAttribute('data-section-id');
-            if (sectionId) {
-              this.sectionsVisible[sectionId] = 'visible';
-              this.cdr.markForCheck();
-            }
-          });
-        }
-      });
-    }, observerOptions);
-    
-    // Observar todas las secciones con data-section-id
-    const sections = document.querySelectorAll('[data-section-id]');
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    if (this.faqIntroTimeout) {
+      clearTimeout(this.faqIntroTimeout);
+    }
   }
 
   toggleFaq(index: number) {
-    this.faqs[index].isOpen = !this.faqs[index].isOpen;
+    this.activeFaqIndex = this.activeFaqIndex === index ? -1 : index;
   }
 
-  // Validación mínima: nombre + algún dato de contacto
   get formValido(): boolean {
     return this.form.nombre.trim().length > 1 && this.form.contacto.trim().length > 4;
   }
 
-  // Arma el mensaje y abre WhatsApp con el texto pre-rellenado
   enviarPorWhatsApp() {
     if (!this.formValido) {
       return;
@@ -167,5 +145,25 @@ export class ContactoComponent implements OnInit, OnDestroy, AfterViewInit {
       window.open(url, '_blank');
     }
   }
-}
 
+  private playFaqIntro() {
+    if (this.faqIntroDone) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      this.faqIntroDone = true;
+      return;
+    }
+
+    if (this.faqIntroTimeout) {
+      clearTimeout(this.faqIntroTimeout);
+    }
+
+    this.faqIntroTimeout = setTimeout(() => {
+      this.faqIntroDone = true;
+      this.faqIntroTimeout = null;
+    }, 900);
+  }
+}
