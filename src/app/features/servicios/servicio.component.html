@@ -1,10 +1,14 @@
 <ng-container *ngIf="service as s">
 
   <!-- ===================== HERO ===================== -->
-  <section class="svc-hero" [style.background-image]="'url(' + getServiceHeroImage(s.slug) + ')'">
-    <span class="svc-hero-index" aria-hidden="true">01</span>
-    <div class="svc-inner svc-hero-content">
-      <p class="svc-eyebrow">
+  <section class="svc-hero">
+    <div
+      class="svc-hero-bg"
+      [style.background-image]="getServiceHeroBackground()"
+      aria-hidden="true"></div>
+    <div class="svc-hero-overlay" aria-hidden="true"></div>
+    <div class="svc-hero-inner">
+      <p class="svc-hero-eyebrow">
         <span class="material-icons" aria-hidden="true">{{ s.hero.badgeIcon }}</span>
         {{ s.hero.badgeText }}
       </p>
@@ -12,20 +16,8 @@
         {{ s.hero.titleLine1 }}
         <span class="svc-hero-highlight">{{ s.hero.titleHighlight }}</span>
       </h1>
-      <p class="svc-hero-desc">{{ s.hero.description }}</p>
       <a routerLink="/contacto" class="svc-hero-cta">Contactar</a>
-    </div>
-    <div class="svc-hero-scroll" aria-hidden="true">
-      <span class="svc-hero-scroll-line"></span>
-      <span class="svc-hero-scroll-label">Scroll</span>
-    </div>
-    <div class="svc-marquee" aria-hidden="true">
-      <div class="svc-marquee-track">
-        <span>Diseño</span><span>—</span><span>Desarrollo</span><span>—</span>
-        <span>Performance</span><span>—</span><span>SEO</span><span>—</span>
-        <span>Diseño</span><span>—</span><span>Desarrollo</span><span>—</span>
-        <span>Performance</span><span>—</span><span>SEO</span><span>—</span>
-      </div>
+      <p class="svc-hero-desc">{{ s.hero.description }}</p>
     </div>
   </section>
   
@@ -213,7 +205,6 @@
   
   <!-- ===================== CTA ===================== -->
   <section class="svc-cta svc-reveal" id="svc-cta" [class.is-visible]="ctaVisible" data-section-id="cta">
-    <div class="svc-cta-bg" [style.background-image]="'url(' + getServiceHeroImage(s.slug) + ')'"></div>
     <p class="svc-cta-outline" aria-hidden="true">{{ s.hero.titleHighlight }}</p>
     <div class="svc-cta-inner">
       <div class="svc-cta-copy">

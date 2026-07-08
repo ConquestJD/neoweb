@@ -20,7 +20,7 @@ import { getServicioBySlug, ServicioConfig } from './servicios.data';
  * CONVENCIÓN DE IMÁGENES — reemplaza los archivos en estas rutas
  * (mismo slug del servicio, numeración empezando en 1)
  * ============================================================
- *  Hero:        /assets/services/hero/{slug}.jpg            (ya existía, mismo mapa de abajo)
+ *  Hero:        heroImage en servicios.data.ts → /assets/services/*.jpg
  *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
  *  Incluye:     /assets/services/incluye/{slug}-{n}.jpg      n = índice del item
  *  Beneficios:  /assets/services/beneficios/{slug}-{n}.jpg   n = índice del beneficio
@@ -57,15 +57,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   private destroyed = false;
   private readonly placeholder = '/assets/services/placeholder.jpg';
-
-  private readonly serviceHeroImages: Record<string, string> = {
-    'pagina-web': '/assets/services/pagina web.jpg',
-    'tienda-virtual': '/assets/services/tienda online.jpg',
-    'marketing-digital': '/assets/services/marketing.jpg',
-    'rediseno-paginas-web': '/assets/services/rediseño.jpg',
-    'aplicaciones-moviles': '/assets/services/app movil.jpg',
-    'digitalizacion-procesos': '/assets/services/software a medida.jpg'
-  };
 
   constructor(
     private route: ActivatedRoute,
@@ -166,8 +157,12 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.activeProcessIndex = index;
   }
 
-  getServiceHeroImage(slug: string) {
-    return this.serviceHeroImages[slug] ?? '/assets/services/pagina web.jpg';
+  getServiceHeroImage(): string {
+    return this.service?.heroImage ?? '/assets/services/pagina web.jpg';
+  }
+
+  getServiceHeroBackground(): string {
+    return `url("${encodeURI(this.getServiceHeroImage())}")`;
   }
 
   // ----- Helpers de imágenes por sección -----

@@ -31,6 +31,7 @@ export interface ServicioSectionCopy {
 
 export interface ServicioConfig {
   slug: string;
+  heroImage: string;
   pageTitle: string;
   hero: {
     badgeIcon: string;
@@ -61,6 +62,7 @@ export interface ServicioConfig {
 export const SERVICIOS: Record<string, ServicioConfig> = {
   "pagina-web": {
     "slug": "pagina-web",
+    "heroImage": "/assets/services/pagina web.jpg",
     "pageTitle": "Agencia de Desarrollo Web en Perú | Páginas Web Personalizadas | NeoWeb",
     "hero": {
       "badgeIcon": "web",
@@ -309,6 +311,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "tienda-virtual": {
     "slug": "tienda-virtual",
+    "heroImage": "/assets/services/tienda online.jpg",
     "pageTitle": "Tienda Online - NeoWeb | E-commerce Completo",
     "hero": {
       "badgeIcon": "shopping_cart",
@@ -520,6 +523,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "marketing-digital": {
     "slug": "marketing-digital",
+    "heroImage": "/assets/services/marketing.jpg",
     "pageTitle": "Agencia de Marketing Digital en Perú | Estrategias Digitales | NeoWeb",
     "hero": {
       "badgeIcon": "trending_up",
@@ -704,6 +708,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "rediseno-paginas-web": {
     "slug": "rediseno-paginas-web",
+    "heroImage": "/assets/services/rediseño.jpg",
     "pageTitle": "Rediseño de Páginas Web - NeoWeb | Modernización Web",
     "hero": {
       "badgeIcon": "refresh",
@@ -886,6 +891,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "aplicaciones-moviles": {
     "slug": "aplicaciones-moviles",
+    "heroImage": "/assets/services/app movil.jpg",
     "pageTitle": "Aplicaciones Móviles - NeoWeb | Apps iOS y Android",
     "hero": {
       "badgeIcon": "phone_android",
@@ -1068,6 +1074,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "digitalizacion-procesos": {
     "slug": "digitalizacion-procesos",
+    "heroImage": "/assets/services/software a medida.jpg",
     "pageTitle": "Software a Medida - NeoWeb | Desarrollo Personalizado",
     "hero": {
       "badgeIcon": "settings",
