@@ -1,160 +1,246 @@
 <ng-container *ngIf="service as s">
 
-<section class="svc-hero">
-  <div class="svc-inner svc-hero-content">
-    <p class="svc-eyebrow">{{ s.hero.badgeText }}</p>
-    <h1 class="svc-hero-title">
-      {{ s.hero.titleLine1 }}
-      <span class="svc-hero-highlight">{{ s.hero.titleHighlight }}</span>
-    </h1>
-    <a routerLink="/contacto" class="svc-hero-cta">Contactar</a>
-  </div>
-</section>
-
-<section class="svc-plans svc-reveal" [class.is-visible]="sectionsVisible['plans']" data-section-id="plans">
-  <div class="svc-inner">
-    <div class="svc-header">
-      <h2 class="svc-label">Planes</h2>
-      <p class="svc-intro">{{ s.plansSubtitle }}</p>
+  <!-- ===================== HERO ===================== -->
+  <section class="svc-hero" [style.background-image]="'url(' + getServiceHeroImage(s.slug) + ')'">
+    <span class="svc-hero-index" aria-hidden="true">01</span>
+    <div class="svc-inner svc-hero-content">
+      <p class="svc-eyebrow">
+        <span class="material-icons" aria-hidden="true">{{ s.hero.badgeIcon }}</span>
+        {{ s.hero.badgeText }}
+      </p>
+      <h1 class="svc-hero-title">
+        {{ s.hero.titleLine1 }}
+        <span class="svc-hero-highlight">{{ s.hero.titleHighlight }}</span>
+      </h1>
+      <p class="svc-hero-desc">{{ s.hero.description }}</p>
+      <a routerLink="/contacto" class="svc-hero-cta">Contactar</a>
     </div>
-    <div class="svc-plans-grid">
+    <div class="svc-hero-scroll" aria-hidden="true">
+      <span class="svc-hero-scroll-line"></span>
+      <span class="svc-hero-scroll-label">Scroll</span>
+    </div>
+    <div class="svc-marquee" aria-hidden="true">
+      <div class="svc-marquee-track">
+        <span>Diseño</span><span>—</span><span>Desarrollo</span><span>—</span>
+        <span>Performance</span><span>—</span><span>SEO</span><span>—</span>
+        <span>Diseño</span><span>—</span><span>Desarrollo</span><span>—</span>
+        <span>Performance</span><span>—</span><span>SEO</span><span>—</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===================== PLANES ===================== -->
+  <section class="svc-plans svc-reveal" [class.is-visible]="sectionsVisible['plans']" data-section-id="plans">
+    <div class="svc-inner">
+      <div class="svc-header">
+        <h2 class="svc-label">
+          Elige tu
+          <span class="svc-label-accent">plan</span>
+        </h2>
+        <p class="svc-intro">{{ s.plansSubtitle }}</p>
+      </div>
+    </div>
+  
+    <div class="svc-plans-list">
       <article
-        *ngFor="let plan of s.plans"
-        class="svc-plan"
-        [class.is-featured]="plan.featured">
-        <p class="svc-plan-name">Plan {{ plan.name }}</p>
-        <p class="svc-plan-price">
-          {{ plan.price }}<span *ngIf="plan.period">{{ plan.period }}</span>
-        </p>
-        <ul class="svc-plan-features">
-          <li *ngFor="let feature of plan.features">{{ feature }}</li>
-        </ul>
-        <a routerLink="/contacto" class="svc-link" [class.svc-link-light]="plan.featured">
-          Elegir plan {{ plan.name }}
-        </a>
+        *ngFor="let plan of s.plans; let i = index"
+        class="svc-plan-spread"
+        [class.is-featured]="plan.featured"
+        [style.--item-index]="i">
+  
+        <div class="svc-plan-media">
+          <img
+            class="svc-plan-img"
+            [src]="getPlanImage(s.slug, i)"
+            (error)="onImgError($event)"
+            [alt]="'Plan ' + plan.name"
+            loading="lazy">
+          <span class="svc-plan-media-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+        </div>
+  
+        <div class="svc-inner svc-plan-body">
+          <div class="svc-plan-top">
+            <p class="svc-plan-name">Plan {{ plan.name }}</p>
+            <span *ngIf="plan.featured" class="svc-plan-tag">Más elegido</span>
+          </div>
+  
+          <p class="svc-plan-price">
+            {{ plan.price }}<span *ngIf="plan.period" class="svc-plan-period">{{ plan.period }}</span>
+          </p>
+  
+          <ul class="svc-plan-features">
+            <li *ngFor="let feature of plan.features">{{ feature }}</li>
+          </ul>
+  
+          <a routerLink="/contacto" class="svc-plan-link" [class.svc-plan-link-light]="plan.featured">
+            <span>Elegir plan {{ plan.name }}</span>
+            <span class="material-icons" aria-hidden="true">arrow_outward</span>
+          </a>
+        </div>
       </article>
     </div>
-  </div>
-</section>
-
-<section class="svc-includes svc-reveal" [class.is-visible]="sectionsVisible['includes']" data-section-id="includes">
-  <div class="svc-inner">
-    <div class="svc-header">
-      <h2 class="svc-label">
-        {{ s.includesSection.titleLine1 }}
-        <span class="svc-label-accent">{{ s.includesSection.titleHighlight }}</span>
-      </h2>
-      <p class="svc-intro">{{ s.includesSection.subtitle }}</p>
-    </div>
-    <ul class="svc-list">
-      <li *ngFor="let item of s.includes; let i = index" class="svc-list-item">
-        <span class="svc-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-        <div class="svc-list-copy">
-          <h3 class="svc-list-title">{{ item.title }}</h3>
-          <p class="svc-list-desc">{{ item.description }}</p>
-        </div>
-        <span class="material-icons svc-list-arrow" aria-hidden="true">arrow_outward</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section
-  *ngIf="s.showBenefitsSection && s.benefits"
-  class="svc-benefits svc-reveal"
-  [class.is-visible]="sectionsVisible['benefits']"
-  data-section-id="benefits">
-  <div class="svc-inner">
-    <div class="svc-header">
-      <h2 class="svc-label">Beneficios</h2>
-      <p class="svc-intro">Impacto directo para tu negocio con un sitio corporativo bien construido.</p>
-    </div>
-    <div class="svc-benefits-grid">
-      <div *ngFor="let benefit of s.benefits" class="svc-benefit">
-        <h3 class="svc-benefit-title">{{ benefit.title }}</h3>
-        <p class="svc-benefit-desc">{{ benefit.description }}</p>
+  </section>
+  
+  <!-- ===================== INCLUYE ===================== -->
+  <section class="svc-includes svc-reveal" [class.is-visible]="sectionsVisible['includes']" data-section-id="includes">
+    <div class="svc-inner">
+      <div class="svc-header">
+        <h2 class="svc-label svc-label-light">
+          {{ s.includesSection.titleLine1 }}
+          <span class="svc-label-accent">{{ s.includesSection.titleHighlight }}</span>
+        </h2>
+        <p class="svc-intro svc-intro-light">{{ s.includesSection.subtitle }}</p>
       </div>
+  
+      <ul class="svc-list" (mousemove)="onIncludeMove($event)">
+        <li
+          *ngFor="let item of s.includes; let i = index"
+          class="svc-list-item"
+          [style.--item-index]="i"
+          (mouseenter)="onIncludeEnter(i)"
+          (mouseleave)="onIncludeLeave()">
+          <span class="svc-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <div class="svc-list-copy">
+            <h3 class="svc-list-title">{{ item.title }}</h3>
+            <p class="svc-list-desc">{{ item.description }}</p>
+          </div>
+          <span class="material-icons svc-list-arrow" aria-hidden="true">arrow_outward</span>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
-
-<section class="svc-process svc-reveal" [class.is-visible]="sectionsVisible['process']" data-section-id="process">
-  <div class="svc-inner">
-    <div class="svc-header">
-      <h2 class="svc-label">
-        {{ s.processSection.titleLine1 }}
-        <span class="svc-label-accent">{{ s.processSection.titleHighlight }}</span>
-      </h2>
-      <p class="svc-intro">{{ s.processSection.subtitle }}</p>
-    </div>
-    <div class="svc-accordion" role="tablist">
-      <button
-        *ngFor="let step of s.methodology; let i = index"
-        type="button"
-        class="svc-panel"
-        role="tab"
-        [class.is-expanded]="i === activeProcessIndex"
-        [attr.aria-selected]="i === activeProcessIndex"
-        (mouseenter)="setActiveProcess(i)"
-        (focus)="setActiveProcess(i)"
-        (click)="setActiveProcess(i)">
-        <span class="svc-panel-number">{{ step.step }}</span>
-        <span class="svc-panel-label">{{ step.title }}</span>
-        <div class="svc-panel-detail">
-          <h3 class="svc-panel-detail-title">{{ step.title }}</h3>
-          <p>{{ step.description }}</p>
-        </div>
-      </button>
-    </div>
-  </div>
-</section>
-
-<section class="svc-fullcode svc-reveal" [class.is-visible]="sectionsVisible['fullcode']" data-section-id="fullcode">
-  <div class="svc-inner">
-    <div class="svc-header svc-header-light">
-      <h2 class="svc-label svc-label-light">
-        {{ s.fullcodeSection.titleLine1 }}
-        <span class="svc-label-accent">{{ s.fullcodeSection.titleHighlight }}</span>
-      </h2>
-      <p class="svc-intro svc-intro-light">{{ s.fullcodeSection.subtitle }}</p>
-    </div>
-    <ul class="svc-fullcode-grid">
-      <li *ngFor="let item of s.fullCodeBenefits" class="svc-fullcode-item">
-        <h3 class="svc-fullcode-title">{{ item.title }}</h3>
-        <p class="svc-fullcode-desc">{{ item.description }}</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="svc-cta svc-reveal" id="svc-cta" [class.is-visible]="ctaVisible" data-section-id="cta">
-  <p class="svc-cta-outline" aria-hidden="true">{{ s.hero.titleHighlight }}</p>
-  <div class="svc-cta-inner">
-    <div class="svc-cta-copy">
-      <h2 class="svc-cta-title">
-        {{ s.ctaSection.titleLine1 }}
-        <span class="svc-cta-highlight">{{ s.ctaSection.titleHighlight }}</span>
-      </h2>
-      <p class="svc-cta-desc">{{ s.ctaSection.description }}</p>
-    </div>
+  
+    <!-- Vista previa de imagen que sigue al cursor -->
     <div
-      class="svc-magnet-wrap"
-      (mousemove)="onCtaMouseMove($event)"
-      (mouseleave)="onCtaMouseLeave()">
-      <div
-        class="svc-magnet-inner"
-        [class.is-active]="ctaMagnetActive"
-        [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
-        <a routerLink="/contacto" class="svc-magnet-btn">
-          <span>Hablemos</span>
-        </a>
+      class="svc-cursor-preview"
+      *ngIf="hoveredIncludeIndex !== null"
+      [style.transform]="'translate(' + previewX + 'px, ' + previewY + 'px) translate(-50%, -60%)'">
+      <img
+        [src]="getIncludeImage(s.slug, hoveredIncludeIndex)"
+        (error)="onImgError($event)"
+        alt=""
+        loading="lazy">
+    </div>
+  </section>
+  
+  <!-- ===================== BENEFICIOS ===================== -->
+  <section
+    *ngIf="s.showBenefitsSection && s.benefits"
+    class="svc-benefits svc-reveal"
+    [class.is-visible]="sectionsVisible['benefits']"
+    data-section-id="benefits">
+    <div class="svc-inner">
+      <div class="svc-header">
+        <h2 class="svc-label">Beneficios</h2>
+        <p class="svc-intro">Impacto directo para tu negocio con un sitio bien construido.</p>
       </div>
     </div>
-    <a routerLink="/portafolio" class="svc-cta-link">
-      <span>Ver portafolio</span>
-      <span class="material-icons">arrow_forward</span>
-    </a>
-  </div>
-</section>
-
-</ng-container>
+    <div class="svc-benefits-gallery">
+      <figure *ngFor="let benefit of s.benefits; let i = index" class="svc-benefit-tile" [style.--item-index]="i">
+        <img
+          class="svc-benefit-img"
+          [src]="getBenefitImage(s.slug, i)"
+          (error)="onImgError($event)"
+          [alt]="benefit.title"
+          loading="lazy">
+        <figcaption class="svc-benefit-copy">
+          <h3 class="svc-benefit-title">{{ benefit.title }}</h3>
+          <p class="svc-benefit-desc">{{ benefit.description }}</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  
+  <!-- ===================== PROCESO ===================== -->
+  <section class="svc-process svc-reveal" [class.is-visible]="sectionsVisible['process']" data-section-id="process">
+    <div class="svc-inner">
+      <div class="svc-header">
+        <h2 class="svc-label">
+          {{ s.processSection.titleLine1 }}
+          <span class="svc-label-accent">{{ s.processSection.titleHighlight }}</span>
+        </h2>
+        <p class="svc-intro">{{ s.processSection.subtitle }}</p>
+      </div>
+    </div>
+    <div class="svc-inner">
+      <div class="svc-accordion" role="tablist">
+        <button
+          *ngFor="let step of s.methodology; let i = index"
+          type="button"
+          class="svc-panel"
+          role="tab"
+          [class.is-expanded]="i === activeProcessIndex"
+          [attr.aria-selected]="i === activeProcessIndex"
+          [style.background-image]="i === activeProcessIndex ? 'url(' + getStepImage(s.slug, i) + ')' : null"
+          (mouseenter)="setActiveProcess(i)"
+          (focus)="setActiveProcess(i)"
+          (click)="setActiveProcess(i)">
+          <span class="svc-panel-number">{{ step.step }}</span>
+          <span class="svc-panel-label">{{ step.title }}</span>
+          <div class="svc-panel-detail">
+            <h3 class="svc-panel-detail-title">{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ===================== FULL CODE ===================== -->
+  <section class="svc-fullcode svc-reveal" [class.is-visible]="sectionsVisible['fullcode']" data-section-id="fullcode">
+    <div class="svc-fullcode-media">
+      <img
+        [src]="getFullcodeImage(s.slug)"
+        (error)="onImgError($event)"
+        alt=""
+        loading="lazy">
+    </div>
+    <div class="svc-inner svc-fullcode-body">
+      <div class="svc-header svc-header-light">
+        <h2 class="svc-label svc-label-light">
+          {{ s.fullcodeSection.titleLine1 }}
+          <span class="svc-label-accent">{{ s.fullcodeSection.titleHighlight }}</span>
+        </h2>
+        <p class="svc-intro svc-intro-light">{{ s.fullcodeSection.subtitle }}</p>
+      </div>
+      <ul class="svc-fullcode-grid">
+        <li *ngFor="let item of s.fullCodeBenefits" class="svc-fullcode-item">
+          <h3 class="svc-fullcode-title">{{ item.title }}</h3>
+          <p class="svc-fullcode-desc">{{ item.description }}</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- ===================== CTA ===================== -->
+  <section class="svc-cta svc-reveal" id="svc-cta" [class.is-visible]="ctaVisible" data-section-id="cta">
+    <div class="svc-cta-bg" [style.background-image]="'url(' + getServiceHeroImage(s.slug) + ')'"></div>
+    <p class="svc-cta-outline" aria-hidden="true">{{ s.hero.titleHighlight }}</p>
+    <div class="svc-cta-inner">
+      <div class="svc-cta-copy">
+        <h2 class="svc-cta-title">
+          {{ s.ctaSection.titleLine1 }}
+          <span class="svc-cta-highlight">{{ s.ctaSection.titleHighlight }}</span>
+        </h2>
+        <p class="svc-cta-desc">{{ s.ctaSection.description }}</p>
+      </div>
+      <div
+        class="svc-magnet-wrap"
+        (mousemove)="onCtaMouseMove($event)"
+        (mouseleave)="onCtaMouseLeave()">
+        <div
+          class="svc-magnet-inner"
+          [class.is-active]="ctaMagnetActive"
+          [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
+          <a routerLink="/contacto" class="svc-magnet-btn">
+            <span>Hablemos</span>
+          </a>
+        </div>
+      </div>
+      <a routerLink="/portafolio" class="svc-cta-link">
+        <span>Ver portafolio</span>
+        <span class="material-icons">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+  
+  </ng-container>

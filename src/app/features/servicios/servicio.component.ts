@@ -15,6 +15,23 @@ import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { getServicioBySlug, ServicioConfig } from './servicios.data';
 
+/**
+ * ============================================================
+ * CONVENCIÓN DE IMÁGENES — reemplaza los archivos en estas rutas
+ * (mismo slug del servicio, numeración empezando en 1)
+ * ============================================================
+ *  Hero:        /assets/services/hero/{slug}.jpg            (ya existía, mismo mapa de abajo)
+ *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
+ *  Incluye:     /assets/services/incluye/{slug}-{n}.jpg      n = índice del item
+ *  Beneficios:  /assets/services/beneficios/{slug}-{n}.jpg   n = índice del beneficio
+ *  Proceso:     /assets/services/proceso/{slug}-{n}.jpg      n = índice del paso
+ *  Full Code:   /assets/services/fullcode/{slug}.jpg         una sola imagen de fondo
+ *
+ * Si un archivo no existe, se usa /assets/services/placeholder.jpg como respaldo,
+ * así el layout nunca se rompe mientras vas subiendo las imágenes reales.
+ * ============================================================
+ */
+
 @Component({
   selector: 'app-servicio',
   standalone: true,
@@ -31,9 +48,24 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   ctaMagnetActive = false;
   ctaVisible = false;
 
+  // Cursor-preview (imagen que sigue al mouse en "Incluye")
+  hoveredIncludeIndex: number | null = null;
+  previewX = 0;
+  previewY = 0;
+
   private routeSub?: Subscription;
   private observer?: IntersectionObserver;
   private destroyed = false;
+  private readonly placeholder = '/assets/services/placeholder.jpg';
+
+  private readonly serviceHeroImages: Record<string, string> = {
+    'pagina-web': '/assets/services/pagina web.jpg',
+    'tienda-virtual': '/assets/services/tienda online.jpg',
+    'marketing-digital': '/assets/services/marketing.jpg',
+    'rediseno-paginas-web': '/assets/services/rediseño.jpg',
+    'aplicaciones-moviles': '/assets/services/app movil.jpg',
+    'digitalizacion-procesos': '/assets/services/software a medida.jpg'
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -62,6 +94,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
       this.ctaMagnetX = 0;
       this.ctaMagnetY = 0;
       this.ctaMagnetActive = false;
+      this.hoveredIncludeIndex = null;
 
       if (isPlatformBrowser(this.platformId)) {
         setTimeout(() => this.setupScrollAnimations(), 150);
@@ -131,6 +164,52 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setActiveProcess(index: number) {
     this.activeProcessIndex = index;
+  }
+
+  getServiceHeroImage(slug: string) {
+    return this.serviceHeroImages[slug] ?? '/assets/services/pagina web.jpg';
+  }
+
+  // ----- Helpers de imágenes por sección -----
+  getPlanImage(slug: string, index: number): string {
+    return `/assets/services/planes/${slug}-${index + 1}.jpg`;
+  }
+
+  getIncludeImage(slug: string, index: number): string {
+    return `/assets/services/incluye/${slug}-${index + 1}.jpg`;
+  }
+
+  getBenefitImage(slug: string, index: number): string {
+    return `/assets/services/beneficios/${slug}-${index + 1}.jpg`;
+  }
+
+  getStepImage(slug: string, index: number): string {
+    return `/assets/services/proceso/${slug}-${index + 1}.jpg`;
+  }
+
+  getFullcodeImage(slug: string): string {
+    return `/assets/services/fullcode/${slug}.jpg`;
+  }
+
+  onImgError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src.indexOf('placeholder.jpg') === -1) {
+      img.src = this.placeholder;
+    }
+  }
+
+  // ----- Efecto cursor-preview para la sección "Incluye" -----
+  onIncludeEnter(index: number) {
+    this.hoveredIncludeIndex = index;
+  }
+
+  onIncludeMove(event: MouseEvent) {
+    this.previewX = event.clientX;
+    this.previewY = event.clientY;
+  }
+
+  onIncludeLeave() {
+    this.hoveredIncludeIndex = null;
   }
 
   onCtaMouseMove(event: MouseEvent) {
