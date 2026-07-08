@@ -23,7 +23,7 @@ import { getServicioBySlug, ServicioConfig } from './servicios.data';
  *  Hero:        heroImage en servicios.data.ts → /assets/services/*.jpg
  *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
  *  Incluye:     /assets/services/incluye/{slug}-{n}.jpg      n = índice del item
- *  Proceso:     /assets/services/proceso/{slug}-{n}.jpg      n = índice del paso
+ *  Proceso:     imágenes en processStepImages (servicio.component.ts)
  *  Full Code:   /assets/services/fullcode/{slug}.jpg         una sola imagen de fondo
  *
  * Si un archivo no existe, se usa /assets/services/placeholder.jpg como respaldo,
@@ -58,6 +58,50 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private destroyed = false;
   private isFirstServiceLoad = true;
   private readonly placeholder = '/assets/services/placeholder.jpg';
+
+  private readonly processStepImages: Record<string, string[]> = {
+    'pagina-web': [
+      '/assets/home/proceso/discovery.jpg',
+      '/assets/home/proceso/uxui.jpg',
+      '/assets/home/proceso/desarrollo.jpg',
+      '/assets/home/por que neoweb/velocidad.png',
+      '/assets/home/proceso/lanzamiento.jpg'
+    ],
+    'tienda-virtual': [
+      '/assets/home/proceso/discovery.jpg',
+      '/assets/services/tienda online.jpg',
+      '/assets/home/proceso/desarrollo.jpg',
+      '/assets/portfolio/liceum-incripcion.png',
+      '/assets/portfolio/gestion-financiera-omed-login.png'
+    ],
+    'marketing-digital': [
+      '/assets/home/proceso/discovery.jpg',
+      '/assets/services/marketing.jpg',
+      '/assets/home/por que neoweb/diseño web.jpg',
+      '/assets/home/por que neoweb/seo.png'
+    ],
+    'rediseno-paginas-web': [
+      '/assets/home/proceso/discovery.jpg',
+      '/assets/services/rediseño.jpg',
+      '/assets/home/proceso/desarrollo.jpg',
+      '/assets/home/por que neoweb/codigo real.jpg',
+      '/assets/home/proceso/lanzamiento.jpg'
+    ],
+    'aplicaciones-moviles': [
+      '/assets/home/proceso/uxui.jpg',
+      '/assets/services/app movil.jpg',
+      '/assets/home/proceso/desarrollo.jpg',
+      '/assets/home/por que neoweb/velocidad.png',
+      '/assets/home/proceso/lanzamiento.jpg'
+    ],
+    'digitalizacion-procesos': [
+      '/assets/home/proceso/discovery.jpg',
+      '/assets/services/software a medida.jpg',
+      '/assets/home/proceso/desarrollo.jpg',
+      '/assets/portfolio/gestion-financiera-omed-login.png',
+      '/assets/home/por que neoweb/soporte.jpg'
+    ]
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -207,8 +251,14 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     return `/assets/services/incluye/${slug}-${index + 1}.jpg`;
   }
 
-  getStepImage(slug: string, index: number): string {
-    return `/assets/services/proceso/${slug}-${index + 1}.jpg`;
+  getStepImage(index: number): string {
+    const slug = this.service?.slug;
+    const images = slug ? this.processStepImages[slug] : undefined;
+    return images?.[index] ?? '/assets/home/proceso/discovery.jpg';
+  }
+
+  getStepBackground(index: number): string {
+    return `url("${encodeURI(this.getStepImage(index))}")`;
   }
 
   getFullcodeImage(slug: string): string {

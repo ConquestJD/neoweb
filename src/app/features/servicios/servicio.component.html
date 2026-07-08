@@ -105,7 +105,7 @@
   
   <!-- ===================== PROCESO ===================== -->
   <section class="svc-process svc-reveal" [class.is-visible]="sectionsVisible['process']" data-section-id="process">
-    <div class="svc-inner">
+    <div class="svc-process-inner">
       <div class="svc-header">
         <h2 class="svc-label">
           {{ s.processSection.titleLine1 }}
@@ -114,23 +114,33 @@
         <p class="svc-intro">{{ s.processSection.subtitle }}</p>
       </div>
     </div>
-    <div class="svc-inner">
-      <div class="svc-accordion" role="tablist">
+
+    <div class="svc-process-accordion-wrap">
+      <div class="svc-process-accordion-bg" aria-hidden="true">
+        <div
+          *ngFor="let step of s.methodology; let i = index"
+          class="svc-process-accordion-bg-layer"
+          [class.is-active]="i === activeProcessIndex"
+          [style.background-image]="getStepBackground(i)">
+        </div>
+      </div>
+      <div class="svc-process-accordion-scrim" aria-hidden="true"></div>
+
+      <div class="svc-process-accordion" role="tablist">
         <button
           *ngFor="let step of s.methodology; let i = index"
           type="button"
-          class="svc-panel"
+          class="svc-process-panel"
           role="tab"
           [class.is-expanded]="i === activeProcessIndex"
           [attr.aria-selected]="i === activeProcessIndex"
-          [style.background-image]="i === activeProcessIndex ? 'url(' + getStepImage(s.slug, i) + ')' : null"
           (mouseenter)="setActiveProcess(i)"
           (focus)="setActiveProcess(i)"
           (click)="setActiveProcess(i)">
-          <span class="svc-panel-number">{{ step.step }}</span>
-          <span class="svc-panel-label">{{ step.title }}</span>
-          <div class="svc-panel-detail">
-            <h3 class="svc-panel-detail-title">{{ step.title }}</h3>
+          <span class="svc-process-panel-number">{{ step.step }}</span>
+          <span class="svc-process-panel-label">{{ step.title }}</span>
+          <div class="svc-process-panel-detail">
+            <h3 class="svc-process-panel-detail-title">{{ step.title }}</h3>
             <p>{{ step.description }}</p>
           </div>
         </button>
