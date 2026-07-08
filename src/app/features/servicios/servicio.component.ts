@@ -22,7 +22,6 @@ import { getServicioBySlug, ServicioConfig } from './servicios.data';
  * ============================================================
  *  Hero:        heroImage en servicios.data.ts → /assets/services/*.jpg
  *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
- *  Incluye:     /assets/services/incluye/{slug}-{n}.jpg      n = índice del item
  *  Proceso:     imágenes en processStepImages (servicio.component.ts)
  *  Full Code:   /assets/services/fullcode/{slug}.jpg         una sola imagen de fondo
  *
@@ -47,11 +46,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   ctaMagnetY = 0;
   ctaMagnetActive = false;
   ctaVisible = false;
-
-  // Cursor-preview (imagen que sigue al mouse en "Incluye")
-  hoveredIncludeIndex: number | null = null;
-  previewX = 0;
-  previewY = 0;
 
   private routeSub?: Subscription;
   private observer?: IntersectionObserver;
@@ -180,7 +174,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;
-    this.hoveredIncludeIndex = null;
   }
   @HostListener('window:scroll')
   onScroll() {
@@ -247,10 +240,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     return `/assets/services/planes/${slug}-${index + 1}.jpg`;
   }
 
-  getIncludeImage(slug: string, index: number): string {
-    return `/assets/services/incluye/${slug}-${index + 1}.jpg`;
-  }
-
   getStepImage(index: number): string {
     const slug = this.service?.slug;
     const images = slug ? this.processStepImages[slug] : undefined;
@@ -270,20 +259,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     if (img && img.src.indexOf('placeholder.jpg') === -1) {
       img.src = this.placeholder;
     }
-  }
-
-  // ----- Efecto cursor-preview para la sección "Incluye" -----
-  onIncludeEnter(index: number) {
-    this.hoveredIncludeIndex = index;
-  }
-
-  onIncludeMove(event: MouseEvent) {
-    this.previewX = event.clientX;
-    this.previewY = event.clientY;
-  }
-
-  onIncludeLeave() {
-    this.hoveredIncludeIndex = null;
   }
 
   onCtaMouseMove(event: MouseEvent) {

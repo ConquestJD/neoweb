@@ -73,13 +73,11 @@
         <p class="svc-intro svc-intro-light">{{ s.includesSection.subtitle }}</p>
       </div>
   
-      <ul class="svc-list" (mousemove)="onIncludeMove($event)">
+      <ul class="svc-list">
         <li
           *ngFor="let item of s.includes; let i = index"
           class="svc-list-item"
-          [style.--item-index]="i"
-          (mouseenter)="onIncludeEnter(i)"
-          (mouseleave)="onIncludeLeave()">
+          [style.--item-index]="i">
           <span class="svc-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
           <div class="svc-list-copy">
             <h3 class="svc-list-title">{{ item.title }}</h3>
@@ -88,18 +86,6 @@
           <span class="material-icons svc-list-arrow" aria-hidden="true">arrow_outward</span>
         </li>
       </ul>
-    </div>
-  
-    <!-- Vista previa de imagen que sigue al cursor -->
-    <div
-      class="svc-cursor-preview"
-      *ngIf="hoveredIncludeIndex !== null"
-      [style.transform]="'translate(' + previewX + 'px, ' + previewY + 'px) translate(-50%, -60%)'">
-      <img
-        [src]="getIncludeImage(s.slug, hoveredIncludeIndex)"
-        (error)="onImgError($event)"
-        alt=""
-        loading="lazy">
     </div>
   </section>
   
