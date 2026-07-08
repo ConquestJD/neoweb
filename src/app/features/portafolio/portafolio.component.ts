@@ -1,6 +1,25 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, Inject, PLATFORM_ID, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
+type PortfolioProject = {
+  id: string;
+  title: string;
+  category: string;
+  imageUrl: string;
+  scrollUrl?: string;
+  description: string;
+  technologies: string[];
+  results: {
+    title: string;
+    metrics: { label: string; value: string; icon: string }[];
+    businessImpact: string[];
+    problem: string;
+    solution: string;
+    websiteUrl: string;
+    type: string;
+  };
+};
 
 @Component({
   selector: 'app-portafolio',
@@ -9,92 +28,33 @@ import { RouterModule } from '@angular/router';
   templateUrl: './portafolio.component.html',
   styleUrl: './portafolio.component.css'
 })
-export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
-  // Estados de visibilidad para animaciones de scroll
-  sectionsVisible: { [key: string]: string } = {
-    'hero': 'visible',
-    'project-liceum': 'visible',
-    'stats': 'visible'
+export class PortafolioComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('portfolioGrid') portfolioGrid?: ElementRef<HTMLElement>;
+
+  sectionVisible = {
+    grid: false,
+    stats: false
   };
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
-  ) {}
+  gridIntroDone = false;
+  ctaVisible = false;
+  ctaMagnetX = 0;
+  ctaMagnetY = 0;
+  ctaMagnetActive = false;
 
-  ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.cleanupWebGL();
-    }
-  }
+  marqueeCopies = [
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
+    'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · '
+  ];
 
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        this.setupScrollAnimations();
-      }, 100);
-    }
-  }
-
-  ngOnDestroy() {
-    // Cleanup si es necesario
-  }
-
-  cleanupWebGL() {
-    // Limpiar elementos Spline que puedan estar causando errores WebGL
-    const splineElements = document.querySelectorAll('spline-viewer');
-    splineElements.forEach(element => {
-      if (element && element.parentNode) {
-        element.parentNode.removeChild(element);
-      }
-    });
-  }
-
-  setupScrollAnimations() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.ngZone.run(() => {
-            const sectionId = entry.target.getAttribute('data-section-id');
-            if (sectionId) {
-              this.sectionsVisible[sectionId] = 'visible';
-              this.cdr.markForCheck();
-            }
-          });
-        }
-      });
-    }, observerOptions);
-    
-    // Observar todas las secciones con data-section-id
-    const sections = document.querySelectorAll('[data-section-id]');
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  }
-
-  scrollToProjects() {
-    if (isPlatformBrowser(this.platformId)) {
-      const firstProject = document.querySelector('[data-section-id="project-liceum"]');
-      if (firstProject) {
-        firstProject.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  }
-
-  // Proyectos reales del portafolio
-  projects = [
+  projects: PortfolioProject[] = [
     {
       id: 'liceum',
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
       imageUrl: 'assets/portfolio/liceum-inicio.png',
-      imageUrl2: 'assets/portfolio/liceum-cursos.png',
       description: 'Plataforma institucional y comercial para cursos médicos, inscripciones y comunicación académica.',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
       results: {
@@ -122,7 +82,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
       title: 'OMED',
       category: 'Clínica Especializada',
       imageUrl: 'assets/portfolio/omed-inicio.png',
-      imageUrl2: 'assets/portfolio/omed-especialidades-medicas.png',
+      scrollUrl: '/assets/portfolio/scrolls/omed-scroll.jpg',
       description: 'Sitio web médico para presentar sedes, especialidades y rutas claras de contacto para pacientes.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Angular Material', 'SEO On-Page'],
       results: {
@@ -150,7 +110,6 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
       title: 'Gestión Financiera OMED',
       category: 'Software a Medida',
       imageUrl: 'assets/portfolio/gestion-financiera-omed-login.png',
-      imageUrl2: 'assets/portfolio/gestion-financiera-omed-login.png',
       description: 'Sistema web interno para la administración financiera, médica y operativa de la Clínica OMED.',
       technologies: ['Angular 19', 'TypeScript', 'RxJS', 'Chart.js', 'Angular Material', 'REST API', 'JWT Auth', 'MySQL', 'jsPDF', 'xlsx'],
       results: {
@@ -178,8 +137,8 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
       title: 'Santa María Laura',
       category: 'Colegio Privado · Lima',
       imageUrl: 'assets/portfolio/sml-inicio.png',
-      imageUrl2: 'assets/portfolio/sml-educacion-formativa.png',
-      description: 'Sitio institucional para el colegio privado Santa María Laura: comunica su propuesta educativa, niveles, infraestructura y proceso de admisión.',
+      scrollUrl: '/assets/portfolio/scrolls/sml-scroll.jpg',
+      description: 'Sitio institucional para comunicar propuesta educativa, niveles, infraestructura y proceso de admisión.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
       results: {
         title: 'Imagen Educativa Profesional',
@@ -206,8 +165,7 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
       title: 'Portal SML',
       category: 'Plataforma Educativa Interna',
       imageUrl: 'assets/portfolio/sml-portal-login.png',
-      imageUrl2: 'assets/portfolio/sml-portal-login.png',
-      description: 'Plataforma educativa integral del colegio Santa María Laura: gestión académica, comunicación profesores‑padres y acceso seguro para la comunidad escolar.',
+      description: 'Plataforma educativa integral: gestión académica, comunicación profesores-padres y acceso seguro.',
       technologies: ['Angular', 'TypeScript', 'JWT Auth', 'REST API', 'Responsive UI'],
       results: {
         title: 'Plataforma Educativa Integral',
@@ -234,8 +192,8 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
       title: 'Hombre Universal',
       category: 'Publicación Editorial · Cultura',
       imageUrl: 'assets/portfolio/hombre-universal-inicio.png',
-      imageUrl2: 'assets/portfolio/hombre-universal-articulos.png',
-      description: 'Publicación digital orientada al descubrimiento del Hombre Trascendental: una síntesis de ciencia, arte, filosofía y educación para personas en búsqueda de sentido y crecimiento interior.',
+      scrollUrl: '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg',
+      description: 'Publicación digital de ciencia, arte, filosofía y educación para lectores en búsqueda de sentido.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
       results: {
         title: 'Plataforma Editorial de Pensamiento',
@@ -259,32 +217,315 @@ export class PortafolioComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   ];
 
-  // Estadísticas reales del portafolio
   stats = [
-    {
-      number: '6',
-      label: 'Proyectos entregados',
-      icon: 'rocket_launch',
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      number: '4',
-      label: 'Clientes reales',
-      icon: 'groups',
-      color: 'from-green-500 to-emerald-500'
-    },
-    {
-      number: 'Multi-país',
-      label: 'Alcance (Perú · El Salvador · Bolivia)',
-      icon: 'public',
-      color: 'from-gray-600 to-gray-800'
-    },
-    {
-      number: 'Full-stack',
-      label: 'Front + Back end',
-      icon: 'code',
-      color: 'from-orange-500 to-red-500'
-    }
+    { number: '6', label: 'Proyectos entregados', icon: 'rocket_launch' },
+    { number: '4', label: 'Clientes reales', icon: 'groups' },
+    { number: 'Multi-país', label: 'Alcance (Perú · El Salvador · Bolivia)', icon: 'public' },
+    { number: 'Full-stack', label: 'Front + Back end', icon: 'code' }
   ];
-}
 
+  private sectionObserver?: IntersectionObserver;
+  private gridIntroTimeout: ReturnType<typeof setTimeout> | null = null;
+  private portfolioActiveCard: HTMLElement | null = null;
+  private portfolioStepTimer: ReturnType<typeof setInterval> | null = null;
+  private portfolioStepTimeout: ReturnType<typeof setTimeout> | null = null;
+  private readonly portfolioCycles = new WeakMap<HTMLElement, { step: number; maxSteps: number; stepPx: number }>();
+  private readonly portfolioCardEnterHandlers = new WeakMap<HTMLElement, () => void>();
+  private readonly portfolioCardLeaveHandlers = new WeakMap<HTMLElement, () => void>();
+  private readonly portfolioSectionStepPx = 1080;
+  private readonly portfolioStepIntervalMs = 3200;
+  private readonly portfolioStepDurationMs = 1100;
+  private readonly portfolioStepEasing = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private ngZone: NgZone
+  ) {}
+
+  ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.setupPortfolioScrollImages();
+
+    this.sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const sectionId = entry.target.getAttribute('data-section');
+        if (sectionId === 'cta') {
+          this.ctaVisible = true;
+        } else if (sectionId === 'grid') {
+          this.sectionVisible.grid = true;
+          this.playGridIntro();
+        } else if (sectionId && sectionId in this.sectionVisible) {
+          this.sectionVisible[sectionId as keyof typeof this.sectionVisible] = true;
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -48px 0px'
+    });
+
+    document.querySelectorAll('[data-section]').forEach((section) => {
+      this.sectionObserver?.observe(section);
+    });
+  }
+
+  ngOnDestroy() {
+    this.sectionObserver?.disconnect();
+    this.teardownPortfolioScrollListeners();
+
+    if (this.gridIntroTimeout) {
+      clearTimeout(this.gridIntroTimeout);
+    }
+  }
+
+  onCtaMouseMove(event: MouseEvent) {
+    const wrap = event.currentTarget as HTMLElement;
+    const rect = wrap.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const maxOffset = window.innerWidth <= 768 ? 12 : 24;
+    const deltaX = (event.clientX - centerX) * 0.18;
+    const deltaY = (event.clientY - centerY) * 0.18;
+
+    this.ctaMagnetX = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+    this.ctaMagnetY = Math.max(-maxOffset, Math.min(maxOffset, deltaY));
+    this.ctaMagnetActive = true;
+  }
+
+  onCtaMouseLeave() {
+    this.ctaMagnetX = 0;
+    this.ctaMagnetY = 0;
+    this.ctaMagnetActive = false;
+  }
+
+  private playGridIntro() {
+    if (this.gridIntroDone) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      this.gridIntroDone = true;
+      return;
+    }
+
+    if (this.gridIntroTimeout) {
+      clearTimeout(this.gridIntroTimeout);
+    }
+
+    this.gridIntroTimeout = setTimeout(() => {
+      this.gridIntroDone = true;
+      this.gridIntroTimeout = null;
+    }, 1200);
+  }
+
+  private bindPortfolioCard(card: HTMLElement) {
+    if (this.portfolioCardEnterHandlers.has(card)) {
+      return;
+    }
+
+    const onEnter = () => {
+      if (this.portfolioActiveCard && this.portfolioActiveCard !== card) {
+        this.stopPortfolioScroll(true, this.portfolioActiveCard);
+      }
+
+      this.portfolioActiveCard = card;
+      this.startPortfolioScrollCycle(card);
+    };
+
+    const onLeave = () => {
+      if (this.portfolioActiveCard !== card) {
+        return;
+      }
+
+      this.stopPortfolioScroll(true, card);
+      this.portfolioActiveCard = null;
+    };
+
+    this.portfolioCardEnterHandlers.set(card, onEnter);
+    this.portfolioCardLeaveHandlers.set(card, onLeave);
+    card.addEventListener('mouseenter', onEnter);
+    card.addEventListener('mouseleave', onLeave);
+  }
+
+  private unbindPortfolioCards() {
+    const grid = this.portfolioGrid?.nativeElement;
+    if (!grid) {
+      return;
+    }
+
+    grid.querySelectorAll('.portfolio-card--scroll').forEach((node) => {
+      const card = node as HTMLElement;
+      const onEnter = this.portfolioCardEnterHandlers.get(card);
+      const onLeave = this.portfolioCardLeaveHandlers.get(card);
+
+      if (onEnter) {
+        card.removeEventListener('mouseenter', onEnter);
+      }
+
+      if (onLeave) {
+        card.removeEventListener('mouseleave', onLeave);
+      }
+    });
+  }
+
+  private getPortfolioStepPx(img: HTMLImageElement, media: HTMLElement): number {
+    if (!img.naturalWidth) {
+      return this.portfolioSectionStepPx;
+    }
+
+    return this.portfolioSectionStepPx * (media.clientWidth / img.naturalWidth);
+  }
+
+  private getPortfolioMaxSteps(img: HTMLImageElement, media: HTMLElement, stepPx: number): number {
+    const displayedHeight = (img.naturalHeight / img.naturalWidth) * media.clientWidth;
+    const maxScroll = Math.max(0, displayedHeight - media.clientHeight);
+    if (maxScroll <= 0 || stepPx <= 0) {
+      return 0;
+    }
+
+    return Math.max(1, Math.floor(maxScroll / stepPx));
+  }
+
+  private setPortfolioImageY(img: HTMLImageElement, y: number, animate: boolean) {
+    img.style.transition = animate
+      ? `transform ${this.portfolioStepDurationMs}ms ${this.portfolioStepEasing}`
+      : 'none';
+    img.style.transform = `translate3d(0, ${y}px, 0)`;
+  }
+
+  private startPortfolioScrollCycle(card: HTMLElement) {
+    const img = card.querySelector('.portfolio-card-image--scroll') as HTMLImageElement | null;
+    const media = card.querySelector('.portfolio-card-media') as HTMLElement | null;
+    if (!img || !media) {
+      return;
+    }
+
+    const begin = () => {
+      if (this.portfolioActiveCard !== card) {
+        return;
+      }
+
+      if (!img.naturalWidth) {
+        return;
+      }
+
+      const stepPx = this.getPortfolioStepPx(img, media);
+      const maxSteps = this.getPortfolioMaxSteps(img, media, stepPx);
+      if (maxSteps <= 0) {
+        return;
+      }
+
+      this.stopPortfolioScroll(false, card);
+      card.classList.add('is-scrolling');
+      this.portfolioCycles.set(card, { step: 0, maxSteps, stepPx });
+      this.setPortfolioImageY(img, 0, false);
+
+      const advance = () => {
+        if (this.portfolioActiveCard !== card) {
+          return;
+        }
+
+        const state = this.portfolioCycles.get(card);
+        if (!state) {
+          return;
+        }
+
+        state.step = state.step >= state.maxSteps ? 0 : state.step + 1;
+        this.setPortfolioImageY(img, -state.step * state.stepPx, true);
+      };
+
+      this.portfolioStepTimeout = setTimeout(() => {
+        if (this.portfolioActiveCard !== card) {
+          return;
+        }
+
+        advance();
+        this.portfolioStepTimer = setInterval(advance, this.portfolioStepIntervalMs);
+      }, 700);
+    };
+
+    if (img.complete && img.naturalWidth) {
+      begin();
+    } else {
+      img.addEventListener('load', begin, { once: true });
+    }
+  }
+
+  private stopPortfolioScroll(reset = false, card?: HTMLElement | null) {
+    if (this.portfolioStepTimer) {
+      clearInterval(this.portfolioStepTimer);
+      this.portfolioStepTimer = null;
+    }
+
+    if (this.portfolioStepTimeout) {
+      clearTimeout(this.portfolioStepTimeout);
+      this.portfolioStepTimeout = null;
+    }
+
+    const target = card ?? this.portfolioActiveCard;
+    if (!target) {
+      return;
+    }
+
+    target.classList.remove('is-scrolling');
+
+    if (reset) {
+      const img = target.querySelector('.portfolio-card-image--scroll') as HTMLImageElement | null;
+      const state = this.portfolioCycles.get(target);
+      if (state) {
+        state.step = 0;
+      }
+
+      if (img) {
+        this.setPortfolioImageY(img, 0, true);
+      }
+    }
+  }
+
+  private preloadPortfolioScrollImages() {
+    for (const project of this.projects) {
+      if (!project.scrollUrl) {
+        continue;
+      }
+
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = project.scrollUrl;
+    }
+  }
+
+  private setupPortfolioScrollImages() {
+    const grid = this.portfolioGrid?.nativeElement;
+    if (!grid) {
+      return;
+    }
+
+    const portfolioScrollEnabled = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    this.preloadPortfolioScrollImages();
+
+    if (!portfolioScrollEnabled) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      grid.querySelectorAll('.portfolio-card--scroll').forEach((node) => {
+        this.bindPortfolioCard(node as HTMLElement);
+      });
+    });
+  }
+
+  private teardownPortfolioScrollListeners() {
+    this.stopPortfolioScroll(true);
+    this.portfolioActiveCard = null;
+    this.unbindPortfolioCards();
+  }
+}

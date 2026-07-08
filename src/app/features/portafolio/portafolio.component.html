@@ -1,160 +1,99 @@
-<!-- ===========================================================
-     Portafolio NeoWeb — listado scroll vertical limpio
-     Las imágenes son mockups laptop+phone con fondo transparente,
-     se muestran completas sobre fondos claros.
-     =========================================================== -->
+<!-- Portafolio NeoWeb -->
 
-<!-- HERO -->
 <section class="pf-hero">
-  <div class="pf-hero-bg"></div>
-  <div class="pf-hero-grid"></div>
-  <div class="pf-hero-orb pf-hero-orb-1"></div>
-  <div class="pf-hero-orb pf-hero-orb-2"></div>
-
-  <div class="container pf-hero-inner">
-    <span class="pf-hero-eyebrow">
-      <span class="pf-hero-dot"></span>
-      Portafolio
-    </span>
-
-    <h1 class="pf-hero-title">
-      Casos reales construidos
-      <span class="pf-hero-title-accent">para crecer en serio</span>
-    </h1>
-
-    <p class="pf-hero-lede">
-      Una selección de plataformas, sitios institucionales y productos digitales
-      diseñados con estrategia, código a medida y enfoque en resultados.
+  <div class="pf-hero-overlay" aria-hidden="true"></div>
+  <div class="pf-hero-inner">
+    <h1 class="pf-hero-title">Casos reales construidos<br>para crecer en serio</h1>
+    <p class="pf-hero-desc">
+      Plataformas, sitios institucionales y productos digitales diseñados con estrategia, código a medida y enfoque en resultados.
     </p>
-
-    <ul class="pf-hero-stats">
-      <li>
-        <strong>{{ projects.length }}</strong>
-        <span>Proyectos en vivo</span>
-      </li>
-      <li>
-        <strong>100%</strong>
-        <span>Código a medida</span>
-      </li>
-      <li>
-        <strong>Perú</strong>
-        <span>Mercado local</span>
-      </li>
-      <li>
-        <strong>&lt;24h</strong>
-        <span>Respuesta inicial</span>
-      </li>
-    </ul>
-  </div>
-
-  <div class="pf-hero-scroll-hint" aria-hidden="true">
-    <span>Recorre los proyectos</span>
-    <span class="material-icons">south</span>
+    <a routerLink="/contacto" class="pf-hero-cta">Iniciar proyecto</a>
   </div>
 </section>
 
-<!-- PROYECTOS - una sección por proyecto, alternando lados -->
 <section
-  *ngFor="let project of projects; let i = index"
-  class="pf-project"
-  [class.pf-project-alt]="i % 2 === 1"
-  [class.pf-project-tinted]="i % 3 === 1"
-  [attr.data-section-id]="'project-' + project.id"
-  [id]="'project-' + project.id">
+  class="portfolio-section"
+  data-section="grid"
+  [class.is-visible]="sectionVisible.grid"
+  [class.is-intro-done]="gridIntroDone">
+  <div class="portfolio-marquee" aria-hidden="true" [class.is-revealed]="sectionVisible.grid">
+    <div class="portfolio-marquee-track">
+      <span *ngFor="let copy of marqueeCopies">{{ copy }}</span>
+    </div>
+  </div>
 
-  <div class="container">
-    <div class="pf-project-grid">
-      <!-- Visual del proyecto (mockup transparente) -->
-      <div class="pf-project-visual">
-        <span class="pf-project-number">{{ (i + 1).toString().padStart(2, '0') }} / {{ projects.length.toString().padStart(2, '0') }}</span>
-        <div class="pf-project-mockup">
-          <img [src]="project.imageUrl" [alt]="project.title + ' - mockup del proyecto'" loading="lazy">
-        </div>
+  <div class="portfolio-inner">
+    <div class="portfolio-header">
+      <h2 class="portfolio-label">Proyectos</h2>
+      <div class="portfolio-header-side">
+        <p class="portfolio-intro">
+          {{ projects.length }} casos reales para empresas peruanas: desde sitios institucionales hasta plataformas a medida.
+        </p>
       </div>
+    </div>
 
-      <!-- Texto del proyecto -->
-      <div class="pf-project-content">
-        <span class="pf-project-tag">
-          <span class="pf-tag-dot"></span>
-          {{ project.results.type }}
-        </span>
-        <p class="pf-project-cat">{{ project.category }}</p>
-        <h2 class="pf-project-title">{{ project.title }}</h2>
-        <p class="pf-project-desc">{{ project.description }}</p>
-
-        <ul class="pf-project-metrics">
-          <li *ngFor="let metric of project.results.metrics.slice(0, 3)">
-            <span class="material-icons">{{ metric.icon }}</span>
-            <div>
-              <strong>{{ metric.value }}</strong>
-              <span>{{ metric.label }}</span>
-            </div>
-          </li>
-        </ul>
-
-        <div class="pf-project-tech">
-          <span *ngFor="let tech of project.technologies.slice(0, 5)" class="pf-tech-pill">{{ tech }}</span>
+    <div class="portfolio-grid" #portfolioGrid>
+      <a
+        *ngFor="let project of projects; let i = index"
+        [routerLink]="['/portafolio', project.id]"
+        class="portfolio-card"
+        [class.portfolio-card--scroll]="!!project.scrollUrl"
+        [style.--card-index]="i">
+        <span class="material-icons portfolio-card-arrow">arrow_outward</span>
+        <div class="portfolio-card-media">
+          <img
+            [src]="project.scrollUrl || ('/' + project.imageUrl)"
+            [alt]="project.title + ' - Proyecto Agencia Digital NeoWeb'"
+            class="portfolio-card-image"
+            [class.portfolio-card-image--scroll]="!!project.scrollUrl"
+            [class.portfolio-card-image--static]="!project.scrollUrl"
+            loading="lazy"
+            decoding="async">
         </div>
-
-        <div class="pf-project-actions">
-          <a [routerLink]="['/portafolio', project.id]" class="pf-btn pf-btn-primary">
-            Ver caso completo
-            <span class="material-icons">arrow_forward</span>
-          </a>
-          <a [href]="project.results.websiteUrl"
-             target="_blank" rel="noopener"
-             class="pf-btn pf-btn-link"
-             *ngIf="project.results.websiteUrl !== '#'">
-            <span class="material-icons">open_in_new</span>
-            Visitar sitio
-          </a>
+        <div class="portfolio-card-scrim"></div>
+        <div class="portfolio-card-info">
+          <span class="portfolio-card-category">{{ project.results.type }}</span>
+          <h3 class="portfolio-card-title">{{ project.title }}</h3>
+          <p class="portfolio-card-result">{{ project.description }}</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- METRICS BAND -->
-<section class="pf-metrics-band">
-  <div class="container">
-    <div class="pf-metrics-grid">
-      <article *ngFor="let stat of stats" class="pf-metric-card">
-        <span class="pf-metric-icon">
-          <span class="material-icons">{{ stat.icon }}</span>
-        </span>
-        <strong class="pf-metric-value">{{ stat.number }}</strong>
-        <span class="pf-metric-label">{{ stat.label }}</span>
+<section class="pf-stats" data-section="stats" [class.is-visible]="sectionVisible.stats">
+  <div class="pf-stats-inner">
+    <div class="pf-stats-header">
+      <h2 class="pf-stats-label">En números</h2>
+      <p class="pf-stats-intro">Resultados y alcance de los proyectos entregados hasta hoy.</p>
+    </div>
+    <div class="pf-stats-grid">
+      <article *ngFor="let stat of stats" class="pf-stat-card">
+        <span class="material-icons pf-stat-icon">{{ stat.icon }}</span>
+        <strong class="pf-stat-value">{{ stat.number }}</strong>
+        <span class="pf-stat-label">{{ stat.label }}</span>
       </article>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="pf-cta">
-  <div class="pf-cta-bg"></div>
-  <div class="container">
-    <div class="pf-cta-card">
-      <div class="pf-cta-text">
-        <span class="pf-cta-eyebrow">
-          <span class="material-icons">rocket_launch</span>
-          Trabajemos juntos
-        </span>
-        <h2>¿Listo para tu próximo caso de éxito?</h2>
-        <p>
-          Si tu negocio necesita un sitio web, una plataforma a medida o renovar su presencia
-          digital, puedo diseñarlo con la misma calidad que ves en cada proyecto.
-        </p>
-      </div>
-      <div class="pf-cta-actions">
-        <a routerLink="/contacto" class="pf-btn pf-btn-primary pf-btn-lg">
-          <span class="material-icons">forum</span>
-          Iniciar proyecto
-        </a>
-        <a routerLink="/servicios/pagina-web" class="pf-btn pf-btn-ghost pf-btn-lg">
-          <span class="material-icons">apps</span>
-          Ver servicios
+<section class="cta-section" data-section="cta" [class.is-visible]="ctaVisible">
+  <p class="cta-headline-outline" aria-hidden="true">Tu próximo caso<br>de éxito</p>
+  <div class="cta-container">
+    <div class="cta-magnet-wrap"
+         (mousemove)="onCtaMouseMove($event)"
+         (mouseleave)="onCtaMouseLeave()">
+      <div class="cta-magnet-inner"
+           [class.is-active]="ctaMagnetActive"
+           [style.transform]="'translate(' + ctaMagnetX + 'px, ' + ctaMagnetY + 'px)'">
+        <a routerLink="/contacto" class="cta-magnet-btn">
+          <span>Hablemos</span>
         </a>
       </div>
     </div>
+    <a routerLink="/servicios/pagina-web" class="cta-link-secondary">
+      <span>Ver servicios</span>
+      <span class="material-icons">arrow_forward</span>
+    </a>
   </div>
 </section>
