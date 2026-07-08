@@ -41,6 +41,7 @@ import { getServicioBySlug, ServicioConfig } from './servicios.data';
 })
 export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   service?: ServicioConfig;
+  showPage = true;
   sectionsVisible: Record<string, boolean> = {};
   activeProcessIndex = 0;
   ctaMagnetX = 0;
@@ -56,6 +57,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private routeSub?: Subscription;
   private observer?: IntersectionObserver;
   private destroyed = false;
+  private isFirstServiceLoad = true;
   private readonly placeholder = '/assets/services/placeholder.jpg';
 
   constructor(
@@ -69,32 +71,12 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.routeSub = this.route.paramMap.subscribe(params => {
-      const slug = params.get('slug');
-      const service = getServicioBySlug(slug);
-
-      if (!service) {
-        void this.router.navigate(['/404']);
-        return;
-      }
-
-      this.service = service;
-      this.title.setTitle(service.pageTitle);
-      this.activeProcessIndex = 0;
-      this.sectionsVisible = {};
-      this.ctaVisible = false;
-      this.ctaMagnetX = 0;
-      this.ctaMagnetY = 0;
-      this.ctaMagnetActive = false;
-      this.hoveredIncludeIndex = null;
-
-      if (isPlatformBrowser(this.platformId)) {
-        setTimeout(() => this.setupScrollAnimations(), 150);
-      }
+      this.loadService(params.get('slug'));
     });
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId) && this.service) {
       setTimeout(() => this.setupScrollAnimations(), 150);
     }
   }
@@ -105,6 +87,58 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.observer?.disconnect();
   }
 
+  private loadService(slug: string | null) {
+    const service = getServicioBySlug(slug);
+
+    if (!service) {
+      void this.router.navigate(['/404']);
+      return;
+    }
+
+    const shouldRemount = !this.isFirstServiceLoad;
+    this.isFirstServiceLoad = false;
+
+    if (shouldRemount && isPlatformBrowser(this.platformId)) {
+      this.showPage = false;
+      this.observer?.disconnect();
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      this.cdr.detectChanges();
+    }
+
+    this.resetPageState(service);
+
+    if (!shouldRemount) {
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.setupScrollAnimations(), 150);
+      }
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      if (this.destroyed) {
+        return;
+      }
+
+      this.showPage = true;
+      this.cdr.detectChanges();
+
+      if (isPlatformBrowser(this.platformId)) {
+        setTimeout(() => this.setupScrollAnimations(), 150);
+      }
+    });
+  }
+
+  private resetPageState(service: ServicioConfig) {
+    this.service = service;
+    this.title.setTitle(service.pageTitle);
+    this.activeProcessIndex = 0;
+    this.sectionsVisible = {};
+    this.ctaVisible = false;
+    this.ctaMagnetX = 0;
+    this.ctaMagnetY = 0;
+    this.ctaMagnetActive = false;
+    this.hoveredIncludeIndex = null;
+  }
   @HostListener('window:scroll')
   onScroll() {
     if (!isPlatformBrowser(this.platformId) || this.ctaVisible) {
