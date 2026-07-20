@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, NgZone, HostBinding } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, NgZone, HostBinding } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 import { initPortafolioGsapAnimations } from './portafolio-gsap-animations';
 
 type PortfolioProject = {
@@ -29,9 +30,14 @@ type PortfolioProject = {
   templateUrl: './portafolio.component.html',
   styleUrl: './portafolio.component.css'
 })
-export class PortafolioComponent implements AfterViewInit, OnDestroy {
+export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding('class.gsap-enabled') gsapEnabled = false;
   @ViewChild('portfolioGrid') portfolioGrid?: ElementRef<HTMLElement>;
+
+  private readonly pageTitle =
+    'Portafolio de Proyectos Web en Perú | Casos Reales | NeoWeb';
+  private readonly metaDescription =
+    'Portafolio NeoWeb: proyectos web, tiendas online y software a medida en Perú. Casos reales con diseño, desarrollo y resultados medibles. Cotiza tu proyecto.';
 
   sectionVisible = {
     grid: false,
@@ -243,8 +249,17 @@ export class PortafolioComponent implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private ngZone: NgZone,
-    private host: ElementRef<HTMLElement>
+    private host: ElementRef<HTMLElement>,
+    private title: Title,
+    private meta: Meta
   ) {}
+
+  ngOnInit() {
+    this.title.setTitle(this.pageTitle);
+    this.meta.updateTag({ name: 'description', content: this.metaDescription });
+    this.meta.updateTag({ property: 'og:title', content: this.pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: this.metaDescription });
+  }
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) {

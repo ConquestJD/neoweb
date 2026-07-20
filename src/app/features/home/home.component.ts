@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef, NgZone, HostBinding } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 import { initHomeGsapAnimations } from './home-gsap-animations';
 
 type HomeService = {
@@ -43,10 +44,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('carouselCursor') carouselCursor?: ElementRef<HTMLElement>;
   @ViewChild('portfolioGrid') portfolioGrid?: ElementRef<HTMLElement>;
 
+  private readonly pageTitle =
+    'Agencia Digital en Perú | Desarrollo Web y Marketing Digital | NeoWeb';
+  private readonly metaDescription =
+    'Agencia digital en Perú: desarrollo web a medida, tiendas online, apps y marketing digital. Sitios rápidos, optimizados para SEO y pensados para vender más. Cotiza con NeoWeb.';
+
   constructor(
     private router: Router,
     private ngZone: NgZone,
-    private host: ElementRef<HTMLElement>
+    private host: ElementRef<HTMLElement>,
+    private title: Title,
+    private meta: Meta
   ) {}
 
   scrollY = 0;
@@ -751,6 +759,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.title.setTitle(this.pageTitle);
+    this.meta.updateTag({ name: 'description', content: this.metaDescription });
+    this.meta.updateTag({ property: 'og:title', content: this.pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: this.metaDescription });
     this.buildCarouselSlides();
   }
 

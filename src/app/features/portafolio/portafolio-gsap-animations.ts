@@ -42,7 +42,7 @@ function setupHero(root: HTMLElement) {
   const desc = section.querySelector('.pf-hero-desc');
   const cta = section.querySelector('.pf-hero-cta');
 
-  if (bg) gsap.set(bg, { scale: 1.16, opacity: 0.3 });
+  if (bg) gsap.set(bg, { scale: 1.16, opacity: 0.35 });
   if (overlay) gsap.set(overlay, { opacity: 0 });
   gsap.set([title, desc, cta].filter(Boolean), { opacity: 0 });
 
