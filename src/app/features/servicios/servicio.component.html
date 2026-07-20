@@ -75,10 +75,20 @@
         </article>
       </div>
 
-      <aside *ngIf="s.plansGuarantee" class="svc-plans-guarantee" aria-label="Garantía de lanzamiento">
+      <div *ngIf="s.plansBenefits?.length" class="svc-plans-benefits">
+        <p class="svc-plans-benefits-title">{{ s.plansBenefitsTitle || 'Beneficios' }}</p>
+        <ul class="svc-plans-benefits-list">
+          <li *ngFor="let item of s.plansBenefits">
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <aside *ngIf="s.plansGuarantee" class="svc-plans-guarantee" [attr.aria-label]="s.plansGuaranteeLabel || 'Garantía de lanzamiento'">
         <span class="material-icons" aria-hidden="true">verified</span>
         <div>
-          <p class="svc-plans-guarantee-label">Garantía de lanzamiento</p>
+          <p class="svc-plans-guarantee-label">{{ s.plansGuaranteeLabel || 'Garantía de lanzamiento' }}</p>
           <p class="svc-plans-guarantee-text">{{ s.plansGuarantee }}</p>
         </div>
       </aside>

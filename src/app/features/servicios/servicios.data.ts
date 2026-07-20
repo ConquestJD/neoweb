@@ -75,7 +75,10 @@ export interface ServicioConfig {
   plans: ServicioPlan[];
   plansHighlights?: string[];
   plansHighlightsTitle?: string;
+  plansBenefits?: string[];
+  plansBenefitsTitle?: string;
   plansGuarantee?: string;
+  plansGuaranteeLabel?: string;
   plansComparison?: ServicioPlanComparisonRow[];
   plansComparisonHeaders?: ServicioPlanComparisonHeaders;
   plansComparisonIntro?: string;
@@ -1462,7 +1465,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "híbridas",
       "description": "Lleva tu producto al bolsillo de tus usuarios con UX clara, performance y seguridad."
     },
-    "plansSubtitle": "Desde S/ 4,000 hasta S/ 12,000+ según alcance y plataformas.",
+    "plansSubtitle": "Aplicaciones móviles que digitalizan tu negocio, mejoran la experiencia de tus usuarios y abren nuevas oportunidades de crecimiento. Planes pensados para startups, emprendedores y empresas en expansión.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Características",
@@ -1598,39 +1601,200 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     ],
     "plans": [
       {
-        "name": "START",
-        "price": "S/ 4,000",
+        "name": "LANZAMIENTO",
+        "price": "S/ 3,000",
         "icon": "star",
         "color": "from-teal-500 to-cyan-500",
+        "tagline": "Ideal para emprendedores y startups que desean validar una idea de negocio o digitalizar un proceso básico.",
+        "benefit": "Lanza tu aplicación rápidamente y valida tu idea sin realizar una gran inversión.",
         "features": [
-          "App informativa",
-          "4-6 pantallas",
-          "Android"
+          "Aplicación Android",
+          "Hasta 6 pantallas",
+          "Diseño moderno y profesional",
+          "Formulario de contacto",
+          "Integración con WhatsApp",
+          "Navegación intuitiva",
+          "Publicación en Google Play Store",
+          "Capacitación básica de uso",
+          "Pruebas antes del lanzamiento",
+          "Soporte inicial post-lanzamiento"
         ]
       },
       {
-        "name": "PRO",
-        "price": "S/ 7,500",
+        "name": "CRECIMIENTO",
+        "price": "S/ 5,500",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
+        "tagline": "Ideal para negocios que necesitan gestionar usuarios y ofrecer una experiencia más completa.",
+        "benefit": "Escala tu aplicación y gestiona usuarios de forma profesional.",
         "features": [
-          "Login + BD",
-          "Notificaciones",
-          "Android + iOS"
+          "Todo lo incluido en Lanzamiento",
+          "Android e iOS",
+          "Registro de usuarios",
+          "Inicio de sesión",
+          "Recuperación de contraseña",
+          "Datos sincronizados en la nube",
+          "Notificaciones Push",
+          "Panel administrativo básico",
+          "Gestión de usuarios",
+          "Analítica básica",
+          "Publicación en Google Play y App Store",
+          "Capacitación personalizada"
         ]
       },
       {
-        "name": "PREMIUM",
-        "price": "S/ 12,000+",
+        "name": "ESCALA",
+        "price": "Desde S/ 8,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
+        "tagline": "Ideal para empresas que requieren una plataforma móvil completa y preparada para crecer.",
+        "benefit": "Convierte tu aplicación en una plataforma profesional preparada para crecer junto a tu negocio.",
         "features": [
-          "App completa",
-          "Integraciones API",
-          "Dashboard admin",
-          "UI/UX avanzado"
+          "Todo lo incluido en Crecimiento",
+          "Dashboard administrativo avanzado",
+          "Conexión con sistemas externos",
+          "Pasarelas de pago",
+          "Roles y permisos",
+          "Reportes personalizados",
+          "Automatizaciones",
+          "Geolocalización",
+          "Chat interno",
+          "Integración con CRM",
+          "Integración con ERP",
+          "Preparado para escalar con tu negocio",
+          "Diseño UI/UX personalizado",
+          "Soporte prioritario",
+          "Consultoría técnica"
         ]
+      }
+    ],
+    "plansHighlightsTitle": "Todas nuestras aplicaciones incluyen",
+    "plansHighlights": [
+      "Diseño profesional",
+      "Pruebas antes del lanzamiento",
+      "Código escalable",
+      "Capacitación inicial",
+      "Soporte post-lanzamiento",
+      "Publicación en tiendas",
+      "Optimización para dispositivos móviles",
+      "Asesoría durante el desarrollo"
+    ],
+    "plansGuarantee": "Te acompañamos durante los primeros 30 días después del lanzamiento para resolver incidencias y realizar ajustes menores sin costo adicional.",
+    "plansComparisonHeaders": {
+      "start": "Lanzamiento",
+      "pro": "Crecimiento",
+      "premium": "Escala"
+    },
+    "plansComparisonIntro": "Compara alcance, plataformas y capacidades para elegir el plan que mejor acompaña el crecimiento de tu negocio.",
+    "plansComparison": [
+      {
+        "label": "Android",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "iOS",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Publicación en tiendas",
+        "start": "Google Play",
+        "pro": "Play + App Store",
+        "premium": "Play + App Store"
+      },
+      {
+        "label": "Registro de usuarios",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Datos en la nube",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Notificaciones Push",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Panel administrativo",
+        "start": false,
+        "pro": "Básico",
+        "premium": "Avanzado"
+      },
+      {
+        "label": "Analítica",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Conexión con sistemas externos",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Pagos online",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Geolocalización",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Chat",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "CRM",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "ERP",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Roles y permisos",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Automatizaciones",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Dashboard avanzado",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Soporte prioritario",
+        "start": false,
+        "pro": false,
+        "premium": true
       }
     ]
   },
@@ -1645,7 +1809,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "software a medida",
       "description": "Sistemas a medida para aumentar eficiencia, reducir costos y dar visibilidad a tus operaciones."
     },
-    "plansSubtitle": "Desde S/ 1,500 hasta S/ 20,000 según alcance y complejidad.",
+    "plansSubtitle": "Software a medida para automatizar operaciones, reducir errores y dar control total a tu negocio. Digitaliza procesos, optimiza tu operación o transforma tu empresa completa.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Funcionalidades",
@@ -1781,39 +1945,188 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     ],
     "plans": [
       {
-        "name": "START",
+        "name": "DIGITALIZA",
         "price": "S/ 1,500",
         "icon": "star",
         "color": "from-gray-600 to-gray-800",
+        "tagline": "Ideal para empresas que aún utilizan procesos manuales, Excel o documentos físicos.",
+        "benefit": "Reduce tareas manuales y organiza tu información en un solo lugar.",
         "features": [
-          "1 proceso digitalizado",
-          "Formularios / flujos básicos"
+          "Digitalización de un proceso específico",
+          "Formularios personalizados",
+          "Organización centralizada de información",
+          "Panel de gestión simple",
+          "Automatización básica",
+          "Registro y consulta de información",
+          "Diseño intuitivo",
+          "Capacitación inicial",
+          "Soporte post-entrega"
         ]
       },
       {
-        "name": "PRO",
-        "price": "S/ 4,000",
+        "name": "OPTIMIZA",
+        "price": "S/ 3,500",
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
+        "tagline": "Ideal para empresas que necesitan controlar mejor sus operaciones y centralizar información.",
+        "benefit": "Centraliza la operación de tu negocio y mejora el control de tus procesos.",
         "features": [
-          "3-5 procesos",
-          "Panel admin",
+          "Todo lo incluido en Digitaliza",
+          "Hasta 5 procesos digitalizados",
+          "Panel administrativo",
+          "Gestión de usuarios",
           "Roles y permisos",
-          "Integraciones"
+          "Reportes básicos",
+          "Integraciones esenciales",
+          "Flujo de trabajo personalizado",
+          "Historial de actividades",
+          "Capacitación para el equipo",
+          "Soporte ampliado"
         ]
       },
       {
-        "name": "PREMIUM",
-        "price": "S/ 8,000 - S/ 20,000",
+        "name": "TRANSFORMA",
+        "price": "Desde S/ 6,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
+        "tagline": "Ideal para empresas que buscan una transformación digital completa.",
+        "benefit": "Transforma procesos manuales en un sistema inteligente que escala junto con tu empresa.",
         "features": [
-          "Sistema interno completo",
+          "Todo lo incluido en Optimiza",
+          "Sistema completamente personalizado",
           "Automatizaciones avanzadas",
-          "Dashboard BI",
-          "Capacitación"
+          "Dashboard ejecutivo",
+          "Reportes en tiempo real",
+          "Conexión con sistemas externos",
+          "Integración con CRM",
+          "Integración con ERP",
+          "Múltiples módulos",
+          "Gestión avanzada de usuarios",
+          "Preparado para crecer con tu empresa",
+          "Flujos complejos de negocio",
+          "Capacitación completa",
+          "Consultoría estratégica",
+          "Soporte prioritario"
         ]
+      }
+    ],
+    "plansHighlightsTitle": "¿Qué puedes digitalizar?",
+    "plansHighlights": [
+      "Gestión de pacientes",
+      "Inventarios",
+      "Ventas",
+      "Compras",
+      "Recursos humanos",
+      "Reservas",
+      "Producción",
+      "Logística",
+      "Seguimiento de clientes",
+      "Reportes empresariales"
+    ],
+    "plansBenefitsTitle": "Beneficios de implementar software a medida",
+    "plansBenefits": [
+      "Menos trabajo manual",
+      "Menos errores operativos",
+      "Mayor control del negocio",
+      "Información centralizada",
+      "Procesos más rápidos",
+      "Mejor toma de decisiones",
+      "Escalabilidad",
+      "Ahorro de tiempo"
+    ],
+    "plansGuaranteeLabel": "Garantía de implementación",
+    "plansGuarantee": "Te acompañamos durante los primeros 30 días posteriores a la entrega para resolver incidencias y realizar ajustes menores sin costo adicional.",
+    "plansComparisonHeaders": {
+      "start": "Digitaliza",
+      "pro": "Optimiza",
+      "premium": "Transforma"
+    },
+    "plansComparisonIntro": "Compara el nivel de transformación digital para elegir la solución que tu operación necesita.",
+    "plansComparison": [
+      {
+        "label": "Procesos digitalizados",
+        "start": "1",
+        "pro": "Hasta 5",
+        "premium": "Ilimitados / a medida"
+      },
+      {
+        "label": "Información centralizada",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Panel administrativo",
+        "start": "Simple",
+        "pro": true,
+        "premium": "Avanzado"
+      },
+      {
+        "label": "Gestión de usuarios",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Roles y permisos",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Automatizaciones",
+        "start": "Básicas",
+        "pro": true,
+        "premium": "Avanzadas"
+      },
+      {
+        "label": "Reportes",
+        "start": false,
+        "pro": "Básicos",
+        "premium": "Tiempo real"
+      },
+      {
+        "label": "Dashboard ejecutivo",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Conexión con sistemas externos",
+        "start": false,
+        "pro": "Esenciales",
+        "premium": true
+      },
+      {
+        "label": "Integración CRM",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Integración ERP",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Capacitación",
+        "start": "Inicial",
+        "pro": "Equipo",
+        "premium": "Completa"
+      },
+      {
+        "label": "Soporte prioritario",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Escalable con tu empresa",
+        "start": false,
+        "pro": false,
+        "premium": true
       }
     ]
   }
