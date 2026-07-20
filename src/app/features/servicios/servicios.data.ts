@@ -93,7 +93,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "profesional",
       "description": "Autoridad, claridad y performance para tu marca. Diseño premium y base técnica lista para SEO."
     },
-    "plansSubtitle": "Sitios web profesionales desde S/ 500. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional.",
+    "plansSubtitle": "Sitios web profesionales desde S/ 500. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Secciones",
@@ -482,7 +482,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "completa",
       "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
     },
-    "plansSubtitle": "Tiendas virtuales diseñadas para vender más. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y depende de las necesidades del proyecto.",
+    "plansSubtitle": "Creamos tiendas online preparadas para vender, automatizar procesos y acompañar el crecimiento de tu negocio. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Incluye",
@@ -639,7 +639,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "plans": [
       {
         "name": "EMPRENDE",
-        "price": "S/ 2,500",
+        "price": "S/ 2,000",
         "icon": "star",
         "color": "from-gray-700 to-gray-900",
         "tagline": "Ideal para emprendedores y pequeños negocios que quieren comenzar a vender por internet.",
@@ -664,7 +664,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "CRECE",
-        "price": "S/ 3,500",
+        "price": "S/ 3,000",
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
@@ -691,7 +691,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "ESCALA",
-        "price": "S/ 5,000 - S/ 8,000",
+        "price": "Desde S/ 4,500 hasta S/ 7,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
         "tagline": "Ideal para empresas que necesitan automatización, personalización e integración con otros sistemas.",
@@ -1170,7 +1170,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "actual",
       "description": "Renuevo tu web con diseño limpio, velocidad y SEO técnico listo para competir."
     },
-    "plansSubtitle": "Desde S/ 800 hasta S/ 2,500 según alcance y complejidad. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "plansSubtitle": "Transformamos sitios web desactualizados en herramientas modernas que generan confianza, mejoran la experiencia del usuario y ayudan a conseguir más clientes. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Enfoque",
@@ -1306,39 +1306,148 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     ],
     "plans": [
       {
-        "name": "START",
-        "price": "S/ 800",
+        "name": "ACTUALIZA",
+        "price": "S/ 700",
         "icon": "star",
         "color": "from-gray-600 to-gray-800",
+        "tagline": "Ideal para negocios que necesitan renovar su imagen online sin empezar de cero.",
+        "benefit": "Una web más profesional que genera confianza desde la primera visita.",
         "features": [
-          "Modernización estética",
-          "Ajustes de contenido",
-          "Mejora de estructura"
+          "Modernización visual del sitio actual",
+          "Mejora de jerarquía y claridad de mensajes",
+          "Ajustes de contenido orientados a conversión",
+          "Mejora de estructura de navegación",
+          "Adaptación responsive refinada",
+          "Optimización básica de velocidad",
+          "Hosting y dominio incluidos por 6 meses"
         ]
       },
       {
-        "name": "PRO",
-        "price": "S/ 1,400",
+        "name": "EVOLUCIONA",
+        "price": "S/ 1,200",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
+        "tagline": "Ideal para empresas que buscan una experiencia de usuario moderna y más conversiones.",
+        "benefit": "Una web más rápida, clara y persuasiva para captar más clientes.",
         "features": [
-          "Rediseño completo de front-end",
-          "Nuevas animaciones",
-          "SEO on-page básico"
+          "Todo lo incluido en Actualiza",
+          "Rediseño completo de la interfaz",
+          "Mejora de experiencia de usuario (UX)",
+          "Nuevas animaciones y microinteracciones",
+          "Optimización de velocidad avanzada",
+          "SEO on-page para mejor posicionamiento",
+          "CTAs y formularios orientados a captación",
+          "Hosting y dominio incluidos por 6 meses"
         ]
       },
       {
-        "name": "PREMIUM",
-        "price": "S/ 2,500",
+        "name": "TRANSFORMA",
+        "price": "S/ 2,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
+        "tagline": "Ideal para marcas que necesitan una reconstrucción total y máximo rendimiento.",
+        "benefit": "Una presencia digital renovada lista para competir y convertir.",
         "features": [
-          "Reconstrucción total",
-          "Optimización de velocidad",
+          "Todo lo incluido en Evoluciona",
+          "Reconstrucción total del sitio",
+          "Diseño UI/UX a medida",
+          "Optimización Premium de velocidad",
           "SEO técnico completo",
-          "Migración profesional"
+          "Migración profesional sin pérdida de información",
+          "Arquitectura preparada para escalar",
+          "Prioridad de soporte",
+          "Hosting y dominio incluidos por 6 meses"
         ]
+      }
+    ],
+    "plansHighlightsTitle": "Todos nuestros rediseños incluyen",
+    "plansHighlights": [
+      "Imagen profesional",
+      "Mejor experiencia de usuario",
+      "Mayor velocidad",
+      "Mejor posicionamiento",
+      "Enfoque en conversiones",
+      "Hosting y dominio incluidos por 6 meses"
+    ],
+    "plansComparisonHeaders": {
+      "start": "Actualiza",
+      "pro": "Evoluciona",
+      "premium": "Transforma"
+    },
+    "plansComparisonIntro": "Compara el nivel de renovación para elegir el rediseño que mejor impulsa tu negocio.",
+    "plansComparison": [
+      {
+        "label": "Modernización visual",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Mejora de estructura",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Responsive",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Rediseño completo de interfaz",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Mejora de UX",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Optimización de velocidad",
+        "start": "Básica",
+        "pro": "Avanzada",
+        "premium": "Premium"
+      },
+      {
+        "label": "SEO",
+        "start": false,
+        "pro": "On-page",
+        "premium": "Técnico completo"
+      },
+      {
+        "label": "CTAs orientados a captación",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Reconstrucción total",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Diseño UI/UX a medida",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Migración profesional",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Soporte prioritario",
+        "start": false,
+        "pro": false,
+        "premium": true
       }
     ]
   },
