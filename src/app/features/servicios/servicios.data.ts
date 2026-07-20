@@ -49,6 +49,8 @@ export interface ServicioConfig {
   slug: string;
   heroImage: string;
   pageTitle: string;
+  /** Meta description SEO (~150–160 caracteres) */
+  metaDescription: string;
   hero: {
     badgeIcon: string;
     badgeText: string;
@@ -88,13 +90,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "pagina-web": {
     "slug": "pagina-web",
     "heroImage": "/assets/services/pagina web.jpg",
-    "pageTitle": "Agencia de Desarrollo Web en Perú | Páginas Web Personalizadas | NeoWeb",
+    "pageTitle": "Páginas Web Profesionales en Perú | Desarrollo Web a Medida | NeoWeb",
+    "metaDescription": "Diseño y desarrollo de páginas web profesionales en Perú. Sitios rápidos, responsive y optimizados para SEO que generan consultas y ventas. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "web",
-      "badgeText": "Página web",
-      "titleLine1": "Sitio corporativo",
-      "titleHighlight": "profesional",
-      "description": "Autoridad, claridad y performance para tu marca. Diseño premium y base técnica lista para SEO."
+      "badgeText": "Desarrollo web · Perú",
+      "titleLine1": "Páginas web",
+      "titleHighlight": "profesionales",
+      "description": "Diseño y desarrollo de páginas web a medida en Perú. Sitios corporativos rápidos, responsive y optimizados para Google, pensados para generar confianza, leads y ventas."
     },
     "plansSubtitle": "Sitios web profesionales desde S/ 500. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
     "includesSection": {
@@ -477,13 +480,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "tienda-virtual": {
     "slug": "tienda-virtual",
     "heroImage": "/assets/services/tienda online.jpg",
-    "pageTitle": "Tienda Online - NeoWeb | E-commerce Completo",
+    "pageTitle": "Tienda Online en Perú | Desarrollo de E-commerce | NeoWeb",
+    "metaDescription": "Creamos tiendas online y e-commerce en Perú con catálogo, pagos y envíos. Listas para vender 24/7, atraer clientes y escalar tus ventas. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "shopping_cart",
-      "badgeText": "eCommerce",
+      "badgeText": "E-commerce · Perú",
       "titleLine1": "Tienda online",
-      "titleHighlight": "completa",
-      "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
+      "titleHighlight": "que vende",
+      "description": "Desarrollo de tiendas online y e-commerce en Perú. Catálogo, pasarelas de pago, envíos y panel de gestión listos para vender 24/7 y convertir más visitas en pedidos."
     },
     "plansSubtitle": "Creamos tiendas online preparadas para vender, automatizar procesos y acompañar el crecimiento de tu negocio. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
     "includesSection": {
@@ -871,13 +875,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "marketing-digital": {
     "slug": "marketing-digital",
     "heroImage": "/assets/services/marketing.jpg",
-    "pageTitle": "Agencia de Marketing Digital en Perú | Estrategias Digitales | NeoWeb",
+    "pageTitle": "Agencia de Marketing Digital en Perú | Redes, SEO y Ads | NeoWeb",
+    "metaDescription": "Agencia de marketing digital en Perú: gestión de redes, contenido, SEO y publicidad digital para atraer clientes y hacer crecer tu marca. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "trending_up",
-      "badgeText": "Marketing digital",
-      "titleLine1": "Growth y performance",
-      "titleHighlight": "multicanal",
-      "description": "Estrategias integrales: paid, social, email y CRO para atraer, convertir y retener clientes."
+      "badgeText": "Marketing digital · Perú",
+      "titleLine1": "Marketing digital",
+      "titleHighlight": "que convierte",
+      "description": "Estrategias de marketing digital en Perú para atraer clientes reales: redes sociales, contenido, SEO y campañas publicitarias orientadas a resultados medibles."
     },
     "plansSubtitle": "Gestión profesional de redes, contenido y crecimiento. Elige el plan según el nivel de estrategia y ejecución que tu marca necesita.",
     "includesSection": {
@@ -1165,13 +1170,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "rediseno-paginas-web": {
     "slug": "rediseno-paginas-web",
     "heroImage": "/assets/services/rediseño.jpg",
-    "pageTitle": "Rediseño de Páginas Web - NeoWeb | Modernización Web",
+    "pageTitle": "Rediseño de Páginas Web en Perú | Moderniza tu Sitio | NeoWeb",
+    "metaDescription": "Rediseño de páginas web en Perú: renovamos diseño, velocidad y SEO técnico para que tu sitio inspire confianza y consiga más clientes. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "refresh",
-      "badgeText": "Rediseño web",
-      "titleLine1": "Moderniza tu sitio",
-      "titleHighlight": "actual",
-      "description": "Renuevo tu web con diseño limpio, velocidad y SEO técnico listo para competir."
+      "badgeText": "Rediseño web · Perú",
+      "titleLine1": "Rediseño de",
+      "titleHighlight": "páginas web",
+      "description": "Modernizamos páginas web desactualizadas en Perú. Mejoramos diseño, velocidad, experiencia móvil y SEO técnico para que tu sitio genere más confianza y conversiones."
     },
     "plansSubtitle": "Transformamos sitios web desactualizados en herramientas modernas que generan confianza, mejoran la experiencia del usuario y ayudan a conseguir más clientes. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
     "includesSection": {
@@ -1457,13 +1463,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "aplicaciones-moviles": {
     "slug": "aplicaciones-moviles",
     "heroImage": "/assets/services/app movil.jpg",
-    "pageTitle": "Aplicaciones Móviles - NeoWeb | Apps iOS y Android",
+    "pageTitle": "Desarrollo de Apps Móviles en Perú | iOS y Android | NeoWeb",
+    "metaDescription": "Desarrollo de aplicaciones móviles en Perú para iOS y Android. Apps a medida, rápidas y seguras para digitalizar tu negocio. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "phone_android",
-      "badgeText": "Apps móviles",
-      "titleLine1": "Apps nativas e",
-      "titleHighlight": "híbridas",
-      "description": "Lleva tu producto al bolsillo de tus usuarios con UX clara, performance y seguridad."
+      "badgeText": "Apps móviles · Perú",
+      "titleLine1": "Aplicaciones móviles",
+      "titleHighlight": "iOS y Android",
+      "description": "Desarrollo de aplicaciones móviles a medida en Perú. Apps para iOS y Android con buena experiencia de usuario, rendimiento y seguridad, listas para escalar tu negocio."
     },
     "plansSubtitle": "Aplicaciones móviles que digitalizan tu negocio, mejoran la experiencia de tus usuarios y abren nuevas oportunidades de crecimiento. Planes pensados para startups, emprendedores y empresas en expansión.",
     "includesSection": {
@@ -1801,13 +1808,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "digitalizacion-procesos": {
     "slug": "digitalizacion-procesos",
     "heroImage": "/assets/services/software a medida.jpg",
-    "pageTitle": "Software a Medida - NeoWeb | Desarrollo Personalizado",
+    "pageTitle": "Software a Medida en Perú | Digitalización de Procesos | NeoWeb",
+    "metaDescription": "Software a medida y digitalización de procesos en Perú. Sistemas que automatizan operaciones, reducen errores y dan control total a tu empresa. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "settings",
-      "badgeText": "Software a medida",
-      "titleLine1": "Desarrollamos",
-      "titleHighlight": "software a medida",
-      "description": "Sistemas a medida para aumentar eficiencia, reducir costos y dar visibilidad a tus operaciones."
+      "badgeText": "Software a medida · Perú",
+      "titleLine1": "Software a medida",
+      "titleHighlight": "para empresas",
+      "description": "Desarrollo de software a medida y digitalización de procesos en Perú. Sistemas personalizados que automatizan operaciones, reducen costos y dan visibilidad a tu negocio."
     },
     "plansSubtitle": "Software a medida para automatizar operaciones, reducir errores y dar control total a tu negocio. Digitaliza procesos, optimiza tu operación o transforma tu empresa completa.",
     "includesSection": {

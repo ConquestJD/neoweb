@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { getServicioBySlug, ServicioConfig } from './servicios.data';
 import { initServicioGsapAnimations } from './servicio-gsap-animations';
@@ -107,6 +107,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private title: Title,
+    private meta: Meta,
     @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
     private ngZone: NgZone,
@@ -195,6 +196,9 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private resetPageState(service: ServicioConfig) {
     this.service = service;
     this.title.setTitle(service.pageTitle);
+    this.meta.updateTag({ name: 'description', content: service.metaDescription });
+    this.meta.updateTag({ property: 'og:title', content: service.pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: service.metaDescription });
     this.activeProcessIndex = 0;
     this.sectionsVisible = {};
     this.ctaVisible = false;
