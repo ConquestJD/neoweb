@@ -15,6 +15,38 @@
   position: relative;
 }
 
+/* GSAP anima elementos internos; el contenedor no debe ocultar la sección */
+:host.gsap-enabled .svc-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+:host.gsap-enabled .svc-hero-eyebrow,
+:host.gsap-enabled .svc-hero-title,
+:host.gsap-enabled .svc-hero-cta,
+:host.gsap-enabled .svc-hero-desc,
+:host.gsap-enabled .svc-hero-content {
+  animation: none !important;
+}
+
+:host.gsap-enabled .svc-plan-card,
+:host.gsap-enabled .svc-list-item,
+:host.gsap-enabled .svc-fullcode-media img {
+  animation: none !important;
+}
+
+:host.gsap-enabled .svc-header,
+:host.gsap-enabled .svc-plans-grid {
+  perspective: 1000px;
+}
+
+:host.gsap-enabled .svc-cta-outline,
+:host.gsap-enabled .svc-cta-inner,
+:host.gsap-enabled .svc-cta-link {
+  animation: none !important;
+}
+
 .svc-inner {
   max-width: 1180px;
   margin: 0 auto;

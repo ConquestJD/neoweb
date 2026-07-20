@@ -7,13 +7,16 @@ import {
   ChangeDetectorRef,
   NgZone,
   OnDestroy,
-  HostListener
+  HostListener,
+  HostBinding,
+  ElementRef
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { getServicioBySlug, ServicioConfig } from './servicios.data';
+import { initServicioGsapAnimations } from './servicio-gsap-animations';
 
 /**
  * ============================================================
@@ -38,6 +41,8 @@ import { getServicioBySlug, ServicioConfig } from './servicios.data';
   styleUrl: './servicio.component.css'
 })
 export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   service?: ServicioConfig;
   showPage = true;
   sectionsVisible: Record<string, boolean> = {};
@@ -51,6 +56,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   private destroyed = false;
   private isFirstServiceLoad = true;
+  private gsapCleanup: (() => void) | null = null;
   private readonly placeholder = '/assets/services/placeholder.jpg';
 
   private readonly processStepImages: Record<string, string[]> = {
@@ -103,7 +109,8 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     private title: Title,
     @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
   ) {}
 
   ngOnInit() {
@@ -114,6 +121,9 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId) && this.service) {
+      if (!this.prefersReducedMotion()) {
+        this.gsapEnabled = true;
+      }
       setTimeout(() => this.setupScrollAnimations(), 150);
     }
   }
@@ -121,7 +131,21 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.destroyed = true;
     this.routeSub?.unsubscribe();
+    this.teardownMotion();
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  private teardownMotion() {
     this.observer?.disconnect();
+    this.observer = undefined;
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
   }
 
   private loadService(slug: string | null) {
@@ -137,7 +161,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (shouldRemount && isPlatformBrowser(this.platformId)) {
       this.showPage = false;
-      this.observer?.disconnect();
+      this.teardownMotion();
       window.scrollTo({ top: 0, behavior: 'auto' });
       this.cdr.detectChanges();
     }
@@ -160,6 +184,9 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
       this.cdr.detectChanges();
 
       if (isPlatformBrowser(this.platformId)) {
+        if (!this.prefersReducedMotion()) {
+          this.gsapEnabled = true;
+        }
         setTimeout(() => this.setupScrollAnimations(), 150);
       }
     });
@@ -175,9 +202,10 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;
   }
+
   @HostListener('window:scroll')
   onScroll() {
-    if (!isPlatformBrowser(this.platformId) || this.ctaVisible) {
+    if (!isPlatformBrowser(this.platformId) || this.ctaVisible || this.gsapEnabled) {
       return;
     }
 
@@ -192,35 +220,47 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   setupScrollAnimations() {
-    if (!isPlatformBrowser(this.platformId) || this.destroyed) {
+    if (!isPlatformBrowser(this.platformId) || this.destroyed || !this.service) {
       return;
     }
 
-    this.observer?.disconnect();
+    this.teardownMotion();
 
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.getAttribute('data-section-id');
-          if (sectionId) {
-            this.ngZone.run(() => {
-              this.sectionsVisible[sectionId] = true;
-              if (sectionId === 'cta') {
-                this.ctaVisible = true;
-              }
-              this.cdr.markForCheck();
-            });
-          }
+    if (this.prefersReducedMotion()) {
+      this.gsapEnabled = false;
+      this.revealAllSectionsInstant();
+      return;
+    }
+
+    this.gsapEnabled = true;
+
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initServicioGsapAnimations(this.host.nativeElement, {
+        onSectionVisible: (sectionId) => {
+          this.ngZone.run(() => {
+            this.sectionsVisible[sectionId] = true;
+            if (sectionId === 'cta') {
+              this.ctaVisible = true;
+            }
+            this.cdr.markForCheck();
+          });
+        },
+        onCtaComplete: () => {
+          this.ngZone.run(() => {
+            this.ctaVisible = true;
+            this.cdr.markForCheck();
+          });
         }
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
     });
+  }
 
-    document.querySelectorAll('[data-section-id]').forEach(section => {
-      this.observer?.observe(section);
+  private revealAllSectionsInstant() {
+    ['plans', 'includes', 'process', 'fullcode', 'cta'].forEach((id) => {
+      this.sectionsVisible[id] = true;
     });
+    this.ctaVisible = true;
+    this.cdr.markForCheck();
   }
 
   setActiveProcess(index: number) {
