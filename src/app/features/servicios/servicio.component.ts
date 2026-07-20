@@ -254,6 +254,10 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     return `/assets/services/fullcode/${slug}.jpg`;
   }
 
+  isCompareBool(value: string | boolean): boolean {
+    return typeof value === 'boolean';
+  }
+
   onImgError(event: Event) {
     const img = event.target as HTMLImageElement;
     if (img && img.src.indexOf('placeholder.jpg') === -1) {

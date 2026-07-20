@@ -12,6 +12,14 @@ export interface ServicioPlan {
   color: string;
   featured?: boolean;
   features: string[];
+  note?: string;
+}
+
+export interface ServicioPlanComparisonRow {
+  label: string;
+  start: string | boolean;
+  pro: string | boolean;
+  premium: string | boolean;
 }
 
 export interface ServicioStep {
@@ -57,6 +65,8 @@ export interface ServicioConfig {
   methodology: ServicioStep[];
   fullCodeBenefits: ServicioItem[];
   plans: ServicioPlan[];
+  plansHighlights?: string[];
+  plansComparison?: ServicioPlanComparisonRow[];
 }
 
 export const SERVICIOS: Record<string, ServicioConfig> = {
@@ -532,7 +542,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "multicanal",
       "description": "Estrategias integrales: paid, social, email y CRO para atraer, convertir y retener clientes."
     },
-    "plansSubtitle": "Desde S/ 600/mes hasta S/ 1,800/mes según inversión y alcance.",
+    "plansSubtitle": "Gestión profesional de redes, contenido y crecimiento. Elige el plan según el nivel de estrategia y ejecución que tu marca necesita.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Servicios",
@@ -668,12 +678,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "star",
         "color": "from-orange-500 to-red-500",
         "features": [
-          "8 publicaciones",
-          "Diseño simple",
-          "Copywriting",
-          "Calendario básico",
-          "Métricas simples"
-        ]
+          "8 publicaciones profesionales",
+          "Diseño visual para redes sociales",
+          "Copywriting persuasivo",
+          "Calendario de contenido mensual",
+          "Gestión de Facebook e Instagram",
+          "Reporte mensual básico"
+        ],
+        "note": "El presupuesto publicitario es invertido directamente por el cliente. NeoWeb gestiona y optimiza las campañas."
       },
       {
         "name": "PRO",
@@ -683,12 +695,16 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "color": "from-gray-700 to-gray-900",
         "featured": true,
         "features": [
-          "12 publicaciones",
-          "1 reel mensual",
-          "Diseño profesional",
-          "Estrategia de contenido",
-          "Métricas detalladas"
-        ]
+          "12 publicaciones profesionales",
+          "2 reels mensuales",
+          "Diseño premium personalizado",
+          "Estrategia de contenido mensual",
+          "Optimización de perfiles",
+          "Investigación de competencia",
+          "Reporte detallado",
+          "Reunión mensual"
+        ],
+        "note": "El presupuesto publicitario es invertido directamente por el cliente. NeoWeb gestiona y optimiza las campañas."
       },
       {
         "name": "PREMIUM",
@@ -697,12 +713,110 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "diamond",
         "color": "from-blue-500 to-cyan-500",
         "features": [
-          "16 publicaciones",
-          "4 reels al mes",
-          "Campaña publicitaria incluida (sin presupuesto)",
-          "Branding visual",
-          "Informes completos + reunión mensual"
-        ]
+          "16 publicaciones profesionales",
+          "4 reels mensuales",
+          "Branding visual avanzado",
+          "Gestión profesional de Meta Ads",
+          "Optimización continua de campañas",
+          "Estrategia de crecimiento",
+          "Informes completos",
+          "Reunión estratégica mensual",
+          "Soporte prioritario"
+        ],
+        "note": "El presupuesto publicitario es invertido directamente por el cliente. NeoWeb gestiona y optimiza las campañas."
+      }
+    ],
+    "plansHighlights": [
+      "Facebook",
+      "Instagram",
+      "Copywriting",
+      "Calendario de contenido",
+      "Diseño profesional"
+    ],
+    "plansComparison": [
+      {
+        "label": "Publicaciones profesionales",
+        "start": "8 / mes",
+        "pro": "12 / mes",
+        "premium": "16 / mes"
+      },
+      {
+        "label": "Reels mensuales",
+        "start": false,
+        "pro": "2",
+        "premium": "4"
+      },
+      {
+        "label": "Diseño visual",
+        "start": "Profesional",
+        "pro": "Premium",
+        "premium": "Branding avanzado"
+      },
+      {
+        "label": "Copywriting persuasivo",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Calendario de contenido",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Gestión Facebook e Instagram",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Estrategia de contenido",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Optimización de perfiles",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Investigación de competencia",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Gestión de Meta Ads",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Optimización de campañas",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Reporte",
+        "start": "Básico",
+        "pro": "Detallado",
+        "premium": "Completo"
+      },
+      {
+        "label": "Reunión mensual",
+        "start": false,
+        "pro": true,
+        "premium": "Estratégica"
+      },
+      {
+        "label": "Soporte prioritario",
+        "start": false,
+        "pro": false,
+        "premium": true
       }
     ]
   },
