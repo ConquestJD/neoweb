@@ -361,6 +361,25 @@
   color: rgba(255, 255, 255, 0.68);
 }
 
+.svc-plan-benefit {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 2px solid #000000;
+  background: rgba(0, 0, 0, 0.04);
+  font-family: var(--label);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.svc-plan-card--dark .svc-plan-benefit {
+  border-left-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
 .svc-plan-period {
   font-family: var(--sans);
   font-size: 1rem;
@@ -464,15 +483,31 @@
   color: rgba(255, 255, 255, 0.58);
 }
 
-.svc-plans-highlights {
-  list-style: none;
+.svc-plans-highlights-wrap {
   margin: 0 0 40px;
   padding: 0 0 28px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.svc-plans-highlights-title {
+  margin: 0 0 18px;
+  text-align: center;
+  font-family: var(--label);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.svc-plans-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px 28px;
-  border-bottom: 1px solid var(--rule);
 }
 
 .svc-plans-highlights li {
@@ -489,6 +524,42 @@
 .svc-plans-highlights .material-icons {
   font-size: 18px;
   color: #000000;
+}
+
+.svc-plans-guarantee {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 36px;
+  padding: 22px 24px;
+  border: 1px solid var(--rule);
+  background: #ffffff;
+}
+
+.svc-plans-guarantee .material-icons {
+  flex-shrink: 0;
+  font-size: 28px;
+  color: #000000;
+  margin-top: 2px;
+}
+
+.svc-plans-guarantee-label {
+  margin: 0 0 6px;
+  font-family: var(--label);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.svc-plans-guarantee-text {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(31, 21, 12, 0.72);
+  max-width: 720px;
 }
 
 .svc-plans-compare {
@@ -1236,9 +1307,28 @@
     margin: 0 auto;
   }
 
+  .svc-plans-highlights-wrap {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+  }
+
   .svc-plans-highlights {
     gap: 10px 20px;
     justify-content: flex-start;
+  }
+
+  .svc-plans-highlights-title {
+    text-align: left;
+  }
+
+  .svc-plans-guarantee {
+    margin-top: 28px;
+    padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .svc-plans-guarantee-text {
+    font-size: 0.88rem;
   }
 
   .svc-plans-compare {
@@ -1292,9 +1382,12 @@
     padding: 80px 0;
   }
 
+  .svc-plans-highlights-wrap {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+  }
+
   .svc-plans-highlights {
-    margin-bottom: 32px;
-    padding-bottom: 20px;
     gap: 12px 16px;
   }
 

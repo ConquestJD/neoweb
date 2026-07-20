@@ -33,12 +33,15 @@
         <p class="svc-intro">{{ s.plansSubtitle }}</p>
       </div>
 
-      <ul *ngIf="s.plansHighlights?.length" class="svc-plans-highlights" aria-label="Incluido en los planes">
-        <li *ngFor="let item of s.plansHighlights">
-          <span class="material-icons" aria-hidden="true">check_circle</span>
-          <span>{{ item }}</span>
-        </li>
-      </ul>
+      <div *ngIf="s.plansHighlights?.length" class="svc-plans-highlights-wrap">
+        <p *ngIf="s.plansHighlightsTitle" class="svc-plans-highlights-title">{{ s.plansHighlightsTitle }}</p>
+        <ul class="svc-plans-highlights" aria-label="Incluido en los planes">
+          <li *ngFor="let item of s.plansHighlights">
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </div>
 
       <div class="svc-plans-grid">
         <article
@@ -58,6 +61,7 @@
           </p>
 
           <p *ngIf="plan.tagline" class="svc-plan-tagline">{{ plan.tagline }}</p>
+          <p *ngIf="plan.benefit" class="svc-plan-benefit">{{ plan.benefit }}</p>
 
           <ul class="svc-plan-features">
             <li *ngFor="let feature of plan.features">{{ feature }}</li>
@@ -70,6 +74,14 @@
           </a>
         </article>
       </div>
+
+      <aside *ngIf="s.plansGuarantee" class="svc-plans-guarantee" aria-label="Garantía de lanzamiento">
+        <span class="material-icons" aria-hidden="true">verified</span>
+        <div>
+          <p class="svc-plans-guarantee-label">Garantía de lanzamiento</p>
+          <p class="svc-plans-guarantee-text">{{ s.plansGuarantee }}</p>
+        </div>
+      </aside>
 
       <div *ngIf="s.plansComparison?.length" class="svc-plans-compare">
         <div class="svc-plans-compare-head">

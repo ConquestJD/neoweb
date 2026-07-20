@@ -12,6 +12,7 @@ export interface ServicioPlan {
   color: string;
   featured?: boolean;
   tagline?: string;
+  benefit?: string;
   features: string[];
   note?: string;
 }
@@ -73,6 +74,8 @@ export interface ServicioConfig {
   fullCodeBenefits: ServicioItem[];
   plans: ServicioPlan[];
   plansHighlights?: string[];
+  plansHighlightsTitle?: string;
+  plansGuarantee?: string;
   plansComparison?: ServicioPlanComparisonRow[];
   plansComparisonHeaders?: ServicioPlanComparisonHeaders;
   plansComparisonIntro?: string;
@@ -479,7 +482,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "completa",
       "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
     },
-    "plansSubtitle": "Desde S/ 2,500 hasta S/ 8,000 según funcionalidades y catálogo. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "plansSubtitle": "Tiendas virtuales diseñadas para vender más. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y depende de las necesidades del proyecto.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Incluye",
@@ -635,48 +638,230 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     ],
     "plans": [
       {
-        "name": "START",
+        "name": "EMPRENDE",
         "price": "S/ 2,500",
         "icon": "star",
         "color": "from-gray-700 to-gray-900",
+        "tagline": "Ideal para emprendedores y pequeños negocios que quieren comenzar a vender por internet.",
+        "benefit": "Empieza a vender online con una tienda profesional desde el primer día.",
         "features": [
+          "Tienda virtual profesional lista para vender",
           "Hasta 50 productos",
-          "Secciones: Inicio, Tienda, Categorías simples, Producto, Carrito, Checkout, Contacto",
-          "Métodos de pago básicos",
-          "Diseño moderno",
-          "Inventario básico",
-          "SEO simple"
+          "Carrito de compras",
+          "Checkout seguro",
+          "Integración con métodos de pago",
+          "Gestión básica de inventario",
+          "Gestión de pedidos",
+          "Integración con WhatsApp Business",
+          "Correos automáticos de confirmación de compra",
+          "Carga inicial de productos (20 productos)",
+          "Capacitación personalizada de uso",
+          "Diseño responsive para móviles",
+          "Certificado SSL",
+          "Soporte inicial post-lanzamiento",
+          "Hosting y dominio incluidos por 6 meses"
         ]
       },
       {
-        "name": "PRO",
+        "name": "CRECE",
         "price": "S/ 3,500",
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
+        "tagline": "Ideal para negocios con catálogo consolidado que buscan aumentar ventas y optimizar la experiencia de compra.",
+        "benefit": "Convierte más visitantes en clientes y aumenta tus ventas.",
         "features": [
+          "Todo lo incluido en Emprende",
           "Hasta 300 productos",
-          "Secciones: Inicio, Tienda avanzada, Categorías profesionales, Producto completo, Cuenta usuario, Políticas, Blog",
-          "Variantes y filtros",
-          "Cupones y reportes",
-          "SEO optimizado",
-          "Integración con WhatsApp"
+          "Variantes y filtros avanzados",
+          "Cupones de descuento",
+          "Promociones automáticas",
+          "Recuperación de carritos abandonados",
+          "Productos relacionados",
+          "Ventas cruzadas (“Clientes también compraron”)",
+          "Lista de deseos (Wishlist)",
+          "Panel de estadísticas",
+          "Integración con Facebook Catalog",
+          "Configuración de Meta Pixel",
+          "Google Analytics 4 configurado",
+          "Google Search Console configurado",
+          "Optimización de velocidad",
+          "Blog para posicionamiento de marca"
         ]
       },
       {
-        "name": "PREMIUM",
+        "name": "ESCALA",
         "price": "S/ 5,000 - S/ 8,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
+        "tagline": "Ideal para empresas que necesitan automatización, personalización e integración con otros sistemas.",
+        "benefit": "Automatiza tu operación y lleva tu negocio al siguiente nivel.",
         "features": [
+          "Todo lo incluido en Crece",
           "Productos ilimitados",
           "Panel administrativo personalizado",
+          "Dashboard ejecutivo",
+          "Multiusuario con roles y permisos",
+          "CRM integrado",
+          "Integraciones ERP",
+          "APIs personalizadas",
+          "Automatización de procesos",
+          "Automatización de correos de marketing",
+          "Segmentación de clientes",
+          "Programa de fidelización",
+          "Sistema de cotizaciones",
+          "Integración con operadores logísticos",
+          "Flujos de aprobación",
           "Diseño UI/UX a medida",
-          "Automatizaciones (correos, estados, alertas)",
-          "Integraciones API externas",
-          "SEO completo",
-          "Optimización de rendimiento"
+          "Arquitectura preparada para escalar"
         ]
+      }
+    ],
+    "plansHighlightsTitle": "Todas nuestras tiendas virtuales incluyen",
+    "plansHighlights": [
+      "Diseño profesional",
+      "Panel administrativo",
+      "Carrito de compras",
+      "Certificado SSL",
+      "WhatsApp integrado",
+      "Adaptación móvil",
+      "Capacitación inicial",
+      "Soporte post-lanzamiento",
+      "Hosting y dominio incluidos por 6 meses"
+    ],
+    "plansGuarantee": "Te acompañamos durante los primeros 30 días después del lanzamiento para resolver incidencias y realizar ajustes menores sin costo adicional.",
+    "plansComparisonHeaders": {
+      "start": "Emprende",
+      "pro": "Crece",
+      "premium": "Escala"
+    },
+    "plansComparisonIntro": "Compara herramientas de venta, automatización y control para elegir el nivel que tu negocio necesita.",
+    "plansComparison": [
+      {
+        "label": "Productos",
+        "start": "Hasta 50",
+        "pro": "Hasta 300",
+        "premium": "Ilimitados"
+      },
+      {
+        "label": "Gestión de pedidos",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Inventario",
+        "start": "Básico",
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "WhatsApp",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Carrito de compras",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Métodos de pago",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Carga inicial de productos",
+        "start": "20",
+        "pro": "20",
+        "premium": "20"
+      },
+      {
+        "label": "Capacitación",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Cupones",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Recuperación de carritos",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Wishlist",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Facebook Catalog",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Meta Pixel",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Google Analytics",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "CRM",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "ERP",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "APIs",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Automatizaciones",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Programa de fidelización",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Dashboard ejecutivo",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Soporte prioritario",
+        "start": false,
+        "pro": false,
+        "premium": true
       }
     ]
   },
