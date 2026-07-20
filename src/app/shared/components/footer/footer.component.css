@@ -1,3 +1,16 @@
+:host {
+  display: block;
+}
+
+/* GSAP controla las intros; hovers CSS se mantienen */
+:host.gsap-enabled .site-footer-wordmark {
+  animation: none;
+}
+
+:host.gsap-enabled .site-footer-wordmark.is-live {
+  animation: siteFooterWordmarkStroke 5s ease-in-out infinite;
+}
+
 .site-footer {
   background: #000000;
   color: #ffffff;

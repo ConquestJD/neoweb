@@ -22,8 +22,8 @@
 
         <!-- Servicios con megamenú -->
         <div class="navbar-dropdown-wrapper"
-             (mouseenter)="isServicesDropdownOpen = true"
-             (mouseleave)="isServicesDropdownOpen = false">
+             (mouseenter)="openServicesDropdown()"
+             (mouseleave)="closeServicesDropdown()">
           <button
              class="nav-link nav-link-with-icon"
              [class.nav-link-active]="isServicesDropdownOpen"
@@ -101,7 +101,7 @@
   <!-- Mobile Menu -->
   <div
     *ngIf="isMenuOpen"
-    class="mobile-menu-glass animate-slide-up"
+    class="mobile-menu-glass"
     [@slideDown]
   >
     <div class="mobile-menu-content">

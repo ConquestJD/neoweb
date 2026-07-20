@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone, ElementRef, HostBinding } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { initFooterGsapAnimations } from './footer-gsap-animations';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,9 @@ import { RouterModule } from '@angular/router';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent {
+export class FooterComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   currentYear = new Date().getFullYear();
 
   navLinks = [
@@ -34,4 +37,39 @@ export class FooterComponent {
     { label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61583086977279' },
     { label: 'contacto@neoweb.website', url: 'mailto:contacto@neoweb.website' }
   ];
+
+  private gsapCleanup: (() => void) | null = null;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
+  ) {}
+
+  ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    if (this.prefersReducedMotion()) {
+      return;
+    }
+
+    this.gsapEnabled = true;
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initFooterGsapAnimations(this.host.nativeElement);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
 }

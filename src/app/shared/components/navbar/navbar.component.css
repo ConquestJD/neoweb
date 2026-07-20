@@ -4,6 +4,15 @@
    - Megamenú visual de servicios con miniaturas temáticas
    =========================================================== */
 
+:host {
+  display: block;
+}
+
+/* GSAP controla intros; desactiva reveal CSS del megamenú */
+:host.gsap-enabled .megamenu-row {
+  animation: none;
+}
+
 .navbar-fixed {
   position: fixed;
   top: 0;

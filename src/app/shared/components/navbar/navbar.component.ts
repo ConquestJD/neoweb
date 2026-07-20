@@ -1,7 +1,26 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  AfterViewInit,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID,
+  NgZone,
+  ElementRef,
+  HostBinding,
+  ChangeDetectorRef
+} from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
+import {
+  initNavbarIntro,
+  playMegamenuOpen,
+  playMobileMenuOpen,
+  playMobileSubmenuOpen
+} from './navbar-gsap-animations';
+
+type PanelTimeline = NonNullable<ReturnType<typeof playMegamenuOpen>>;
 
 interface ServiceMenuItem {
   name: string;
@@ -18,21 +37,18 @@ interface ServiceMenuItem {
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   animations: [
+    // Enter lo maneja GSAP; leave se mantiene ligero
     trigger('slideDown', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(-8px)' }),
-        animate('200ms cubic-bezier(0.22, 1, 0.36, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
+        style({ opacity: 1, transform: 'none' })
       ]),
       transition(':leave', [
         animate('150ms ease-in', style({ opacity: 0, transform: 'translateY(-8px)' }))
       ])
     ]),
-    // Trigger especial para el megamenú: incluye el translateX(-50%)
-    // que centra el panel para que la animación NO sobreescriba el centrado.
     trigger('megaFade', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translate(-50%, -8px)' }),
-        animate('220ms cubic-bezier(0.22, 1, 0.36, 1)', style({ opacity: 1, transform: 'translate(-50%, 0)' }))
+        style({ opacity: 1, transform: 'translate(-50%, 0)' })
       ]),
       transition(':leave', [
         animate('160ms ease-in', style({ opacity: 0, transform: 'translate(-50%, -8px)' }))
@@ -40,12 +56,13 @@ interface ServiceMenuItem {
     ])
   ]
 })
-export class NavbarComponent {
+export class NavbarComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   isMenuOpen = false;
   @Input() isScrolled = false;
   isServicesDropdownOpen = false;
 
-  // Servicios con imágenes locales
   services: ServiceMenuItem[] = [
     {
       name: 'Página Web',
@@ -60,7 +77,6 @@ export class NavbarComponent {
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
       image: '/assets/services/tienda online.jpg',
-
     },
     {
       name: 'Marketing Digital',
@@ -68,7 +84,6 @@ export class NavbarComponent {
       route: '/servicios/marketing-digital',
       icon: 'campaign',
       image: '/assets/services/marketing.jpg',
-
     },
     {
       name: 'Rediseño Web',
@@ -76,7 +91,6 @@ export class NavbarComponent {
       route: '/servicios/rediseno-paginas-web',
       icon: 'autorenew',
       image: '/assets/services/rediseño.jpg',
-
     },
     {
       name: 'Apps Móviles',
@@ -84,7 +98,6 @@ export class NavbarComponent {
       route: '/servicios/aplicaciones-moviles',
       icon: 'phone_iphone',
       image: '/assets/services/app movil.jpg',
-
     },
     {
       name: 'Software a medida',
@@ -92,18 +105,75 @@ export class NavbarComponent {
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
       image: '/assets/services/software a medida.jpg',
-
     }
   ];
 
-  constructor(private router: Router) {}
+  private gsapCleanup: (() => void) | null = null;
+  private activePanelTl: PanelTimeline | null = null;
+  private animFrame: number | null = null;
+
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngAfterViewInit() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    if (this.prefersReducedMotion()) {
+      return;
+    }
+
+    this.gsapEnabled = true;
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initNavbarIntro(this.host.nativeElement);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.animFrame !== null) {
+      cancelAnimationFrame(this.animFrame);
+      this.animFrame = null;
+    }
+    this.activePanelTl?.kill();
+    this.activePanelTl = null;
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
+  }
+
+  openServicesDropdown() {
+    if (this.isServicesDropdownOpen) {
+      return;
+    }
+    this.isServicesDropdownOpen = true;
+    this.cdr.detectChanges();
+    this.playAfterPaint(() => playMegamenuOpen(this.host.nativeElement));
+  }
+
+  closeServicesDropdown() {
+    this.isServicesDropdownOpen = false;
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      this.cdr.detectChanges();
+      this.playAfterPaint(() => playMobileMenuOpen(this.host.nativeElement));
+    } else {
+      this.isServicesDropdownOpen = false;
+    }
   }
 
   closeMenu() {
     this.isMenuOpen = false;
+    this.isServicesDropdownOpen = false;
   }
 
   navigateTo(route: string) {
@@ -114,9 +184,37 @@ export class NavbarComponent {
 
   toggleServicesDropdown() {
     this.isServicesDropdownOpen = !this.isServicesDropdownOpen;
+    if (this.isServicesDropdownOpen) {
+      this.cdr.detectChanges();
+      this.playAfterPaint(() => {
+        if (this.isMenuOpen) {
+          return playMobileSubmenuOpen(this.host.nativeElement);
+        }
+        return playMegamenuOpen(this.host.nativeElement);
+      });
+    }
   }
 
-  closeServicesDropdown() {
-    this.isServicesDropdownOpen = false;
+  private playAfterPaint(factory: () => PanelTimeline | null) {
+    if (!this.gsapEnabled || this.prefersReducedMotion()) {
+      return;
+    }
+
+    if (this.animFrame !== null) {
+      cancelAnimationFrame(this.animFrame);
+    }
+
+    this.animFrame = requestAnimationFrame(() => {
+      this.animFrame = null;
+      this.ngZone.runOutsideAngular(() => {
+        this.activePanelTl?.kill();
+        this.activePanelTl = factory();
+      });
+    });
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 }
