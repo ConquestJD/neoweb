@@ -11,6 +11,10 @@
 /* GSAP controla intros; desactiva reveal CSS del megamenú */
 :host.gsap-enabled .megamenu-row {
   animation: none;
+  /* Fallback visible si se interrumpe GSAP; GSAP pisa con inline al animar */
+  opacity: 1;
+  transform: none;
+  transition: color 0.25s ease;
 }
 
 .navbar-fixed {
@@ -172,7 +176,7 @@
   text-decoration: none;
   color: #ffffff;
   cursor: pointer;
-  transition: opacity 0.25s ease;
+  transition: color 0.25s ease;
   opacity: 0;
   transform: translateY(8px);
   animation: megaRowReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;

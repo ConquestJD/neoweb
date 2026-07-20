@@ -10,17 +10,16 @@ import {
   HostBinding,
   ChangeDetectorRef
 } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style } from '@angular/animations';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import {
   initNavbarIntro,
   playMegamenuOpen,
   playMobileMenuOpen,
-  playMobileSubmenuOpen
+  playMobileSubmenuOpen,
+  PanelAnimationHandle
 } from './navbar-gsap-animations';
-
-type PanelTimeline = NonNullable<ReturnType<typeof playMegamenuOpen>>;
 
 interface ServiceMenuItem {
   name: string;
@@ -37,22 +36,14 @@ interface ServiceMenuItem {
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   animations: [
-    // Enter lo maneja GSAP; leave se mantiene ligero
+    // Enter/leave instant: GSAP maneja el enter; leave largo causaba carreras
     trigger('slideDown', [
-      transition(':enter', [
-        style({ opacity: 1, transform: 'none' })
-      ]),
-      transition(':leave', [
-        animate('150ms ease-in', style({ opacity: 0, transform: 'translateY(-8px)' }))
-      ])
+      transition(':enter', [style({ opacity: 1, transform: 'none' })]),
+      transition(':leave', [style({ opacity: 0 })])
     ]),
     trigger('megaFade', [
-      transition(':enter', [
-        style({ opacity: 1, transform: 'translate(-50%, 0)' })
-      ]),
-      transition(':leave', [
-        animate('160ms ease-in', style({ opacity: 0, transform: 'translate(-50%, -8px)' }))
-      ])
+      transition(':enter', [style({ opacity: 1, transform: 'translate(-50%, 0)' })]),
+      transition(':leave', [style({ opacity: 0, transform: 'translate(-50%, 0)' })])
     ])
   ]
 })
@@ -110,8 +101,9 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   ];
 
   private gsapCleanup: (() => void) | null = null;
-  private activePanelTl: PanelTimeline | null = null;
+  private activePanelAnim: PanelAnimationHandle | null = null;
   private animFrame: number | null = null;
+  private panelGeneration = 0;
 
   constructor(
     private router: Router,
@@ -137,12 +129,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.animFrame !== null) {
-      cancelAnimationFrame(this.animFrame);
-      this.animFrame = null;
-    }
-    this.activePanelTl?.kill();
-    this.activePanelTl = null;
+    this.teardownPanelMotion();
     if (this.gsapCleanup) {
       this.gsapCleanup();
       this.gsapCleanup = null;
@@ -153,15 +140,25 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     if (this.isServicesDropdownOpen) {
       return;
     }
+
+    this.teardownPanelMotion();
     this.megamenuPreviewIndex = 0;
     this.isServicesDropdownOpen = true;
     this.cdr.detectChanges();
-    this.playAfterPaint(() => playMegamenuOpen(this.host.nativeElement));
+
+    this.playAfterPaint(() => {
+      if (!this.isServicesDropdownOpen) {
+        return null;
+      }
+      return playMegamenuOpen(this.host.nativeElement);
+    });
   }
 
   closeServicesDropdown() {
+    this.teardownPanelMotion();
     this.isServicesDropdownOpen = false;
     this.megamenuPreviewIndex = 0;
+    this.cdr.detectChanges();
   }
 
   setMegamenuPreview(index: number) {
@@ -176,53 +173,97 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   }
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
     if (this.isMenuOpen) {
-      this.cdr.detectChanges();
-      this.playAfterPaint(() => playMobileMenuOpen(this.host.nativeElement));
-    } else {
-      this.isServicesDropdownOpen = false;
+      this.closeMenu();
+      return;
     }
+
+    this.teardownPanelMotion();
+    this.isMenuOpen = true;
+    this.cdr.detectChanges();
+    this.playAfterPaint(() => {
+      if (!this.isMenuOpen) {
+        return null;
+      }
+      return playMobileMenuOpen(this.host.nativeElement);
+    });
   }
 
   closeMenu() {
+    this.teardownPanelMotion();
     this.isMenuOpen = false;
     this.isServicesDropdownOpen = false;
+    this.megamenuPreviewIndex = 0;
+    this.cdr.detectChanges();
   }
 
   navigateTo(route: string) {
     this.router.navigate([route]);
     this.closeMenu();
-    this.isServicesDropdownOpen = false;
   }
 
   toggleServicesDropdown() {
-    this.isServicesDropdownOpen = !this.isServicesDropdownOpen;
     if (this.isServicesDropdownOpen) {
+      this.teardownPanelMotion();
+      this.isServicesDropdownOpen = false;
+      this.megamenuPreviewIndex = 0;
       this.cdr.detectChanges();
-      this.playAfterPaint(() => {
-        if (this.isMenuOpen) {
-          return playMobileSubmenuOpen(this.host.nativeElement);
-        }
-        return playMegamenuOpen(this.host.nativeElement);
-      });
+      return;
+    }
+
+    this.teardownPanelMotion();
+    this.megamenuPreviewIndex = 0;
+    this.isServicesDropdownOpen = true;
+    this.cdr.detectChanges();
+
+    this.playAfterPaint(() => {
+      if (!this.isServicesDropdownOpen) {
+        return null;
+      }
+      if (this.isMenuOpen) {
+        return playMobileSubmenuOpen(this.host.nativeElement);
+      }
+      return playMegamenuOpen(this.host.nativeElement);
+    });
+  }
+
+  private teardownPanelMotion() {
+    this.panelGeneration += 1;
+
+    if (this.animFrame !== null) {
+      cancelAnimationFrame(this.animFrame);
+      this.animFrame = null;
+    }
+
+    if (this.activePanelAnim) {
+      this.activePanelAnim.kill();
+      this.activePanelAnim = null;
     }
   }
 
-  private playAfterPaint(factory: () => PanelTimeline | null) {
+  private playAfterPaint(factory: () => PanelAnimationHandle | null) {
     if (!this.gsapEnabled || this.prefersReducedMotion()) {
       return;
     }
 
-    if (this.animFrame !== null) {
-      cancelAnimationFrame(this.animFrame);
-    }
+    const generation = this.panelGeneration;
 
+    // Doble rAF: espera a que *ngIf monte el DOM
     this.animFrame = requestAnimationFrame(() => {
-      this.animFrame = null;
-      this.ngZone.runOutsideAngular(() => {
-        this.activePanelTl?.kill();
-        this.activePanelTl = factory();
+      this.animFrame = requestAnimationFrame(() => {
+        this.animFrame = null;
+
+        if (generation !== this.panelGeneration) {
+          return;
+        }
+
+        this.ngZone.runOutsideAngular(() => {
+          if (generation !== this.panelGeneration) {
+            return;
+          }
+          this.activePanelAnim?.kill();
+          this.activePanelAnim = factory();
+        });
       });
     });
   }
