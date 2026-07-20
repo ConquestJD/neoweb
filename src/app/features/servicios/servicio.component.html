@@ -33,6 +33,13 @@
         <p class="svc-intro">{{ s.plansSubtitle }}</p>
       </div>
 
+      <ul *ngIf="s.plansHighlights?.length" class="svc-plans-highlights" aria-label="Incluido en los planes">
+        <li *ngFor="let item of s.plansHighlights">
+          <span class="material-icons" aria-hidden="true">check_circle</span>
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+
       <div class="svc-plans-grid">
         <article
           *ngFor="let plan of s.plans; let i = index"
@@ -50,6 +57,8 @@
             {{ plan.price }}<span *ngIf="plan.period" class="svc-plan-period">{{ plan.period }}</span>
           </p>
 
+          <p *ngIf="plan.tagline" class="svc-plan-tagline">{{ plan.tagline }}</p>
+
           <ul class="svc-plan-features">
             <li *ngFor="let feature of plan.features">{{ feature }}</li>
           </ul>
@@ -62,45 +71,40 @@
         </article>
       </div>
 
-      <ul *ngIf="s.plansHighlights?.length" class="svc-plans-highlights" aria-label="Incluido en los planes">
-        <li *ngFor="let item of s.plansHighlights">
-          <span class="material-icons" aria-hidden="true">check_circle</span>
-          <span>{{ item }}</span>
-        </li>
-      </ul>
-
       <div *ngIf="s.plansComparison?.length" class="svc-plans-compare">
         <div class="svc-plans-compare-head">
           <h3 class="svc-plans-compare-title">Compara los planes</h3>
-          <p class="svc-plans-compare-intro">Diferencias claras para elegir el nivel de ejecución que tu marca necesita.</p>
+          <p class="svc-plans-compare-intro">
+            {{ s.plansComparisonIntro || 'Diferencias claras para elegir el nivel de ejecución que tu marca necesita.' }}
+          </p>
         </div>
         <div class="svc-plans-compare-scroll">
           <table class="svc-compare-table">
             <thead>
               <tr>
                 <th scope="col" class="svc-compare-feature">Incluye</th>
-                <th scope="col">Start</th>
+                <th scope="col">{{ s.plansComparisonHeaders?.start || 'Start' }}</th>
                 <th scope="col" class="svc-compare-featured">
-                  Pro
+                  {{ s.plansComparisonHeaders?.pro || 'Pro' }}
                   <span class="svc-compare-featured-tag">Más elegido</span>
                 </th>
-                <th scope="col">Premium</th>
+                <th scope="col">{{ s.plansComparisonHeaders?.premium || 'Premium' }}</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let row of s.plansComparison">
                 <th scope="row" class="svc-compare-feature">{{ row.label }}</th>
-                <td [attr.data-label]="'Start'">
+                <td [attr.data-label]="s.plansComparisonHeaders?.start || 'Start'">
                   <span *ngIf="row.start === true" class="material-icons svc-compare-check" aria-label="Incluido">check</span>
                   <span *ngIf="row.start === false" class="svc-compare-dash" aria-label="No incluido">—</span>
                   <span *ngIf="!isCompareBool(row.start)" class="svc-compare-value">{{ row.start }}</span>
                 </td>
-                <td class="svc-compare-featured" [attr.data-label]="'Pro'">
+                <td class="svc-compare-featured" [attr.data-label]="s.plansComparisonHeaders?.pro || 'Pro'">
                   <span *ngIf="row.pro === true" class="material-icons svc-compare-check" aria-label="Incluido">check</span>
                   <span *ngIf="row.pro === false" class="svc-compare-dash" aria-label="No incluido">—</span>
                   <span *ngIf="!isCompareBool(row.pro)" class="svc-compare-value">{{ row.pro }}</span>
                 </td>
-                <td [attr.data-label]="'Premium'">
+                <td [attr.data-label]="s.plansComparisonHeaders?.premium || 'Premium'">
                   <span *ngIf="row.premium === true" class="material-icons svc-compare-check" aria-label="Incluido">check</span>
                   <span *ngIf="row.premium === false" class="svc-compare-dash" aria-label="No incluido">—</span>
                   <span *ngIf="!isCompareBool(row.premium)" class="svc-compare-value">{{ row.premium }}</span>

@@ -11,6 +11,7 @@ export interface ServicioPlan {
   icon: string;
   color: string;
   featured?: boolean;
+  tagline?: string;
   features: string[];
   note?: string;
 }
@@ -20,6 +21,12 @@ export interface ServicioPlanComparisonRow {
   start: string | boolean;
   pro: string | boolean;
   premium: string | boolean;
+}
+
+export interface ServicioPlanComparisonHeaders {
+  start: string;
+  pro: string;
+  premium: string;
 }
 
 export interface ServicioStep {
@@ -67,6 +74,8 @@ export interface ServicioConfig {
   plans: ServicioPlan[];
   plansHighlights?: string[];
   plansComparison?: ServicioPlanComparisonRow[];
+  plansComparisonHeaders?: ServicioPlanComparisonHeaders;
+  plansComparisonIntro?: string;
 }
 
 export const SERVICIOS: Record<string, ServicioConfig> = {
@@ -81,7 +90,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "profesional",
       "description": "Autoridad, claridad y performance para tu marca. Diseño premium y base técnica lista para SEO."
     },
-    "plansSubtitle": "Desde S/ 500 hasta S/ 1,200 según alcance. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "plansSubtitle": "Sitios web profesionales desde S/ 500. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Secciones",
@@ -269,53 +278,193 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     ],
     "plans": [
       {
-        "name": "START",
+        "name": "ESENCIAL",
         "price": "S/ 500",
         "icon": "star",
         "color": "from-blue-500 to-cyan-500",
+        "tagline": "Ideal para emprendedores y pequeños negocios que necesitan presencia digital profesional.",
         "features": [
-          "6 secciones: Inicio, Nosotros, Servicios, Beneficios, FAQ, Contacto",
-          "Diseño moderno",
-          "Responsive completo",
-          "Formulario + WhatsApp",
-          "SEO básico (título, descripción, etiquetas)",
+          "Diseño profesional y moderno",
+          "Hasta 6 secciones",
+          "Inicio, Nosotros, Servicios, Beneficios, FAQ y Contacto",
+          "Formulario de contacto",
+          "Botón de WhatsApp integrado",
+          "Adaptada para celulares, tablets y computadoras",
+          "Configuración básica para aparecer en Google",
           "Certificado SSL",
-          "Hosting + dominio gratis por 6 meses; luego mantenimiento mensual",
-          "Entrega: 1 semana"
+          "Hosting y dominio incluidos durante 6 meses",
+          "Entrega en 7 días"
         ]
       },
       {
-        "name": "PRO",
+        "name": "PROFESIONAL",
         "price": "S/ 900",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
+        "tagline": "Ideal para negocios en crecimiento que buscan generar más confianza y captar clientes.",
         "features": [
-          "8-10 secciones: Inicio, Nosotros, Equipo, Servicios, Detalle de Servicios, Proyectos, Testimonios, Blog (activado), FAQ, Contacto",
+          "Todo lo incluido en Esencial",
+          "Hasta 10 secciones",
           "Diseño personalizado",
-          "Animaciones suaves (fade, slide, hover)",
-          "Google Analytics + Tag Manager",
-          "SEO on-page básico",
-          "Optimización de velocidad ligera",
-          "Hosting + dominio gratis por 6 meses; luego mantenimiento mensual",
-          "Entrega: 1-2 semanas"
+          "Blog administrable",
+          "Integración con redes sociales",
+          "Google Analytics",
+          "Optimización de velocidad",
+          "SEO avanzado",
+          "Investigación básica de palabras clave",
+          "Entrega en 1 a 2 semanas"
         ]
       },
       {
-        "name": "PREMIUM",
+        "name": "EMPRESARIAL",
         "price": "S/ 1,200",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
+        "tagline": "Ideal para empresas que buscan una presencia digital sólida y profesional.",
         "features": [
-          "12-15 secciones: Hero avanzado, Inicio, Nosotros, Historia, Equipo, Servicios, Detalle de Servicios, Portafolio filtrable, Proyectos, Testimonios, Blog, FAQ, CTA personalizados, Contacto",
+          "Todo lo incluido en Profesional",
+          "Hasta 15 secciones",
           "Diseño UI/UX avanzado",
-          "Animaciones profesionales (scroll, parallax, microinteracciones)",
-          "Integraciones API básicas (CRM, correos, etc.)",
+          "Portafolio dinámico",
+          "Formularios avanzados",
+          "Integraciones CRM y herramientas externas",
           "SEO completo",
-          "Optimización de velocidad PRO",
-          "Hosting + dominio gratis por 6 meses; luego mantenimiento mensual",
-          "Entrega: 2-3 semanas"
+          "Optimización Premium de velocidad",
+          "CTAs personalizados",
+          "Prioridad de soporte",
+          "Entrega en 2 a 3 semanas"
         ]
+      }
+    ],
+    "plansHighlights": [
+      "Diseño profesional",
+      "Responsive para móviles",
+      "WhatsApp integrado",
+      "Certificado SSL",
+      "Optimización SEO",
+      "Hosting y dominio incluidos por 6 meses"
+    ],
+    "plansComparisonHeaders": {
+      "start": "Esencial",
+      "pro": "Profesional",
+      "premium": "Empresarial"
+    },
+    "plansComparisonIntro": "Compara alcance, entregables y tiempos para elegir el sitio que mejor impulsa tu negocio.",
+    "plansComparison": [
+      {
+        "label": "Secciones incluidas",
+        "start": "Hasta 6",
+        "pro": "Hasta 10",
+        "premium": "Hasta 15"
+      },
+      {
+        "label": "Diseño",
+        "start": "Profesional",
+        "pro": "Personalizado",
+        "premium": "UI/UX avanzado"
+      },
+      {
+        "label": "Formulario de contacto",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "WhatsApp integrado",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Responsive (móvil, tablet, desktop)",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "SEO",
+        "start": "Básico",
+        "pro": "Avanzado",
+        "premium": "Completo"
+      },
+      {
+        "label": "Certificado SSL",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Hosting y dominio (6 meses)",
+        "start": true,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Blog administrable",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Integración con redes sociales",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Google Analytics",
+        "start": false,
+        "pro": true,
+        "premium": true
+      },
+      {
+        "label": "Optimización de velocidad",
+        "start": false,
+        "pro": true,
+        "premium": "Premium"
+      },
+      {
+        "label": "Investigación de palabras clave",
+        "start": false,
+        "pro": "Básica",
+        "premium": true
+      },
+      {
+        "label": "Portafolio dinámico",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Formularios avanzados",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Integraciones CRM / externas",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "CTAs personalizados",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Soporte prioritario",
+        "start": false,
+        "pro": false,
+        "premium": true
+      },
+      {
+        "label": "Tiempo de entrega",
+        "start": "7 días",
+        "pro": "1–2 semanas",
+        "premium": "2–3 semanas"
       }
     ]
   },
@@ -733,6 +882,11 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "Calendario de contenido",
       "Diseño profesional"
     ],
+    "plansComparisonHeaders": {
+      "start": "Start",
+      "pro": "Pro",
+      "premium": "Premium"
+    },
     "plansComparison": [
       {
         "label": "Publicaciones profesionales",
