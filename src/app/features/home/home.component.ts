@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit, OnDestroy, ViewChild, ElementRef, NgZone, HostBinding } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { initHomeGsapAnimations } from './home-gsap-animations';
 
 type HomeService = {
   name: string;
@@ -35,6 +36,8 @@ type HomePortfolioProject = {
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   @ViewChild('heroVideo') heroVideo?: ElementRef<HTMLVideoElement>;
   @ViewChild('servicesCarousel') servicesCarousel?: ElementRef<HTMLElement>;
   @ViewChild('carouselCursor') carouselCursor?: ElementRef<HTMLElement>;
@@ -42,7 +45,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
   ) {}
 
   scrollY = 0;
@@ -816,17 +820,91 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private destroyed = false;
   private lastScrollTime = 0;
   private readonly scrollThrottle = 100;
+  private gsapCleanup: (() => void) | null = null;
 
   ngAfterViewInit() {
     this.initHeroVideo();
     this.setupCarouselCursorListeners();
     this.setupPortfolioScrollImages();
 
+    if (!this.prefersReducedMotion()) {
+      // Desactiva keyframes CSS antes de montar timelines GSAP
+      this.gsapEnabled = true;
+    }
+
     this.initTimeout = setTimeout(() => {
-      if (!this.destroyed) {
-        this.checkScroll();
+      if (this.destroyed) {
+        return;
       }
+      this.initMotionSystem();
     }, 50);
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  private initMotionSystem() {
+    if (this.prefersReducedMotion()) {
+      this.gsapEnabled = false;
+      this.revealAllSectionsInstant();
+      return;
+    }
+
+    this.gsapEnabled = true;
+    this.preloadServiceImages();
+
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initHomeGsapAnimations(this.host.nativeElement, {
+        onServicesComplete: () => this.ngZone.run(() => this.markServicesIntroDone()),
+        onWhyComplete: () => this.ngZone.run(() => this.markWhyIntroDone()),
+        onPortfolioComplete: () => this.ngZone.run(() => this.markPortfolioIntroDone()),
+        onFaqComplete: () => this.ngZone.run(() => this.markFaqIntroDone()),
+        onCtaComplete: () => this.ngZone.run(() => {
+          this.ctaVisible = true;
+        })
+      });
+    });
+  }
+
+  private revealAllSectionsInstant() {
+    this.servicesVisible = true;
+    this.servicesIntroDone = true;
+    this.whyShowcaseEntered = true;
+    this.whyTitleRevealed = true;
+    this.whyRevealedListCount = this.diferenciales.length;
+    this.whyBgRevealed = true;
+    this.whyDetailRevealed = true;
+    this.portfolioVisible = true;
+    this.portfolioIntroDone = true;
+    this.faqVisible = true;
+    this.faqIntroDone = true;
+    this.ctaVisible = true;
+    this.preloadServiceImages();
+  }
+
+  private markServicesIntroDone() {
+    this.servicesVisible = true;
+    this.servicesIntroDone = true;
+  }
+
+  private markWhyIntroDone() {
+    this.whyShowcaseEntered = true;
+    this.whyTitleRevealed = true;
+    this.whyRevealedListCount = this.diferenciales.length;
+    this.whyBgRevealed = true;
+    this.whyDetailRevealed = true;
+  }
+
+  private markPortfolioIntroDone() {
+    this.portfolioVisible = true;
+    this.portfolioIntroDone = true;
+  }
+
+  private markFaqIntroDone() {
+    this.faqVisible = true;
+    this.faqIntroDone = true;
   }
 
   private initHeroVideo() {
@@ -889,7 +967,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private elementCache: { [key: string]: Element | null } = {};
 
   checkScroll() {
-    if (this.destroyed) {
+    if (this.destroyed || this.gsapEnabled) {
       return;
     }
 
@@ -1112,6 +1190,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.teardownCarouselCursorListeners();
     this.teardownPortfolioScrollListeners();
     this.clearWhyIntroTimeouts();
+
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
 
     if (this.servicesIntroTimeout) {
       clearTimeout(this.servicesIntroTimeout);

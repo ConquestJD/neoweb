@@ -4,6 +4,55 @@
   display: block;
 }
 
+/* GSAP toma el control de las reveals; desactivamos keyframes/transitions de intro */
+:host.gsap-enabled .hero-title-enhanced,
+:host.gsap-enabled .hero-cta,
+:host.gsap-enabled .hero-description-enhanced {
+  animation: none !important;
+}
+
+:host.gsap-enabled .services-reveal,
+:host.gsap-enabled .services-section .services-nav-item,
+:host.gsap-enabled .services-section .carousel-slide,
+:host.gsap-enabled .services-section .carousel-indicator,
+:host.gsap-enabled .services-section .carousel-indicator-caption {
+  animation: none !important;
+  transition: none !important;
+}
+
+:host.gsap-enabled .why-neoweb-label,
+:host.gsap-enabled .why-list-item,
+:host.gsap-enabled .why-showcase-detail,
+:host.gsap-enabled .why-showcase-bg,
+:host.gsap-enabled .why-showcase-mask {
+  transition: none !important;
+}
+
+:host.gsap-enabled .portfolio-label,
+:host.gsap-enabled .portfolio-intro,
+:host.gsap-enabled .portfolio-view-all-link,
+:host.gsap-enabled .portfolio-marquee,
+:host.gsap-enabled .portfolio-card {
+  animation: none !important;
+}
+
+:host.gsap-enabled .faq-label,
+:host.gsap-enabled .faq-intro,
+:host.gsap-enabled .faq-item,
+:host.gsap-enabled .faq-contact-link {
+  animation: none !important;
+}
+
+:host.gsap-enabled .cta-headline-outline {
+  animation: none !important;
+}
+
+:host.gsap-enabled .services-header,
+:host.gsap-enabled .portfolio-grid,
+:host.gsap-enabled .process-header {
+  perspective: 900px;
+}
+
 section {
   padding: 88px 0;
 }
