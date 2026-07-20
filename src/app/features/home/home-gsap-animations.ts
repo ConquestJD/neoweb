@@ -534,38 +534,19 @@ function setupCta(root: HTMLElement, onComplete?: () => void) {
     defaults: { ease: EASE },
     scrollTrigger: {
       trigger: section,
-      start: 'top 75%',
+      start: 'top 85%',
       once: true
     },
     onComplete: () => onComplete?.()
   });
 
-  if (outline) {
-    tl.fromTo(
-      outline,
-      {
-        opacity: 0,
-        y: 48,
-        letterSpacing: '0.08em',
-        filter: 'blur(8px)'
-      },
-      {
-        opacity: 1,
-        y: 0,
-        letterSpacing: '0.01em',
-        filter: 'blur(0px)',
-        duration: 1.15,
-        ease: EASE_EXPO
-      },
-      0
-    );
-  }
+  // Botón primero: no esperar al outline
   if (magnet) {
     tl.fromTo(
       magnet,
-      { opacity: 0, scale: 0.7 },
-      { opacity: 1, scale: 1, duration: 0.85, ease: 'back.out(1.7)' },
-      0.35
+      { opacity: 0, scale: 0.78 },
+      { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(1.6)' },
+      0
     );
   }
   if (btn) {
@@ -574,19 +555,39 @@ function setupCta(root: HTMLElement, onComplete?: () => void) {
       { boxShadow: '0 0 0 0 rgba(0,0,0,0)' },
       {
         boxShadow: '0 20px 50px rgba(0,0,0,0.25)',
-        duration: 0.6,
+        duration: 0.45,
         yoyo: true,
         repeat: 1
       },
-      0.55
+      0.15
+    );
+  }
+  if (outline) {
+    tl.fromTo(
+      outline,
+      {
+        opacity: 0,
+        y: 32,
+        letterSpacing: '0.06em',
+        filter: 'blur(6px)'
+      },
+      {
+        opacity: 1,
+        y: 0,
+        letterSpacing: '0.01em',
+        filter: 'blur(0px)',
+        duration: 0.85,
+        ease: EASE_EXPO
+      },
+      0.05
     );
   }
   if (secondary) {
     tl.fromTo(
       secondary,
-      { opacity: 0, y: 18, x: -8 },
-      { opacity: 1, y: 0, x: 0, duration: 0.6 },
-      0.65
+      { opacity: 0, y: 14, x: -6 },
+      { opacity: 1, y: 0, x: 0, duration: 0.45 },
+      0.2
     );
   }
 }

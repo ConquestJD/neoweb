@@ -583,44 +583,19 @@ function setupCta(root: HTMLElement, onComplete?: () => void) {
     defaults: { ease: EASE },
     scrollTrigger: {
       trigger: section,
-      start: 'top 78%',
+      start: 'top 85%',
       once: true
     },
     onComplete: () => onComplete?.()
   });
 
-  if (outline) {
-    tl.fromTo(
-      outline,
-      { opacity: 0, y: 40, filter: 'blur(8px)', letterSpacing: '0.08em' },
-      {
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
-        letterSpacing: '0.01em',
-        duration: 1.1,
-        ease: EASE_EXPO
-      },
-      0
-    );
-  }
-  if (title) {
-    tl.fromTo(
-      title,
-      { opacity: 0, y: 28 },
-      { opacity: 1, y: 0, duration: 0.75 },
-      0.25
-    );
-  }
-  if (desc) {
-    tl.fromTo(desc, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.4);
-  }
+  // Botón primero: no esperar a outline/título/desc
   if (magnet) {
     tl.fromTo(
       magnet,
-      { opacity: 0, scale: 0.72 },
-      { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' },
-      0.5
+      { opacity: 0, scale: 0.78 },
+      { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(1.6)' },
+      0
     );
   }
   if (btn) {
@@ -629,19 +604,45 @@ function setupCta(root: HTMLElement, onComplete?: () => void) {
       { boxShadow: '0 0 0 0 rgba(0,0,0,0)' },
       {
         boxShadow: '0 18px 40px rgba(0,0,0,0.22)',
-        duration: 0.55,
+        duration: 0.45,
         yoyo: true,
         repeat: 1
       },
-      0.7
+      0.15
     );
+  }
+  if (outline) {
+    tl.fromTo(
+      outline,
+      { opacity: 0, y: 28, filter: 'blur(6px)', letterSpacing: '0.06em' },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        letterSpacing: '0.01em',
+        duration: 0.85,
+        ease: EASE_EXPO
+      },
+      0.05
+    );
+  }
+  if (title) {
+    tl.fromTo(
+      title,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5 },
+      0.1
+    );
+  }
+  if (desc) {
+    tl.fromTo(desc, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45 }, 0.18);
   }
   if (link) {
     tl.fromTo(
       link,
-      { opacity: 0, y: 14, x: -8 },
-      { opacity: 1, y: 0, x: 0, duration: 0.55 },
-      0.75
+      { opacity: 0, y: 12, x: -6 },
+      { opacity: 1, y: 0, x: 0, duration: 0.4 },
+      0.22
     );
   }
 }
