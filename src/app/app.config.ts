@@ -11,7 +11,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withInMemoryScrolling({
-        scrollPositionRestoration: 'top',
+        // Lo manejamos nosotros en App (más fiable con lazy routes + footer global)
+        scrollPositionRestoration: 'disabled',
         anchorScrolling: 'enabled'
       })
     ),

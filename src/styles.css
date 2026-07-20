@@ -28,6 +28,11 @@
 }
 
 html {
+  /* auto: evita que el scroll programático al cambiar de ruta se cancele a mitad */
+  scroll-behavior: auto;
+}
+
+html.enable-smooth-scroll {
   scroll-behavior: smooth;
 }
 
