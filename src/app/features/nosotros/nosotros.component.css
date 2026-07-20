@@ -51,16 +51,21 @@
   background-image: url('/assets/nosotros/nosotros hero.jpg');
   background-size: cover;
   background-position: center top;
-  opacity: 0.35;
   transform: scale(1.02);
 }
 
 .nos-hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.78) 100%);
   pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.22) 38%,
+      rgba(0, 0, 0, 0.18) 62%,
+      rgba(0, 0, 0, 0.52) 100%
+    );
 }
 
 .nos-hero-inner {

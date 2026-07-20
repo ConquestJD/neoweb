@@ -46,14 +46,14 @@ function setupHero(root: HTMLElement) {
   const cta = section.querySelector('.nos-hero-cta');
   const desc = section.querySelector('.nos-hero-desc');
 
-  if (bg) gsap.set(bg, { scale: 1.14, opacity: 0.1 });
+  if (bg) gsap.set(bg, { scale: 1.14, opacity: 0.35 });
   if (overlay) gsap.set(overlay, { opacity: 0 });
   gsap.set([title, cta, desc].filter(Boolean), { opacity: 0 });
 
   const tl = gsap.timeline({ defaults: { ease: EASE } });
 
   if (bg) {
-    tl.to(bg, { scale: 1.02, opacity: 0.35, duration: 1.8, ease: EASE_SOFT }, 0);
+    tl.to(bg, { scale: 1.02, opacity: 1, duration: 1.8, ease: EASE_SOFT }, 0);
   }
   if (overlay) {
     tl.to(overlay, { opacity: 1, duration: 1.15 }, 0.1);
