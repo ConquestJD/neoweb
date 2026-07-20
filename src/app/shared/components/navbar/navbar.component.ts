@@ -62,6 +62,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   isMenuOpen = false;
   @Input() isScrolled = false;
   isServicesDropdownOpen = false;
+  megamenuPreviewIndex = 0;
 
   services: ServiceMenuItem[] = [
     {
@@ -152,6 +153,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     if (this.isServicesDropdownOpen) {
       return;
     }
+    this.megamenuPreviewIndex = 0;
     this.isServicesDropdownOpen = true;
     this.cdr.detectChanges();
     this.playAfterPaint(() => playMegamenuOpen(this.host.nativeElement));
@@ -159,6 +161,18 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
   closeServicesDropdown() {
     this.isServicesDropdownOpen = false;
+    this.megamenuPreviewIndex = 0;
+  }
+
+  setMegamenuPreview(index: number) {
+    if (index === this.megamenuPreviewIndex) {
+      return;
+    }
+    this.megamenuPreviewIndex = index;
+  }
+
+  megamenuBg(image: string): string {
+    return `url("${encodeURI(image)}")`;
   }
 
   toggleMenu() {
