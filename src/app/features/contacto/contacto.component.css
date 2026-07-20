@@ -2,6 +2,36 @@
   display: block;
 }
 
+/* GSAP controla las intros */
+:host.gsap-enabled .con-hero-title,
+:host.gsap-enabled .con-hero-desc,
+:host.gsap-enabled .con-hero-link {
+  animation: none !important;
+}
+
+:host.gsap-enabled .con-label,
+:host.gsap-enabled .con-intro,
+:host.gsap-enabled .con-points li,
+:host.gsap-enabled .con-form-card,
+:host.gsap-enabled .con-field,
+:host.gsap-enabled .con-submit,
+:host.gsap-enabled .con-form-note,
+:host.gsap-enabled .con-channel-card,
+:host.gsap-enabled .con-schedule-card,
+:host.gsap-enabled .con-schedule-note,
+:host.gsap-enabled .faq-label,
+:host.gsap-enabled .faq-intro,
+:host.gsap-enabled .faq-item {
+  animation: none !important;
+  transition: none !important;
+}
+
+:host.gsap-enabled .con-form-grid,
+:host.gsap-enabled .con-channels-grid,
+:host.gsap-enabled .con-schedule-grid {
+  perspective: 1000px;
+}
+
 /* ----- Hero ----- */
 .con-hero {
   position: relative;

@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, Inject, PLATFORM_ID, NgZone, HostBinding } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { initPortafolioGsapAnimations } from './portafolio-gsap-animations';
 
 type PortfolioProject = {
   id: string;
@@ -29,6 +30,7 @@ type PortfolioProject = {
   styleUrl: './portafolio.component.css'
 })
 export class PortafolioComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
   @ViewChild('portfolioGrid') portfolioGrid?: ElementRef<HTMLElement>;
 
   sectionVisible = {
@@ -226,6 +228,7 @@ export class PortafolioComponent implements AfterViewInit, OnDestroy {
 
   private sectionObserver?: IntersectionObserver;
   private gridIntroTimeout: ReturnType<typeof setTimeout> | null = null;
+  private gsapCleanup: (() => void) | null = null;
   private portfolioActiveCard: HTMLElement | null = null;
   private portfolioStepTimer: ReturnType<typeof setInterval> | null = null;
   private portfolioStepTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -239,7 +242,8 @@ export class PortafolioComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
   ) {}
 
   ngAfterViewInit() {
@@ -249,29 +253,25 @@ export class PortafolioComponent implements AfterViewInit, OnDestroy {
 
     this.setupPortfolioScrollImages();
 
-    this.sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+    if (this.prefersReducedMotion()) {
+      this.revealAllInstant();
+      return;
+    }
 
-        const sectionId = entry.target.getAttribute('data-section');
-        if (sectionId === 'cta') {
-          this.ctaVisible = true;
-        } else if (sectionId === 'grid') {
+    this.gsapEnabled = true;
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initPortafolioGsapAnimations(this.host.nativeElement, {
+        onGridComplete: () => this.ngZone.run(() => {
           this.sectionVisible.grid = true;
-          this.playGridIntro();
-        } else if (sectionId && sectionId in this.sectionVisible) {
-          this.sectionVisible[sectionId as keyof typeof this.sectionVisible] = true;
-        }
+          this.gridIntroDone = true;
+        }),
+        onStatsComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.stats = true;
+        }),
+        onCtaComplete: () => this.ngZone.run(() => {
+          this.ctaVisible = true;
+        })
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -48px 0px'
-    });
-
-    document.querySelectorAll('[data-section]').forEach((section) => {
-      this.sectionObserver?.observe(section);
     });
   }
 
@@ -279,9 +279,26 @@ export class PortafolioComponent implements AfterViewInit, OnDestroy {
     this.sectionObserver?.disconnect();
     this.teardownPortfolioScrollListeners();
 
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
+
     if (this.gridIntroTimeout) {
       clearTimeout(this.gridIntroTimeout);
     }
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  private revealAllInstant() {
+    this.sectionVisible.grid = true;
+    this.sectionVisible.stats = true;
+    this.gridIntroDone = true;
+    this.ctaVisible = true;
   }
 
   onCtaMouseMove(event: MouseEvent) {
@@ -302,27 +319,6 @@ export class PortafolioComponent implements AfterViewInit, OnDestroy {
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;
-  }
-
-  private playGridIntro() {
-    if (this.gridIntroDone) {
-      return;
-    }
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      this.gridIntroDone = true;
-      return;
-    }
-
-    if (this.gridIntroTimeout) {
-      clearTimeout(this.gridIntroTimeout);
-    }
-
-    this.gridIntroTimeout = setTimeout(() => {
-      this.gridIntroDone = true;
-      this.gridIntroTimeout = null;
-    }, 1200);
   }
 
   private bindPortfolioCard(card: HTMLElement) {

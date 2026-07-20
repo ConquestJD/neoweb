@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectorRef, NgZone, HostBinding, ElementRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { initPortafolioSeleccionadoGsapAnimations } from './portafolio-seleccionado-gsap-animations';
 
 interface Project {
   id: string;
@@ -35,6 +36,8 @@ interface Project {
   styleUrl: './portafolio-seleccionado.component.css'
 })
 export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   project: Project | null = null;
   showPage = true;
   relatedProjects: Project[] = [];
@@ -49,6 +52,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   private sectionObserver?: IntersectionObserver;
   private destroyed = false;
   private isFirstProjectLoad = true;
+  private gsapCleanup: (() => void) | null = null;
 
   private readonly heroScrollImages: Record<string, string> = {
     'omed': '/assets/portfolio/scrolls/omed-scroll.jpg',
@@ -557,7 +561,8 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
   ) {}
 
   formatNumber(num: number): string {
@@ -792,6 +797,9 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId) && this.project) {
+      if (!this.prefersReducedMotion()) {
+        this.gsapEnabled = true;
+      }
       setTimeout(() => this.setupScrollAnimations(), 150);
     }
   }
@@ -799,7 +807,21 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   ngOnDestroy() {
     this.destroyed = true;
     this.routeSub?.unsubscribe();
+    this.teardownMotion();
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  private teardownMotion() {
     this.sectionObserver?.disconnect();
+    this.sectionObserver = undefined;
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
   }
 
   private loadProject(projectId: string | null) {
@@ -819,7 +841,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
 
     if (shouldRemount && isPlatformBrowser(this.platformId)) {
       this.showPage = false;
-      this.sectionObserver?.disconnect();
+      this.teardownMotion();
       window.scrollTo({ top: 0, behavior: 'auto' });
       this.cdr.detectChanges();
     }
@@ -863,46 +885,60 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       this.cdr.detectChanges();
 
       if (isPlatformBrowser(this.platformId)) {
+        if (!this.prefersReducedMotion()) {
+          this.gsapEnabled = true;
+        }
         setTimeout(() => this.setupScrollAnimations(), 150);
       }
     });
   }
 
   setupScrollAnimations() {
-    if (!isPlatformBrowser(this.platformId) || this.destroyed) {
+    if (!isPlatformBrowser(this.platformId) || this.destroyed || !this.project) {
       return;
     }
 
-    this.sectionObserver?.disconnect();
+    this.teardownMotion();
 
-    this.sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+    if (this.prefersReducedMotion()) {
+      this.gsapEnabled = false;
+      this.revealAllInstant();
+      return;
+    }
 
-        const sectionId = entry.target.getAttribute('data-section');
-        if (!sectionId) {
-          return;
-        }
+    this.gsapEnabled = true;
 
-        this.ngZone.run(() => {
-          if (sectionId === 'cta') {
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initPortafolioSeleccionadoGsapAnimations(this.host.nativeElement, {
+        onSectionVisible: (sectionId) => {
+          this.ngZone.run(() => {
+            if (sectionId === 'cta') {
+              this.ctaVisible = true;
+            } else {
+              this.sectionVisible[sectionId] = true;
+            }
+            this.cdr.markForCheck();
+          });
+        },
+        onCtaComplete: () => {
+          this.ngZone.run(() => {
             this.ctaVisible = true;
-          } else {
-            this.sectionVisible[sectionId] = true;
-          }
-          this.cdr.markForCheck();
-        });
+            this.cdr.markForCheck();
+          });
+        }
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
     });
+  }
 
-    document.querySelectorAll('[data-section]').forEach(section => {
-      this.sectionObserver?.observe(section);
+  private revealAllInstant() {
+    [
+      'overview', 'impact', 'story', 'features', 'business',
+      'gallery', 'stack', 'plans', 'related', 'cta'
+    ].forEach((id) => {
+      this.sectionVisible[id] = true;
     });
+    this.ctaVisible = true;
+    this.cdr.markForCheck();
   }
 
   onCtaMouseMove(event: MouseEvent) {

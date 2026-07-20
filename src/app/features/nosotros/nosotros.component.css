@@ -2,6 +2,36 @@
   display: block;
 }
 
+/* GSAP controla las intros */
+:host.gsap-enabled .nos-hero-title,
+:host.gsap-enabled .nos-hero-cta,
+:host.gsap-enabled .nos-hero-desc {
+  animation: none !important;
+}
+
+:host.gsap-enabled .nos-label,
+:host.gsap-enabled .nos-intro,
+:host.gsap-enabled .nos-historia-copy,
+:host.gsap-enabled .nos-historia-copy > p,
+:host.gsap-enabled .nos-stat,
+:host.gsap-enabled .nos-figure,
+:host.gsap-enabled .nos-purpose-card,
+:host.gsap-enabled .nos-valor-item,
+:host.gsap-enabled .nos-tech-card,
+:host.gsap-enabled .cta-headline-outline,
+:host.gsap-enabled .cta-magnet-wrap,
+:host.gsap-enabled .cta-container,
+:host.gsap-enabled .cta-link-secondary {
+  animation: none !important;
+  transition: none !important;
+}
+
+:host.gsap-enabled .nos-historia-grid,
+:host.gsap-enabled .nos-purpose-grid,
+:host.gsap-enabled .nos-tech-grid {
+  perspective: 1000px;
+}
+
 /* ----- Hero (alineado con home) ----- */
 .nos-hero {
   position: relative;

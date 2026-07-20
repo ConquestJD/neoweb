@@ -4,6 +4,32 @@
   color: #1f150c;
 }
 
+/* GSAP controla las intros; evitamos pelear con keyframes CSS */
+:host.gsap-enabled .pf-hero-title,
+:host.gsap-enabled .pf-hero-desc,
+:host.gsap-enabled .pf-hero-cta {
+  animation: none !important;
+}
+
+:host.gsap-enabled .portfolio-marquee,
+:host.gsap-enabled .portfolio-label,
+:host.gsap-enabled .portfolio-intro,
+:host.gsap-enabled .portfolio-card,
+:host.gsap-enabled .pf-stats-label,
+:host.gsap-enabled .pf-stats-intro,
+:host.gsap-enabled .pf-stat-card,
+:host.gsap-enabled .cta-headline-outline,
+:host.gsap-enabled .cta-magnet-wrap,
+:host.gsap-enabled .cta-container,
+:host.gsap-enabled .cta-link-secondary {
+  animation: none !important;
+}
+
+:host.gsap-enabled .portfolio-grid,
+:host.gsap-enabled .pf-stats-grid {
+  perspective: 1000px;
+}
+
 /* ----- Hero ----- */
 .pf-hero {
   position: relative;

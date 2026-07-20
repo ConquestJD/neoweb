@@ -1,7 +1,8 @@
-import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone, ElementRef, HostBinding } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { initContactoGsapAnimations } from './contacto-gsap-animations';
 
 type ContactFaq = {
   question: string;
@@ -17,6 +18,8 @@ type ContactFaq = {
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   private readonly whatsappNumber = '51942820836';
 
   form = {
@@ -75,47 +78,68 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
 
   private sectionObserver?: IntersectionObserver;
   private faqIntroTimeout: ReturnType<typeof setTimeout> | null = null;
+  private gsapCleanup: (() => void) | null = null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
+  ) {}
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
 
-    this.sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+    if (this.prefersReducedMotion()) {
+      this.revealAllInstant();
+      return;
+    }
 
-        const sectionId = entry.target.getAttribute('data-section');
-        if (!sectionId || !(sectionId in this.sectionVisible)) {
-          return;
-        }
-
-        this.sectionVisible[sectionId as keyof typeof this.sectionVisible] = true;
-
-        if (sectionId === 'faq') {
-          this.playFaqIntro();
-        }
+    this.gsapEnabled = true;
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initContactoGsapAnimations(this.host.nativeElement, {
+        onFormComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.form = true;
+        }),
+        onChannelsComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.channels = true;
+        }),
+        onScheduleComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.schedule = true;
+        }),
+        onFaqComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.faq = true;
+          this.faqIntroDone = true;
+        })
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -48px 0px'
-    });
-
-    document.querySelectorAll('[data-section]').forEach((section) => {
-      this.sectionObserver?.observe(section);
     });
   }
 
   ngOnDestroy() {
     this.sectionObserver?.disconnect();
 
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
+
     if (this.faqIntroTimeout) {
       clearTimeout(this.faqIntroTimeout);
     }
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  private revealAllInstant() {
+    this.sectionVisible.form = true;
+    this.sectionVisible.channels = true;
+    this.sectionVisible.schedule = true;
+    this.sectionVisible.faq = true;
+    this.faqIntroDone = true;
   }
 
   toggleFaq(index: number) {
@@ -144,26 +168,5 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       window.open(url, '_blank');
     }
-  }
-
-  private playFaqIntro() {
-    if (this.faqIntroDone) {
-      return;
-    }
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      this.faqIntroDone = true;
-      return;
-    }
-
-    if (this.faqIntroTimeout) {
-      clearTimeout(this.faqIntroTimeout);
-    }
-
-    this.faqIntroTimeout = setTimeout(() => {
-      this.faqIntroDone = true;
-      this.faqIntroTimeout = null;
-    }, 900);
   }
 }

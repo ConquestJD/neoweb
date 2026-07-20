@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone, ElementRef, HostBinding } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { initNosotrosGsapAnimations } from './nosotros-gsap-animations';
 
 @Component({
   selector: 'app-nosotros',
@@ -10,6 +11,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nosotros.component.css'
 })
 export class NosotrosComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.gsap-enabled') gsapEnabled = false;
+
   sectionVisible = {
     historia: false,
     purpose: false,
@@ -82,39 +85,65 @@ export class NosotrosComponent implements AfterViewInit, OnDestroy {
   ];
 
   private sectionObserver?: IntersectionObserver;
+  private gsapCleanup: (() => void) | null = null;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private ngZone: NgZone,
+    private host: ElementRef<HTMLElement>
+  ) {}
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
 
-    this.sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+    if (this.prefersReducedMotion()) {
+      this.revealAllInstant();
+      return;
+    }
 
-        const sectionId = entry.target.getAttribute('data-section');
-        if (sectionId === 'cta') {
+    this.gsapEnabled = true;
+    this.ngZone.runOutsideAngular(() => {
+      this.gsapCleanup = initNosotrosGsapAnimations(this.host.nativeElement, {
+        onHistoriaComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.historia = true;
+        }),
+        onPurposeComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.purpose = true;
+        }),
+        onValoresComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.valores = true;
+        }),
+        onTechComplete: () => this.ngZone.run(() => {
+          this.sectionVisible.tech = true;
+        }),
+        onCtaComplete: () => this.ngZone.run(() => {
           this.ctaVisible = true;
-        } else if (sectionId && sectionId in this.sectionVisible) {
-          this.sectionVisible[sectionId as keyof typeof this.sectionVisible] = true;
-        }
+        })
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -48px 0px'
-    });
-
-    document.querySelectorAll('[data-section]').forEach((section) => {
-      this.sectionObserver?.observe(section);
     });
   }
 
   ngOnDestroy() {
     this.sectionObserver?.disconnect();
+    if (this.gsapCleanup) {
+      this.gsapCleanup();
+      this.gsapCleanup = null;
+    }
+  }
+
+  private prefersReducedMotion(): boolean {
+    return typeof window !== 'undefined'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  private revealAllInstant() {
+    this.sectionVisible.historia = true;
+    this.sectionVisible.purpose = true;
+    this.sectionVisible.valores = true;
+    this.sectionVisible.tech = true;
+    this.ctaVisible = true;
   }
 
   onCtaMouseMove(event: MouseEvent) {

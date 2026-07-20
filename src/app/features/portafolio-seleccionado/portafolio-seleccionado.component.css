@@ -11,6 +11,50 @@
   --label: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* GSAP controla las intros: contenedores visibles; anima hijos */
+:host.gsap-enabled .ps-section,
+:host.gsap-enabled .cta-section {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+:host.gsap-enabled .ps-back,
+:host.gsap-enabled .ps-hero-eyebrow,
+:host.gsap-enabled .ps-hero-cat,
+:host.gsap-enabled .ps-hero-title,
+:host.gsap-enabled .ps-hero-desc,
+:host.gsap-enabled .ps-hero-actions,
+:host.gsap-enabled .ps-hero-media,
+:host.gsap-enabled .ps-label,
+:host.gsap-enabled .ps-intro,
+:host.gsap-enabled .ps-prose,
+:host.gsap-enabled .ps-facts,
+:host.gsap-enabled .ps-metric,
+:host.gsap-enabled .ps-story-card,
+:host.gsap-enabled .ps-feature-item,
+:host.gsap-enabled .ps-impact-list li,
+:host.gsap-enabled .ps-gallery-item,
+:host.gsap-enabled .ps-stack-chip,
+:host.gsap-enabled .ps-plan-card,
+:host.gsap-enabled .ps-related-card,
+:host.gsap-enabled .ps-link,
+:host.gsap-enabled .cta-headline-outline,
+:host.gsap-enabled .cta-magnet-wrap,
+:host.gsap-enabled .cta-container,
+:host.gsap-enabled .cta-link-secondary {
+  animation: none !important;
+  transition: none !important;
+}
+
+:host.gsap-enabled .ps-hero-grid,
+:host.gsap-enabled .ps-metrics,
+:host.gsap-enabled .ps-story-grid,
+:host.gsap-enabled .ps-plans-grid,
+:host.gsap-enabled .ps-related-grid {
+  perspective: 1000px;
+}
+
 .ps-inner {
   max-width: 1180px;
   margin: 0 auto;
