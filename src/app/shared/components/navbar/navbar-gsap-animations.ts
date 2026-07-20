@@ -21,6 +21,7 @@ export function playMegamenuOpen(root: HTMLElement): gsap.core.Timeline | null {
 
   const aside = menu.querySelector('.megamenu-aside');
   const eyebrow = menu.querySelector('.megamenu-eyebrow');
+  const count = menu.querySelector('.megamenu-count');
   const title = menu.querySelector('.megamenu-title');
   const copy = menu.querySelector('.megamenu-copy');
   const cta = menu.querySelector('.megamenu-cta');
@@ -28,27 +29,36 @@ export function playMegamenuOpen(root: HTMLElement): gsap.core.Timeline | null {
   const rows = menu.querySelectorAll('.megamenu-row');
 
   gsap.set(menu, { opacity: 0, y: -14, xPercent: -50 });
-  gsap.set([eyebrow, title, copy, cta].filter(Boolean), { opacity: 0 });
-  gsap.set(rows, { opacity: 0, y: 14 });
+  gsap.set([eyebrow, count, title, copy, cta].filter(Boolean), { opacity: 0 });
+  gsap.set(rows, { opacity: 0, y: 16 });
 
   const tl = gsap.timeline({ defaults: { ease: EASE } });
 
-  tl.to(menu, { opacity: 1, y: 0, xPercent: -50, duration: 0.4, ease: EASE_SOFT }, 0);
+  tl.to(menu, { opacity: 1, y: 0, xPercent: -50, duration: 0.35, ease: EASE_SOFT }, 0);
 
   if (aside) {
     tl.fromTo(
       aside,
       { clipPath: 'inset(0 100% 0 0)' },
-      { clipPath: 'inset(0 0% 0 0)', duration: 0.55, ease: EASE_EXPO },
-      0.05
+      { clipPath: 'inset(0 0% 0 0)', duration: 0.5, ease: EASE_EXPO },
+      0.04
     );
   }
 
   if (eyebrow) {
     tl.fromTo(
       eyebrow,
-      { opacity: 0, y: 12, letterSpacing: '0.32em' },
-      { opacity: 1, y: 0, letterSpacing: '0.18em', duration: 0.5 },
+      { opacity: 0, y: 10, letterSpacing: '0.32em' },
+      { opacity: 1, y: 0, letterSpacing: '0.2em', duration: 0.45 },
+      0.14
+    );
+  }
+
+  if (count) {
+    tl.fromTo(
+      count,
+      { opacity: 0, y: 24, scale: 1.08 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: EASE_EXPO },
       0.18
     );
   }
@@ -56,26 +66,26 @@ export function playMegamenuOpen(root: HTMLElement): gsap.core.Timeline | null {
   if (title) {
     tl.fromTo(
       title,
-      { opacity: 0, y: 22, clipPath: 'inset(0 0 100% 0)' },
-      { opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 0.7, ease: EASE_EXPO },
-      0.26
+      { opacity: 0, y: 20, clipPath: 'inset(0 0 100% 0)' },
+      { opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 0.65, ease: EASE_EXPO },
+      0.28
     );
   }
 
   if (copy) {
     tl.fromTo(
       copy,
-      { opacity: 0, y: 14 },
-      { opacity: 1, y: 0, duration: 0.5 },
-      0.38
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.4 },
+      0.4
     );
   }
 
   if (cta) {
     tl.fromTo(
       cta,
-      { opacity: 0, x: -12 },
-      { opacity: 1, x: 0, duration: 0.45, ease: 'back.out(1.4)' },
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.4 },
       0.48
     );
   }
@@ -83,63 +93,65 @@ export function playMegamenuOpen(root: HTMLElement): gsap.core.Timeline | null {
   if (ctaIcon) {
     tl.fromTo(
       ctaIcon,
-      { opacity: 0, x: -8 },
-      { opacity: 1, x: 0, duration: 0.35 },
-      0.58
+      { opacity: 0, x: -6, y: 6 },
+      { opacity: 1, x: 0, y: 0, duration: 0.3 },
+      0.56
     );
   }
 
   rows.forEach((row, i) => {
+    const media = row.querySelector('.megamenu-row-media');
+    const img = row.querySelector('.megamenu-row-media img');
     const index = row.querySelector('.megamenu-row-index');
     const name = row.querySelector('.megamenu-row-name');
     const short = row.querySelector('.megamenu-row-short');
     const arrow = row.querySelector('.megamenu-row-arrow');
-    const at = 0.28 + i * 0.055;
+    const at = 0.22 + i * 0.05;
 
-    tl.to(row, { opacity: 1, y: 0, duration: 0.45, ease: EASE_SOFT }, at);
+    tl.to(row, { opacity: 1, y: 0, duration: 0.4, ease: EASE_SOFT }, at);
 
+    if (media) {
+      tl.fromTo(
+        media,
+        { clipPath: 'inset(0 0 100% 0)' },
+        { clipPath: 'inset(0 0 0% 0)', duration: 0.45, ease: EASE_EXPO },
+        at
+      );
+    }
+    if (img) {
+      tl.fromTo(
+        img,
+        { scale: 1.2 },
+        { scale: 1.08, duration: 0.55, ease: EASE_SOFT },
+        at
+      );
+    }
     if (index) {
       tl.fromTo(
         index,
-        { opacity: 0, x: -10 },
-        { opacity: 1, x: 0, duration: 0.35 },
-        at + 0.04
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.3 },
+        at + 0.06
       );
     }
     if (name) {
       tl.fromTo(
         name,
-        { opacity: 0, x: -8, clipPath: 'inset(0 100% 0 0)' },
-        { opacity: 1, x: 0, clipPath: 'inset(0 0% 0 0)', duration: 0.45, ease: EASE_EXPO },
-        at + 0.06
+        { opacity: 0, x: -8 },
+        { opacity: 1, x: 0, duration: 0.35 },
+        at + 0.08
       );
     }
     if (short) {
       tl.fromTo(
         short,
-        { opacity: 0, x: 10 },
-        { opacity: 0.85, x: 0, duration: 0.4 },
-        at + 0.1
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.3 },
+        at + 0.12
       );
     }
     if (arrow) {
-      tl.fromTo(
-        arrow,
-        { opacity: 0, x: -8, y: 8, scale: 0.5 },
-        {
-          opacity: 0.35,
-          x: 0,
-          y: 0,
-          scale: 1,
-          duration: 0.35,
-          ease: 'back.out(1.8)',
-          onComplete: () => {
-            // Estado base para el hover CSS
-            gsap.set(arrow, { clearProps: 'opacity,transform' });
-          }
-        },
-        at + 0.14
-      );
+      gsap.set(arrow, { clearProps: 'opacity,transform' });
     }
   });
 
@@ -219,56 +231,50 @@ export function playMobileSubmenuOpen(root: HTMLElement): gsap.core.Timeline | n
   const items = submenu.querySelectorAll('.mobile-submenu-item');
 
   gsap.set(submenu, { opacity: 0, height: 0, overflow: 'hidden' });
-  gsap.set(items, { opacity: 0, x: -12 });
+  gsap.set(items, { opacity: 0, y: 10 });
 
   const tl = gsap.timeline({ defaults: { ease: EASE } });
 
   tl.to(submenu, { opacity: 1, height: 'auto', duration: 0.35, ease: EASE_SOFT }, 0);
 
   items.forEach((item, i) => {
+    const media = item.querySelector('.mobile-submenu-media');
     const index = item.querySelector('.mobile-submenu-index');
     const name = item.querySelector('.mobile-submenu-name');
     const short = item.querySelector('.mobile-submenu-short');
-    const arrow = item.querySelector('.mobile-submenu-arrow');
     const at = 0.08 + i * 0.05;
 
-    tl.to(item, { opacity: 1, x: 0, duration: 0.4 }, at);
+    tl.to(item, { opacity: 1, y: 0, duration: 0.4 }, at);
 
+    if (media) {
+      tl.fromTo(
+        media,
+        { clipPath: 'inset(0 0 100% 0)' },
+        { clipPath: 'inset(0 0 0% 0)', duration: 0.4, ease: EASE_EXPO },
+        at
+      );
+    }
     if (index) {
       tl.fromTo(
         index,
-        { opacity: 0, y: 8 },
-        { opacity: 1, y: 0, duration: 0.3 },
-        at + 0.02
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.28 },
+        at + 0.04
       );
     }
     if (name) {
       tl.fromTo(
         name,
         { opacity: 0, x: -8 },
-        { opacity: 1, x: 0, duration: 0.35 },
-        at + 0.04
+        { opacity: 1, x: 0, duration: 0.32 },
+        at + 0.06
       );
     }
     if (short) {
       tl.fromTo(
         short,
         { opacity: 0, y: 6 },
-        { opacity: 1, y: 0, duration: 0.3 },
-        at + 0.08
-      );
-    }
-    if (arrow) {
-      tl.fromTo(
-        arrow,
-        { opacity: 0, x: -4, y: 4 },
-        {
-          opacity: 0,
-          x: -4,
-          y: 4,
-          duration: 0.25,
-          onComplete: () => gsap.set(arrow, { clearProps: 'opacity,transform' })
-        },
+        { opacity: 1, y: 0, duration: 0.28 },
         at + 0.1
       );
     }

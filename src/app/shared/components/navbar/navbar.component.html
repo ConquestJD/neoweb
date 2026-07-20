@@ -39,25 +39,34 @@
                [@megaFade]>
             <div class="megamenu-inner">
               <div class="megamenu-aside">
-                <p class="megamenu-eyebrow">Soluciones digitales</p>
-                <h3 class="megamenu-title">Servicios pensados para hacer crecer empresas peruanas</h3>
-                <p class="megamenu-copy">Combina diseño, desarrollo y marketing con un desarrollador que entiende tu negocio.</p>
+                <div class="megamenu-aside-top">
+                  <p class="megamenu-eyebrow">NeoWeb · Catálogo</p>
+                  <p class="megamenu-count" aria-hidden="true">{{ services.length | number: '2.0-0' }}</p>
+                </div>
+                <h3 class="megamenu-title">Qué construimos para hacer crecer tu negocio</h3>
+                <p class="megamenu-copy">Diseño, desarrollo y marketing con criterio de producto — no plantillas genéricas.</p>
                 <a routerLink="/contacto" (click)="closeServicesDropdown()" class="megamenu-cta">
-                  Agendar diagnóstico gratuito
-                  <span class="material-icons">arrow_forward</span>
+                  <span>Diagnóstico gratuito</span>
+                  <span class="material-icons" aria-hidden="true">arrow_outward</span>
                 </a>
               </div>
-              <div class="megamenu-list">
+              <div class="megamenu-list" role="list">
                 <a *ngFor="let service of services; let i = index"
                    [routerLink]="service.route"
                    (click)="navigateTo(service.route)"
                    class="megamenu-row"
+                   role="listitem"
                    [style.--row-index]="i"
                    [attr.aria-label]="'Ver servicio ' + service.name">
-                  <span class="megamenu-row-index">{{ (i + 1) | number: '2.0-0' }}</span>
-                  <span class="megamenu-row-name">{{ service.name }}</span>
-                  <span class="megamenu-row-short">{{ service.short }}</span>
-                  <span class="material-icons megamenu-row-arrow">arrow_outward</span>
+                  <span class="megamenu-row-media" aria-hidden="true">
+                    <img [src]="service.image" [alt]="''" loading="lazy" decoding="async">
+                  </span>
+                  <span class="megamenu-row-body">
+                    <span class="megamenu-row-index">{{ (i + 1) | number: '2.0-0' }}</span>
+                    <span class="megamenu-row-name">{{ service.name }}</span>
+                    <span class="megamenu-row-short">{{ service.short }}</span>
+                  </span>
+                  <span class="material-icons megamenu-row-arrow" aria-hidden="true">arrow_outward</span>
                 </a>
               </div>
             </div>
@@ -136,12 +145,15 @@
              [routerLink]="service.route"
              (click)="navigateTo(service.route)"
              class="mobile-submenu-item">
+            <span class="mobile-submenu-media" aria-hidden="true">
+              <img [src]="service.image" [alt]="''" loading="lazy" decoding="async">
+            </span>
             <span class="mobile-submenu-index">{{ (i + 1) | number: '2.0-0' }}</span>
             <span class="mobile-submenu-text">
               <span class="mobile-submenu-name">{{ service.name }}</span>
               <span class="mobile-submenu-short">{{ service.short }}</span>
             </span>
-            <span class="material-icons mobile-submenu-arrow">arrow_outward</span>
+            <span class="material-icons mobile-submenu-arrow" aria-hidden="true">arrow_outward</span>
           </a>
         </div>
       </div>

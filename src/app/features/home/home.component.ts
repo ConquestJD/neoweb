@@ -857,7 +857,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.ngZone.runOutsideAngular(() => {
       this.gsapCleanup = initHomeGsapAnimations(this.host.nativeElement, {
-        onServicesComplete: () => this.ngZone.run(() => this.markServicesIntroDone()),
+        onServicesStart: () => this.ngZone.run(() => {
+          this.servicesVisible = true;
+          this.preloadServiceImages();
+        }),
+        onServicesComplete: () => this.ngZone.run(() => {
+          this.servicesIntroDone = true;
+        }),
         onWhyComplete: () => this.ngZone.run(() => this.markWhyIntroDone()),
         onPortfolioComplete: () => this.ngZone.run(() => this.markPortfolioIntroDone()),
         onFaqComplete: () => this.ngZone.run(() => this.markFaqIntroDone()),

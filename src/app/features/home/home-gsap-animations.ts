@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export type HomeGsapCallbacks = {
+  onServicesStart?: () => void;
   onServicesComplete?: () => void;
   onWhyComplete?: () => void;
   onPortfolioComplete?: () => void;
@@ -25,7 +26,7 @@ export function initHomeGsapAnimations(
 ): () => void {
   const ctx = gsap.context(() => {
     setupHero(root);
-    setupServices(root, callbacks.onServicesComplete);
+    setupServices(root, callbacks.onServicesStart, callbacks.onServicesComplete);
     setupWhy(root, callbacks.onWhyComplete);
     setupPortfolio(root, callbacks.onPortfolioComplete);
     setupProcess(root);
@@ -86,91 +87,173 @@ function setupHero(root: HTMLElement) {
   }
 }
 
-function setupServices(root: HTMLElement, onComplete?: () => void) {
+function setupServices(
+  root: HTMLElement,
+  onStart?: () => void,
+  onComplete?: () => void
+) {
   const section = root.querySelector('#services-section');
   if (!section) return;
 
   const title = section.querySelector('.services-header h2');
   const intro = section.querySelector('.services-header p');
   const navItems = section.querySelectorAll('.services-nav-item');
-  const carousel = section.querySelector('.services-carousel');
-  const activeSlide = () => section.querySelector('.carousel-slide.is-active');
-  const sideSlides = () =>
-    section.querySelectorAll('.carousel-slide.is-prev, .carousel-slide.is-next');
+  const viewport = section.querySelector('.carousel-viewport');
+  const active = section.querySelector('.carousel-slide.is-active');
+  const sides = section.querySelectorAll('.carousel-slide.is-prev, .carousel-slide.is-next');
   const indicator = section.querySelector('.carousel-indicator');
-  const caption = section.querySelector('.carousel-indicator-caption');
+  const marks = section.querySelectorAll('.carousel-indicator-mark');
+  const thumb = section.querySelector('.carousel-indicator-thumb');
+  const captionIndex = section.querySelector('.carousel-indicator-index');
+  const captionName = section.querySelector('.carousel-indicator-name');
 
-  gsap.set([title, intro, indicator, caption].filter(Boolean), { opacity: 0 });
-  gsap.set(navItems, { opacity: 0, y: 18 });
-  if (carousel) gsap.set(carousel, { opacity: 0, y: 48 });
+  const activeImg = active?.querySelector('img');
+  const activeOverlay = active?.querySelector('.carousel-slide-overlay');
+  const activeTitle = active?.querySelector('.carousel-slide-top h3');
+  const activeDesc = active?.querySelector('.carousel-slide-top p');
+  const activeTop = active?.querySelector('.carousel-slide-top');
+
+  gsap.set([title, intro].filter(Boolean), { opacity: 0 });
+  gsap.set(navItems, { opacity: 0, scale: 0.88, y: 10 });
+  if (viewport) gsap.set(viewport, { clipPath: 'inset(10% 14% 10% 14% round 8px)' });
+  gsap.set([activeImg, activeOverlay, activeTop].filter(Boolean), { opacity: 0 });
+  gsap.set(sides, { opacity: 0 });
+  gsap.set(indicator, { opacity: 0 });
+  gsap.set(marks, { scaleY: 0, transformOrigin: 'center bottom' });
+  gsap.set(thumb, { scaleX: 0, transformOrigin: 'left center' });
+  gsap.set([captionIndex, captionName].filter(Boolean), { opacity: 0, y: 8 });
 
   const tl = gsap.timeline({
     defaults: { ease: EASE },
     scrollTrigger: {
       trigger: section,
-      start: 'top 72%',
+      start: 'top 78%',
       once: true
     },
+    onStart: () => onStart?.(),
     onComplete: () => onComplete?.()
   });
 
+  // Header editorial
   if (title) {
     tl.fromTo(
       title,
-      { opacity: 0, y: 40, rotateX: 18, transformOrigin: '50% 100%' },
-      { opacity: 1, y: 0, rotateX: 0, duration: 0.9 },
+      { opacity: 0, y: 28, clipPath: 'inset(0 0 100% 0)' },
+      {
+        opacity: 1,
+        y: 0,
+        clipPath: 'inset(0 0 0% 0)',
+        duration: 0.7,
+        ease: EASE_EXPO
+      },
       0
     );
   }
   if (intro) {
-    tl.fromTo(intro, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7 }, 0.12);
+    tl.fromTo(
+      intro,
+      { opacity: 0, y: 14 },
+      { opacity: 1, y: 0, duration: 0.45 },
+      0.12
+    );
   }
+
+  // Nav: ensambla desde el centro, como un selector
   if (navItems.length) {
     tl.to(
       navItems,
-      { opacity: 1, y: 0, duration: 0.55, stagger: { each: 0.06, from: 'start' } },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.4,
+        stagger: { each: 0.045, from: 'center' },
+        ease: 'back.out(1.35)'
+      },
       0.22
     );
   }
-  if (carousel) {
-    tl.to(carousel, { opacity: 1, y: 0, duration: 0.9, ease: EASE_SOFT }, 0.35);
-  }
 
-  tl.add(() => {
-    const active = activeSlide();
-    const sides = sideSlides();
-    if (active) {
-      gsap.fromTo(
-        active,
-        { scale: 0.88, filter: 'brightness(0.7)' },
-        { scale: 1, filter: 'brightness(1)', duration: 1, ease: EASE_SOFT }
-      );
-      const copy = active.querySelectorAll('.carousel-slide-top, .carousel-slide-audience');
-      gsap.fromTo(
-        copy,
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, delay: 0.15, ease: EASE }
-      );
-    }
-    if (sides.length) {
-      gsap.fromTo(
-        sides,
-        { opacity: 0.2, x: (i) => (i === 0 ? -40 : 40) },
-        { opacity: 1, x: 0, duration: 0.85, stagger: 0.08, ease: EASE_SOFT }
-      );
-    }
-  }, 0.45);
-
-  if (indicator) {
-    tl.fromTo(
-      indicator,
-      { opacity: 0, scaleX: 0.4, transformOrigin: 'left center' },
-      { opacity: 1, scaleX: 1, duration: 0.7 },
-      0.7
+  // Carrusel: reveal por clip del viewport (no mueve slides)
+  if (viewport) {
+    tl.to(
+      viewport,
+      {
+        clipPath: 'inset(0% 0% 0% 0% round 8px)',
+        duration: 0.85,
+        ease: EASE_EXPO
+      },
+      0.28
     );
   }
-  if (caption) {
-    tl.fromTo(caption, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.85);
+
+  // Laterales solo opacity — sin tocar transform del track
+  if (sides.length) {
+    tl.to(sides, { opacity: 1, duration: 0.55, ease: EASE_SOFT }, 0.38);
+  }
+
+  // Slide activo: imagen + copy, elemento por elemento
+  if (activeImg) {
+    tl.fromTo(
+      activeImg,
+      { opacity: 0, scale: 1.1 },
+      { opacity: 1, scale: 1, duration: 0.9, ease: EASE_SOFT },
+      0.32
+    );
+  }
+  if (activeOverlay) {
+    tl.fromTo(
+      activeOverlay,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.55 },
+      0.42
+    );
+  }
+  if (activeTop) {
+    tl.to(activeTop, { opacity: 1, duration: 0.35 }, 0.48);
+  }
+  if (activeTitle) {
+    tl.fromTo(
+      activeTitle,
+      { opacity: 0, y: 18, clipPath: 'inset(0 0 100% 0)' },
+      {
+        opacity: 1,
+        y: 0,
+        clipPath: 'inset(0 0 0% 0)',
+        duration: 0.55,
+        ease: EASE_EXPO
+      },
+      0.5
+    );
+  }
+  if (activeDesc) {
+    tl.fromTo(
+      activeDesc,
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.45 },
+      0.6
+    );
+  }
+
+  // Indicador
+  if (indicator) {
+    tl.to(indicator, { opacity: 1, duration: 0.3 }, 0.72);
+  }
+  if (marks.length) {
+    tl.to(
+      marks,
+      { scaleY: 1, duration: 0.35, stagger: 0.04, ease: EASE_SOFT },
+      0.75
+    );
+  }
+  if (thumb) {
+    tl.to(thumb, { scaleX: 1, duration: 0.45, ease: EASE_EXPO }, 0.82);
+  }
+  if (captionIndex) {
+    tl.to(captionIndex, { opacity: 1, y: 0, duration: 0.35 }, 0.85);
+  }
+  if (captionName) {
+    tl.to(captionName, { opacity: 1, y: 0, duration: 0.4 }, 0.9);
   }
 }
 

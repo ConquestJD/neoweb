@@ -20,6 +20,17 @@
   transition: none !important;
 }
 
+/* Evita que el CSS de intro pelee con el carrusel / GSAP */
+:host.gsap-enabled .services-section:not(.is-visible) .carousel-slide,
+:host.gsap-enabled .services-section.is-visible:not(.is-intro-done) .carousel-slide {
+  opacity: 1;
+  transform: none;
+}
+
+:host.gsap-enabled .services-header {
+  perspective: none;
+}
+
 :host.gsap-enabled .why-neoweb-label,
 :host.gsap-enabled .why-list-item,
 :host.gsap-enabled .why-showcase-detail,
@@ -47,7 +58,6 @@
   animation: none !important;
 }
 
-:host.gsap-enabled .services-header,
 :host.gsap-enabled .portfolio-grid,
 :host.gsap-enabled .process-header {
   perspective: 900px;
