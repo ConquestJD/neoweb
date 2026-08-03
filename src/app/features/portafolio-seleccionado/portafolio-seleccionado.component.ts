@@ -326,7 +326,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
         'assets/portfolio/hombre-universal-inicio.png',
         'assets/portfolio/hombre-universal-acerca-de.png',
         'assets/portfolio/hombre-universal-articulos.png',
-        'assets/portfolio/hombre-universal-login.png'
+        'assets/portfolio/hombre-universal-paramitas.png'
       ],
       description: 'Publicación digital orientada al descubrimiento del Hombre Trascendental: una síntesis de ciencia, arte, filosofía y educación para personas en búsqueda de sentido y crecimiento interior.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
