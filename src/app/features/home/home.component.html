@@ -207,7 +207,7 @@
 
     <div class="portfolio-grid" #portfolioGrid>
       <a *ngFor="let project of portfolioProjects; let i = index"
-         [routerLink]="project.id === 'yachaytambo' ? '/portafolio' : ['/portafolio', project.id]"
+         [routerLink]="['/portafolio', project.id]"
          class="portfolio-card portfolio-card--scroll"
          [style.--card-index]="i">
         <span class="material-icons portfolio-card-arrow">arrow_outward</span>

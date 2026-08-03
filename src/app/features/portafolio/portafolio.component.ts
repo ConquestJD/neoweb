@@ -223,12 +223,40 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
         websiteUrl: 'https://hombreuniversal.com',
         type: 'Plataforma Editorial'
       }
+    },
+    {
+      id: 'yachaytambo',
+      title: 'Yachay Tambo',
+      category: 'Retiro Vivencial · Bienestar',
+      imageUrl: 'assets/portfolio/yachaytambo-inicio.png',
+      scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.jpg',
+      description: 'Sitio web para presentar retiros vivenciales, sedes, calendario y reserva en Urubamba y Tacna.',
+      technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
+      results: {
+        title: 'Presencia Digital para Retiros',
+        metrics: [
+          { label: 'Retiros', value: '+ Retiros', icon: 'self_improvement' },
+          { label: 'Sedes', value: '2 sedes', icon: 'location_on' },
+          { label: 'Presencia', value: 'Digital activa', icon: 'public' },
+          { label: 'Dominio', value: 'yachaytambo.pe', icon: 'domain' }
+        ],
+        businessImpact: [
+          'Presencia digital profesional para comunicar la propuesta del retiro',
+          'Presentación clara de ambas sedes: Urubamba y Tacna',
+          'Calendario y tarifas visibles para facilitar la reserva',
+          'Base lista para seguir agregando contenido y nuevas cohortes'
+        ],
+        problem: 'El cliente no sabía cómo tener presencia en la red ni cómo mostrar sus servicios de retiros vivenciales.',
+        solution: 'Creé una página web donde puede presentar todos sus retiros en ambas sedes, con experiencia, calendario, tarifas y llamada a la reserva.',
+        websiteUrl: 'https://yachaytambo.pe/',
+        type: 'Sitio Web · Retiro Vivencial'
+      }
     }
   ];
 
   stats = [
-    { number: '6', label: 'Proyectos entregados', icon: 'rocket_launch' },
-    { number: '4', label: 'Clientes reales', icon: 'groups' },
+    { number: '7', label: 'Proyectos entregados', icon: 'rocket_launch' },
+    { number: '5', label: 'Clientes reales', icon: 'groups' },
     { number: 'Multi-país', label: 'Alcance (Perú · El Salvador · Bolivia)', icon: 'public' },
     { number: 'Full-stack', label: 'Front + Back end', icon: 'code' }
   ];

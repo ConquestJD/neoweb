@@ -117,9 +117,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       id: 'yachaytambo',
       title: 'Yachay Tambo',
-      category: 'Turismo & Cultura',
+      category: 'Retiro Vivencial',
       scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.jpg',
-      result: 'Sitio web para experiencias de turismo y cultura en los Andes'
+      result: 'Presencia digital para retiros en Urubamba y Tacna'
     }
   ];
 

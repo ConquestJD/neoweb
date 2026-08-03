@@ -57,7 +57,8 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   private readonly heroScrollImages: Record<string, string> = {
     'omed': '/assets/portfolio/scrolls/omed-scroll.jpg',
     'sml-web': '/assets/portfolio/scrolls/sml-scroll.jpg',
-    'hombre-universal': '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg'
+    'hombre-universal': '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg',
+    'yachaytambo': '/assets/portfolio/scrolls/yachaytambo-scroll.jpg'
   };
   
   allProjects: Project[] = [
@@ -365,6 +366,58 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
         solution: 'Construí una publicación digital con tipografía editorial, secciones por formato (artículos, ensayos, libretos), acceso de lectores y una estética sobria coherente con el tono del contenido.',
         websiteUrl: 'https://hombreuniversal.com',
         type: 'Plataforma Editorial'
+      }
+    },
+    {
+      id: 'yachaytambo',
+      title: 'Yachay Tambo',
+      category: 'Retiro Vivencial · Bienestar',
+      imageUrl: 'assets/portfolio/yachaytambo-inicio.png',
+      imageUrl2: 'assets/portfolio/yachaytambo-experiencia.png',
+      imageUrl3: 'assets/portfolio/yachaytambo-sedes.png',
+      galleryImages: [
+        'assets/portfolio/yachaytambo-inicio.png',
+        'assets/portfolio/yachaytambo-experiencia.png',
+        'assets/portfolio/yachaytambo-calendarios.png',
+        'assets/portfolio/yachaytambo-sedes.png'
+      ],
+      description: 'Sitio web para retiros vivenciales “Mente que Sana”: experiencia, sedes en Urubamba y Tacna, calendario, tarifas y reserva.',
+      technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
+      technologyImages: [
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg'
+      ],
+      features: [
+        'Inicio con propuesta del retiro vivencial',
+        'Sección de experiencia y programa del retiro',
+        'Presentación de 2 sedes: Urubamba y Tacna',
+        'Calendario de próximas fechas',
+        'Tarifas y llamados a la reserva',
+        'Diseño responsive orientado a conversión',
+        'Estructura SEO para presencia digital',
+        'Identidad visual alineada al concepto andino y bienestar'
+      ],
+      serviceType: 'pagina-web',
+      results: {
+        title: 'Presencia Digital para Retiros',
+        metrics: [
+          { label: 'Retiros', value: '+ Retiros', icon: 'self_improvement' },
+          { label: 'Sedes', value: '2 sedes', icon: 'location_on' },
+          { label: 'Presencia', value: 'Digital activa', icon: 'public' },
+          { label: 'Dominio', value: 'yachaytambo.pe', icon: 'domain' }
+        ],
+        businessImpact: [
+          'Presencia digital profesional para comunicar la propuesta del retiro',
+          'Presentación clara de ambas sedes: Urubamba y Tacna',
+          'Calendario y tarifas visibles para facilitar la reserva',
+          'Base lista para seguir agregando contenido y nuevas cohortes'
+        ],
+        problem: 'El cliente no sabía cómo tener presencia en la red ni cómo mostrar sus servicios de retiros vivenciales.',
+        solution: 'Creé una página web donde puede presentar todos sus retiros en ambas sedes, con experiencia, calendario, tarifas y llamada a la reserva.',
+        websiteUrl: 'https://yachaytambo.pe/',
+        type: 'Sitio Web · Retiro Vivencial'
       }
     }
   ];
