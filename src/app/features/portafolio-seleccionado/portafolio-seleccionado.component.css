@@ -69,7 +69,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 120px 0 72px;
-  background: #000000;
+  background: var(--hero-color, #1f150c);
   overflow: hidden;
   isolation: isolate;
 }
@@ -78,9 +78,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-color: #000000;
-  background-size: cover;
-  background-position: center top;
+  background: var(--hero-color, #1f150c);
 }
 
 .ps-hero-overlay {
@@ -91,10 +89,9 @@
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.58) 0%,
-      rgba(0, 0, 0, 0.22) 38%,
-      rgba(0, 0, 0, 0.18) 62%,
-      rgba(0, 0, 0, 0.52) 100%
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.04) 45%,
+      rgba(0, 0, 0, 0.22) 100%
     );
 }
 

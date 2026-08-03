@@ -58,15 +58,15 @@ function setupHero(root: HTMLElement) {
   const media = section.querySelector('.ps-hero-media');
   const img = section.querySelector('.ps-hero-media img');
 
-  if (bg) gsap.set(bg, { scale: 1.14, opacity: 0.25 });
+  if (bg) gsap.set(bg, { opacity: 0 });
   if (overlay) gsap.set(overlay, { opacity: 0 });
   gsap.set([back, eyebrow, cat, title, desc, actions, media].filter(Boolean), { opacity: 0 });
   if (img) gsap.set(img, { scale: 1.12 });
 
   const tl = gsap.timeline({ defaults: { ease: EASE } });
 
-  if (bg) tl.to(bg, { scale: 1, opacity: 1, duration: 1.7, ease: EASE_SOFT }, 0);
-  if (overlay) tl.to(overlay, { opacity: 1, duration: 1.1 }, 0.1);
+  if (bg) tl.to(bg, { opacity: 1, duration: 0.9, ease: EASE_SOFT }, 0);
+  if (overlay) tl.to(overlay, { opacity: 1, duration: 0.8 }, 0.05);
   if (back) {
     tl.fromTo(back, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.55 }, 0.2);
   }

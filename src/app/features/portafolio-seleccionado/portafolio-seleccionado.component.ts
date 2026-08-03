@@ -8,6 +8,7 @@ interface Project {
   id: string;
   title: string;
   category: string;
+  heroColor: string;
   imageUrl: string;
   imageUrl2: string;
   imageUrl3?: string;
@@ -54,18 +55,12 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   private isFirstProjectLoad = true;
   private gsapCleanup: (() => void) | null = null;
 
-  private readonly heroScrollImages: Record<string, string> = {
-    'omed': '/assets/portfolio/scrolls/omed-scroll.jpg',
-    'sml-web': '/assets/portfolio/scrolls/sml-scroll.jpg',
-    'hombre-universal': '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg',
-    'yachaytambo': '/assets/portfolio/scrolls/yachaytambo-scroll.jpg'
-  };
-  
   allProjects: Project[] = [
     {
       id: 'liceum',
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
+      heroColor: '#0B2748',
       imageUrl: 'assets/portfolio/liceum-inicio.png',
       imageUrl2: 'assets/portfolio/liceum-cursos.png',
       imageUrl3: 'assets/portfolio/liceum-curso-seleccionado.png',
@@ -118,6 +113,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       id: 'omed',
       title: 'OMED',
       category: 'Clínica Especializada',
+      heroColor: '#0A5C63',
       imageUrl: 'assets/portfolio/omed-inicio.png',
       imageUrl2: 'assets/portfolio/omed-especialidades-medicas.png',
       imageUrl3: 'assets/portfolio/omed-sobre-nosotros.png',
@@ -170,6 +166,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       id: 'omed-financial',
       title: 'Gestión Financiera OMED',
       category: 'Software a Medida',
+      heroColor: '#0B3D45',
       imageUrl: 'assets/portfolio/gestion-financiera-omed-login.png',
       imageUrl2: 'assets/portfolio/gestion-financiera-omed-login.png',
       imageUrl3: 'assets/portfolio/gestion-financiera-omed-login.png',
@@ -219,6 +216,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       id: 'sml-web',
       title: 'Santa María Laura',
       category: 'Colegio Privado · Lima',
+      heroColor: '#7A0E2C',
       imageUrl: 'assets/portfolio/sml-inicio.png',
       imageUrl2: 'assets/portfolio/sml-educacion-formativa.png',
       imageUrl3: 'assets/portfolio/sml-infraestructura.png',
@@ -271,6 +269,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       id: 'sml-portal',
       title: 'Portal SML',
       category: 'Plataforma Educativa Interna',
+      heroColor: '#6B1230',
       imageUrl: 'assets/portfolio/sml-portal-login.png',
       imageUrl2: 'assets/portfolio/sml-portal-login.png',
       imageUrl3: 'assets/portfolio/sml-portal-login.png',
@@ -320,6 +319,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       id: 'hombre-universal',
       title: 'Hombre Universal',
       category: 'Publicación Editorial · Cultura',
+      heroColor: '#1A1840',
       imageUrl: 'assets/portfolio/hombre-universal-inicio.png',
       imageUrl2: 'assets/portfolio/hombre-universal-articulos.png',
       imageUrl3: 'assets/portfolio/hombre-universal-acerca-de.png',
@@ -372,6 +372,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       id: 'yachaytambo',
       title: 'Yachay Tambo',
       category: 'Retiro Vivencial · Bienestar',
+      heroColor: '#2F4A1C',
       imageUrl: 'assets/portfolio/yachaytambo-inicio.png',
       imageUrl2: 'assets/portfolio/yachaytambo-experiencia.png',
       imageUrl3: 'assets/portfolio/yachaytambo-sedes.png',
@@ -836,10 +837,8 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     return images;
   }
 
-  getHeroBackground(): string {
-    const scroll = this.project ? this.heroScrollImages[this.project.id] : null;
-    const path = scroll ?? '/assets/portfolio/portafolio-hero.jpg';
-    return `url("${encodeURI(path)}")`;
+  getHeroColor(): string {
+    return this.project?.heroColor ?? '#1f150c';
   }
 
   ngOnInit() {

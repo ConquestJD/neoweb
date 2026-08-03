@@ -1,8 +1,8 @@
 <ng-container *ngIf="showPage && project">
 
   <!-- Hero -->
-  <section class="ps-hero">
-    <div class="ps-hero-bg" [style.background-image]="getHeroBackground()" aria-hidden="true"></div>
+  <section class="ps-hero" [style.--hero-color]="getHeroColor()">
+    <div class="ps-hero-bg" aria-hidden="true"></div>
     <div class="ps-hero-overlay" aria-hidden="true"></div>
 
     <div class="ps-inner ps-breadcrumb">
