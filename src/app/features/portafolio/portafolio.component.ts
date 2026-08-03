@@ -63,6 +63,7 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
       imageUrl: 'assets/portfolio/liceum-inicio.png',
+      scrollUrl: '/assets/portfolio/scrolls/liceum-scroll.jpg',
       description: 'Plataforma institucional y comercial para cursos médicos, inscripciones y comunicación académica.',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
       results: {
