@@ -24,6 +24,10 @@ jobs:
       - name: Build Angular
         run: npm run build
 
+      # Hostinger shared hosting sirve index.html; el build SSR genera index.csr.html
+      - name: Verify Hostinger index.html
+        run: test -f dist/NeoWeb/browser/index.html
+
       - name: Deploy to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && node scripts/prepare-hostinger.mjs",
+    "build:ssr": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr": "node dist/NeoWeb/server/server.mjs",
-    "serve:ssr:NeoWeb": "node dist/NeoWeb/server/server.mjs"
+    "serve:ssr:NeoWeb": "node dist/NeoWeb/server/server.mjs",
+    "prepare:hostinger": "node scripts/prepare-hostinger.mjs"
   },
   "private": true,
   "dependencies": {
