@@ -3,6 +3,7 @@ import { ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { PLATFORM_ID } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { SeoService } from './core/seo/seo.service';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
@@ -21,6 +22,7 @@ export class App implements OnInit, OnDestroy {
   private readonly router = inject(Router);
   private readonly viewport = inject(ViewportScroller);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly seo = inject(SeoService);
   private routerSub?: Subscription;
   private scrollTimers: ReturnType<typeof setTimeout>[] = [];
 
@@ -32,21 +34,21 @@ export class App implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.updateScrollState();
 
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
-
     this.routerSub = this.router.events.subscribe((event) => {
-      // Sube ya al iniciar la navegación (antes de montar la nueva vista)
       if (event instanceof NavigationStart) {
-        this.forceScrollTop();
+        if (isPlatformBrowser(this.platformId)) {
+          this.forceScrollTop();
+        }
         return;
       }
 
-      // Y de nuevo cuando termina, en varios ticks (lazy load / layout)
       if (event instanceof NavigationEnd) {
-        this.forceScrollTop();
-        this.scheduleScrollTopPasses();
+        this.seo.updateForUrl(event.urlAfterRedirects);
+
+        if (isPlatformBrowser(this.platformId)) {
+          this.forceScrollTop();
+          this.scheduleScrollTopPasses();
+        }
       }
     });
   }

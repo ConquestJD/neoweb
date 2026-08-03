@@ -5,13 +5,16 @@ Allow: /servicios/
 Allow: /portafolio
 Allow: /nosotros
 Allow: /contacto
+Allow: /politica-privacidad
+Allow: /terminos-condiciones
 
-# Blog despublicado: no rastrear ni indexar
+# Blog despublicado
 Disallow: /blog
+Disallow: /blog/
 
-# Bloquear áreas administrativas (si existen)
+# Páginas de error y privadas
+Disallow: /404
 Disallow: /admin/
 Disallow: /private/
 
-# Sitemap
 Sitemap: https://neoweb.website/sitemap.xml
