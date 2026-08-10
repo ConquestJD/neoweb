@@ -468,49 +468,56 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     ],
     'pagina-web': [
       {
-        name: 'START',
-        price: 'S/ 1,200',
+        name: 'ESENCIAL',
+        price: 'S/ 500',
         icon: 'star',
         features: [
-          '6 secciones: Inicio, Nosotros, Servicios, Beneficios, FAQ, Contacto',
-          'Diseño moderno',
-          'Responsive completo',
-          'Formulario + WhatsApp',
-          'SEO básico (título, descripción, etiquetas)',
+          'Diseño profesional y moderno',
+          'Hasta 6 secciones',
+          'Inicio, Nosotros, Servicios, Beneficios, FAQ y Contacto',
+          'Formulario de contacto',
+          'Botón de WhatsApp integrado',
+          'Adaptada para celulares, tablets y computadoras',
+          'Configuración básica para aparecer en Google',
           'Certificado SSL',
-          'Hosting + dominio 1 año',
-          'Entrega: 1 semana'
+          'Hosting y dominio incluidos durante 6 meses',
+          'Entrega en aproximadamente 1 semana'
         ]
       },
       {
-        name: 'PRO',
-        price: 'S/ 1,800',
+        name: 'PROFESIONAL',
+        price: 'S/ 900',
         icon: 'rocket_launch',
         featured: true,
         features: [
-          '8-10 secciones: Inicio, Nosotros, Equipo, Servicios, Detalle de Servicios, Proyectos, Testimonios, Blog (activado), FAQ, Contacto',
-          'Diseño personalizado',
-          'Animaciones suaves (fade, slide, hover)',
-          'Google Analytics + Tag Manager',
-          'SEO on-page básico',
-          'Optimización de velocidad ligera',
-          'Hosting + dominio 1 año',
-          'Entrega: 1-2 semanas'
+          'Todo lo incluido en Esencial',
+          'Hasta 10 secciones',
+          'Diseño completamente personalizado',
+          'Integración con redes sociales',
+          'Google Analytics',
+          'Optimización de velocidad',
+          'SEO avanzado',
+          'Investigación básica de palabras clave',
+          'Entrega en 1 a 2 semanas'
         ]
       },
       {
-        name: 'PREMIUM',
-        price: 'S/ 2,500',
+        name: 'EMPRESARIAL',
+        price: 'S/ 1,500',
         icon: 'diamond',
         features: [
-          '12-15 secciones: Hero avanzado, Inicio, Nosotros, Historia, Equipo, Servicios, Detalle de Servicios, Portafolio filtrable, Proyectos, Testimonios, Blog, FAQ, CTA personalizados, Contacto',
+          'Todo lo incluido en Profesional',
+          'Hasta 15 secciones',
           'Diseño UI/UX avanzado',
-          'Animaciones profesionales (scroll, parallax, microinteracciones)',
-          'Integraciones API básicas (CRM, correos, etc.)',
+          'Portafolio dinámico',
+          'Formularios avanzados',
+          'Integraciones con CRM y herramientas externas',
           'SEO completo',
-          'Optimización de velocidad PRO',
-          'Hosting + dominio 1 año',
-          'Entrega: 2-3 semanas'
+          'Optimización Premium de velocidad',
+          'CTAs personalizados',
+          'Prioridad de soporte',
+          'Posibilidad de incorporar un panel de administración según el alcance del proyecto',
+          'Entrega en 2 a 3 semanas'
         ]
       }
     ],

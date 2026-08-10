@@ -291,7 +291,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "price": "S/ 500",
         "icon": "star",
         "color": "from-blue-500 to-cyan-500",
-        "tagline": "Ideal para emprendedores y pequeños negocios que necesitan presencia digital profesional.",
+        "tagline": "Ideal para emprendedores y pequeños negocios que necesitan una presencia digital profesional.",
         "features": [
           "Diseño profesional y moderno",
           "Hasta 6 secciones",
@@ -302,7 +302,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
           "Configuración básica para aparecer en Google",
           "Certificado SSL",
           "Hosting y dominio incluidos durante 6 meses",
-          "Entrega en 7 días"
+          "Entrega en aproximadamente 1 semana"
         ]
       },
       {
@@ -311,12 +311,11 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
-        "tagline": "Ideal para negocios en crecimiento que buscan generar más confianza y captar clientes.",
+        "tagline": "Ideal para empresas que buscan fortalecer su presencia digital y transmitir mayor confianza.",
         "features": [
           "Todo lo incluido en Esencial",
           "Hasta 10 secciones",
-          "Diseño personalizado",
-          "Blog administrable",
+          "Diseño completamente personalizado",
           "Integración con redes sociales",
           "Google Analytics",
           "Optimización de velocidad",
@@ -327,21 +326,22 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "EMPRESARIAL",
-        "price": "S/ 1,200",
+        "price": "S/ 1,500",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Ideal para empresas que buscan una presencia digital sólida y profesional.",
+        "tagline": "Ideal para empresas que necesitan una solución web más robusta, escalable y adaptada a sus procesos.",
         "features": [
           "Todo lo incluido en Profesional",
           "Hasta 15 secciones",
           "Diseño UI/UX avanzado",
           "Portafolio dinámico",
           "Formularios avanzados",
-          "Integraciones CRM y herramientas externas",
+          "Integraciones con CRM y herramientas externas",
           "SEO completo",
           "Optimización Premium de velocidad",
           "CTAs personalizados",
           "Prioridad de soporte",
+          "Posibilidad de incorporar un panel de administración según el alcance del proyecto",
           "Entrega en 2 a 3 semanas"
         ]
       }
@@ -370,7 +370,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "label": "Diseño",
         "start": "Profesional",
-        "pro": "Personalizado",
+        "pro": "Completamente personalizado",
         "premium": "UI/UX avanzado"
       },
       {
@@ -406,12 +406,6 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "label": "Hosting y dominio (6 meses)",
         "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Blog administrable",
-        "start": false,
         "pro": true,
         "premium": true
       },
@@ -458,6 +452,12 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "premium": true
       },
       {
+        "label": "Panel de administración",
+        "start": false,
+        "pro": false,
+        "premium": "Según alcance"
+      },
+      {
         "label": "CTAs personalizados",
         "start": false,
         "pro": false,
@@ -471,7 +471,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "label": "Tiempo de entrega",
-        "start": "7 días",
+        "start": "Aprox. 1 semana",
         "pro": "1–2 semanas",
         "premium": "2–3 semanas"
       }
