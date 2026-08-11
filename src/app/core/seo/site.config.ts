@@ -3,7 +3,7 @@ export const SITE_NAME = 'NeoWeb';
 export const SITE_PHONE = '+51942820836';
 export const SITE_PHONE_DISPLAY = '+51 942 820 836';
 export const SITE_EMAIL = 'contacto@neoweb.website';
-export const SITE_LOGO = `${SITE_URL}/nuevo-logo-morado.png`;
+export const SITE_LOGO = `${SITE_URL}/icon-512.png`;
 
 /** Redes sociales reales usadas en el sitio */
 export const SITE_SAME_AS = [
