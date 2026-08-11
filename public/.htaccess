@@ -1,5 +1,25 @@
 DirectoryIndex index.html index.csr.html
 
+# MIME correcto para que Google lea el sitemap (evita servir HTML de la SPA)
+<IfModule mod_mime.c>
+  AddType application/xml .xml
+  AddType text/plain .txt
+  AddType image/x-icon .ico
+</IfModule>
+
+<Files "sitemap.xml">
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/xml; charset=UTF-8"
+    Header unset X-Content-Type-Options
+  </IfModule>
+</Files>
+
+<Files "robots.txt">
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+  </IfModule>
+</Files>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
