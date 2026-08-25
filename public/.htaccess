@@ -28,7 +28,6 @@ DirectoryIndex index.html index.csr.html
   RewriteRule ^robots\.txt$ - [L]
   RewriteRule ^sitemap\.xml$ - [L]
   RewriteRule ^favicon\.ico$ - [L]
-  RewriteRule ^logo\.ico$ - [L]
   RewriteRule ^icon-[0-9]+\.png$ - [L]
   RewriteRule ^favicon\.png$ - [L]
   RewriteRule ^assets/ - [L]

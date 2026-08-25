@@ -6,9 +6,8 @@ RewriteRule ^robots\.txt$ robots.txt [L]
 # Serve sitemap.xml directly  
 RewriteRule ^sitemap\.xml$ sitemap.xml [L]
 
-# Serve favicon as logo.ico
-RewriteRule ^favicon\.ico$ logo.ico [L]
-RewriteRule ^logo\.ico$ logo.ico [L]
+# Serve favicon
+RewriteRule ^favicon\.ico$ - [L]
 
 # Serve assets directory directly
 RewriteRule ^assets/ - [L]
