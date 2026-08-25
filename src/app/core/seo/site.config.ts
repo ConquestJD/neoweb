@@ -35,7 +35,7 @@ export const SITE_SERVICES = [
   {
     slug: 'marketing-digital',
     name: 'Marketing Digital',
-    description: 'Estrategias de marketing digital, SEO y publicidad para atraer clientes y hacer crecer tu negocio.'
+    description: 'Gestión de Facebook e Instagram: presencia, contenido hacia tu web o captación con Meta Ads. La pauta no está incluida en el fee.'
   },
   {
     slug: 'rediseno-paginas-web',

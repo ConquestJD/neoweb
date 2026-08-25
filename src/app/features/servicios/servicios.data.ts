@@ -875,141 +875,141 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "marketing-digital": {
     "slug": "marketing-digital",
     "heroImage": "/assets/services/marketing.jpg",
-    "pageTitle": "Agencia de Marketing Digital en Perú | Redes, SEO y Ads | NeoWeb",
-    "metaDescription": "Agencia de marketing digital en Perú: gestión de redes, contenido, SEO y publicidad digital para atraer clientes y hacer crecer tu marca. Cotiza con NeoWeb.",
+    "pageTitle": "Marketing Digital en Perú | Redes, Contenido y Meta Ads | NeoWeb",
+    "metaDescription": "Gestión de redes en Perú: presencia, contenido hacia tu web o captación con Meta Ads. Facebook e Instagram. La pauta no está en el fee. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "trending_up",
       "badgeText": "Marketing digital · Perú",
       "titleLine1": "Marketing digital",
-      "titleHighlight": "que convierte",
-      "description": "Estrategias de marketing digital en Perú para atraer clientes reales: redes sociales, contenido, SEO y campañas publicitarias orientadas a resultados medibles."
+      "titleHighlight": "con un objetivo claro",
+      "description": "Tres planes distintos: presencia en redes, contenido que lleva gente a tu web, o captación con Meta Ads. Facebook e Instagram. La pauta, si la hay, la inviertes tú."
     },
-    "plansSubtitle": "Gestión profesional de redes, contenido y crecimiento. Elige el plan según el nivel de estrategia y ejecución que tu marca necesita.",
+    "plansSubtitle": "No es más publicaciones por más plata. Cada plan resuelve un trabajo distinto: verse profesional, traer consultas a tu web, o captar con anuncios.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Servicios",
-      "titleLine1": "Cobertura",
-      "titleHighlight": "completa",
-      "subtitle": "Estrategias integrales de marketing digital para todos tus canales y objetivos."
+      "badgeText": "Alcance",
+      "titleLine1": "Qué hace",
+      "titleHighlight": "cada plan",
+      "subtitle": "Start mantiene tu marca visible. Pro dirige el contenido a tu web o WhatsApp. Premium suma anuncios en Meta."
     },
     "includes": [
       {
-        "icon": "campaign",
-        "title": "Estrategia Integral",
-        "description": "Plan completo de marketing digital"
-      },
-      {
         "icon": "share",
-        "title": "Redes Sociales",
-        "description": "Gestión profesional de tus perfiles"
+        "title": "Presencia en redes",
+        "description": "Facebook e Instagram activas, con diseño y textos profesionales. El trabajo de Start."
       },
       {
-        "icon": "email",
-        "title": "Email Marketing",
-        "description": "Campañas automatizadas efectivas"
+        "icon": "ads_click",
+        "title": "Contenido con destino",
+        "description": "Publicaciones y reels pensados para generar consultas o visitas a tu web. El trabajo de Pro."
+      },
+      {
+        "icon": "campaign",
+        "title": "Meta Ads",
+        "description": "Campañas pagadas solo en Premium. El fee es por gestionarlas; la pauta la pones tú."
       },
       {
         "icon": "analytics",
-        "title": "Analytics Avanzado",
-        "description": "Medición y optimización continua"
+        "title": "Reporte según el plan",
+        "description": "Start: lo publicado. Pro: clics y consultas. Premium: costo por consulta o lead."
       }
     ],
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
-      "titleHighlight": "ejecuto",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleHighlight": "trabajo",
+      "subtitle": "Un mes para entender el negocio y armar el calendario. Los siguientes, para publicar, medir y ajustar."
     },
     "fullcodeSection": {
-      "badgeText": "KPI",
-      "titleLine1": "Resultados que",
+      "badgeText": "Claridad",
+      "titleLine1": "Lo que sí",
       "titleHighlight": "medimos",
-      "subtitle": "Métricas claras y resultados tangibles para tu estrategia de marketing."
+      "subtitle": "Métricas que coinciden con el plan que contratas. Sin promesas de canales que no están incluidos."
     },
     "ctaSection": {
       "theme": "light",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "escalar tu marketing?",
-      "description": "Diseño y ejecuto tu estrategia con foco en ROI."
+      "titleLine1": "¿Cuál plan",
+      "titleHighlight": "te queda?",
+      "description": "Cuéntame si necesitas presencia, más consultas o anuncios. Te digo el plan sin rodeos."
     },
     "features": [
       {
-        "icon": "campaign",
-        "title": "Estrategia Integral",
-        "description": "Plan completo de marketing digital"
-      },
-      {
         "icon": "share",
-        "title": "Redes Sociales",
-        "description": "Gestión profesional de tus perfiles"
+        "title": "Presencia en redes",
+        "description": "Facebook e Instagram activas, con diseño y textos profesionales. El trabajo de Start."
       },
       {
-        "icon": "email",
-        "title": "Email Marketing",
-        "description": "Campañas automatizadas efectivas"
+        "icon": "ads_click",
+        "title": "Contenido con destino",
+        "description": "Publicaciones y reels pensados para generar consultas o visitas a tu web. El trabajo de Pro."
+      },
+      {
+        "icon": "campaign",
+        "title": "Meta Ads",
+        "description": "Campañas pagadas solo en Premium. El fee es por gestionarlas; la pauta la pones tú."
       },
       {
         "icon": "analytics",
-        "title": "Analytics Avanzado",
-        "description": "Medición y optimización continua"
+        "title": "Reporte según el plan",
+        "description": "Start: lo publicado. Pro: clics y consultas. Premium: costo por consulta o lead."
       }
     ],
     "methodology": [
       {
         "step": "01",
-        "title": "Análisis de Marca y Audiencia",
-        "description": "Estudio tu marca, competencia y audiencia objetivo para crear estrategias efectivas",
+        "title": "Diagnóstico",
+        "description": "Reviso tu marca, oferta, redes actuales y si tu web o WhatsApp están listos para recibir consultas.",
         "icon": "person_search"
       },
       {
         "step": "02",
-        "title": "Estrategia de Contenido",
-        "description": "Desarrollo calendario editorial y estrategia de contenido que conecta con tu audiencia",
+        "title": "Calendario y piezas",
+        "description": "Defino el objetivo del mes, armo el calendario y diseño cada publicación con su texto.",
         "icon": "content_copy"
       },
       {
         "step": "03",
-        "title": "Ejecución Multi-Canal",
-        "description": "Gestiono tus redes sociales, email marketing y campañas de forma coordinada",
+        "title": "Publicación",
+        "description": "Publico en Facebook e Instagram. Si el plan es Premium, también armo y optimizo las campañas en Meta Ads.",
         "icon": "campaign"
       },
       {
         "step": "04",
-        "title": "Análisis y Optimización",
-        "description": "Mido resultados, analizo métricas y optimizo continuamente para mejores resultados",
+        "title": "Revisión mensual",
+        "description": "Te entrego el reporte del plan contratado y acordamos qué ajustar el mes siguiente.",
         "icon": "analytics"
       }
     ],
     "fullCodeBenefits": [
       {
-        "icon": "code",
-        "title": "Estrategias Personalizadas",
-        "description": "Cada estrategia está diseñada específicamente para tu negocio, sin plantillas genéricas."
+        "icon": "flag",
+        "title": "Un trabajo por plan",
+        "description": "Start, Pro y Premium no son la misma cosa con más posts. Cada uno resuelve un problema distinto."
       },
       {
-        "icon": "campaign",
-        "title": "Gestión Integral",
-        "description": "Gestiono todos tus canales digitales de forma coordinada para máxima efectividad."
+        "icon": "share",
+        "title": "Facebook e Instagram",
+        "description": "Esos son los canales incluidos. TikTok u otras redes se cotizan aparte, no se dan por sentadas."
+      },
+      {
+        "icon": "language",
+        "title": "Pensado para tu web",
+        "description": "Pro y Premium dirigen el tráfico a tu sitio o WhatsApp. Si la web no convierte, primero hay que arreglarla."
+      },
+      {
+        "icon": "payments",
+        "title": "La pauta no está en el fee",
+        "description": "El mensual cubre gestión y contenido. El dinero de los anuncios lo inviertes tú, y solo aplica en Premium."
       },
       {
         "icon": "analytics",
-        "title": "Métricas Accionables",
-        "description": "Reportes detallados con insights claros que te ayudan a tomar mejores decisiones."
-      },
-      {
-        "icon": "trending_up",
-        "title": "ROI Medible",
-        "description": "Cada estrategia está diseñada para generar resultados medibles y retorno de inversión."
-      },
-      {
-        "icon": "auto_awesome",
-        "title": "Contenido de Calidad",
-        "description": "Creo contenido original y de valor que posiciona tu marca como autoridad en tu industria."
+        "title": "Reporte que se entiende",
+        "description": "No llenamos el informe de métricas vanidosas. Medimos lo que el plan promete: presencia, consultas o costo por lead."
       },
       {
         "icon": "support_agent",
-        "title": "Soporte Continuo",
-        "description": "Gestiono personalmente tu presencia digital y respondo rápidamente a tus necesidades."
+        "title": "Trato directo",
+        "description": "Hablas con quien ejecuta el plan. Sin cuenta de agencia ni cambios de community cada mes."
       }
     ],
     "plans": [
@@ -1019,15 +1019,16 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "period": "/mes",
         "icon": "star",
         "color": "from-orange-500 to-red-500",
+        "tagline": "Ideal si necesitas presencia constante y profesional, sin pauta.",
+        "benefit": "Tus redes dejan de verse abandonadas.",
         "features": [
-          "8 publicaciones profesionales",
-          "Diseño visual para redes sociales",
-          "Copywriting persuasivo",
-          "Calendario de contenido mensual",
+          "8 publicaciones al mes",
+          "Diseño y textos para cada pieza",
+          "Calendario de publicación",
           "Gestión de Facebook e Instagram",
-          "Reporte mensual básico"
+          "Reporte mensual de lo publicado"
         ],
-        "note": "El presupuesto publicitario es invertido directamente por el cliente. NeoWeb gestiona y optimiza las campañas."
+        "note": "Este plan no incluye publicidad paga. Si quieres anuncios, el plan es Premium."
       },
       {
         "name": "PRO",
@@ -1036,17 +1037,19 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
+        "tagline": "Ideal si ya tienes web o WhatsApp de ventas y quieres contenido con un objetivo.",
+        "benefit": "Más consultas desde redes, no solo más likes.",
         "features": [
-          "12 publicaciones profesionales",
+          "Todo lo incluido en Start",
+          "12 publicaciones al mes",
           "2 reels mensuales",
-          "Diseño premium personalizado",
-          "Estrategia de contenido mensual",
+          "Objetivo mensual: consultas o visitas a tu web",
           "Optimización de perfiles",
-          "Investigación de competencia",
-          "Reporte detallado",
-          "Reunión mensual"
+          "Revisión de competencia",
+          "Reporte de clics y consultas",
+          "Reunión mensual de 30 minutos"
         ],
-        "note": "El presupuesto publicitario es invertido directamente por el cliente. NeoWeb gestiona y optimiza las campañas."
+        "note": "Este plan no incluye publicidad paga. Si quieres anuncios, el plan es Premium."
       },
       {
         "name": "PREMIUM",
@@ -1054,38 +1057,55 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "period": "/mes",
         "icon": "diamond",
         "color": "from-blue-500 to-cyan-500",
+        "tagline": "Ideal si tienes presupuesto de anuncios y una web lista para convertir.",
+        "benefit": "Tráfico pago a tu web o WhatsApp, con seguimiento mensual.",
         "features": [
-          "16 publicaciones profesionales",
+          "Todo lo incluido en Pro",
+          "16 publicaciones al mes",
           "4 reels mensuales",
-          "Branding visual avanzado",
-          "Gestión profesional de Meta Ads",
-          "Optimización continua de campañas",
-          "Estrategia de crecimiento",
-          "Informes completos",
-          "Reunión estratégica mensual",
-          "Soporte prioritario"
+          "Gestión de campañas en Meta Ads",
+          "Optimización de anuncios durante el mes",
+          "Informe de costo por consulta o lead",
+          "Reunión mensual para contenido y pauta",
+          "Respuesta prioritaria"
         ],
-        "note": "El presupuesto publicitario es invertido directamente por el cliente. NeoWeb gestiona y optimiza las campañas."
+        "note": "El fee cubre la gestión y optimización. El presupuesto de anuncios lo inviertes tú en Meta. Recomendamos desde S/ 300 a S/ 500 al mes de pauta. Sin pauta, este plan no tiene sentido: elige Pro."
       }
     ],
+    "plansHighlightsTitle": "Todos los planes incluyen",
     "plansHighlights": [
-      "Facebook",
-      "Instagram",
-      "Copywriting",
-      "Calendario de contenido",
-      "Diseño profesional"
+      "Facebook e Instagram",
+      "Diseño de cada pieza",
+      "Textos para redes",
+      "Calendario mensual",
+      "Publicación en tus perfiles"
     ],
+    "plansBenefitsTitle": "Puedes sumar después",
+    "plansBenefits": [
+      "Piezas extra sobre el cupo del plan",
+      "Más reels o contenido para TikTok",
+      "Gestión de anuncios cotizada aparte si estás en Start o Pro"
+    ],
+    "plansGuaranteeLabel": "Antes de elegir",
+    "plansGuarantee": "Recomendamos un mínimo de 3 meses: el primer mes es diagnóstico y calendario, no un milagro. El fee nunca incluye el presupuesto de anuncios. Ads solo existen en Premium. Si tu web no convierte, Premium no es el siguiente paso: primero hay que mejorar la web.",
     "plansComparisonHeaders": {
       "start": "Start",
       "pro": "Pro",
       "premium": "Premium"
     },
+    "plansComparisonIntro": "La diferencia no es la cantidad de posts. Es el trabajo que cada plan hace para tu negocio.",
     "plansComparison": [
       {
-        "label": "Publicaciones profesionales",
-        "start": "8 / mes",
-        "pro": "12 / mes",
-        "premium": "16 / mes"
+        "label": "Enfoque",
+        "start": "Presencia",
+        "pro": "Consultas a tu web",
+        "premium": "Captación con pauta"
+      },
+      {
+        "label": "Publicaciones al mes",
+        "start": "8",
+        "pro": "12",
+        "premium": "16"
       },
       {
         "label": "Reels mensuales",
@@ -1094,31 +1114,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "premium": "4"
       },
       {
-        "label": "Diseño visual",
-        "start": "Profesional",
-        "pro": "Premium",
-        "premium": "Branding avanzado"
-      },
-      {
-        "label": "Copywriting persuasivo",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Calendario de contenido",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Gestión Facebook e Instagram",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Estrategia de contenido",
+        "label": "Objetivo mensual",
         "start": false,
         "pro": true,
         "premium": true
@@ -1130,37 +1126,31 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "premium": true
       },
       {
-        "label": "Investigación de competencia",
+        "label": "Revisión de competencia",
         "start": false,
         "pro": true,
         "premium": true
-      },
-      {
-        "label": "Gestión de Meta Ads",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Optimización de campañas",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Reporte",
-        "start": "Básico",
-        "pro": "Detallado",
-        "premium": "Completo"
       },
       {
         "label": "Reunión mensual",
         "start": false,
-        "pro": true,
-        "premium": "Estratégica"
+        "pro": "30 min",
+        "premium": "Contenido y pauta"
       },
       {
-        "label": "Soporte prioritario",
+        "label": "Meta Ads",
+        "start": false,
+        "pro": false,
+        "premium": "Gestión (pauta aparte)"
+      },
+      {
+        "label": "Qué mide el reporte",
+        "start": "Lo publicado",
+        "pro": "Clics y consultas",
+        "premium": "Costo por consulta"
+      },
+      {
+        "label": "Respuesta prioritaria",
         "start": false,
         "pro": false,
         "premium": true

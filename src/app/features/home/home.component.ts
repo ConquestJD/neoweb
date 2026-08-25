@@ -208,6 +208,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      question: '¿Qué diferencia hay entre los planes de marketing?',
+      answer: 'Cada plan hace un trabajo distinto. No es la misma gestión con más publicaciones:',
+      details: [
+        'Start (S/ 600/mes): presencia en Facebook e Instagram. No incluye anuncios.',
+        'Pro (S/ 1,200/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
+        'Premium (S/ 1,800/mes): lo anterior más gestión de Meta Ads. La pauta la inviertes tú.'
+      ]
+    },
+    {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
@@ -261,10 +270,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       route: '/servicios/marketing-digital',
       icon: 'campaign',
       image: '/assets/services/marketing.jpg',
-      tag: 'Estrategia',
-      outcome: 'Comunicación constante de marca',
-      description: 'Estrategia, contenido y redes para hacer crecer tu presencia online.',
-      audience: 'Para marcas que quieren crecer en redes y contenido'
+      tag: 'Redes',
+      outcome: 'Contenido con un objetivo claro',
+      description: 'Presencia en redes, contenido hacia tu web o captación con Meta Ads. Elige el trabajo, no la cantidad de posts.',
+      audience: 'Para negocios que quieren saber qué plan les toca'
     },
     {
       name: 'Rediseño Web',

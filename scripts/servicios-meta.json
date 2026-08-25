@@ -80,39 +80,39 @@
     }
   },
   "marketing-digital": {
-    "pageTitle": "Agencia de Marketing Digital en Perú | Estrategias Digitales | NeoWeb",
+    "pageTitle": "Marketing Digital en Perú | Redes, Contenido y Meta Ads | NeoWeb",
     "hero": {
       "badgeIcon": "trending_up",
-      "badgeText": "Marketing digital",
-      "titleLine1": "Growth y performance",
-      "titleHighlight": "multicanal",
-      "description": "Estrategias integrales: paid, social, email y CRO para atraer, convertir y retener clientes."
+      "badgeText": "Marketing digital · Perú",
+      "titleLine1": "Marketing digital",
+      "titleHighlight": "con un objetivo claro",
+      "description": "Tres planes distintos: presencia en redes, contenido que lleva gente a tu web, o captación con Meta Ads. Facebook e Instagram. La pauta, si la hay, la inviertes tú."
     },
-    "plansSubtitle": "Desde S/ 600/mes hasta S/ 1,800/mes según inversión y alcance.",
+    "plansSubtitle": "No es más publicaciones por más plata. Cada plan resuelve un trabajo distinto: verse profesional, traer consultas a tu web, o captar con anuncios.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Servicios",
-      "titleLine1": "Cobertura",
-      "titleHighlight": "completa",
-      "subtitle": "Estrategias integrales de marketing digital para todos tus canales y objetivos."
+      "badgeText": "Alcance",
+      "titleLine1": "Qué hace",
+      "titleHighlight": "cada plan",
+      "subtitle": "Start mantiene tu marca visible. Pro dirige el contenido a tu web o WhatsApp. Premium suma anuncios en Meta."
     },
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
-      "titleHighlight": "ejecuto",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleHighlight": "trabajo",
+      "subtitle": "Un mes para entender el negocio y armar el calendario. Los siguientes, para publicar, medir y ajustar."
     },
     "fullcodeSection": {
-      "badgeText": "KPI",
-      "titleLine1": "Resultados que",
+      "badgeText": "Claridad",
+      "titleLine1": "Lo que sí",
       "titleHighlight": "medimos",
-      "subtitle": "Métricas claras y resultados tangibles para tu estrategia de marketing."
+      "subtitle": "Métricas que coinciden con el plan que contratas. Sin promesas de canales que no están incluidos."
     },
     "ctaSection": {
       "theme": "light",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "escalar tu marketing?",
-      "description": "Diseño y ejecuto tu estrategia con foco en ROI."
+      "titleLine1": "¿Cuál plan",
+      "titleHighlight": "te queda?",
+      "description": "Cuéntame si necesitas presencia, más consultas o anuncios. Te digo el plan sin rodeos."
     }
   },
   "rediseno-paginas-web": {

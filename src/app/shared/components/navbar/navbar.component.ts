@@ -72,7 +72,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     },
     {
       name: 'Marketing Digital',
-      short: 'Estrategia y contenido',
+      short: 'Presencia, contenido o ads',
       route: '/servicios/marketing-digital',
       icon: 'campaign',
       image: '/assets/services/marketing.jpg',

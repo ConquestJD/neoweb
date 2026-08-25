@@ -67,6 +67,15 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
       ]
     },
     {
+      question: '¿Qué diferencia hay entre los planes de marketing?',
+      answer: 'Cada plan hace un trabajo distinto. No es la misma gestión con más publicaciones:',
+      details: [
+        'Start (S/ 600/mes): presencia en Facebook e Instagram. No incluye anuncios.',
+        'Pro (S/ 1,200/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
+        'Premium (S/ 1,800/mes): lo anterior más gestión de Meta Ads. La pauta la inviertes tú.'
+      ]
+    },
+    {
       question: '¿Incluye soporte?',
       answer: 'Sí, todos mis proyectos incluyen soporte post-entrega y planes de mantenimiento opcionales para garantizar el funcionamiento continuo de tu sitio.'
     },
