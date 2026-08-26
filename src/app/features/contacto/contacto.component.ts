@@ -108,8 +108,8 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
       answer: 'Cada uno hace un trabajo distinto. No es “más pantallas”:',
       details: [
         'Lanzamiento (S/ 3,000): sin cuentas, solo Android. Ven lo que ofreces y te escriben por WhatsApp.',
-        'Crecimiento (S/ 7,000): se registran y les llega un aviso. Android e iPhone. La cuenta de Apple la pagas tú.',
-        'Escala (desde S/ 9,000): una extra cotizada: cobrar, un empleado, o copiar datos a otro programa.'
+        'Crecimiento (S/ 5,500): se registran y les llega un aviso. Solo Android.',
+        'Escala (desde S/ 8,000): una extra cotizada: iPhone, cobrar, un empleado, o copiar datos a otro programa.'
       ]
     },
     {

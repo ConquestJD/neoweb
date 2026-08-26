@@ -1267,15 +1267,15 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "slug": "aplicaciones-moviles",
     "heroImage": "/assets/services/app movil.jpg",
     "pageTitle": "Apps Móviles en Perú | Sin cuentas, con usuarios o cotizada | NeoWeb",
-    "metaDescription": "App a medida en Perú: sin cuentas en Android, con usuarios en Android e iPhone, o una extra cotizada (cobrar, empleado u otro programa). Cotiza con NeoWeb.",
+    "metaDescription": "App a medida en Perú: sin cuentas o con usuarios en Android, o una extra cotizada (iPhone, cobrar, empleado u otro programa). Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "phone_android",
       "badgeText": "Apps móviles · Perú",
       "titleLine1": "Apps",
       "titleHighlight": "fáciles de elegir",
-      "description": "Tres trabajos. Lanzamiento: abren la app, ven lo que ofreces y te escriben. Crecimiento: se registran y les llega un aviso. Escala: cobrar, un empleado u otro programa, se cotiza. Si con la web en el celular basta, es Páginas web."
+      "description": "Tres trabajos. Lanzamiento: abren la app, ven lo que ofreces y te escriben. Crecimiento: se registran y les llega un aviso, en Android. Escala: iPhone, cobrar, un empleado u otro programa, se cotiza. Si con la web en el celular basta, es Páginas web."
     },
-    "plansSubtitle": "Lanzamiento es app sin cuentas, solo Android. Crecimiento es con usuarios, Android e iPhone. Escala es una extra cotizada. La cuenta de Apple, si aplica, la pagas tú.",
+    "plansSubtitle": "Lanzamiento es app sin cuentas, solo Android. Crecimiento es con usuarios, también solo Android. iPhone, cobrar, un empleado u otro programa se cotizan en Escala.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Qué recibes",
@@ -1292,12 +1292,12 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "icon": "person",
         "title": "Crecimiento: con usuarios",
-        "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Android e iPhone. Para citas, socios o alumnos."
+        "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Solo Android (Google Play). Para citas, socios o alumnos."
       },
       {
         "icon": "tune",
         "title": "Escala: una extra",
-        "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas."
+        "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): publicarla también en iPhone, cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas."
       },
       {
         "icon": "storefront",
@@ -1321,7 +1321,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "theme": "dark",
       "titleLine1": "¿Qué app",
       "titleHighlight": "necesitas?",
-      "description": "¿Solo verte y escribirte? Lanzamiento. ¿Cuentas y avisos? Crecimiento. ¿Cobrar, un empleado u otro programa? Escala, te armo el precio. Si es para la oficina, Software a medida."
+      "description": "¿Solo verte y escribirte? Lanzamiento. ¿Cuentas y avisos en Android? Crecimiento. ¿iPhone, cobrar, un empleado u otro programa? Escala, te armo el precio. Si es para la oficina, Software a medida."
     },
     "features": [
       {
@@ -1332,12 +1332,12 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "icon": "person",
         "title": "Crecimiento: con usuarios",
-        "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Android e iPhone. Para citas, socios o alumnos."
+        "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Solo Android (Google Play). Para citas, socios o alumnos."
       },
       {
         "icon": "tune",
         "title": "Escala: una extra",
-        "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas."
+        "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): publicarla también en iPhone, cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas."
       },
       {
         "icon": "storefront",
@@ -1373,7 +1373,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "step": "05",
         "title": "A la tienda",
-        "description": "Lanzamiento: Google Play. Crecimiento y Escala: Play y App Store. Te muestro cómo usarla. La cuenta de Apple, si aplica, la pagas tú.",
+        "description": "Lanzamiento y Crecimiento: Google Play. iPhone (App Store) se cotiza en Escala. Te muestro cómo usarla. Si eliges iPhone, la cuenta de Apple la pagas tú.",
         "icon": "publish"
       }
     ],
@@ -1386,7 +1386,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "icon": "phone_android",
         "title": "No siempre van las dos tiendas",
-        "description": "Lanzamiento es Android. iPhone entra en Crecimiento, porque publicar en Apple es otro trabajo y otra cuenta anual."
+        "description": "Lanzamiento y Crecimiento son Android. iPhone se cotiza en Escala, porque publicar en Apple es otro trabajo y otra cuenta anual."
       },
       {
         "icon": "person",
@@ -1396,7 +1396,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "icon": "tune",
         "title": "Se puede ampliar después",
-        "description": "Puedes empezar en Lanzamiento. Cuentas y avisos van en Crecimiento. Cobrar, un empleado u otro programa, en Escala."
+        "description": "Puedes empezar en Lanzamiento. Cuentas y avisos van en Crecimiento. iPhone, cobrar, un empleado u otro programa, en Escala."
       },
       {
         "icon": "language",
@@ -1426,44 +1426,43 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
           "Te muestro cómo usarla",
           "Lista en 3 a 4 semanas"
         ],
-        "note": "Si la gente necesita cuenta y avisos, el plan es Crecimiento. Si con abrir el link en el celular basta, elige Páginas web: sale menos y llega igual."
+        "note": "Si la gente necesita cuenta y avisos, el plan es Crecimiento. Si también la quieren en iPhone, Escala. Si con abrir el link en el celular basta, elige Páginas web: sale menos y llega igual."
       },
       {
         "name": "CRECIMIENTO",
-        "price": "S/ 7,000",
+        "price": "S/ 5,500",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
-        "tagline": "Recibes una app con usuarios: se registran, ven lo suyo y les llega un aviso. Android e iPhone.",
-        "benefit": "Para citas, socios o alumnos. No es para cobrar dentro de la app ni para empleados con otro acceso.",
+        "tagline": "Recibes una app con usuarios: se registran, ven lo suyo y les llega un aviso. Solo Android.",
+        "benefit": "Para citas, socios o alumnos. No es para iPhone, cobrar dentro de la app ni empleados con otro acceso.",
         "features": [
           "Todo lo de Lanzamiento, y además cuentas",
-          "Android e iPhone (Google Play y App Store)",
+          "Solo Android (Google Play)",
           "Registro, entrada y recuperar contraseña",
           "Les llega un aviso al celular",
           "Tú ves quién se registró en una pantalla simple",
-          "La cuenta de Apple (~USD 99 al año) la pagas tú",
           "Lista en 2 a 3 meses"
         ],
-        "note": "Si hay que cobrar en la app, que un empleado entre, o copiar datos a otro programa, el plan es Escala. Chat, GPS u otra extra se cotizan aparte."
+        "note": "Si la necesitan en iPhone, hay que cobrar, un empleado debe entrar, o hay que copiar datos a otro programa, el plan es Escala."
       },
       {
         "name": "ESCALA",
-        "price": "Desde S/ 9,000",
+        "price": "Desde S/ 8,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Recibes lo de Crecimiento más una extra que eliges al cotizar: cobrar, un empleado, o copiar datos a otro programa.",
-        "benefit": "Para cuando la app no puede vivir sola: hay cobro, equipo u otro sistema.",
+        "tagline": "Recibes lo de Crecimiento más una extra que eliges al cotizar: iPhone, cobrar, un empleado, o copiar datos a otro programa.",
+        "benefit": "Para cuando Android con cuentas no alcanza: iPhone, cobro, equipo u otro sistema.",
         "features": [
-          "Todo lo de Crecimiento (Android e iPhone, cuentas y avisos)",
-          "Eliges UNA de estas tres al cotizar",
-          "Opción 1: cobrar dentro de la app (Yape o tarjeta, lo acordamos)",
-          "Opción 2: un empleado también entra, con su propio acceso",
-          "Opción 3: los datos se copian al programa que ya usas",
-          "S/ 9,000 es el piso; si pides dos cosas o algo más, se cotiza extra",
-          "La cuenta de Apple la pagas tú"
+          "Todo lo de Crecimiento (Android, cuentas y avisos)",
+          "Eliges UNA de estas al cotizar",
+          "Opción 1: publicarla también en iPhone (App Store)",
+          "Opción 2: cobrar dentro de la app (Yape o tarjeta, lo acordamos)",
+          "Opción 3: un empleado también entra, con su propio acceso",
+          "Opción 4: los datos se copian al programa que ya usas",
+          "S/ 8,000 es el piso; si pides dos cosas o algo más, se cotiza extra"
         ],
-        "note": "Si solo necesitas cuentas y avisos, quédate en Crecimiento. Chat, mapa u otro programa extra se cotizan aparte. Si el trabajo es para la oficina, no el celular, elige Software a medida."
+        "note": "Si solo necesitas cuentas y avisos en Android, quédate en Crecimiento. Si eliges iPhone, la cuenta de Apple (~USD 99 al año) la pagas tú. Chat o mapa se cotizan aparte. Si el trabajo es para la oficina, no el celular, elige Software a medida."
       }
     ],
     "plansHighlightsTitle": "En los tres planes va incluido",
@@ -1475,7 +1474,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     ],
     "plansBenefitsTitle": "Esto se cotiza aparte",
     "plansBenefits": [
-      "La cuenta de Google Play (pago único) y la de Apple (anual): las pagas tú",
+      "La cuenta de Google Play (pago único) la pagas tú; la de Apple, solo si eliges iPhone en Escala",
       "Chat, mapa u otra función que no esté en el plan",
       "Una segunda extra en Escala (la primera se acuerda al cotizar)",
       "Si con la web en el celular basta: eso es Páginas web, no app"
@@ -1493,7 +1492,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "label": "Para qué sirve",
         "start": "Verte y escribirte",
         "pro": "Entrar con cuenta",
-        "premium": "Cobrar, equipo u otro programa"
+        "premium": "iPhone, cobrar, equipo u otro programa"
       },
       {
         "label": "Qué te entrego",
@@ -1510,8 +1509,8 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "label": "iPhone (App Store)",
         "start": false,
-        "pro": true,
-        "premium": true
+        "pro": false,
+        "premium": "Si lo eliges al cotizar"
       },
       {
         "label": "¿Hay cuentas?",
@@ -1546,14 +1545,14 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "label": "Cuenta de Apple",
         "start": "No aplica",
-        "pro": "La pagas tú",
-        "premium": "La pagas tú"
+        "pro": "No aplica",
+        "premium": "La pagas tú si eliges iPhone"
       },
       {
         "label": "Precio",
         "start": "S/ 3,000",
-        "pro": "S/ 7,000",
-        "premium": "Desde S/ 9,000"
+        "pro": "S/ 5,500",
+        "premium": "Desde S/ 8,000"
       }
     ]
   },

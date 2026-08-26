@@ -45,7 +45,7 @@ export const SITE_SERVICES = [
   {
     slug: 'aplicaciones-moviles',
     name: 'Aplicaciones Móviles',
-    description: 'App sin cuentas en Android, con usuarios en Android e iPhone, o una extra cotizada (cobrar, empleado u otro programa).'
+    description: 'App sin cuentas o con usuarios en Android, o una extra cotizada (iPhone, cobrar, empleado u otro programa).'
   },
   {
     slug: 'digitalizacion-procesos',

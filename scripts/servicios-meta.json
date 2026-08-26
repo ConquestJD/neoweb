@@ -168,9 +168,9 @@
       "badgeText": "Apps móviles · Perú",
       "titleLine1": "Apps",
       "titleHighlight": "fáciles de elegir",
-      "description": "Tres trabajos. Lanzamiento: abren la app, ven lo que ofreces y te escriben. Crecimiento: se registran y les llega un aviso. Escala: cobrar, un empleado u otro programa, se cotiza. Si con la web en el celular basta, es Páginas web."
+      "description": "Tres trabajos. Lanzamiento: abren la app, ven lo que ofreces y te escriben. Crecimiento: se registran y les llega un aviso, en Android. Escala: iPhone, cobrar, un empleado u otro programa, se cotiza. Si con la web en el celular basta, es Páginas web."
     },
-    "plansSubtitle": "Lanzamiento es app sin cuentas, solo Android. Crecimiento es con usuarios, Android e iPhone. Escala es una extra cotizada. La cuenta de Apple, si aplica, la pagas tú.",
+    "plansSubtitle": "Lanzamiento es app sin cuentas, solo Android. Crecimiento es con usuarios, también solo Android. iPhone, cobrar, un empleado u otro programa se cotizan en Escala.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Qué recibes",
@@ -180,8 +180,8 @@
     },
     "includes": [
       { "icon": "phone_android", "title": "Lanzamiento: sin cuentas", "description": "La persona abre la app, ve lo que ofreces y te escribe por WhatsApp. Solo Android (Google Play). Para catálogo, carta o directorio." },
-      { "icon": "person", "title": "Crecimiento: con usuarios", "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Android e iPhone. Para citas, socios o alumnos." },
-      { "icon": "tune", "title": "Escala: una extra", "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas." },
+      { "icon": "person", "title": "Crecimiento: con usuarios", "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Solo Android (Google Play). Para citas, socios o alumnos." },
+      { "icon": "tune", "title": "Escala: una extra", "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): publicarla también en iPhone, cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas." },
       { "icon": "storefront", "title": "En los tres planes", "description": "Diseño para tu negocio, pruebas en celular antes de publicar, y te muestro cómo usarla. La publicación en tiendas entra según el plan." }
     ],
     "showBenefitsSection": false,
@@ -200,7 +200,7 @@
       "theme": "dark",
       "titleLine1": "¿Qué app",
       "titleHighlight": "necesitas?",
-      "description": "¿Solo verte y escribirte? Lanzamiento. ¿Cuentas y avisos? Crecimiento. ¿Cobrar, un empleado u otro programa? Escala, te armo el precio. Si es para la oficina, Software a medida."
+      "description": "¿Solo verte y escribirte? Lanzamiento. ¿Cuentas y avisos en Android? Crecimiento. ¿iPhone, cobrar, un empleado u otro programa? Escala, te armo el precio. Si es para la oficina, Software a medida."
     }
   },
   "digitalizacion-procesos": {
