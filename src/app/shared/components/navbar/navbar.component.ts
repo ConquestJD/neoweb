@@ -93,7 +93,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     },
     {
       name: 'Software a medida',
-      short: 'Sistemas y apps personalizados',
+      short: 'El día a día, la plata o se cotiza',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
       image: '/assets/services/software a medida.jpg',

@@ -205,7 +205,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         'Rediseño web: desde S/ 700 (Actualiza)',
         'Tienda online: desde S/ 2,000 (Emprende)',
         'App móvil: desde S/ 3,000 (Lanzamiento)',
-        'Software a medida: desde S/ 1,500',
+        'Software a medida: desde S/ 4,500 (Diario)',
         'Marketing digital: desde S/ 600/mes'
       ]
     },
@@ -255,6 +255,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      question: '¿Qué diferencia hay entre los planes de software a medida?',
+      answer: 'Es el mismo sistema, en tres fases. No es “más pantallas”:',
+      details: [
+        'Diario (S/ 4,500): el equipo registra el trabajo del día y lo consulta. Sin ingresos ni gastos.',
+        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de la plata.',
+        'Amplía (desde S/ 9,000): una extra cotizada: otra sede, otro módulo, o copiar datos a otro programa.'
+      ]
+    },
+    {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
@@ -262,7 +271,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
         'Tienda online: más de 1 mes según alcance',
         'App Lanzamiento: 3 a 4 semanas',
-        'App Crecimiento o Escala: 2 a 3 meses'
+        'App Crecimiento o Escala: 2 a 3 meses',
+        'Software Diario: 4 a 6 semanas',
+        'Software Control o Amplía: 2 a 3 meses'
       ]
     },
     {
@@ -341,9 +352,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'auto_awesome',
       image: '/assets/services/software a medida.jpg',
       tag: 'Automatización',
-      outcome: 'Operación ordenada y automatizada',
-      description: 'Software personalizado para automatizar procesos y ganar eficiencia.',
-      audience: 'Para equipos que quieren ordenar su operación'
+      outcome: 'El día a día, la plata o se cotiza',
+      description: 'Diario: el equipo registra el trabajo. Control: eso y ves ingresos y gastos. Amplía: otra sede, módulo o programa, cotizado.',
+      audience: 'Para quien quiere un sistema interno, no una web'
     }
   ];
 

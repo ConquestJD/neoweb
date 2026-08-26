@@ -1559,333 +1559,285 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "digitalizacion-procesos": {
     "slug": "digitalizacion-procesos",
     "heroImage": "/assets/services/software a medida.jpg",
-    "pageTitle": "Software a Medida en Perú | Digitalización de Procesos | NeoWeb",
-    "metaDescription": "Software a medida y digitalización de procesos en Perú. Sistemas que automatizan operaciones, reducen errores y dan control total a tu empresa. Cotiza con NeoWeb.",
+    "pageTitle": "Software a Medida en Perú | El día a día, la plata o se cotiza | NeoWeb",
+    "metaDescription": "Sistema interno para tu empresa: el equipo registra el día a día, ves ingresos y gastos, o ampliamos lo que falte. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "settings",
       "badgeText": "Software a medida · Perú",
-      "titleLine1": "Software a medida",
-      "titleHighlight": "para empresas",
-      "description": "Desarrollo de software a medida y digitalización de procesos en Perú. Sistemas personalizados que automatizan operaciones, reducen costos y dan visibilidad a tu negocio."
+      "titleLine1": "El mismo sistema,",
+      "titleHighlight": "en tres fases",
+      "description": "No es una web ni una tienda. Es el sistema con el que tu equipo trabaja. Diario: registran el día a día y lo consultan. Control: eso, y ves ingresos y gastos. Amplía: otra sede, otro módulo u otro programa, se cotiza."
     },
-    "plansSubtitle": "Software a medida para automatizar operaciones, reducir errores y dar control total a tu negocio. Digitaliza procesos, optimiza tu operación o transforma tu empresa completa.",
+    "plansSubtitle": "Diario es el trabajo de cada día. Control suma la plata. Amplía es una extra cotizada. En los tres el equipo entra con usuario. Si lo que quieres es una web o una tienda, esos son otros servicios.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Funcionalidades",
-      "titleLine1": "Qué",
-      "titleHighlight": "resuelvo",
-      "subtitle": "Sistemas personalizados para automatizar y optimizar todos tus procesos de negocio."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "Tres fases del mismo sistema. No es “más pantallas”: es qué parte de la empresa ya corre adentro."
     },
     "includes": [
       {
-        "icon": "auto_awesome",
-        "title": "Automatización",
-        "description": "Automatiza procesos manuales"
+        "icon": "event_note",
+        "title": "Diario: el día a día",
+        "description": "Tu equipo entra, registra lo que hacen todos los días y lo puede buscar después. Un reporte de ese trabajo. El sistema ya se usa, no es un formulario suelto."
       },
       {
-        "icon": "dashboard",
-        "title": "Dashboards",
-        "description": "Visualiza datos en tiempo real"
+        "icon": "payments",
+        "title": "Control: el día a día y la plata",
+        "description": "Lo de Diario, y además ingresos, gastos y un reporte que tú abres para ver cómo va el dinero."
       },
       {
-        "icon": "integration_instructions",
-        "title": "Integraciones",
-        "description": "Conecta sistemas existentes"
+        "icon": "tune",
+        "title": "Amplía: lo que falte",
+        "description": "Lo de Control, más una extra que eliges al cotizar: otra sede, otro módulo, o que los datos se copien a un programa que ya usas."
       },
       {
-        "icon": "security",
-        "title": "Seguridad",
-        "description": "Protección de datos y procesos"
+        "icon": "groups",
+        "title": "En las tres fases",
+        "description": "Sistema interno, hecho para tu negocio. El equipo entra con usuario. Te enseño a usarlo. No es una página pública ni una tienda."
       }
     ],
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
-      "titleHighlight": "implemento",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleHighlight": "trabajo",
+      "subtitle": "Primero vemos qué registran hoy en Excel o en cuadernos. Después el sistema, las pruebas y te lo dejo andando."
     },
     "fullcodeSection": {
-      "badgeText": "Beneficios",
-      "titleLine1": "Impacto del",
-      "titleHighlight": "proyecto",
-      "subtitle": "Transformación digital completa y resultados medibles."
+      "badgeText": "A medida",
+      "titleLine1": "Hecho",
+      "titleHighlight": "para tu operación",
+      "subtitle": "Entra lo de la fase que contratas. No “cualquier sistema del mercado”."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para tu",
-      "titleHighlight": "software a medida?",
-      "description": "Automatiza tareas y gana eficiencia con una solución personalizada."
+      "titleLine1": "¿En qué fase",
+      "titleHighlight": "empiezas?",
+      "description": "¿Que el equipo deje el Excel? Diario. ¿También ver la plata? Control. ¿Otra sede, otro módulo u otro programa? Amplía, te armo el precio. Si es web o tienda, esos son otros servicios."
     },
     "features": [
       {
-        "icon": "auto_awesome",
-        "title": "Automatización",
-        "description": "Automatiza procesos manuales"
+        "icon": "event_note",
+        "title": "Diario: el día a día",
+        "description": "Tu equipo entra, registra lo que hacen todos los días y lo puede buscar después. Un reporte de ese trabajo. El sistema ya se usa, no es un formulario suelto."
       },
       {
-        "icon": "dashboard",
-        "title": "Dashboards",
-        "description": "Visualiza datos en tiempo real"
+        "icon": "payments",
+        "title": "Control: el día a día y la plata",
+        "description": "Lo de Diario, y además ingresos, gastos y un reporte que tú abres para ver cómo va el dinero."
       },
       {
-        "icon": "integration_instructions",
-        "title": "Integraciones",
-        "description": "Conecta sistemas existentes"
+        "icon": "tune",
+        "title": "Amplía: lo que falte",
+        "description": "Lo de Control, más una extra que eliges al cotizar: otra sede, otro módulo, o que los datos se copien a un programa que ya usas."
       },
       {
-        "icon": "security",
-        "title": "Seguridad",
-        "description": "Protección de datos y procesos"
+        "icon": "groups",
+        "title": "En las tres fases",
+        "description": "Sistema interno, hecho para tu negocio. El equipo entra con usuario. Te enseño a usarlo. No es una página pública ni una tienda."
       }
     ],
     "methodology": [
       {
         "step": "01",
-        "title": "Análisis de Procesos",
-        "description": "Mapeo tus procesos actuales, identifico ineficiencias y oportunidades de automatización",
+        "title": "Qué registran hoy",
+        "description": "Vemos qué está en Excel, cuadernos o WhatsApp. Con eso sale si empiezas en Diario, Control o Amplía. Si es una web o una tienda, te mando a ese servicio.",
         "icon": "assessment"
       },
       {
         "step": "02",
-        "title": "Diseño de Solución",
-        "description": "Diseño la solución digital personalizada que optimiza y automatiza tus procesos",
+        "title": "Te muestro",
+        "description": "Ves cómo va a quedar: el registro del día, la consulta y, si el plan lo incluye, ingresos y gastos.",
         "icon": "design_services"
       },
       {
         "step": "03",
-        "title": "Desarrollo Full Code",
-        "description": "Desarrollo un sistema personalizado desde cero con código limpio y escalable",
+        "title": "Armado",
+        "description": "Programo el sistema a medida, con lo de la fase que contrataste. Sin un programa genérico de internet.",
         "icon": "code"
       },
       {
         "step": "04",
-        "title": "Implementación y Migración",
-        "description": "Implemento la solución, migro datos y capacito a tu equipo",
-        "icon": "sync"
+        "title": "Pruebas con tu equipo",
+        "description": "Registramos datos de prueba y vemos que se pueda buscar y que el reporte salga bien.",
+        "icon": "bug_report"
       },
       {
         "step": "05",
-        "title": "Optimización Continua",
-        "description": "Monitoreo el sistema y optimizo continuamente para mejor rendimiento",
-        "icon": "trending_up"
+        "title": "Lo dejan andando",
+        "description": "Te lo dejo en el aire y te enseño a usarlo. Los cambios de después me los pides; un módulo extra se cotiza en Amplía.",
+        "icon": "launch"
       }
     ],
     "fullCodeBenefits": [
       {
-        "icon": "code",
-        "title": "Sistema Personalizado",
-        "description": "Desarrollado desde cero para tus procesos específicos. No adapto software genérico, creo la solución perfecta."
+        "icon": "flag",
+        "title": "Sabes qué estás comprando",
+        "description": "Diario, Control y Amplía no son “más software”. Son el mismo sistema, en tres momentos."
       },
       {
-        "icon": "auto_awesome",
-        "title": "Automatización Inteligente",
-        "description": "Automatizo procesos complejos con lógica de negocio personalizada que se adapta a tus necesidades."
+        "icon": "event_note",
+        "title": "El primero ya es un sistema",
+        "description": "Diario no es un formulario. Tu equipo ya trabaja ahí: registra, busca y ve un reporte."
       },
       {
-        "icon": "dashboard",
-        "title": "Dashboard Personalizado",
-        "description": "Panel de control diseñado específicamente para tu negocio con métricas y reportes relevantes."
+        "icon": "payments",
+        "title": "La plata va cuando la pides",
+        "description": "Ingresos y gastos no se inventan en Diario. Están en Control, para que el precio coincida con lo que ves."
       },
       {
-        "icon": "integration_instructions",
-        "title": "Integraciones Completas",
-        "description": "Conecto con cualquier sistema existente: ERP, CRM, contabilidad, sin limitaciones."
+        "icon": "tune",
+        "title": "Se puede ampliar después",
+        "description": "Puedes empezar en Diario. La plata va en Control. Otra sede, otro módulo u otro programa, en Amplía."
       },
       {
-        "icon": "security",
-        "title": "Seguridad y Permisos",
-        "description": "Sistema de roles y permisos personalizado que protege información sensible según tu estructura organizacional."
+        "icon": "storefront",
+        "title": "No es web ni tienda",
+        "description": "Si tus clientes tienen que verte en internet, es Páginas web. Si tienen que pagarte online, es Tienda. Esto es para adentro de la empresa."
       },
       {
-        "icon": "trending_up",
-        "title": "Escalabilidad Garantizada",
-        "description": "Código arquitecturado para crecer con tu negocio. Agrego funcionalidades sin reconstruir."
+        "icon": "support_agent",
+        "title": "Hablas con quien lo hace",
+        "description": "Sin pasar por una secretaria de agencia ni cambiar de persona a mitad del proyecto."
       }
     ],
     "plans": [
       {
-        "name": "DIGITALIZA",
-        "price": "S/ 1,500",
+        "name": "DIARIO",
+        "price": "S/ 4,500",
         "icon": "star",
         "color": "from-gray-600 to-gray-800",
-        "tagline": "Ideal para empresas que aún utilizan procesos manuales, Excel o documentos físicos.",
-        "benefit": "Reduce tareas manuales y organiza tu información en un solo lugar.",
+        "tagline": "Recibes el sistema del día a día: tu equipo entra, registra el trabajo y lo puede consultar después.",
+        "benefit": "Para dejar el Excel o el cuaderno en lo que hacen todos los días. No incluye ingresos ni gastos.",
         "features": [
-          "Digitalización de un proceso específico",
-          "Formularios personalizados",
-          "Organización centralizada de información",
-          "Panel de gestión simple",
-          "Automatización básica",
-          "Registro y consulta de información",
-          "Diseño intuitivo",
-          "Capacitación inicial",
-          "Soporte post-entrega"
-        ]
+          "El equipo entra con usuario",
+          "Registran lo que hacen cada día (citas, pedidos, lo que sea tu operación)",
+          "Lo pueden buscar y ver después",
+          "Un reporte de ese trabajo",
+          "Te enseño a usarlo",
+          "Lista en 4 a 6 semanas"
+        ],
+        "note": "Si el dueño necesita ver ingresos y gastos, el plan es Control. Si lo que quieres es una web o una tienda, esos son otros servicios."
       },
       {
-        "name": "OPTIMIZA",
-        "price": "S/ 3,500",
+        "name": "CONTROL",
+        "price": "S/ 7,000",
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
-        "tagline": "Ideal para empresas que necesitan controlar mejor sus operaciones y centralizar información.",
-        "benefit": "Centraliza la operación de tu negocio y mejora el control de tus procesos.",
+        "tagline": "Recibes el día a día y la plata: ingresos, gastos y un reporte para ver cómo va el dinero.",
+        "benefit": "Para cuando el sistema también tiene que mostrar si el negocio está cuadrando.",
         "features": [
-          "Todo lo incluido en Digitaliza",
-          "Hasta 5 procesos digitalizados",
-          "Panel administrativo",
-          "Gestión de usuarios",
-          "Roles y permisos",
-          "Reportes básicos",
-          "Integraciones esenciales",
-          "Flujo de trabajo personalizado",
-          "Historial de actividades",
-          "Capacitación para el equipo",
-          "Soporte ampliado"
-        ]
+          "Todo lo de Diario",
+          "Registro de ingresos y gastos",
+          "Un reporte que tú abres para ver la plata",
+          "El equipo sigue registrando el día a día",
+          "Te enseño a usarlo",
+          "Lista en 2 a 3 meses"
+        ],
+        "note": "Si necesitas otra sede, otro módulo o que los datos vayan a un programa que ya usas, el plan es Amplía. Una app o una tienda pública no entran aquí."
       },
       {
-        "name": "TRANSFORMA",
-        "price": "Desde S/ 6,000",
+        "name": "AMPLÍA",
+        "price": "Desde S/ 9,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Ideal para empresas que buscan una transformación digital completa.",
-        "benefit": "Transforma procesos manuales en un sistema inteligente que escala junto con tu empresa.",
+        "tagline": "Recibes lo de Control más una extra que eliges al cotizar: otra sede, otro módulo, o copiar datos a otro programa.",
+        "benefit": "Para cuando el día a día y la plata no alcanzan: hay otra sucursal, otra parte del negocio u otro sistema.",
         "features": [
-          "Todo lo incluido en Optimiza",
-          "Sistema completamente personalizado",
-          "Automatizaciones avanzadas",
-          "Dashboard ejecutivo",
-          "Reportes en tiempo real",
-          "Conexión con sistemas externos",
-          "Integración con CRM",
-          "Integración con ERP",
-          "Múltiples módulos",
-          "Gestión avanzada de usuarios",
-          "Preparado para crecer con tu empresa",
-          "Flujos complejos de negocio",
-          "Capacitación completa",
-          "Consultoría estratégica",
-          "Soporte prioritario"
-        ]
+          "Todo lo de Control",
+          "Eliges UNA de estas al cotizar",
+          "Opción 1: otra sede en el mismo sistema",
+          "Opción 2: otro módulo (otra parte de la operación)",
+          "Opción 3: los datos se copian a un programa que ya usas",
+          "S/ 9,000 es el piso; si pides dos cosas o algo más, se cotiza extra"
+        ],
+        "note": "Si con el día a día y la plata te alcanza, quédate en Control. Chat, app o una tienda para clientes se cotizan en esos servicios, no aquí."
       }
     ],
-    "plansHighlightsTitle": "¿Qué puedes digitalizar?",
+    "plansHighlightsTitle": "En las tres fases va incluido",
     "plansHighlights": [
-      "Gestión de pacientes",
-      "Inventarios",
-      "Ventas",
-      "Compras",
-      "Recursos humanos",
-      "Reservas",
-      "Producción",
-      "Logística",
-      "Seguimiento de clientes",
-      "Reportes empresariales"
+      "Sistema interno, no una web pública",
+      "El equipo entra con usuario",
+      "Hecho para tu negocio, no un programa genérico",
+      "Te enseño a usarlo"
     ],
-    "plansBenefitsTitle": "Beneficios de implementar software a medida",
+    "plansBenefitsTitle": "Esto se cotiza aparte",
     "plansBenefits": [
-      "Menos trabajo manual",
-      "Menos errores operativos",
-      "Mayor control del negocio",
-      "Información centralizada",
-      "Procesos más rápidos",
-      "Mejor toma de decisiones",
-      "Escalabilidad",
-      "Ahorro de tiempo"
+      "Una segunda extra en Amplía (la primera se acuerda al cotizar)",
+      "App en el celular: eso es el servicio de Apps",
+      "Tienda para que te paguen online: eso es Tienda online",
+      "Una web para que te encuentren: eso es Páginas web"
     ],
-    "plansGuaranteeLabel": "Garantía de implementación",
-    "plansGuarantee": "Te acompañamos durante los primeros 30 días posteriores a la entrega para resolver incidencias y realizar ajustes menores sin costo adicional.",
+    "plansGuaranteeLabel": "Después de entregarlo",
+    "plansGuarantee": "Los primeros 30 días te ayudo a corregir fallas y detalles chicos que entren en la fase, sin costo extra.",
     "plansComparisonHeaders": {
-      "start": "Digitaliza",
-      "pro": "Optimiza",
-      "premium": "Transforma"
+      "start": "Diario",
+      "pro": "Control",
+      "premium": "Amplía"
     },
-    "plansComparisonIntro": "Compara el nivel de transformación digital para elegir la solución que tu operación necesita.",
+    "plansComparisonIntro": "Lee la primera fila: es el mismo sistema, en tres fases. Amplía no es “más de todo”: es una extra cotizada.",
     "plansComparison": [
       {
-        "label": "Procesos digitalizados",
-        "start": "1",
-        "pro": "Hasta 5",
-        "premium": "Ilimitados / a medida"
+        "label": "Para qué sirve",
+        "start": "Dejar el Excel del día",
+        "pro": "Ver también la plata",
+        "premium": "Otra sede, módulo o programa"
       },
       {
-        "label": "Información centralizada",
+        "label": "Qué te entrego",
+        "start": "Sistema del día a día",
+        "pro": "Día a día + ingresos y gastos",
+        "premium": "Eso + una extra"
+      },
+      {
+        "label": "¿El equipo registra el trabajo del día?",
         "start": true,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Panel administrativo",
-        "start": "Simple",
-        "pro": true,
-        "premium": "Avanzado"
-      },
-      {
-        "label": "Gestión de usuarios",
-        "start": false,
+        "label": "¿Pueden buscarlo después?",
+        "start": true,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Roles y permisos",
+        "label": "¿Hay ingresos y gastos?",
         "start": false,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Automatizaciones",
-        "start": "Básicas",
+        "label": "¿Tú ves un reporte de la plata?",
+        "start": false,
         "pro": true,
-        "premium": "Avanzadas"
-      },
-      {
-        "label": "Reportes",
-        "start": false,
-        "pro": "Básicos",
-        "premium": "Tiempo real"
-      },
-      {
-        "label": "Dashboard ejecutivo",
-        "start": false,
-        "pro": false,
         "premium": true
       },
       {
-        "label": "Conexión con sistemas externos",
-        "start": false,
-        "pro": "Esenciales",
-        "premium": true
+        "label": "¿Otra sede?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Integración CRM",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "¿Otro módulo?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Integración ERP",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "¿Los datos van a otro programa?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Capacitación",
-        "start": "Inicial",
-        "pro": "Equipo",
-        "premium": "Completa"
-      },
-      {
-        "label": "Soporte prioritario",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Escalable con tu empresa",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "Precio",
+        "start": "S/ 4,500",
+        "pro": "S/ 7,000",
+        "premium": "Desde S/ 9,000"
       }
     ]
   }

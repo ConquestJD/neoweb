@@ -558,35 +558,35 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     ],
     'digitalizacion-procesos': [
       {
-        name: 'START',
-        price: 'S/ 1,500',
+        name: 'DIARIO',
+        price: 'S/ 4,500',
         icon: 'star',
         features: [
-          '1 proceso digitalizado',
-          'Formularios / flujos básicos'
+          'El equipo registra el trabajo del día y lo consulta',
+          'Un reporte de ese trabajo',
+          'Sin ingresos ni gastos',
+          'Lista en 4 a 6 semanas'
         ]
       },
       {
-        name: 'PRO',
-        price: 'S/ 4,000',
+        name: 'CONTROL',
+        price: 'S/ 7,000',
         icon: 'rocket_launch',
         featured: true,
         features: [
-          '3-5 procesos',
-          'Panel admin',
-          'Roles y permisos',
-          'Integraciones'
+          'Todo lo de Diario',
+          'Ingresos, gastos y un reporte de la plata',
+          'Lista en 2 a 3 meses'
         ]
       },
       {
-        name: 'PREMIUM',
-        price: 'S/ 8,000 - S/ 20,000',
+        name: 'AMPLÍA',
+        price: 'Desde S/ 9,000',
         icon: 'diamond',
         features: [
-          'Sistema interno completo',
-          'Automatizaciones avanzadas',
-          'Dashboard BI',
-          'Capacitación'
+          'Todo lo de Control',
+          'Eliges una: otra sede, otro módulo, o copiar datos a otro programa',
+          'S/ 9,000 es el piso; se cotiza'
         ]
       }
     ]

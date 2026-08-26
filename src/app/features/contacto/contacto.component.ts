@@ -64,7 +64,9 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
         'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
         'Tienda online: más de 1 mes según alcance',
         'App Lanzamiento: 3 a 4 semanas',
-        'App Crecimiento o Escala: 2 a 3 meses'
+        'App Crecimiento o Escala: 2 a 3 meses',
+        'Software Diario: 4 a 6 semanas',
+        'Software Control o Amplía: 2 a 3 meses'
       ]
     },
     {
@@ -110,6 +112,15 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
         'Lanzamiento (S/ 3,000): sin cuentas, solo Android. Ven lo que ofreces y te escriben por WhatsApp.',
         'Crecimiento (S/ 5,500): se registran y les llega un aviso. Solo Android.',
         'Escala (desde S/ 8,000): una extra cotizada: iPhone, cobrar, un empleado, o copiar datos a otro programa.'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de software a medida?',
+      answer: 'Es el mismo sistema, en tres fases. No es “más pantallas”:',
+      details: [
+        'Diario (S/ 4,500): el equipo registra el trabajo del día y lo consulta. Sin ingresos ni gastos.',
+        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de la plata.',
+        'Amplía (desde S/ 9,000): una extra cotizada: otra sede, otro módulo, o copiar datos a otro programa.'
       ]
     },
     {

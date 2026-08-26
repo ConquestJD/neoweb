@@ -50,7 +50,7 @@ export const SITE_SERVICES = [
   {
     slug: 'digitalizacion-procesos',
     name: 'Software a Medida / Digitalización',
-    description: 'Sistemas a medida para digitalizar y automatizar procesos internos de tu empresa.'
+    description: 'Sistema interno: el equipo registra el día a día, ves ingresos y gastos, o ampliamos lo que falte (otra sede, módulo o programa).'
   }
 ] as const;
 
