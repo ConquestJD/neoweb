@@ -1053,8 +1053,9 @@ section {
   .why-sticky {
     position: sticky;
     top: 0;
-    height: 100vh;
     height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
     overflow: hidden;
   }
 
@@ -1063,10 +1064,18 @@ section {
     top: auto;
   }
 
-  .why-showcase,
-  .why-showcase-inner {
+  .why-showcase.why-sticky {
+    min-height: 100dvh;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .why-showcase-inner,
+  .why-showcase-detail {
+    display: none;
     min-height: 0;
-    height: 100%;
+    height: auto;
   }
 
   .why-showcase {
@@ -1075,45 +1084,46 @@ section {
   }
 
   .why-showcase-bg,
-  .why-showcase.why-bg-revealed .why-showcase-bg {
+  .why-showcase.why-bg-revealed .why-showcase-bg,
+  .why-showcase:not(.why-bg-revealed) .why-showcase-bg {
     display: block;
     opacity: 1;
+    position: absolute;
+    inset: 0;
   }
 
   .why-showcase-bg-layer {
+    position: absolute;
+    inset: 0;
     opacity: 0;
-    transform: scale(1.16) translate3d(0, 4%, 0);
+    background-size: cover;
     background-position: center;
-    transition:
-      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    background-repeat: no-repeat;
+    transform: none;
+    transition: opacity 0.55s ease;
   }
 
   .why-showcase-bg-layer.is-past {
     opacity: 0;
-    transform: scale(1.04);
   }
 
   .why-showcase-bg-layer.is-active,
   .why-showcase.why-bg-revealed .why-showcase-bg-layer.is-active {
     opacity: 1;
-    transform: scale(1) translate3d(0, 0, 0);
+    transform: none;
   }
 
-  .why-showcase-mask {
+  .why-showcase-mask,
+  .why-showcase:not(.why-bg-revealed) .why-showcase-mask {
     display: block;
+    z-index: 1;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.58) 0%,
-      rgba(0, 0, 0, 0.12) 34%,
-      rgba(0, 0, 0, 0.35) 58%,
-      rgba(0, 0, 0, 0.88) 100%
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.12) 36%,
+      rgba(0, 0, 0, 0.4) 62%,
+      rgba(0, 0, 0, 0.86) 100%
     );
-  }
-
-  .why-showcase-inner,
-  .why-showcase-detail {
-    display: none;
   }
 
   .why-story-ui,
@@ -2166,8 +2176,9 @@ section {
     position: sticky;
     top: 0;
     width: 100%;
-    height: 100vh;
     height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
     overflow: hidden;
   }
 
@@ -2201,21 +2212,24 @@ section {
   }
 
   .process-accordion-bg-layer {
+    position: absolute;
+    inset: 0;
     opacity: 0;
-    transform: scale(1.16) translate3d(0, 4%, 0);
-    transition:
-      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: none;
+    transition: opacity 0.55s ease;
   }
 
   .process-accordion-bg-layer.is-past {
     opacity: 0;
-    transform: scale(1.04);
+    transform: none;
   }
 
   .process-accordion-bg-layer.is-active {
     opacity: 1;
-    transform: scale(1) translate3d(0, 0, 0);
+    transform: none;
   }
 }
 

@@ -149,7 +149,7 @@
           class="why-showcase-bg-layer"
           [class.is-active]="i === activeDiferencialIndex"
           [class.is-past]="i < activeDiferencialIndex"
-          [style.background-image]="'url(\'' + diferencial.image + '\')'">
+          [style.background-image]="storyImage(diferencial.image)">
         </div>
       </div>
       <div class="why-showcase-mask" aria-hidden="true"></div>
@@ -286,7 +286,7 @@
           class="process-accordion-bg-layer"
           [class.is-active]="i === activeProcessIndex"
           [class.is-past]="i < activeProcessIndex"
-          [style.background-image]="'url(\'' + step.image + '\')'">
+          [style.background-image]="storyImage(step.image)">
         </div>
       </div>
       <div class="process-accordion-scrim" aria-hidden="true"></div>

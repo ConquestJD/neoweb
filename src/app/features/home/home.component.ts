@@ -954,6 +954,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     this.bindHomeStoryScroll();
+    if (this.isCompactHome()) {
+      this.markWhyIntroDone();
+    }
   }
 
   private revealAllSectionsInstant() {
@@ -1252,7 +1255,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private isCompactHome(): boolean {
-    return window.matchMedia('(max-width: 768px)').matches;
+    return typeof window !== 'undefined'
+      && window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  storyImage(path: string): string {
+    return `url("${encodeURI(path)}")`;
   }
 
   private bindHomeStoryScroll() {

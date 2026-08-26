@@ -263,28 +263,16 @@ function setupCompactStory(
   onComplete?: () => void
 ) {
   const layers = stage.querySelectorAll(layerSelector);
-  const copy = stage.querySelector('.home-story-copy');
-  const progress = stage.querySelector('.home-story-progress');
   const steps = Math.max(1, layers.length);
+  const stageEl = stage as HTMLElement;
 
-  gsap.set([copy, progress].filter(Boolean), { opacity: 0, y: 18 });
+  const fitStage = () => {
+    const h = window.innerHeight;
+    gsap.set(stageEl, { height: h, maxHeight: h });
+  };
 
-  const intro = gsap.timeline({
-    defaults: { ease: EASE },
-    scrollTrigger: {
-      trigger: stage,
-      start: 'top 82%',
-      once: true
-    },
-    onComplete: () => onComplete?.()
-  });
-
-  if (progress) {
-    intro.to(progress, { opacity: 1, y: 0, duration: 0.45 }, 0);
-  }
-  if (copy) {
-    intro.to(copy, { opacity: 1, y: 0, duration: 0.6 }, 0.08);
-  }
+  fitStage();
+  onComplete?.();
 
   ScrollTrigger.create({
     trigger: stage,
@@ -293,28 +281,9 @@ function setupCompactStory(
     pin: true,
     pinSpacing: true,
     anticipatePin: 1,
-    invalidateOnRefresh: true
+    invalidateOnRefresh: true,
+    onRefresh: fitStage
   });
-
-  if (layers.length) {
-    const bg = stage.querySelector('.why-showcase-bg, .process-accordion-bg');
-    if (bg) {
-      gsap.fromTo(
-        bg,
-        { scale: 1.08 },
-        {
-          scale: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: stage.parentElement || stage,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1.1
-          }
-        }
-      );
-    }
-  }
 }
 
 function setupWhy(root: HTMLElement, onComplete?: () => void) {
