@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('servicesCarousel') servicesCarousel?: ElementRef<HTMLElement>;
   @ViewChild('carouselCursor') carouselCursor?: ElementRef<HTMLElement>;
   @ViewChild('portfolioGrid') portfolioGrid?: ElementRef<HTMLElement>;
+  @ViewChild('whyStory') whyStory?: ElementRef<HTMLElement>;
+  @ViewChild('processStory') processStory?: ElementRef<HTMLElement>;
 
   private readonly pageTitle =
     'Agencia Digital en Perú | Desarrollo Web y Marketing Digital | NeoWeb';
@@ -69,6 +71,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   whyRevealedListCount = 0;
   whyBgRevealed = false;
   whyDetailRevealed = false;
+  whyCopyNonce = 0;
+  processCopyNonce = 0;
   ctaVisible = false;
   portfolioVisible = false;
   portfolioIntroDone = false;
@@ -487,7 +491,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private syncCarouselTransform() {
-    const slideShare = 62;
+    const isCompact = typeof window !== 'undefined'
+      && window.matchMedia('(max-width: 768px)').matches;
+    const slideShare = isCompact ? 84 : 62;
     const gap = 1.25;
     const centerOffset = (100 - slideShare) / 2;
     this.carouselTransform = `translateX(calc(-${this.trackIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
@@ -893,6 +899,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private lastScrollTime = 0;
   private readonly scrollThrottle = 100;
   private gsapCleanup: (() => void) | null = null;
+  private whyScrollUnbind: (() => void) | null = null;
+  private processScrollUnbind: (() => void) | null = null;
 
   ngAfterViewInit() {
     this.initHeroVideo();
@@ -944,6 +952,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         })
       });
     });
+
+    this.bindHomeStoryScroll();
   }
 
   private revealAllSectionsInstant() {
@@ -960,6 +970,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.faqIntroDone = true;
     this.ctaVisible = true;
     this.preloadServiceImages();
+    this.bindHomeStoryScroll();
   }
 
   private markServicesIntroDone() {
@@ -1231,6 +1242,86 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.whyIntroTimeouts = [];
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    if (this.destroyed) {
+      return;
+    }
+    this.syncCarouselTransform();
+    this.bindHomeStoryScroll();
+  }
+
+  private isCompactHome(): boolean {
+    return window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  private bindHomeStoryScroll() {
+    this.unbindHomeStoryScroll();
+    if (this.destroyed || !this.isCompactHome()) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      const onScroll = () => {
+        this.syncStoryIndex(
+          this.whyStory?.nativeElement,
+          this.diferenciales.length,
+          'activeDiferencialIndex',
+          'whyCopyNonce'
+        );
+        this.syncStoryIndex(
+          this.processStory?.nativeElement,
+          this.processSteps.length,
+          'activeProcessIndex',
+          'processCopyNonce'
+        );
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      this.whyScrollUnbind = () => window.removeEventListener('scroll', onScroll);
+      onScroll();
+    });
+  }
+
+  private unbindHomeStoryScroll() {
+    this.whyScrollUnbind?.();
+    this.whyScrollUnbind = null;
+    this.processScrollUnbind?.();
+    this.processScrollUnbind = null;
+  }
+
+  private syncStoryIndex(
+    el: HTMLElement | undefined,
+    steps: number,
+    indexKey: 'activeDiferencialIndex' | 'activeProcessIndex',
+    nonceKey: 'whyCopyNonce' | 'processCopyNonce'
+  ) {
+    if (!el || steps < 1) {
+      return;
+    }
+
+    const spacer = el.querySelector('.pin-spacer') as HTMLElement | null;
+    const track = spacer ?? el;
+    const range = track.offsetHeight - window.innerHeight;
+    if (range <= 0) {
+      return;
+    }
+
+    const t = Math.min(1, Math.max(0, -track.getBoundingClientRect().top / range));
+    const raw = t * steps;
+    const next = Math.min(steps - 1, Math.floor(raw + 1e-4));
+    const stepProgress = Math.min(1, Math.max(0, raw - next));
+    el.style.setProperty('--story-step-p', stepProgress.toFixed(4));
+
+    if (next === this[indexKey]) {
+      return;
+    }
+
+    this.ngZone.run(() => {
+      this[indexKey] = next;
+      this[nonceKey] += 1;
+    });
+  }
+
   setActiveDiferencial(index: number) {
     this.activeDiferencialIndex = index;
   }
@@ -1268,6 +1359,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.teardownCarouselCursorListeners();
     this.teardownPortfolioScrollListeners();
     this.clearWhyIntroTimeouts();
+    this.unbindHomeStoryScroll();
 
     if (this.gsapCleanup) {
       this.gsapCleanup();

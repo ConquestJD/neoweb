@@ -257,10 +257,76 @@ function setupServices(
   }
 }
 
+function setupCompactStory(
+  stage: Element,
+  layerSelector: string,
+  onComplete?: () => void
+) {
+  const layers = stage.querySelectorAll(layerSelector);
+  const copy = stage.querySelector('.home-story-copy');
+  const progress = stage.querySelector('.home-story-progress');
+  const steps = Math.max(1, layers.length);
+
+  gsap.set([copy, progress].filter(Boolean), { opacity: 0, y: 18 });
+
+  const intro = gsap.timeline({
+    defaults: { ease: EASE },
+    scrollTrigger: {
+      trigger: stage,
+      start: 'top 82%',
+      once: true
+    },
+    onComplete: () => onComplete?.()
+  });
+
+  if (progress) {
+    intro.to(progress, { opacity: 1, y: 0, duration: 0.45 }, 0);
+  }
+  if (copy) {
+    intro.to(copy, { opacity: 1, y: 0, duration: 0.6 }, 0.08);
+  }
+
+  ScrollTrigger.create({
+    trigger: stage,
+    start: 'top top',
+    end: () => `+=${Math.max(1, steps - 1) * window.innerHeight}`,
+    pin: true,
+    pinSpacing: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true
+  });
+
+  if (layers.length) {
+    const bg = stage.querySelector('.why-showcase-bg, .process-accordion-bg');
+    if (bg) {
+      gsap.fromTo(
+        bg,
+        { scale: 1.08 },
+        {
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: stage.parentElement || stage,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.1
+          }
+        }
+      );
+    }
+  }
+}
+
 function setupWhy(root: HTMLElement, onComplete?: () => void) {
   const section = root.querySelector('.why-neoweb-section');
   const showcase = root.querySelector('#why-showcase');
   if (!section || !showcase) return;
+
+  const compact = window.matchMedia('(max-width: 768px)').matches;
+  if (compact) {
+    setupCompactStory(showcase, '.why-showcase-bg-layer', onComplete);
+    return;
+  }
 
   const bg = showcase.querySelector('.why-showcase-bg');
   const mask = showcase.querySelector('.why-showcase-mask');
@@ -450,19 +516,22 @@ function setupProcess(root: HTMLElement) {
   const section = root.querySelector('.process-section');
   if (!section) return;
 
+  const compactProcess = window.matchMedia('(max-width: 768px)').matches;
+  const wrap = section.querySelector('.process-accordion-wrap');
+
+  if (compactProcess && wrap) {
+    setupCompactStory(wrap, '.process-accordion-bg-layer');
+    return;
+  }
+
   const label = section.querySelector('.process-label');
   const intro = section.querySelector('.process-intro');
-  const wrap = section.querySelector('.process-accordion-wrap');
   const panels = section.querySelectorAll('.process-panel');
   const numbers = section.querySelectorAll('.process-panel-number');
 
-  const compactProcess = window.matchMedia('(max-width: 768px)').matches;
-
   gsap.set([label, intro].filter(Boolean), { opacity: 0, y: 28 });
-  if (wrap) gsap.set(wrap, { opacity: 0, y: compactProcess ? 28 : 56 });
-  if (!compactProcess) {
-    gsap.set(panels, { opacity: 0.35 });
-  }
+  if (wrap) gsap.set(wrap, { opacity: 0, y: 56 });
+  gsap.set(panels, { opacity: 0.35 });
   gsap.set(numbers, { opacity: 0, y: 16 });
 
   const headerTl = gsap.timeline({
@@ -513,7 +582,6 @@ function setupProcess(root: HTMLElement) {
     );
   }
 
-  // Scrub sutil del fondo al hacer scroll dentro de la sección
   const bgLayers = section.querySelectorAll('.process-accordion-bg-layer');
   if (bgLayers.length && wrap) {
     gsap.fromTo(

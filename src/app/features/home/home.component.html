@@ -134,61 +134,83 @@
 
 <!-- Por qué NeoWeb -->
 <section class="why-neoweb-section">
-  <div class="why-showcase"
-       id="why-showcase"
-       [class.why-entered]="whyShowcaseEntered"
-       [class.why-bg-revealed]="whyBgRevealed">
-    <div class="why-showcase-bg" aria-hidden="true">
-      <div *ngFor="let diferencial of diferenciales; let i = index"
-           class="why-showcase-bg-layer"
-           [class.is-active]="i === activeDiferencialIndex"
-           [style.background-image]="'url(\'' + diferencial.image + '\')'">
+  <div
+    class="why-story"
+    #whyStory
+    [style.--steps]="diferenciales.length">
+    <div
+      class="why-showcase why-sticky"
+      id="why-showcase"
+      [class.why-entered]="whyShowcaseEntered"
+      [class.why-bg-revealed]="whyBgRevealed">
+      <div class="why-showcase-bg" aria-hidden="true">
+        <div
+          *ngFor="let diferencial of diferenciales; let i = index"
+          class="why-showcase-bg-layer"
+          [class.is-active]="i === activeDiferencialIndex"
+          [class.is-past]="i < activeDiferencialIndex"
+          [style.background-image]="'url(\'' + diferencial.image + '\')'">
+        </div>
       </div>
-    </div>
-    <div class="why-showcase-mask" aria-hidden="true"></div>
+      <div class="why-showcase-mask" aria-hidden="true"></div>
 
-    <div class="why-showcase-inner">
-      <div class="why-neoweb-header">
-        <h2 class="why-neoweb-label" [class.is-revealed]="whyTitleRevealed">Por qué NeoWeb</h2>
-      </div>
+      <div class="why-showcase-inner">
+        <div class="why-neoweb-header">
+          <h2 class="why-neoweb-label" [class.is-revealed]="whyTitleRevealed">Por qué NeoWeb</h2>
+        </div>
 
-      <div class="why-showcase-body">
-        <ul class="why-list">
-          <li *ngFor="let diferencial of diferenciales; let i = index">
-            <button type="button"
-                    class="why-list-item"
-                    [class.is-revealed]="i < whyRevealedListCount"
-                    [class.is-active]="i === activeDiferencialIndex"
-                    (mouseenter)="setActiveDiferencial(i)"
-                    (focus)="setActiveDiferencial(i)"
-                    (click)="setActiveDiferencial(i)">
-              <span
-                class="why-list-photo"
-                aria-hidden="true"
-                [style.background-image]="'url(\'' + diferencial.image + '\')'"></span>
-              <span class="why-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-              <span class="why-list-title">{{ diferencial.title }}</span>
-              <div class="why-list-copy">
-                <p>{{ diferencial.description }}</p>
-                <ul class="why-list-points">
-                  <li *ngFor="let point of diferencial.points">
-                    <span class="material-icons">check</span>
-                    {{ point }}
-                  </li>
-                </ul>
-              </div>
-            </button>
-          </li>
-        </ul>
-
-        <div class="why-showcase-detail" [class.is-revealed]="whyDetailRevealed">
-          <p class="why-showcase-description">{{ diferenciales[activeDiferencialIndex].description }}</p>
-          <ul class="why-showcase-points">
-            <li *ngFor="let point of diferenciales[activeDiferencialIndex].points">
-              <span class="material-icons">check</span>
-              {{ point }}
+        <div class="why-showcase-body">
+          <ul class="why-list">
+            <li *ngFor="let diferencial of diferenciales; let i = index">
+              <button
+                type="button"
+                class="why-list-item"
+                [class.is-revealed]="i < whyRevealedListCount"
+                [class.is-active]="i === activeDiferencialIndex"
+                (mouseenter)="setActiveDiferencial(i)"
+                (focus)="setActiveDiferencial(i)"
+                (click)="setActiveDiferencial(i)">
+                <span class="why-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                <span class="why-list-title">{{ diferencial.title }}</span>
+              </button>
             </li>
           </ul>
+
+          <div class="why-showcase-detail" [class.is-revealed]="whyDetailRevealed">
+            <p class="why-showcase-description">{{ diferenciales[activeDiferencialIndex].description }}</p>
+            <ul class="why-showcase-points">
+              <li *ngFor="let point of diferenciales[activeDiferencialIndex].points">
+                <span class="material-icons">check</span>
+                {{ point }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-story-ui" aria-live="polite">
+        <div class="home-story-progress" aria-hidden="true">
+          <span
+            *ngFor="let diferencial of diferenciales; let i = index"
+            [class.is-active]="i === activeDiferencialIndex"
+            [class.is-done]="i < activeDiferencialIndex"></span>
+        </div>
+        <div class="home-story-copy">
+          <div *ngFor="let n of [whyCopyNonce]" class="home-story-copy-inner">
+            <p class="home-story-kicker">Por qué NeoWeb</p>
+            <p class="home-story-index">
+              {{ (activeDiferencialIndex + 1).toString().padStart(2, '0') }}
+              <span>/ {{ diferenciales.length.toString().padStart(2, '0') }}</span>
+            </p>
+            <h3 class="home-story-title">{{ diferenciales[activeDiferencialIndex].title }}</h3>
+            <p class="home-story-desc">{{ diferenciales[activeDiferencialIndex].description }}</p>
+            <ul class="home-story-points">
+              <li *ngFor="let point of diferenciales[activeDiferencialIndex].points">
+                <span class="material-icons" aria-hidden="true">check</span>
+                {{ point }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -253,40 +275,67 @@
     </div>
   </div>
 
-  <div class="process-accordion-wrap">
-    <div class="process-accordion-bg" aria-hidden="true">
-      <div *ngFor="let step of processSteps; let i = index"
-           class="process-accordion-bg-layer"
-           [class.is-active]="i === activeProcessIndex"
-           [style.background-image]="'url(\'' + step.image + '\')'">
-      </div>
-    </div>
-    <div class="process-accordion-scrim" aria-hidden="true"></div>
-
-    <div class="process-accordion" role="tablist">
-      <button *ngFor="let step of processSteps; let i = index"
-              type="button"
-              class="process-panel"
-              role="tab"
-              [class.is-expanded]="i === activeProcessIndex"
-              [attr.aria-selected]="i === activeProcessIndex"
-              (mouseenter)="setActiveProcess(i)"
-              (focus)="setActiveProcess(i)"
-              (click)="setActiveProcess(i)">
-        <span
-          class="process-panel-photo"
-          aria-hidden="true"
-          [style.background-image]="'url(\'' + step.image + '\')'"></span>
-        <span class="process-panel-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
-        <span class="process-panel-label">{{ step.title }}</span>
-        <div class="process-panel-detail">
-          <h3 class="process-panel-detail-title">{{ step.title }}</h3>
-          <p>{{ step.description }}</p>
-          <ul>
-            <li *ngFor="let item of step.deliverables">{{ item }}</li>
-          </ul>
+  <div
+    class="process-story"
+    #processStory
+    [style.--steps]="processSteps.length">
+    <div class="process-accordion-wrap process-sticky">
+      <div class="process-accordion-bg" aria-hidden="true">
+        <div
+          *ngFor="let step of processSteps; let i = index"
+          class="process-accordion-bg-layer"
+          [class.is-active]="i === activeProcessIndex"
+          [class.is-past]="i < activeProcessIndex"
+          [style.background-image]="'url(\'' + step.image + '\')'">
         </div>
-      </button>
+      </div>
+      <div class="process-accordion-scrim" aria-hidden="true"></div>
+
+      <div class="process-accordion" role="tablist">
+        <button
+          *ngFor="let step of processSteps; let i = index"
+          type="button"
+          class="process-panel"
+          role="tab"
+          [class.is-expanded]="i === activeProcessIndex"
+          [attr.aria-selected]="i === activeProcessIndex"
+          (mouseenter)="setActiveProcess(i)"
+          (focus)="setActiveProcess(i)"
+          (click)="setActiveProcess(i)">
+          <span class="process-panel-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <span class="process-panel-label">{{ step.title }}</span>
+          <div class="process-panel-detail">
+            <h3 class="process-panel-detail-title">{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+            <ul>
+              <li *ngFor="let item of step.deliverables">{{ item }}</li>
+            </ul>
+          </div>
+        </button>
+      </div>
+
+      <div class="process-story-ui" aria-live="polite">
+        <div class="home-story-progress" aria-hidden="true">
+          <span
+            *ngFor="let step of processSteps; let i = index"
+            [class.is-active]="i === activeProcessIndex"
+            [class.is-done]="i < activeProcessIndex"></span>
+        </div>
+        <div class="home-story-copy">
+          <div *ngFor="let n of [processCopyNonce]" class="home-story-copy-inner">
+            <p class="home-story-kicker">Proceso</p>
+            <p class="home-story-index">
+              {{ (activeProcessIndex + 1).toString().padStart(2, '0') }}
+              <span>/ {{ processSteps.length.toString().padStart(2, '0') }}</span>
+            </p>
+            <h3 class="home-story-title">{{ processSteps[activeProcessIndex].title }}</h3>
+            <p class="home-story-desc">{{ processSteps[activeProcessIndex].description }}</p>
+            <ul class="home-story-points">
+              <li *ngFor="let item of processSteps[activeProcessIndex].deliverables">{{ item }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
