@@ -86,7 +86,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     },
     {
       name: 'Apps Móviles',
-      short: 'iOS y Android nativos',
+      short: 'Sin cuentas, con usuarios o cotizada',
       route: '/servicios/aplicaciones-moviles',
       icon: 'phone_iphone',
       image: '/assets/services/app movil.jpg',

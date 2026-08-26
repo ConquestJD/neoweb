@@ -204,6 +204,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         'Página web: desde S/ 700 (Landing)',
         'Rediseño web: desde S/ 700 (Actualiza)',
         'Tienda online: desde S/ 2,000 (Emprende)',
+        'App móvil: desde S/ 3,000 (Lanzamiento)',
         'Software a medida: desde S/ 1,500',
         'Marketing digital: desde S/ 600/mes'
       ]
@@ -245,12 +246,23 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      question: '¿Qué diferencia hay entre los planes de apps móviles?',
+      answer: 'Cada uno hace un trabajo distinto. No es “más pantallas”:',
+      details: [
+        'Lanzamiento (S/ 3,000): sin cuentas, solo Android. Ven lo que ofreces y te escriben por WhatsApp.',
+        'Crecimiento (S/ 7,000): se registran y les llega un aviso. Android e iPhone. La cuenta de Apple la pagas tú.',
+        'Escala (desde S/ 9,000): una extra cotizada: cobrar, un empleado, o copiar datos a otro programa.'
+      ]
+    },
+    {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
         'Landing o Actualiza: 1 semana',
         'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
-        'Tienda online o app: más de 1 mes según alcance'
+        'Tienda online: más de 1 mes según alcance',
+        'App Lanzamiento: 3 a 4 semanas',
+        'App Crecimiento o Escala: 2 a 3 meses'
       ]
     },
     {
@@ -319,9 +331,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'phone_iphone',
       image: '/assets/services/app movil.jpg',
       tag: 'Producto',
-      outcome: 'Experiencias móviles fluidas',
-      description: 'Apps nativas e híbridas para iOS y Android con diseño intuitivo.',
-      audience: 'Para negocios que necesitan llegar al móvil'
+      outcome: 'Sin cuentas, con usuarios o una extra',
+      description: 'Lanzamiento: Android y WhatsApp. Crecimiento: cuentas en Android e iPhone. Escala: cobrar, un empleado u otro programa, cotizado.',
+      audience: 'Para quien quiere saber qué app le toca'
     },
     {
       name: 'Software a Medida',

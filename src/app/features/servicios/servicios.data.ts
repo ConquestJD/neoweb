@@ -1266,147 +1266,147 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "aplicaciones-moviles": {
     "slug": "aplicaciones-moviles",
     "heroImage": "/assets/services/app movil.jpg",
-    "pageTitle": "Desarrollo de Apps Móviles en Perú | iOS y Android | NeoWeb",
-    "metaDescription": "Desarrollo de aplicaciones móviles en Perú para iOS y Android. Apps a medida, rápidas y seguras para digitalizar tu negocio. Cotiza con NeoWeb.",
+    "pageTitle": "Apps Móviles en Perú | Sin cuentas, con usuarios o cotizada | NeoWeb",
+    "metaDescription": "App a medida en Perú: sin cuentas en Android, con usuarios en Android e iPhone, o una extra cotizada (cobrar, empleado u otro programa). Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "phone_android",
       "badgeText": "Apps móviles · Perú",
-      "titleLine1": "Aplicaciones móviles",
-      "titleHighlight": "iOS y Android",
-      "description": "Desarrollo de aplicaciones móviles a medida en Perú. Apps para iOS y Android con buena experiencia de usuario, rendimiento y seguridad, listas para escalar tu negocio."
+      "titleLine1": "Apps",
+      "titleHighlight": "fáciles de elegir",
+      "description": "Tres trabajos. Lanzamiento: abren la app, ven lo que ofreces y te escriben. Crecimiento: se registran y les llega un aviso. Escala: cobrar, un empleado u otro programa, se cotiza. Si con la web en el celular basta, es Páginas web."
     },
-    "plansSubtitle": "Aplicaciones móviles que digitalizan tu negocio, mejoran la experiencia de tus usuarios y abren nuevas oportunidades de crecimiento. Planes pensados para startups, emprendedores y empresas en expansión.",
+    "plansSubtitle": "Lanzamiento es app sin cuentas, solo Android. Crecimiento es con usuarios, Android e iPhone. Escala es una extra cotizada. La cuenta de Apple, si aplica, la pagas tú.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Características",
-      "titleLine1": "Lo que",
-      "titleHighlight": "incluye",
-      "subtitle": "Todas las funcionalidades y características necesarias para una app móvil completa."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "No es “más pantallas”. Cada plan sirve para un uso distinto del celular."
     },
     "includes": [
       {
         "icon": "phone_android",
-        "title": "iOS y Android",
-        "description": "Aplicaciones nativas para ambas plataformas"
+        "title": "Lanzamiento: sin cuentas",
+        "description": "La persona abre la app, ve lo que ofreces y te escribe por WhatsApp. Solo Android (Google Play). Para catálogo, carta o directorio."
       },
       {
-        "icon": "speed",
-        "title": "Alto Rendimiento",
-        "description": "Optimizadas para velocidad y fluidez"
+        "icon": "person",
+        "title": "Crecimiento: con usuarios",
+        "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Android e iPhone. Para citas, socios o alumnos."
       },
       {
-        "icon": "design_services",
-        "title": "Diseño Intuitivo",
-        "description": "Interfaz moderna y fácil de usar"
+        "icon": "tune",
+        "title": "Escala: una extra",
+        "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas."
       },
       {
-        "icon": "cloud",
-        "title": "Sincronización",
-        "description": "Datos en la nube accesibles desde cualquier lugar"
+        "icon": "storefront",
+        "title": "En los tres planes",
+        "description": "Diseño para tu negocio, pruebas en celular antes de publicar, y te muestro cómo usarla. La publicación en tiendas entra según el plan."
       }
     ],
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
-      "titleHighlight": "construyo",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleHighlight": "trabajo",
+      "subtitle": "Primero vemos quién abre la app y para qué. Después diseño, armado, pruebas y la tienda que toque."
     },
     "fullcodeSection": {
-      "badgeText": "Full Code",
-      "titleLine1": "Desarrollo a",
-      "titleHighlight": "medida",
-      "subtitle": "Arquitectura segura, escalable y lista para stores."
+      "badgeText": "A medida",
+      "titleLine1": "Hecha",
+      "titleHighlight": "para ti",
+      "subtitle": "Entra lo del plan que eliges. No “cualquier sistema” ni las dos tiendas si el plan es Lanzamiento."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "lanzar tu app?",
-      "description": "Construyo tu app con UX clara y performance de nivel producción."
+      "titleLine1": "¿Qué app",
+      "titleHighlight": "necesitas?",
+      "description": "¿Solo verte y escribirte? Lanzamiento. ¿Cuentas y avisos? Crecimiento. ¿Cobrar, un empleado u otro programa? Escala, te armo el precio. Si es para la oficina, Software a medida."
     },
     "features": [
       {
         "icon": "phone_android",
-        "title": "iOS y Android",
-        "description": "Aplicaciones nativas para ambas plataformas"
+        "title": "Lanzamiento: sin cuentas",
+        "description": "La persona abre la app, ve lo que ofreces y te escribe por WhatsApp. Solo Android (Google Play). Para catálogo, carta o directorio."
       },
       {
-        "icon": "speed",
-        "title": "Alto Rendimiento",
-        "description": "Optimizadas para velocidad y fluidez"
+        "icon": "person",
+        "title": "Crecimiento: con usuarios",
+        "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Android e iPhone. Para citas, socios o alumnos."
       },
       {
-        "icon": "design_services",
-        "title": "Diseño Intuitivo",
-        "description": "Interfaz moderna y fácil de usar"
+        "icon": "tune",
+        "title": "Escala: una extra",
+        "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas."
       },
       {
-        "icon": "cloud",
-        "title": "Sincronización",
-        "description": "Datos en la nube accesibles desde cualquier lugar"
+        "icon": "storefront",
+        "title": "En los tres planes",
+        "description": "Diseño para tu negocio, pruebas en celular antes de publicar, y te muestro cómo usarla. La publicación en tiendas entra según el plan."
       }
     ],
     "methodology": [
       {
         "step": "01",
-        "title": "Análisis y Diseño UX/UI",
-        "description": "Estudio tu audiencia y diseño una experiencia móvil intuitiva y atractiva",
+        "title": "Quién la abre",
+        "description": "¿Solo quieren verte y escribirte? ¿Necesitan cuenta? ¿Hay que cobrar o un empleado? Con eso sale el plan. Si con la web en el celular basta, es Páginas web.",
         "icon": "phone_android"
       },
       {
         "step": "02",
-        "title": "Prototipado y Validación",
-        "description": "Creo prototipos interactivos para validar la experiencia antes del desarrollo",
+        "title": "Te muestro",
+        "description": "Ves cómo se va a ver en el teléfono: sin cuentas, con login, o con la extra que cotizamos.",
         "icon": "design_services"
       },
       {
         "step": "03",
-        "title": "Desarrollo Full Code",
-        "description": "Desarrollo tu app desde cero con código nativo o híbrido optimizado para rendimiento",
+        "title": "Armado",
+        "description": "La programo a medida, con el alcance del plan. Sin plantilla de una tienda de apps genérica.",
         "icon": "code"
       },
       {
         "step": "04",
-        "title": "Testing y Optimización",
-        "description": "Pruebo en múltiples dispositivos y optimizo rendimiento y experiencia",
+        "title": "Pruebas",
+        "description": "La pruebo en celular antes de publicarla. Si hay cuentas, hacemos un registro de prueba.",
         "icon": "bug_report"
       },
       {
         "step": "05",
-        "title": "Publicación y Mantenimiento",
-        "description": "Publico en App Store y Google Play, y brindo mantenimiento continuo",
+        "title": "A la tienda",
+        "description": "Lanzamiento: Google Play. Crecimiento y Escala: Play y App Store. Te muestro cómo usarla. La cuenta de Apple, si aplica, la pagas tú.",
         "icon": "publish"
       }
     ],
     "fullCodeBenefits": [
       {
-        "icon": "code",
-        "title": "Código Nativo o Híbrido",
-        "description": "Desarrollo con código nativo para máximo rendimiento o híbrido para llegar a más plataformas."
+        "icon": "flag",
+        "title": "Sabes qué estás comprando",
+        "description": "Lanzamiento, Crecimiento y Escala no son “más pantallas”. Cada uno sirve para un uso distinto."
       },
       {
-        "icon": "speed",
-        "title": "Rendimiento Superior",
-        "description": "Apps optimizadas que funcionan fluidamente incluso con datos limitados o conexión lenta."
+        "icon": "phone_android",
+        "title": "No siempre van las dos tiendas",
+        "description": "Lanzamiento es Android. iPhone entra en Crecimiento, porque publicar en Apple es otro trabajo y otra cuenta anual."
       },
       {
-        "icon": "security",
-        "title": "Seguridad de Datos",
-        "description": "Código personalizado con encriptación y protección de datos del usuario."
+        "icon": "person",
+        "title": "Cuentas solo cuando hacen falta",
+        "description": "Si nadie necesita entrar con usuario, no las cobramos. Eso es Lanzamiento."
       },
       {
-        "icon": "integration_instructions",
-        "title": "Integraciones Completas",
-        "description": "Conecto con APIs, sistemas backend y servicios externos sin limitaciones."
+        "icon": "tune",
+        "title": "Se puede ampliar después",
+        "description": "Puedes empezar en Lanzamiento. Cuentas y avisos van en Crecimiento. Cobrar, un empleado u otro programa, en Escala."
       },
       {
-        "icon": "offline_bolt",
-        "title": "Funcionalidad Offline",
-        "description": "Apps que funcionan sin conexión con sincronización inteligente cuando hay internet."
+        "icon": "language",
+        "title": "A veces no necesitas app",
+        "description": "Si con abrir el link en el celular basta, el servicio es Páginas web. Si es para la oficina, Software a medida."
       },
       {
-        "icon": "update",
-        "title": "Actualizaciones Rápidas",
-        "description": "Código bien estructurado permite actualizaciones y nuevas funcionalidades sin problemas."
+        "icon": "support_agent",
+        "title": "Hablas con quien la hace",
+        "description": "Sin pasar por una secretaria de agencia ni cambiar de persona a mitad del proyecto."
       }
     ],
     "plans": [
@@ -1415,196 +1415,145 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "price": "S/ 3,000",
         "icon": "star",
         "color": "from-teal-500 to-cyan-500",
-        "tagline": "Ideal para emprendedores y startups que desean validar una idea de negocio o digitalizar un proceso básico.",
-        "benefit": "Lanza tu aplicación rápidamente y valida tu idea sin realizar una gran inversión.",
+        "tagline": "Recibes una app sin cuentas: abren, ven lo que ofreces y te escriben por WhatsApp. Solo Android.",
+        "benefit": "Para catálogo, carta o directorio. No es para “mis clientes entran con usuario”.",
         "features": [
-          "Aplicación Android",
-          "Hasta 6 pantallas",
-          "Diseño moderno y profesional",
-          "Formulario de contacto",
-          "Integración con WhatsApp",
-          "Navegación intuitiva",
-          "Publicación en Google Play Store",
-          "Capacitación básica de uso",
-          "Pruebas antes del lanzamiento",
-          "Soporte inicial post-lanzamiento"
-        ]
+          "Solo Android (Google Play)",
+          "Ven lo que ofreces y un botón para escribirte por WhatsApp",
+          "Sin registro ni contraseña",
+          "Diseño para tu negocio, no una plantilla genérica",
+          "Pruebas en celular antes de publicarla",
+          "Te muestro cómo usarla",
+          "Lista en 3 a 4 semanas"
+        ],
+        "note": "Si la gente necesita cuenta y avisos, el plan es Crecimiento. Si con abrir el link en el celular basta, elige Páginas web: sale menos y llega igual."
       },
       {
         "name": "CRECIMIENTO",
-        "price": "S/ 5,500",
+        "price": "S/ 7,000",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
-        "tagline": "Ideal para negocios que necesitan gestionar usuarios y ofrecer una experiencia más completa.",
-        "benefit": "Escala tu aplicación y gestiona usuarios de forma profesional.",
+        "tagline": "Recibes una app con usuarios: se registran, ven lo suyo y les llega un aviso. Android e iPhone.",
+        "benefit": "Para citas, socios o alumnos. No es para cobrar dentro de la app ni para empleados con otro acceso.",
         "features": [
-          "Todo lo incluido en Lanzamiento",
-          "Android e iOS",
-          "Registro de usuarios",
-          "Inicio de sesión",
-          "Recuperación de contraseña",
-          "Datos sincronizados en la nube",
-          "Notificaciones Push",
-          "Panel administrativo básico",
-          "Gestión de usuarios",
-          "Analítica básica",
-          "Publicación en Google Play y App Store",
-          "Capacitación personalizada"
-        ]
+          "Todo lo de Lanzamiento, y además cuentas",
+          "Android e iPhone (Google Play y App Store)",
+          "Registro, entrada y recuperar contraseña",
+          "Les llega un aviso al celular",
+          "Tú ves quién se registró en una pantalla simple",
+          "La cuenta de Apple (~USD 99 al año) la pagas tú",
+          "Lista en 2 a 3 meses"
+        ],
+        "note": "Si hay que cobrar en la app, que un empleado entre, o copiar datos a otro programa, el plan es Escala. Chat, GPS u otra extra se cotizan aparte."
       },
       {
         "name": "ESCALA",
-        "price": "Desde S/ 8,000",
+        "price": "Desde S/ 9,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Ideal para empresas que requieren una plataforma móvil completa y preparada para crecer.",
-        "benefit": "Convierte tu aplicación en una plataforma profesional preparada para crecer junto a tu negocio.",
+        "tagline": "Recibes lo de Crecimiento más una extra que eliges al cotizar: cobrar, un empleado, o copiar datos a otro programa.",
+        "benefit": "Para cuando la app no puede vivir sola: hay cobro, equipo u otro sistema.",
         "features": [
-          "Todo lo incluido en Crecimiento",
-          "Dashboard administrativo avanzado",
-          "Conexión con sistemas externos",
-          "Pasarelas de pago",
-          "Roles y permisos",
-          "Reportes personalizados",
-          "Automatizaciones",
-          "Geolocalización",
-          "Chat interno",
-          "Integración con CRM",
-          "Integración con ERP",
-          "Preparado para escalar con tu negocio",
-          "Diseño UI/UX personalizado",
-          "Soporte prioritario",
-          "Consultoría técnica"
-        ]
+          "Todo lo de Crecimiento (Android e iPhone, cuentas y avisos)",
+          "Eliges UNA de estas tres al cotizar",
+          "Opción 1: cobrar dentro de la app (Yape o tarjeta, lo acordamos)",
+          "Opción 2: un empleado también entra, con su propio acceso",
+          "Opción 3: los datos se copian al programa que ya usas",
+          "S/ 9,000 es el piso; si pides dos cosas o algo más, se cotiza extra",
+          "La cuenta de Apple la pagas tú"
+        ],
+        "note": "Si solo necesitas cuentas y avisos, quédate en Crecimiento. Chat, mapa u otro programa extra se cotizan aparte. Si el trabajo es para la oficina, no el celular, elige Software a medida."
       }
     ],
-    "plansHighlightsTitle": "Todas nuestras aplicaciones incluyen",
+    "plansHighlightsTitle": "En los tres planes va incluido",
     "plansHighlights": [
-      "Diseño profesional",
-      "Pruebas antes del lanzamiento",
-      "Código escalable",
-      "Capacitación inicial",
-      "Soporte post-lanzamiento",
-      "Publicación en tiendas",
-      "Optimización para dispositivos móviles",
-      "Asesoría durante el desarrollo"
+      "Diseño para tu negocio, no una plantilla genérica",
+      "Pruebas en celular antes de publicarla",
+      "Te muestro cómo usarla",
+      "Los primeros 30 días te ayudo con fallas chicas del plan"
     ],
-    "plansGuarantee": "Te acompañamos durante los primeros 30 días después del lanzamiento para resolver incidencias y realizar ajustes menores sin costo adicional.",
+    "plansBenefitsTitle": "Esto se cotiza aparte",
+    "plansBenefits": [
+      "La cuenta de Google Play (pago único) y la de Apple (anual): las pagas tú",
+      "Chat, mapa u otra función que no esté en el plan",
+      "Una segunda extra en Escala (la primera se acuerda al cotizar)",
+      "Si con la web en el celular basta: eso es Páginas web, no app"
+    ],
+    "plansGuaranteeLabel": "Después de publicarla",
+    "plansGuarantee": "Los primeros 30 días te ayudo a corregir fallas y detalles chicos que entren en el plan, sin costo extra.",
     "plansComparisonHeaders": {
       "start": "Lanzamiento",
       "pro": "Crecimiento",
       "premium": "Escala"
     },
-    "plansComparisonIntro": "Compara alcance, plataformas y capacidades para elegir el plan que mejor acompaña el crecimiento de tu negocio.",
+    "plansComparisonIntro": "Lee la primera fila: ahí está el trabajo. Escala no es “más pantallas”: es una extra cotizada.",
     "plansComparison": [
       {
-        "label": "Android",
+        "label": "Para qué sirve",
+        "start": "Verte y escribirte",
+        "pro": "Entrar con cuenta",
+        "premium": "Cobrar, equipo u otro programa"
+      },
+      {
+        "label": "Qué te entrego",
+        "start": "App sin cuentas",
+        "pro": "App con usuarios y avisos",
+        "premium": "Eso + una extra"
+      },
+      {
+        "label": "Android (Google Play)",
         "start": true,
         "pro": true,
         "premium": true
       },
       {
-        "label": "iOS",
+        "label": "iPhone (App Store)",
         "start": false,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Publicación en tiendas",
-        "start": "Google Play",
-        "pro": "Play + App Store",
-        "premium": "Play + App Store"
+        "label": "¿Hay cuentas?",
+        "start": "No",
+        "pro": "Sí",
+        "premium": "Sí"
       },
       {
-        "label": "Registro de usuarios",
+        "label": "¿Les llega un aviso al celular?",
         "start": false,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Datos en la nube",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "¿Se cobra dentro de la app?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Notificaciones Push",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "¿Un empleado puede entrar?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Panel administrativo",
-        "start": false,
-        "pro": "Básico",
-        "premium": "Avanzado"
+        "label": "¿Los datos van a otro programa?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Analítica",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "Cuenta de Apple",
+        "start": "No aplica",
+        "pro": "La pagas tú",
+        "premium": "La pagas tú"
       },
       {
-        "label": "Conexión con sistemas externos",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Pagos online",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Geolocalización",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Chat",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "CRM",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "ERP",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Roles y permisos",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Automatizaciones",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Dashboard avanzado",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Soporte prioritario",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "Precio",
+        "start": "S/ 3,000",
+        "pro": "S/ 7,000",
+        "premium": "Desde S/ 9,000"
       }
     ]
   },

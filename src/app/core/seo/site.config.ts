@@ -45,7 +45,7 @@ export const SITE_SERVICES = [
   {
     slug: 'aplicaciones-moviles',
     name: 'Aplicaciones Móviles',
-    description: 'Desarrollo de aplicaciones móviles iOS y Android adaptadas a tu negocio.'
+    description: 'App sin cuentas en Android, con usuarios en Android e iPhone, o una extra cotizada (cobrar, empleado u otro programa).'
   },
   {
     slug: 'digitalizacion-procesos',

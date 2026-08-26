@@ -62,7 +62,9 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
       details: [
         'Landing o Actualiza: 1 semana',
         'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
-        'eCommerce/App: más de 1 mes según alcance'
+        'Tienda online: más de 1 mes según alcance',
+        'App Lanzamiento: 3 a 4 semanas',
+        'App Crecimiento o Escala: 2 a 3 meses'
       ]
     },
     {
@@ -99,6 +101,15 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
         'Emprende (S/ 2,000): el cliente paga y tú ves el pedido. Productos simples, sin talla ni color.',
         'Crece (S/ 3,000): talla o color, cupones, aviso si dejan la compra, y lista para anuncios de Facebook e Instagram.',
         'Escala (desde S/ 4,500): un empleado también ve pedidos, o cada compra se copia a un programa que ya usas. Se cotiza.'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de apps móviles?',
+      answer: 'Cada uno hace un trabajo distinto. No es “más pantallas”:',
+      details: [
+        'Lanzamiento (S/ 3,000): sin cuentas, solo Android. Ven lo que ofreces y te escriben por WhatsApp.',
+        'Crecimiento (S/ 7,000): se registran y les llega un aviso. Android e iPhone. La cuenta de Apple la pagas tú.',
+        'Escala (desde S/ 9,000): una extra cotizada: cobrar, un empleado, o copiar datos a otro programa.'
       ]
     },
     {

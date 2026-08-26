@@ -162,39 +162,45 @@
     }
   },
   "aplicaciones-moviles": {
-    "pageTitle": "Aplicaciones Móviles - NeoWeb | Apps iOS y Android",
+    "pageTitle": "Apps Móviles en Perú | Sin cuentas, con usuarios o cotizada | NeoWeb",
     "hero": {
       "badgeIcon": "phone_android",
-      "badgeText": "Apps móviles",
-      "titleLine1": "Apps nativas e",
-      "titleHighlight": "híbridas",
-      "description": "Lleva tu producto al bolsillo de tus usuarios con UX clara, performance y seguridad."
+      "badgeText": "Apps móviles · Perú",
+      "titleLine1": "Apps",
+      "titleHighlight": "fáciles de elegir",
+      "description": "Tres trabajos. Lanzamiento: abren la app, ven lo que ofreces y te escriben. Crecimiento: se registran y les llega un aviso. Escala: cobrar, un empleado u otro programa, se cotiza. Si con la web en el celular basta, es Páginas web."
     },
-    "plansSubtitle": "Desde S/ 4,000 hasta S/ 12,000+ según alcance y plataformas.",
+    "plansSubtitle": "Lanzamiento es app sin cuentas, solo Android. Crecimiento es con usuarios, Android e iPhone. Escala es una extra cotizada. La cuenta de Apple, si aplica, la pagas tú.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Características",
-      "titleLine1": "Lo que",
-      "titleHighlight": "incluye",
-      "subtitle": "Todas las funcionalidades y características necesarias para una app móvil completa."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "No es “más pantallas”. Cada plan sirve para un uso distinto del celular."
     },
+    "includes": [
+      { "icon": "phone_android", "title": "Lanzamiento: sin cuentas", "description": "La persona abre la app, ve lo que ofreces y te escribe por WhatsApp. Solo Android (Google Play). Para catálogo, carta o directorio." },
+      { "icon": "person", "title": "Crecimiento: con usuarios", "description": "La gente se registra, ve lo suyo y le llega un aviso al celular. Android e iPhone. Para citas, socios o alumnos." },
+      { "icon": "tune", "title": "Escala: una extra", "description": "Lo de Crecimiento, más una de estas (la eliges al cotizar): cobrar dentro de la app, que un empleado también entre, o que los datos se copien al programa que ya usas." },
+      { "icon": "storefront", "title": "En los tres planes", "description": "Diseño para tu negocio, pruebas en celular antes de publicar, y te muestro cómo usarla. La publicación en tiendas entra según el plan." }
+    ],
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
-      "titleHighlight": "construyo",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleHighlight": "trabajo",
+      "subtitle": "Primero vemos quién abre la app y para qué. Después diseño, armado, pruebas y la tienda que toque."
     },
     "fullcodeSection": {
-      "badgeText": "Full Code",
-      "titleLine1": "Desarrollo a",
-      "titleHighlight": "medida",
-      "subtitle": "Arquitectura segura, escalable y lista para stores."
+      "badgeText": "A medida",
+      "titleLine1": "Hecha",
+      "titleHighlight": "para ti",
+      "subtitle": "Entra lo del plan que eliges. No “cualquier sistema” ni las dos tiendas si el plan es Lanzamiento."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "lanzar tu app?",
-      "description": "Construyo tu app con UX clara y performance de nivel producción."
+      "titleLine1": "¿Qué app",
+      "titleHighlight": "necesitas?",
+      "description": "¿Solo verte y escribirte? Lanzamiento. ¿Cuentas y avisos? Crecimiento. ¿Cobrar, un empleado u otro programa? Escala, te armo el precio. Si es para la oficina, Software a medida."
     }
   },
   "digitalizacion-procesos": {
