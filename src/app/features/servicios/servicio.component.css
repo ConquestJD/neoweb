@@ -515,24 +515,6 @@ overflow: hidden;
   color: rgba(255, 255, 255, 0.58);
 }
 
-.svc-plan-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-.svc-plan-details-toggle {
-  display: none;
-}
-
-.svc-plan-details-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
-}
-
 .svc-plans-highlights-wrap {
   margin: 0 0 40px;
   padding: 0 0 28px;
@@ -1377,14 +1359,23 @@ overflow: hidden;
 }
 
 @media (max-width: 900px) {
+  :host.gsap-enabled .svc-plans-grid {
+    perspective: none;
+  }
+
   .svc-plans-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin: 0 auto;
     gap: 12px;
+    align-items: start;
+    height: auto;
   }
 
   .svc-plan-card {
+    height: auto;
+    min-height: 0;
+    align-self: start;
     gap: 14px;
     padding: 20px 18px 18px;
   }
@@ -1397,11 +1388,6 @@ overflow: hidden;
     margin: 0;
     font-size: 0.84rem;
     line-height: 1.45;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .svc-plan-benefit {
@@ -1410,41 +1396,8 @@ overflow: hidden;
     line-height: 1.4;
   }
 
-  .svc-plan-details-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 44px;
-    margin: 0;
-    padding: 0 2px;
-    border: none;
-    border-top: 1px solid var(--rule);
-    background: transparent;
-    color: inherit;
-    font-family: var(--label);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-  }
-
-  .svc-plan-card--dark .svc-plan-details-toggle {
-    border-top-color: rgba(255, 255, 255, 0.14);
-  }
-
-  .svc-plan-details-toggle .material-icons {
-    font-size: 22px;
-  }
-
-  .svc-plan-details:not(.is-open) .svc-plan-details-body {
-    display: none;
-  }
-
   .svc-plan-features {
+    flex: none;
     padding-top: 12px;
     gap: 8px;
   }

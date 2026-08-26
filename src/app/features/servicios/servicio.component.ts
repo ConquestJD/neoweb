@@ -43,7 +43,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   showPage = true;
   sectionsVisible: Record<string, boolean> = {};
   activeProcessIndex = 0;
-  expandedPlanIndex = 0;
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
@@ -196,8 +195,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.meta.updateTag({ property: 'og:title', content: service.pageTitle });
     this.meta.updateTag({ property: 'og:description', content: service.metaDescription });
     this.activeProcessIndex = 0;
-    const featuredIndex = service.plans.findIndex((plan) => plan.featured);
-    this.expandedPlanIndex = featuredIndex >= 0 ? featuredIndex : 0;
     this.sectionsVisible = {};
     this.ctaVisible = false;
     this.ctaMagnetX = 0;
@@ -267,10 +264,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setActiveProcess(index: number) {
     this.activeProcessIndex = index;
-  }
-
-  togglePlanDetails(index: number) {
-    this.expandedPlanIndex = this.expandedPlanIndex === index ? -1 : index;
   }
 
   getServiceHeroImage(): string {

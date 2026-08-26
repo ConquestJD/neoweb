@@ -118,11 +118,13 @@ function setupPlans(root: HTMLElement, onComplete?: () => void) {
   const compareTable = section.querySelector('.svc-plans-compare-scroll');
   const compareRows = section.querySelectorAll('.svc-compare-table tbody tr');
 
+  const compactPlans = window.matchMedia('(max-width: 900px)').matches;
+
   gsap.set([label, intro, highlightsTitle, benefits, guarantee, compareHead, compareTable].filter(Boolean), {
     opacity: 0
   });
   gsap.set(highlights, { opacity: 0, y: 14 });
-  gsap.set(cards, { opacity: 0, y: 56, rotateX: 10 });
+  gsap.set(cards, compactPlans ? { opacity: 0, y: 28 } : { opacity: 0, y: 56, rotateX: 10 });
   gsap.set(benefitItems, { opacity: 0, y: 16 });
   gsap.set(compareRows, { opacity: 0, x: -12 });
 
@@ -160,14 +162,16 @@ function setupPlans(root: HTMLElement, onComplete?: () => void) {
   if (cards.length) {
     tl.to(
       cards,
-      {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        duration: 0.85,
-        stagger: 0.12,
-        ease: EASE_SOFT
-      },
+      compactPlans
+        ? { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: EASE_SOFT }
+        : {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            duration: 0.85,
+            stagger: 0.12,
+            ease: EASE_SOFT
+          },
       0.4
     );
 
@@ -236,7 +240,7 @@ function setupPlans(root: HTMLElement, onComplete?: () => void) {
           }
         );
       }
-      if (features.length && !window.matchMedia('(max-width: 900px)').matches) {
+      if (features.length) {
         gsap.fromTo(
           features,
           { opacity: 0, x: -10 },
