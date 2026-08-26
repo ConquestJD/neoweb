@@ -433,10 +433,16 @@ function setupProcess(root: HTMLElement, onComplete?: () => void) {
   const numbers = section.querySelectorAll('.svc-process-panel-number');
   const bgLayers = section.querySelectorAll('.svc-process-accordion-bg-layer');
 
+  const compactProcess = window.matchMedia('(max-width: 768px)').matches;
+
   gsap.set([label, intro].filter(Boolean), { opacity: 0, y: 28 });
-  if (wrap) gsap.set(wrap, { opacity: 0, y: 48 });
-  gsap.set(panels, { opacity: 0.3 });
-  gsap.set(numbers, { opacity: 0, y: 14 });
+  if (wrap && !compactProcess) {
+    gsap.set(wrap, { opacity: 0, y: 48 });
+  }
+  if (!compactProcess) {
+    gsap.set(panels, { opacity: 0.3 });
+    gsap.set(numbers, { opacity: 0, y: 14 });
+  }
 
   const tl = gsap.timeline({
     defaults: { ease: EASE },
@@ -459,25 +465,25 @@ function setupProcess(root: HTMLElement, onComplete?: () => void) {
   if (intro) {
     tl.to(intro, { opacity: 1, y: 0, duration: 0.65 }, 0.12);
   }
-  if (wrap) {
+  if (wrap && !compactProcess) {
     tl.to(wrap, { opacity: 1, y: 0, duration: 0.9, ease: EASE_SOFT }, 0.25);
   }
-  if (panels.length) {
+  if (panels.length && !compactProcess) {
     tl.to(panels, { opacity: 1, duration: 0.7, stagger: 0.08 }, 0.4);
   }
-  if (numbers.length) {
+  if (numbers.length && !compactProcess) {
     tl.to(numbers, { opacity: 1, y: 0, duration: 0.5, stagger: 0.07 }, 0.5);
   }
 
   if (bgLayers.length && wrap) {
     gsap.fromTo(
       bgLayers,
-      { scale: 1.1 },
+      { scale: compactProcess ? 1.08 : 1.1 },
       {
         scale: 1,
         ease: 'none',
         scrollTrigger: {
-          trigger: wrap,
+          trigger: compactProcess ? wrap.parentElement || wrap : wrap,
           start: 'top bottom',
           end: 'bottom top',
           scrub: 1.15

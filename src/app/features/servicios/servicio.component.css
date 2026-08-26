@@ -937,6 +937,10 @@ overflow: hidden;
   background: #18181b;
 }
 
+.svc-process-story-ui {
+  display: none;
+}
+
 .svc-process-accordion-bg {
   position: absolute;
   inset: 0;
@@ -1633,7 +1637,7 @@ overflow: hidden;
   }
 
   .svc-process {
-    padding: 56px 0 24px;
+    padding: 56px 0 0;
   }
 
   .svc-process-inner {
@@ -1641,118 +1645,155 @@ overflow: hidden;
     padding: 0 16px;
   }
 
-  .svc-process-accordion-wrap {
-    overflow: visible;
-    background: transparent;
+  .svc-process-story {
+    height: calc(var(--steps, 4) * 100svh);
   }
 
-  .svc-process-accordion-bg,
-  .svc-process-accordion-scrim {
-    display: none;
+  .svc-process-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .svc-process-accordion-wrap {
+    overflow: hidden;
+    background: #111111;
   }
 
   .svc-process-accordion {
-    flex-direction: column;
-    height: auto;
-    gap: 14px;
-    padding: 0 16px;
-  }
-
-  .svc-process-panel,
-  .svc-process-panel.is-expanded {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex: none;
-    min-height: min(72vh, 540px);
-    padding: 28px 22px 32px;
-    border: none;
-    background: #111111;
-    color: #ffffff;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .svc-process-panel-photo {
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .svc-process-panel::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.12) 0%,
-      rgba(0, 0, 0, 0.2) 38%,
-      rgba(0, 0, 0, 0.78) 78%,
-      rgba(0, 0, 0, 0.92) 100%
-    );
-    pointer-events: none;
-  }
-
-  .svc-process-panel-number,
-  .svc-process-panel.is-expanded .svc-process-panel-number {
-    position: relative;
-    top: auto;
-    left: auto;
-    z-index: 2;
-    margin: 0 0 10px;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    color: rgba(255, 255, 255, 0.72);
-  }
-
-  .svc-process-panel-label {
     display: none;
   }
 
-  .svc-process-panel-detail,
-  .svc-process-panel:not(.is-expanded) .svc-process-panel-detail,
-  .svc-process-panel.is-expanded .svc-process-panel-detail {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    grid-column: auto;
-    grid-row: auto;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: none;
-    opacity: 1;
-    padding: 0;
-    overflow: visible;
-  }
-
-  .svc-process-panel-detail-title {
-    display: block;
-    margin: 0 0 12px;
-    color: #ffffff;
-    font-size: clamp(1.7rem, 8vw, 2.35rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
-  }
-
-  .svc-process-panel-detail p {
-    color: rgba(255, 255, 255, 0.94);
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.5;
-    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  .svc-process-accordion-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.42) 0%,
+      rgba(0, 0, 0, 0.12) 32%,
+      rgba(0, 0, 0, 0.55) 62%,
+      rgba(0, 0, 0, 0.92) 100%
+    );
   }
 
   .svc-process-accordion-bg-layer {
-    background-position: center top;
+    transform: scale(1.12);
+    filter: saturate(1.05);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .svc-process-accordion-bg-layer.is-active {
+    transform: scale(1);
+  }
+
+  .svc-process-story-ui {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    padding: calc(18px + env(safe-area-inset-top, 0px)) 20px calc(28px + env(safe-area-inset-bottom, 0px));
+    pointer-events: none;
+  }
+
+  .svc-process-story-progress {
+    display: flex;
+    gap: 6px;
+  }
+
+  .svc-process-story-progress span {
+    flex: 1;
+    height: 3px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.28);
+    overflow: hidden;
+  }
+
+  .svc-process-story-progress span.is-done {
+    background: #ffffff;
+  }
+
+  .svc-process-story-progress span.is-active {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  .svc-process-story-progress span.is-active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    transform-origin: left center;
+    animation: svcProcessProgress 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .svc-process-story-copy {
+    max-width: 36rem;
+  }
+
+  .svc-process-story-copy-inner {
+    animation: svcProcessCopyIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .svc-process-story-kicker {
+    margin: 0 0 10px;
+    font-family: var(--label);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fbbf24;
+  }
+
+  .svc-process-story-kicker span {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .svc-process-story-title {
+    margin: 0 0 12px;
+    font-family: var(--sans);
+    font-size: clamp(2rem, 9vw, 2.7rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  }
+
+  .svc-process-story-desc {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--sans);
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  @keyframes svcProcessCopyIn {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+      filter: blur(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes svcProcessProgress {
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
   }
 
   .svc-cta {

@@ -178,39 +178,63 @@
       </div>
     </div>
 
-    <div class="svc-process-accordion-wrap">
-      <div class="svc-process-accordion-bg" aria-hidden="true">
-        <div
-          *ngFor="let step of s.methodology; let i = index"
-          class="svc-process-accordion-bg-layer"
-          [class.is-active]="i === activeProcessIndex"
-          [style.background-image]="getStepBackground(i)">
-        </div>
-      </div>
-      <div class="svc-process-accordion-scrim" aria-hidden="true"></div>
-
-      <div class="svc-process-accordion" role="tablist">
-        <button
-          *ngFor="let step of s.methodology; let i = index"
-          type="button"
-          class="svc-process-panel"
-          role="tab"
-          [class.is-expanded]="i === activeProcessIndex"
-          [attr.aria-selected]="i === activeProcessIndex"
-          (mouseenter)="setActiveProcess(i)"
-          (focus)="setActiveProcess(i)"
-          (click)="setActiveProcess(i)">
-          <span
-            class="svc-process-panel-photo"
-            aria-hidden="true"
-            [style.background-image]="getStepBackground(i)"></span>
-          <span class="svc-process-panel-number">{{ step.step }}</span>
-          <span class="svc-process-panel-label">{{ step.title }}</span>
-          <div class="svc-process-panel-detail">
-            <h3 class="svc-process-panel-detail-title">{{ step.title }}</h3>
-            <p>{{ step.description }}</p>
+    <div
+      class="svc-process-story"
+      #processStory
+      [style.--steps]="s.methodology.length">
+      <div class="svc-process-accordion-wrap svc-process-sticky">
+        <div class="svc-process-accordion-bg" aria-hidden="true">
+          <div
+            *ngFor="let step of s.methodology; let i = index"
+            class="svc-process-accordion-bg-layer"
+            [class.is-active]="i === activeProcessIndex"
+            [style.background-image]="getStepBackground(i)">
           </div>
-        </button>
+        </div>
+        <div class="svc-process-accordion-scrim" aria-hidden="true"></div>
+
+        <div class="svc-process-accordion" role="tablist">
+          <button
+            *ngFor="let step of s.methodology; let i = index"
+            type="button"
+            class="svc-process-panel"
+            role="tab"
+            [class.is-expanded]="i === activeProcessIndex"
+            [attr.aria-selected]="i === activeProcessIndex"
+            (mouseenter)="setActiveProcess(i)"
+            (focus)="setActiveProcess(i)"
+            (click)="setActiveProcess(i)">
+            <span
+              class="svc-process-panel-photo"
+              aria-hidden="true"
+              [style.background-image]="getStepBackground(i)"></span>
+            <span class="svc-process-panel-number">{{ step.step }}</span>
+            <span class="svc-process-panel-label">{{ step.title }}</span>
+            <div class="svc-process-panel-detail">
+              <h3 class="svc-process-panel-detail-title">{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
+            </div>
+          </button>
+        </div>
+
+        <div class="svc-process-story-ui" aria-live="polite">
+          <div class="svc-process-story-progress" aria-hidden="true">
+            <span
+              *ngFor="let step of s.methodology; let i = index"
+              [class.is-active]="i === activeProcessIndex"
+              [class.is-done]="i < activeProcessIndex"></span>
+          </div>
+          <div class="svc-process-story-copy">
+            <div *ngFor="let n of [processCopyNonce]" class="svc-process-story-copy-inner">
+              <p class="svc-process-story-kicker">
+                Paso {{ (activeProcessIndex + 1).toString().padStart(2, '0') }}
+                <span>/ {{ s.methodology.length.toString().padStart(2, '0') }}</span>
+              </p>
+              <h3 class="svc-process-story-title">{{ s.methodology[activeProcessIndex].title }}</h3>
+              <p class="svc-process-story-desc">{{ s.methodology[activeProcessIndex].description }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

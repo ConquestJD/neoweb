@@ -9,7 +9,8 @@ import {
   OnDestroy,
   HostListener,
   HostBinding,
-  ElementRef
+  ElementRef,
+  ViewChild
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -38,11 +39,13 @@ import { initServicioGsapAnimations } from './servicio-gsap-animations';
 })
 export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding('class.gsap-enabled') gsapEnabled = false;
+  @ViewChild('processStory') processStory?: ElementRef<HTMLElement>;
 
   service?: ServicioConfig;
   showPage = true;
   sectionsVisible: Record<string, boolean> = {};
   activeProcessIndex = 0;
+  processCopyNonce = 0;
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
@@ -53,6 +56,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private destroyed = false;
   private isFirstServiceLoad = true;
   private gsapCleanup: (() => void) | null = null;
+  private processScrollUnbind: (() => void) | null = null;
 
   private readonly processStepImages: Record<string, string[]> = {
     'pagina-web': [
@@ -138,6 +142,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private teardownMotion() {
     this.observer?.disconnect();
     this.observer = undefined;
+    this.unbindProcessStoryScroll();
     if (this.gsapCleanup) {
       this.gsapCleanup();
       this.gsapCleanup = null;
@@ -195,6 +200,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.meta.updateTag({ property: 'og:title', content: service.pageTitle });
     this.meta.updateTag({ property: 'og:description', content: service.metaDescription });
     this.activeProcessIndex = 0;
+    this.processCopyNonce = 0;
     this.sectionsVisible = {};
     this.ctaVisible = false;
     this.ctaMagnetX = 0;
@@ -252,6 +258,8 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       });
     });
+
+    this.bindProcessStoryScroll();
   }
 
   private revealAllSectionsInstant() {
@@ -260,6 +268,53 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.ctaVisible = true;
     this.cdr.markForCheck();
+    this.bindProcessStoryScroll();
+  }
+
+  private isCompactProcess(): boolean {
+    return window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  private bindProcessStoryScroll() {
+    this.unbindProcessStoryScroll();
+    if (!isPlatformBrowser(this.platformId) || this.destroyed || !this.isCompactProcess()) {
+      return;
+    }
+
+    const onScroll = () => this.syncProcessStoryIndex();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this.processScrollUnbind = () => window.removeEventListener('scroll', onScroll);
+    this.syncProcessStoryIndex();
+  }
+
+  private unbindProcessStoryScroll() {
+    this.processScrollUnbind?.();
+    this.processScrollUnbind = null;
+  }
+
+  private syncProcessStoryIndex() {
+    const el = this.processStory?.nativeElement;
+    const steps = this.service?.methodology.length ?? 0;
+    if (!el || steps < 1) {
+      return;
+    }
+
+    const range = el.offsetHeight - window.innerHeight;
+    if (range <= 0) {
+      return;
+    }
+
+    const t = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / range));
+    const next = Math.min(steps - 1, Math.floor(t * steps + 1e-4));
+    if (next === this.activeProcessIndex) {
+      return;
+    }
+
+    this.ngZone.run(() => {
+      this.activeProcessIndex = next;
+      this.processCopyNonce += 1;
+      this.cdr.markForCheck();
+    });
   }
 
   setActiveProcess(index: number) {
