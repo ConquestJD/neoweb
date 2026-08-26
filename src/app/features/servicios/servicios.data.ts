@@ -986,147 +986,147 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "rediseno-paginas-web": {
     "slug": "rediseno-paginas-web",
     "heroImage": "/assets/services/rediseño.jpg",
-    "pageTitle": "Rediseño de Páginas Web en Perú | Moderniza tu Sitio | NeoWeb",
-    "metaDescription": "Rediseño de páginas web en Perú: renovamos diseño, velocidad y SEO técnico para que tu sitio inspire confianza y consiga más clientes. Cotiza con NeoWeb.",
+    "pageTitle": "Rediseño Web en Perú | Cara nueva, otro camino o de nuevo | NeoWeb",
+    "metaDescription": "Ya tienes web: la hago verse nueva, cambio el camino para que te escriban, o la armo de nuevo y muevo lo que sirve. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "refresh",
       "badgeText": "Rediseño web · Perú",
-      "titleLine1": "Rediseño de",
-      "titleHighlight": "páginas web",
-      "description": "Modernizamos páginas web desactualizadas en Perú. Mejoramos diseño, velocidad, experiencia móvil y SEO técnico para que tu sitio genere más confianza y conversiones."
+      "titleLine1": "Rediseño",
+      "titleHighlight": "fácil de elegir",
+      "description": "Tres trabajos. Actualiza: misma web, cara nueva. Evoluciona: además cambio qué ven primero para que te escriban. Transforma: la armo de nuevo y conservo tu dirección. Si no tienes web, eso es Páginas web."
     },
-    "plansSubtitle": "Transformamos sitios web desactualizados en herramientas modernas que generan confianza, mejoran la experiencia del usuario y ayudan a conseguir más clientes. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
+    "plansSubtitle": "Actualiza es si te da vergüenza mandar el link. Evoluciona es si se ve, pero nadie llama. Transforma es si la web actual ya no se puede tocar. El nombre de tu web va 6 meses en todos.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Enfoque",
-      "titleLine1": "Lo que",
-      "titleHighlight": "mejoro",
-      "subtitle": "Transformo tu sitio actual en una experiencia moderna, rápida y optimizada."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "No es “más rediseño”. Cada plan hace una cosa distinta con la web que ya tienes."
     },
     "includes": [
       {
-        "icon": "refresh",
-        "title": "Modernización",
-        "description": "Diseño actual y profesional"
+        "icon": "palette",
+        "title": "Actualiza: cara nueva",
+        "description": "Conservas tus páginas y textos. Cambio cómo se ve: colores, fotos y que se lea bien en el celular. Para cuando te da vergüenza mandar el link."
       },
       {
-        "icon": "speed",
-        "title": "Optimización",
-        "description": "Mejora de velocidad y rendimiento"
+        "icon": "alt_route",
+        "title": "Evoluciona: otro camino",
+        "description": "Lo de Actualiza, y además cambio qué ven primero y el botón para escribirte. Para cuando se ve más o menos, pero nadie llama."
       },
       {
-        "icon": "devices",
-        "title": "Responsive",
-        "description": "Adaptación a todos los dispositivos"
+        "icon": "restart_alt",
+        "title": "Transforma: hecha de nuevo",
+        "description": "La programo de cero y paso textos y fotos. Conservo tu dirección (tunegocio.pe). Para web lenta, insegura o hecha en plantilla que ya no se deja tocar."
       },
       {
-        "icon": "trending_up",
-        "title": "Mejores Resultados",
-        "description": "Aumento de conversiones"
+        "icon": "language",
+        "title": "En los tres planes",
+        "description": "Este servicio es si ya tienes un sitio. Se ve en el celular. Conservas tu dirección si la tienes. Nombre de tu web 6 meses."
       }
     ],
     "showBenefitsSection": false,
     "processSection": {
-      "titleLine1": "Cómo abordo el",
-      "titleHighlight": "rediseño",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleLine1": "Cómo",
+      "titleHighlight": "trabajo",
+      "subtitle": "Primero vemos qué se puede salvar de tu web. Después el plan, el diseño y la publicación."
     },
     "fullcodeSection": {
-      "badgeText": "Beneficios",
-      "titleLine1": "Impacto del",
-      "titleHighlight": "rediseño",
-      "subtitle": "Mejoras medibles en conversión, velocidad y experiencia."
+      "badgeText": "A medida",
+      "titleLine1": "Según",
+      "titleHighlight": "el plan",
+      "subtitle": "No siempre la hago de nuevo. A veces solo cambio la cara. Otras, el recorrido. Otras, el código."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "modernizar tu sitio?",
-      "description": "Rediseño tu web con una experiencia clara, rápida y optimizada."
+      "titleLine1": "¿Qué necesita",
+      "titleHighlight": "tu web?",
+      "description": "Si te da vergüenza cómo se ve, Actualiza. Si no te escriben, Evoluciona. Si ya no da para más, Transforma. Si no tienes web, Páginas web."
     },
     "features": [
       {
-        "icon": "refresh",
-        "title": "Modernización",
-        "description": "Diseño actual y profesional"
+        "icon": "palette",
+        "title": "Actualiza: cara nueva",
+        "description": "Conservas tus páginas y textos. Cambio cómo se ve: colores, fotos y que se lea bien en el celular. Para cuando te da vergüenza mandar el link."
       },
       {
-        "icon": "speed",
-        "title": "Optimización",
-        "description": "Mejora de velocidad y rendimiento"
+        "icon": "alt_route",
+        "title": "Evoluciona: otro camino",
+        "description": "Lo de Actualiza, y además cambio qué ven primero y el botón para escribirte. Para cuando se ve más o menos, pero nadie llama."
       },
       {
-        "icon": "devices",
-        "title": "Responsive",
-        "description": "Adaptación a todos los dispositivos"
+        "icon": "restart_alt",
+        "title": "Transforma: hecha de nuevo",
+        "description": "La programo de cero y paso textos y fotos. Conservo tu dirección (tunegocio.pe). Para web lenta, insegura o hecha en plantilla que ya no se deja tocar."
       },
       {
-        "icon": "trending_up",
-        "title": "Mejores Resultados",
-        "description": "Aumento de conversiones"
+        "icon": "language",
+        "title": "En los tres planes",
+        "description": "Este servicio es si ya tienes un sitio. Se ve en el celular. Conservas tu dirección si la tienes. Nombre de tu web 6 meses."
       }
     ],
     "methodology": [
       {
         "step": "01",
-        "title": "Auditoría Completa",
-        "description": "Analizo tu sitio actual, identifico problemas y oportunidades de mejora",
+        "title": "Cómo está tu web",
+        "description": "¿Solo se ve vieja? ¿Nadie te escribe? ¿Ya no se puede tocar? Con eso sale el plan. Si no tienes web, el servicio es Páginas web.",
         "icon": "assessment"
       },
       {
         "step": "02",
-        "title": "Propuesta de Rediseño",
-        "description": "Presento una propuesta visual y funcional que mejora tu sitio manteniendo tu identidad",
+        "title": "Te muestro",
+        "description": "Ves cómo va a quedar: misma estructura con otra cara, otro recorrido, o hecha de nuevo.",
         "icon": "palette"
       },
       {
         "step": "03",
-        "title": "Desarrollo Full Code",
-        "description": "Reconstruyo tu sitio desde cero con código moderno, optimizado y escalable",
+        "title": "El trabajo",
+        "description": "Según el plan: actualizo lo que hay, cambio el recorrido, o la programo de nuevo y paso tu contenido.",
         "icon": "code"
       },
       {
         "step": "04",
-        "title": "Migración y Optimización",
-        "description": "Migro tu contenido sin pérdida de datos y optimizo velocidad y SEO",
-        "icon": "sync"
+        "title": "Tu dirección se queda",
+        "description": "Si ya tienes tunegocio.pe, se conserva. No partes de cero en Google por cambiar de look.",
+        "icon": "language"
       },
       {
         "step": "05",
-        "title": "Lanzamiento y Capacitación",
-        "description": "Lanzo tu nuevo sitio y te capacito en el uso del nuevo panel administrativo",
-        "icon": "school"
+        "title": "Al aire",
+        "description": "La publico y te muestro cómo quedó. Los cambios de textos después me los pides; un panel para editar tú se cotiza aparte.",
+        "icon": "launch"
       }
     ],
     "fullCodeBenefits": [
       {
-        "icon": "code",
-        "title": "Código Moderno y Limpio",
-        "description": "Reemplazo el código obsoleto con tecnología actual. Tu sitio es más rápido, seguro y fácil de mantener."
+        "icon": "flag",
+        "title": "Sabes qué estás comprando",
+        "description": "Actualiza, Evoluciona y Transforma no son “más rediseño”. Cada uno hace un trabajo distinto con la web que ya tienes."
       },
       {
-        "icon": "speed",
-        "title": "Rendimiento Mejorado",
-        "description": "Código optimizado que reduce tiempos de carga hasta en un 70%. Mejor experiencia para tus usuarios."
+        "icon": "palette",
+        "title": "No siempre la hago de nuevo",
+        "description": "Si solo se ve vieja, cambio la cara. Si nadie escribe, cambio el camino. Si ya no se puede tocar, sí la armo de cero."
       },
       {
-        "icon": "security",
-        "title": "Seguridad Actualizada",
-        "description": "Elimino vulnerabilidades y actualizo a los últimos estándares de seguridad web."
-      },
-      {
-        "icon": "tune",
-        "title": "Totalmente Personalizable",
-        "description": "Código limpio permite modificaciones y actualizaciones sin limitaciones técnicas."
-      },
-      {
-        "icon": "trending_up",
-        "title": "SEO Mejorado",
-        "description": "Estructura de código optimizada para SEO que mejora tu posicionamiento en Google."
+        "icon": "language",
+        "title": "Conservas tu dirección",
+        "description": "Si ya tienes tunegocio.pe, se queda. El rediseño no es “cambiar de nombre y empezar de cero”."
       },
       {
         "icon": "devices",
-        "title": "Responsive Perfecto",
-        "description": "Código moderno garantiza que tu sitio se vea perfecto en todos los dispositivos."
+        "title": "Se ve bien en el celular",
+        "description": "En los tres planes queda legible en el teléfono. No es un extra del plan más caro."
+      },
+      {
+        "icon": "tune",
+        "title": "Se puede ampliar después",
+        "description": "Puedes empezar en Actualiza. Si más adelante nadie escribe, pasamos a Evoluciona. Si el código no da, Transforma."
+      },
+      {
+        "icon": "support_agent",
+        "title": "Hablas con quien la hace",
+        "description": "Sin pasar por una secretaria de agencia ni cambiar de persona a mitad del proyecto."
       }
     ],
     "plans": [
@@ -1135,17 +1135,17 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "price": "S/ 700",
         "icon": "star",
         "color": "from-gray-600 to-gray-800",
-        "tagline": "Ideal para negocios que necesitan renovar su imagen online sin empezar de cero.",
-        "benefit": "Una web más profesional que genera confianza desde la primera visita.",
+        "tagline": "Recibes la misma web con cara nueva: colores, fotos y que se lea en el celular. Conservas páginas y textos.",
+        "benefit": "Para cuando te da vergüenza mandar el link, pero el contenido está bien.",
         "features": [
-          "Modernización visual del sitio actual",
-          "Mejora de jerarquía y claridad de mensajes",
-          "Ajustes de contenido orientados a conversión",
-          "Mejora de estructura de navegación",
-          "Adaptación responsive refinada",
-          "Optimización básica de velocidad",
-          "Hosting y dominio incluidos por 6 meses"
-        ]
+          "Tus páginas se quedan; cambio cómo se ven",
+          "Colores, tipografía y fotos alineadas a tu negocio",
+          "Se ve bien en el celular",
+          "Conservas tu dirección si ya la tienes (tunegocio.pe)",
+          "Nombre de tu web y alojamiento 6 meses",
+          "Lista en aproximadamente 1 semana"
+        ],
+        "note": "Si nadie te escribe, o las páginas están mal armadas, el plan es Evoluciona. Si está en Wix o WordPress y ya no se deja tocar, Transforma."
       },
       {
         "name": "EVOLUCIONA",
@@ -1153,126 +1153,113 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
-        "tagline": "Ideal para empresas que buscan una experiencia de usuario moderna y más conversiones.",
-        "benefit": "Una web más rápida, clara y persuasiva para captar más clientes.",
+        "tagline": "Recibes la cara nueva y un recorrido distinto: qué ven primero y un botón claro para escribirte.",
+        "benefit": "Para cuando se ve más o menos, pero nadie llama.",
         "features": [
-          "Todo lo incluido en Actualiza",
-          "Rediseño completo de la interfaz",
-          "Mejora de experiencia de usuario (UX)",
-          "Nuevas animaciones y microinteracciones",
-          "Optimización de velocidad avanzada",
-          "SEO on-page para mejor posicionamiento",
-          "CTAs y formularios orientados a captación",
-          "Hosting y dominio incluidos por 6 meses"
-        ]
+          "Todo lo de Actualiza",
+          "Cambio el orden: qué ven primero y cómo te piden información",
+          "Botón de WhatsApp o formulario a la vista",
+          "Servicios y textos más claros, sin páginas de más",
+          "Se ve bien en el celular",
+          "Nombre de tu web y alojamiento 6 meses",
+          "Lista en 1 a 2 semanas"
+        ],
+        "note": "Si el código o la plantilla no se puede salvar, el plan es Transforma. Si no tienes web todavía, elige Páginas web."
       },
       {
         "name": "TRANSFORMA",
         "price": "S/ 2,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Ideal para marcas que necesitan una reconstrucción total y máximo rendimiento.",
-        "benefit": "Una presencia digital renovada lista para competir y convertir.",
+        "tagline": "Recibes la web hecha de nuevo. Paso textos y fotos. Conservo tu dirección para que no arranques de cero.",
+        "benefit": "Para web lenta, insegura o hecha en plantilla que ya no se deja tocar.",
         "features": [
-          "Todo lo incluido en Evoluciona",
-          "Reconstrucción total del sitio",
-          "Diseño UI/UX a medida",
-          "Optimización Premium de velocidad",
-          "SEO técnico completo",
-          "Migración profesional sin pérdida de información",
-          "Arquitectura preparada para escalar",
-          "Prioridad de soporte",
-          "Hosting y dominio incluidos por 6 meses"
-        ]
+          "Todo lo de Evoluciona",
+          "La programo de cero, a medida, sin plantilla",
+          "Paso los textos y fotos que sirven",
+          "Conservas tunegocio.pe (o el nombre que ya usas)",
+          "Ves cuánta gente entra a tu web",
+          "Nombre de tu web y alojamiento 6 meses",
+          "Lista en 2 a 3 semanas"
+        ],
+        "note": "Este plan es porque ya tienes sitio. Si partes de cero, elige Páginas web (Landing, Sitio o Sitio Pro)."
       }
     ],
-    "plansHighlightsTitle": "Todos nuestros rediseños incluyen",
+    "plansHighlightsTitle": "En los tres planes va incluido",
     "plansHighlights": [
-      "Imagen profesional",
-      "Mejor experiencia de usuario",
-      "Mayor velocidad",
-      "Mejor posicionamiento",
-      "Enfoque en conversiones",
-      "Hosting y dominio incluidos por 6 meses"
+      "Este servicio es si ya tienes un sitio",
+      "Se ve bien en el celular",
+      "Conservas tu dirección si ya la tienes",
+      "Nombre de tu web y alojamiento 6 meses"
     ],
+    "plansBenefitsTitle": "Esto se cotiza aparte",
+    "plansBenefits": [
+      "Un panel para que tú cambies textos o fotos sin pedirme un cambio",
+      "Páginas que tu sitio actual no tenía",
+      "Si no tienes web: eso es el servicio Páginas web, no rediseño"
+    ],
+    "plansGuaranteeLabel": "Después de publicarla",
+    "plansGuarantee": "Los primeros 30 días te ayudo a corregir fallas y detalles chicos que entren en el plan, sin costo extra.",
     "plansComparisonHeaders": {
       "start": "Actualiza",
       "pro": "Evoluciona",
       "premium": "Transforma"
     },
-    "plansComparisonIntro": "Compara el nivel de renovación para elegir el rediseño que mejor impulsa tu negocio.",
+    "plansComparisonIntro": "Lee la primera fila: ahí está el trabajo. Si no tienes web, este servicio no aplica.",
     "plansComparison": [
       {
-        "label": "Modernización visual",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "Para qué sirve",
+        "start": "Verse profesional",
+        "pro": "Que te escriban",
+        "premium": "La actual ya no sirve"
       },
       {
-        "label": "Mejora de estructura",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "Qué te entrego",
+        "start": "Misma web, cara nueva",
+        "pro": "Cara nueva + otro camino",
+        "premium": "Hecha de nuevo + tu contenido"
       },
       {
-        "label": "Responsive",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "¿Se conservan tus páginas?",
+        "start": "Sí, las mismas",
+        "pro": "Sí, las reordeno",
+        "premium": "Las que sirvan"
       },
       {
-        "label": "Rediseño completo de interfaz",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "¿Cambio qué ven primero?",
+        "start": "No",
+        "pro": "Sí",
+        "premium": "Sí"
       },
       {
-        "label": "Mejora de UX",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "¿La armo de nuevo?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Sí"
       },
       {
-        "label": "Optimización de velocidad",
-        "start": "Básica",
-        "pro": "Avanzada",
-        "premium": "Premium"
+        "label": "¿Paso textos y fotos a código nuevo?",
+        "start": "No hace falta",
+        "pro": "No hace falta",
+        "premium": "Sí"
       },
       {
-        "label": "SEO",
-        "start": false,
-        "pro": "On-page",
-        "premium": "Técnico completo"
-      },
-      {
-        "label": "CTAs orientados a captación",
-        "start": false,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Reconstrucción total",
+        "label": "¿Ves cuánta gente entra?",
         "start": false,
         "pro": false,
         "premium": true
       },
       {
-        "label": "Diseño UI/UX a medida",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "Si no tienes web",
+        "start": "No es este servicio",
+        "pro": "No es este servicio",
+        "premium": "No es este servicio"
       },
       {
-        "label": "Migración profesional",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Soporte prioritario",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "Precio",
+        "start": "S/ 700",
+        "pro": "S/ 1,200",
+        "premium": "S/ 2,000"
       }
     ]
   },

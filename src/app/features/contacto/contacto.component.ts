@@ -60,8 +60,8 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
-        'Landing: 1 semana',
-        'Sitio o Sitio Pro: 1 a 3 semanas',
+        'Landing o Actualiza: 1 semana',
+        'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
         'eCommerce/App: más de 1 mes según alcance'
       ]
     },
@@ -72,6 +72,15 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
         'Landing (S/ 700): una sola página. Quien abre el link te escribe. Sirve para un anuncio o WhatsApp.',
         'Sitio (S/ 1,200): 5 páginas con menú (Inicio, Nosotros, Servicios, Preguntas, Contacto).',
         'Sitio Pro (S/ 2,000): el Sitio más hasta 4 páginas extra (un servicio, el equipo, una sede…) y ves cuánta gente entra.'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de rediseño web?',
+      answer: 'Cada uno hace un trabajo distinto con la web que ya tienes. Si no tienes web, el servicio es Páginas web:',
+      details: [
+        'Actualiza (S/ 700): misma web, cara nueva. Conservas páginas y textos.',
+        'Evoluciona (S/ 1,200): eso, y además cambio qué ven primero para que te escriban.',
+        'Transforma (S/ 2,000): la armo de nuevo, paso textos y fotos, y conservo tu dirección.'
       ]
     },
     {

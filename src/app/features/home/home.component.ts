@@ -202,6 +202,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       answer: 'Depende del tipo de solución y su alcance. Estas son referencias orientativas:',
       details: [
         'Página web: desde S/ 700 (Landing)',
+        'Rediseño web: desde S/ 700 (Actualiza)',
         'Tienda online: desde S/ 2,000 (Emprende)',
         'Software a medida: desde S/ 1,500',
         'Marketing digital: desde S/ 600/mes'
@@ -226,6 +227,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      question: '¿Qué diferencia hay entre los planes de rediseño web?',
+      answer: 'Cada uno hace un trabajo distinto con la web que ya tienes. Si no tienes web, el servicio es Páginas web:',
+      details: [
+        'Actualiza (S/ 700): misma web, cara nueva. Conservas páginas y textos.',
+        'Evoluciona (S/ 1,200): eso, y además cambio qué ven primero para que te escriban.',
+        'Transforma (S/ 2,000): la armo de nuevo, paso textos y fotos, y conservo tu dirección.'
+      ]
+    },
+    {
       question: '¿Qué diferencia hay entre los planes de tienda online?',
       answer: 'Cada uno hace un trabajo distinto. No es “más productos”:',
       details: [
@@ -238,8 +248,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
-        'Landing: 1 semana',
-        'Sitio o Sitio Pro: 1 a 3 semanas',
+        'Landing o Actualiza: 1 semana',
+        'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
         'Tienda online o app: más de 1 mes según alcance'
       ]
     },
@@ -299,9 +309,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'autorenew',
       image: '/assets/services/rediseño.jpg',
       tag: 'Renovación',
-      outcome: 'Imagen renovada y profesional',
-      description: 'Modernizamos tu sitio actual con mejor UX, performance y conversión.',
-      audience: 'Para sitios actuales que no generan resultados'
+      outcome: 'Cara nueva, otro camino o hacerla de nuevo',
+      description: 'Actualiza: se ve nueva. Evoluciona: además te escriben. Transforma: la armo de nuevo y muevo lo que sirve.',
+      audience: 'Para quien ya tiene web y no sabe qué plan le toca'
     },
     {
       name: 'Apps Móviles',

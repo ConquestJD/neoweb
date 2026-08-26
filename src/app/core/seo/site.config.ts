@@ -40,7 +40,7 @@ export const SITE_SERVICES = [
   {
     slug: 'rediseno-paginas-web',
     name: 'Rediseño de Páginas Web',
-    description: 'Modernización de sitios existentes para mejorar diseño, velocidad, SEO y conversión.'
+    description: 'Ya tienes web: cara nueva, otro camino para que te escriban, o la armo de nuevo y conservo tu dirección.'
   },
   {
     slug: 'aplicaciones-moviles',

@@ -120,39 +120,45 @@
     }
   },
   "rediseno-paginas-web": {
-    "pageTitle": "Rediseño de Páginas Web - NeoWeb | Modernización Web",
+    "pageTitle": "Rediseño Web en Perú | Cara nueva, otro camino o de nuevo | NeoWeb",
     "hero": {
       "badgeIcon": "refresh",
-      "badgeText": "Rediseño web",
-      "titleLine1": "Moderniza tu sitio",
-      "titleHighlight": "actual",
-      "description": "Renuevo tu web con diseño limpio, velocidad y SEO técnico listo para competir."
+      "badgeText": "Rediseño web · Perú",
+      "titleLine1": "Rediseño",
+      "titleHighlight": "fácil de elegir",
+      "description": "Tres trabajos. Actualiza: misma web, cara nueva. Evoluciona: además cambio qué ven primero para que te escriban. Transforma: la armo de nuevo y conservo tu dirección. Si no tienes web, eso es Páginas web."
     },
-    "plansSubtitle": "Desde S/ 800 hasta S/ 2,500 según alcance y complejidad. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "plansSubtitle": "Actualiza es si te da vergüenza mandar el link. Evoluciona es si se ve, pero nadie llama. Transforma es si la web actual ya no se puede tocar. El nombre de tu web va 6 meses en todos.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Enfoque",
-      "titleLine1": "Lo que",
-      "titleHighlight": "mejoro",
-      "subtitle": "Transformo tu sitio actual en una experiencia moderna, rápida y optimizada."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "No es “más rediseño”. Cada plan hace una cosa distinta con la web que ya tienes."
     },
+    "includes": [
+      { "icon": "palette", "title": "Actualiza: cara nueva", "description": "Conservas tus páginas y textos. Cambio cómo se ve: colores, fotos y que se lea bien en el celular. Para cuando te da vergüenza mandar el link." },
+      { "icon": "alt_route", "title": "Evoluciona: otro camino", "description": "Lo de Actualiza, y además cambio qué ven primero y el botón para escribirte. Para cuando se ve más o menos, pero nadie llama." },
+      { "icon": "restart_alt", "title": "Transforma: hecha de nuevo", "description": "La programo de cero y paso textos y fotos. Conservo tu dirección (tunegocio.pe). Para web lenta, insegura o hecha en plantilla que ya no se deja tocar." },
+      { "icon": "language", "title": "En los tres planes", "description": "Este servicio es si ya tienes un sitio. Se ve en el celular. Conservas tu dirección si la tienes. Nombre de tu web 6 meses." }
+    ],
     "showBenefitsSection": false,
     "processSection": {
-      "titleLine1": "Cómo abordo el",
-      "titleHighlight": "rediseño",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "titleLine1": "Cómo",
+      "titleHighlight": "trabajo",
+      "subtitle": "Primero vemos qué se puede salvar de tu web. Después el plan, el diseño y la publicación."
     },
     "fullcodeSection": {
-      "badgeText": "Beneficios",
-      "titleLine1": "Impacto del",
-      "titleHighlight": "rediseño",
-      "subtitle": "Mejoras medibles en conversión, velocidad y experiencia."
+      "badgeText": "A medida",
+      "titleLine1": "Según",
+      "titleHighlight": "el plan",
+      "subtitle": "No siempre la hago de nuevo. A veces solo cambio la cara. Otras, el recorrido. Otras, el código."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "modernizar tu sitio?",
-      "description": "Rediseño tu web con una experiencia clara, rápida y optimizada."
+      "titleLine1": "¿Qué necesita",
+      "titleHighlight": "tu web?",
+      "description": "Si te da vergüenza cómo se ve, Actualiza. Si no te escriben, Evoluciona. Si ya no da para más, Transforma. Si no tienes web, Páginas web."
     }
   },
   "aplicaciones-moviles": {

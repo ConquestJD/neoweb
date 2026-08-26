@@ -79,7 +79,7 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     },
     {
       name: 'Rediseño Web',
-      short: 'Renovamos tu sitio actual',
+      short: 'Cara nueva, otro camino o de nuevo',
       route: '/servicios/rediseno-paginas-web',
       icon: 'autorenew',
       image: '/assets/services/rediseño.jpg',
