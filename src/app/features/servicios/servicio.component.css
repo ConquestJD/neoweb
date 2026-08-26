@@ -937,7 +937,8 @@ overflow: hidden;
   background: #18181b;
 }
 
-.svc-process-story-ui {
+.svc-process-story-ui,
+.svc-process-story-wash {
   display: none;
 }
 
@@ -1638,6 +1639,8 @@ overflow: hidden;
 
   .svc-process {
     padding: 56px 0 0;
+    transform: none;
+    opacity: 1;
   }
 
   .svc-process-inner {
@@ -1646,19 +1649,26 @@ overflow: hidden;
   }
 
   .svc-process-story {
+    height: calc(var(--steps, 4) * 100vh);
     height: calc(var(--steps, 4) * 100svh);
   }
 
   .svc-process-sticky {
     position: sticky;
     top: 0;
+    height: 100vh;
     height: 100svh;
     overflow: hidden;
   }
 
+  :host.gsap-enabled .svc-process-sticky {
+    position: relative;
+    top: auto;
+  }
+
   .svc-process-accordion-wrap {
     overflow: hidden;
-    background: #111111;
+    background: #0a0a0a;
   }
 
   .svc-process-accordion {
@@ -1666,25 +1676,43 @@ overflow: hidden;
   }
 
   .svc-process-accordion-scrim {
+    z-index: 1;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.42) 0%,
-      rgba(0, 0, 0, 0.12) 32%,
-      rgba(0, 0, 0, 0.55) 62%,
-      rgba(0, 0, 0, 0.92) 100%
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.08) 34%,
+      rgba(0, 0, 0, 0.28) 52%,
+      rgba(0, 0, 0, 0.88) 100%
     );
   }
 
+  .svc-process-story-wash {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: hsl(var(--story-hue, 32) 62% 42% / 0.38);
+    mix-blend-mode: soft-light;
+    transition: background 0.8s ease;
+  }
+
   .svc-process-accordion-bg-layer {
-    transform: scale(1.12);
-    filter: saturate(1.05);
+    opacity: 0;
+    transform: scale(1.18) translate3d(0, 5%, 0);
     transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .svc-process-accordion-bg-layer.is-past {
+    opacity: 0;
+    transform: scale(1.04);
   }
 
   .svc-process-accordion-bg-layer.is-active {
-    transform: scale(1);
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
   }
 
   .svc-process-story-ui {
@@ -1694,7 +1722,7 @@ overflow: hidden;
     position: absolute;
     inset: 0;
     z-index: 3;
-    padding: calc(18px + env(safe-area-inset-top, 0px)) 20px calc(28px + env(safe-area-inset-bottom, 0px));
+    padding: calc(90px + env(safe-area-inset-top, 0px)) 22px calc(32px + env(safe-area-inset-bottom, 0px));
     pointer-events: none;
   }
 
@@ -1707,7 +1735,7 @@ overflow: hidden;
     flex: 1;
     height: 3px;
     border-radius: 99px;
-    background: rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.26);
     overflow: hidden;
   }
 
@@ -1715,26 +1743,46 @@ overflow: hidden;
     background: #ffffff;
   }
 
-  .svc-process-story-progress span.is-active {
-    background: rgba(255, 255, 255, 0.28);
-  }
-
   .svc-process-story-progress span.is-active::after {
     content: '';
     display: block;
     width: 100%;
     height: 100%;
-    background: #ffffff;
+    background: #fbbf24;
+    transform: scaleX(var(--story-step-p, 0));
     transform-origin: left center;
-    animation: svcProcessProgress 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .svc-process-story-copy {
+    position: relative;
     max-width: 36rem;
   }
 
   .svc-process-story-copy-inner {
-    animation: svcProcessCopyIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    position: relative;
+    animation: svcProcessCopyIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .svc-process-story-mark {
+    position: absolute;
+    right: -4px;
+    top: -0.35em;
+    z-index: 0;
+    font-family: var(--sans);
+    font-size: clamp(6.5rem, 34vw, 10rem);
+    font-weight: 800;
+    line-height: 0.72;
+    letter-spacing: -0.08em;
+    color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .svc-process-story-kicker,
+  .svc-process-story-title,
+  .svc-process-story-desc {
+    position: relative;
+    z-index: 1;
   }
 
   .svc-process-story-kicker {
@@ -1754,16 +1802,17 @@ overflow: hidden;
   .svc-process-story-title {
     margin: 0 0 12px;
     font-family: var(--sans);
-    font-size: clamp(2rem, 9vw, 2.7rem);
+    font-size: clamp(2.05rem, 9.4vw, 2.85rem);
     font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
     color: #ffffff;
-    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
   }
 
   .svc-process-story-desc {
     margin: 0;
+    max-width: 32rem;
     color: rgba(255, 255, 255, 0.92);
     font-family: var(--sans);
     font-size: 1.08rem;
@@ -1775,24 +1824,14 @@ overflow: hidden;
   @keyframes svcProcessCopyIn {
     from {
       opacity: 0;
-      transform: translateY(22px);
-      filter: blur(8px);
+      transform: translateY(28px);
+      filter: blur(10px);
     }
 
     to {
       opacity: 1;
       transform: translateY(0);
       filter: blur(0);
-    }
-  }
-
-  @keyframes svcProcessProgress {
-    from {
-      transform: scaleX(0);
-    }
-
-    to {
-      transform: scaleX(1);
     }
   }
 
@@ -1842,9 +1881,12 @@ overflow: hidden;
   .svc-magnet-btn::before,
   .svc-magnet-btn::after,
   .svc-cta-link,
+  .svc-process-story-copy-inner,
+  .svc-process-story-wash,
   .svc-process-accordion-bg-layer {
     transition: none !important;
     animation: none !important;
+    filter: none !important;
   }
 
   .svc-reveal.is-visible,

@@ -188,10 +188,12 @@
             *ngFor="let step of s.methodology; let i = index"
             class="svc-process-accordion-bg-layer"
             [class.is-active]="i === activeProcessIndex"
+            [class.is-past]="i < activeProcessIndex"
             [style.background-image]="getStepBackground(i)">
           </div>
         </div>
         <div class="svc-process-accordion-scrim" aria-hidden="true"></div>
+        <div class="svc-process-story-wash" aria-hidden="true"></div>
 
         <div class="svc-process-accordion" role="tablist">
           <button
@@ -226,8 +228,9 @@
           </div>
           <div class="svc-process-story-copy">
             <div *ngFor="let n of [processCopyNonce]" class="svc-process-story-copy-inner">
+              <span class="svc-process-story-mark" aria-hidden="true">{{ s.methodology[activeProcessIndex].step }}</span>
               <p class="svc-process-story-kicker">
-                Paso {{ (activeProcessIndex + 1).toString().padStart(2, '0') }}
+                Paso {{ s.methodology[activeProcessIndex].step }}
                 <span>/ {{ s.methodology.length.toString().padStart(2, '0') }}</span>
               </p>
               <h3 class="svc-process-story-title">{{ s.methodology[activeProcessIndex].title }}</h3>

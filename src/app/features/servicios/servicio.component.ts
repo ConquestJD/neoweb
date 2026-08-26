@@ -208,6 +208,14 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     this.ctaMagnetActive = false;
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    if (!isPlatformBrowser(this.platformId) || this.destroyed) {
+      return;
+    }
+    this.bindProcessStoryScroll();
+  }
+
   @HostListener('window:scroll')
   onScroll() {
     if (!isPlatformBrowser(this.platformId) || this.ctaVisible || this.gsapEnabled) {
@@ -281,10 +289,12 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    const onScroll = () => this.syncProcessStoryIndex();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    this.processScrollUnbind = () => window.removeEventListener('scroll', onScroll);
-    this.syncProcessStoryIndex();
+    this.ngZone.runOutsideAngular(() => {
+      const onScroll = () => this.syncProcessStoryIndex();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      this.processScrollUnbind = () => window.removeEventListener('scroll', onScroll);
+      this.syncProcessStoryIndex();
+    });
   }
 
   private unbindProcessStoryScroll() {
@@ -305,7 +315,13 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     const t = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / range));
-    const next = Math.min(steps - 1, Math.floor(t * steps + 1e-4));
+    const raw = t * steps;
+    const next = Math.min(steps - 1, Math.floor(raw + 1e-4));
+    const stepProgress = Math.min(1, Math.max(0, raw - next));
+
+    el.style.setProperty('--story-step-p', stepProgress.toFixed(4));
+    el.style.setProperty('--story-hue', String(24 + next * 16));
+
     if (next === this.activeProcessIndex) {
       return;
     }

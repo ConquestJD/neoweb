@@ -475,21 +475,35 @@ function setupProcess(root: HTMLElement, onComplete?: () => void) {
     tl.to(numbers, { opacity: 1, y: 0, duration: 0.5, stagger: 0.07 }, 0.5);
   }
 
-  if (bgLayers.length && wrap) {
+  if (bgLayers.length && wrap && !compactProcess) {
     gsap.fromTo(
       bgLayers,
-      { scale: compactProcess ? 1.08 : 1.1 },
+      { scale: 1.1 },
       {
         scale: 1,
         ease: 'none',
         scrollTrigger: {
-          trigger: compactProcess ? wrap.parentElement || wrap : wrap,
+          trigger: wrap,
           start: 'top bottom',
           end: 'bottom top',
           scrub: 1.15
         }
       }
     );
+  }
+
+  if (compactProcess && wrap) {
+    const story = section.querySelector('.svc-process-story');
+    if (story) {
+      ScrollTrigger.create({
+        trigger: story,
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: wrap,
+        pinSpacing: false,
+        anticipatePin: 1
+      });
+    }
   }
 }
 
