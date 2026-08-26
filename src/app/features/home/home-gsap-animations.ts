@@ -456,9 +456,13 @@ function setupProcess(root: HTMLElement) {
   const panels = section.querySelectorAll('.process-panel');
   const numbers = section.querySelectorAll('.process-panel-number');
 
+  const compactProcess = window.matchMedia('(max-width: 768px)').matches;
+
   gsap.set([label, intro].filter(Boolean), { opacity: 0, y: 28 });
-  if (wrap) gsap.set(wrap, { opacity: 0, y: 56 });
-  gsap.set(panels, { opacity: 0.35 });
+  if (wrap) gsap.set(wrap, { opacity: 0, y: compactProcess ? 28 : 56 });
+  if (!compactProcess) {
+    gsap.set(panels, { opacity: 0.35 });
+  }
   gsap.set(numbers, { opacity: 0, y: 16 });
 
   const headerTl = gsap.timeline({

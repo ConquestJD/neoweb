@@ -162,8 +162,21 @@
                     (mouseenter)="setActiveDiferencial(i)"
                     (focus)="setActiveDiferencial(i)"
                     (click)="setActiveDiferencial(i)">
+              <span
+                class="why-list-photo"
+                aria-hidden="true"
+                [style.background-image]="'url(\'' + diferencial.image + '\')'"></span>
               <span class="why-list-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
               <span class="why-list-title">{{ diferencial.title }}</span>
+              <div class="why-list-copy">
+                <p>{{ diferencial.description }}</p>
+                <ul class="why-list-points">
+                  <li *ngFor="let point of diferencial.points">
+                    <span class="material-icons">check</span>
+                    {{ point }}
+                  </li>
+                </ul>
+              </div>
             </button>
           </li>
         </ul>
@@ -260,6 +273,10 @@
               (mouseenter)="setActiveProcess(i)"
               (focus)="setActiveProcess(i)"
               (click)="setActiveProcess(i)">
+        <span
+          class="process-panel-photo"
+          aria-hidden="true"
+          [style.background-image]="'url(\'' + step.image + '\')'"></span>
         <span class="process-panel-number">{{ (i + 1).toString().padStart(2, '0') }}</span>
         <span class="process-panel-label">{{ step.title }}</span>
         <div class="process-panel-detail">
