@@ -428,7 +428,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     'landing-page': [
       {
         name: 'LANDING',
-        price: 'S/ 700',
+        price: 'S/ 600',
         icon: 'star',
         features: [
           'Una página: bajas y está todo (oferta, por qué tú, contacto)',
@@ -440,7 +440,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       },
       {
         name: 'SITIO',
-        price: 'S/ 1,200',
+        price: 'S/ 1,000',
         icon: 'rocket_launch',
         featured: true,
         features: [
@@ -453,7 +453,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       },
       {
         name: 'SITIO PRO',
-        price: 'S/ 2,000',
+        price: 'S/ 1,500',
         icon: 'diamond',
         features: [
           'Las 5 páginas del Sitio',
@@ -467,7 +467,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     'pagina-web': [
       {
         name: 'LANDING',
-        price: 'S/ 700',
+        price: 'S/ 600',
         icon: 'star',
         features: [
           'Una página: bajas y está todo (oferta, por qué tú, contacto)',
@@ -479,7 +479,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       },
       {
         name: 'SITIO',
-        price: 'S/ 1,200',
+        price: 'S/ 1,000',
         icon: 'rocket_launch',
         featured: true,
         features: [
@@ -492,7 +492,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       },
       {
         name: 'SITIO PRO',
-        price: 'S/ 2,000',
+        price: 'S/ 1,500',
         icon: 'diamond',
         features: [
           'Las 5 páginas del Sitio',
@@ -559,7 +559,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
     'digitalizacion-procesos': [
       {
         name: 'DIARIO',
-        price: 'S/ 4,500',
+        price: 'S/ 2,000',
         icon: 'star',
         features: [
           'El equipo registra el trabajo del día y lo consulta',
@@ -570,7 +570,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       },
       {
         name: 'CONTROL',
-        price: 'S/ 7,000',
+        price: 'S/ 3,500',
         icon: 'rocket_launch',
         featured: true,
         features: [
@@ -581,12 +581,12 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       },
       {
         name: 'AMPLÍA',
-        price: 'Desde S/ 9,000',
+        price: 'Desde S/ 5,000',
         icon: 'diamond',
         features: [
           'Todo lo de Control',
           'Eliges una: otra sede, otro módulo, o copiar datos a otro programa',
-          'S/ 9,000 es el piso; se cotiza'
+          'S/ 5,000 es el piso; se cotiza'
         ]
       }
     ]

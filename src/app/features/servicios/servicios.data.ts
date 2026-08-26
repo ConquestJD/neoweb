@@ -279,7 +279,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "plans": [
       {
         "name": "LANDING",
-        "price": "S/ 700",
+        "price": "S/ 600",
         "icon": "star",
         "color": "from-blue-500 to-cyan-500",
         "tagline": "Recibes una sola página web. Quien abre el link baja y te escribe. No hay menú con más páginas.",
@@ -297,7 +297,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "SITIO",
-        "price": "S/ 1,200",
+        "price": "S/ 1,000",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
@@ -317,7 +317,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "SITIO PRO",
-        "price": "S/ 2,000",
+        "price": "S/ 1,500",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
         "tagline": "Recibes el Sitio y hasta 4 páginas extra que tú eliges, por ejemplo un servicio, el equipo o una sede.",
@@ -841,7 +841,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "plans": [
       {
         "name": "START",
-        "price": "S/ 600",
+        "price": "S/ 500",
         "period": "/mes",
         "icon": "star",
         "color": "from-orange-500 to-red-500",
@@ -858,7 +858,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "PRO",
-        "price": "S/ 1,200",
+        "price": "S/ 900",
         "period": "/mes",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
@@ -879,7 +879,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "PREMIUM",
-        "price": "S/ 1,800",
+        "price": "S/ 1,400",
         "period": "/mes",
         "icon": "diamond",
         "color": "from-blue-500 to-cyan-500",
@@ -1132,7 +1132,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "plans": [
       {
         "name": "ACTUALIZA",
-        "price": "S/ 700",
+        "price": "S/ 600",
         "icon": "star",
         "color": "from-gray-600 to-gray-800",
         "tagline": "Recibes la misma web con cara nueva: colores, fotos y que se lea en el celular. Conservas páginas y textos.",
@@ -1149,7 +1149,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "EVOLUCIONA",
-        "price": "S/ 1,200",
+        "price": "S/ 1,000",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
@@ -1168,7 +1168,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "TRANSFORMA",
-        "price": "S/ 2,000",
+        "price": "S/ 1,500",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
         "tagline": "Recibes la web hecha de nuevo. Paso textos y fotos. Conservo tu dirección para que no arranques de cero.",
@@ -1257,9 +1257,9 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "label": "Precio",
-        "start": "S/ 700",
-        "pro": "S/ 1,200",
-        "premium": "S/ 2,000"
+        "start": "S/ 600",
+        "pro": "S/ 1,000",
+        "premium": "S/ 1,500"
       }
     ]
   },
@@ -1412,7 +1412,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "plans": [
       {
         "name": "LANZAMIENTO",
-        "price": "S/ 3,000",
+        "price": "S/ 2,500",
         "icon": "star",
         "color": "from-teal-500 to-cyan-500",
         "tagline": "Recibes una app sin cuentas: abren, ven lo que ofreces y te escriben por WhatsApp. Solo Android.",
@@ -1430,7 +1430,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "CRECIMIENTO",
-        "price": "S/ 5,500",
+        "price": "S/ 4,500",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
@@ -1448,7 +1448,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "ESCALA",
-        "price": "Desde S/ 8,000",
+        "price": "Desde S/ 6,500",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
         "tagline": "Recibes lo de Crecimiento más una extra que eliges al cotizar: iPhone, cobrar, un empleado, o copiar datos a otro programa.",
@@ -1460,7 +1460,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
           "Opción 2: cobrar dentro de la app (Yape o tarjeta, lo acordamos)",
           "Opción 3: un empleado también entra, con su propio acceso",
           "Opción 4: los datos se copian al programa que ya usas",
-          "S/ 8,000 es el piso; si pides dos cosas o algo más, se cotiza extra"
+          "S/ 6,500 es el piso; si pides dos cosas o algo más, se cotiza extra"
         ],
         "note": "Si solo necesitas cuentas y avisos en Android, quédate en Crecimiento. Si eliges iPhone, la cuenta de Apple (~USD 99 al año) la pagas tú. Chat o mapa se cotizan aparte. Si el trabajo es para la oficina, no el celular, elige Software a medida."
       }
@@ -1550,9 +1550,9 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "label": "Precio",
-        "start": "S/ 3,000",
-        "pro": "S/ 5,500",
-        "premium": "Desde S/ 8,000"
+        "start": "S/ 2,500",
+        "pro": "S/ 4,500",
+        "premium": "Desde S/ 6,500"
       }
     ]
   },
@@ -1705,7 +1705,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
     "plans": [
       {
         "name": "DIARIO",
-        "price": "S/ 4,500",
+        "price": "S/ 2,000",
         "icon": "star",
         "color": "from-gray-600 to-gray-800",
         "tagline": "Recibes el sistema del día a día: tu equipo entra, registra el trabajo y lo puede consultar después.",
@@ -1722,7 +1722,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "CONTROL",
-        "price": "S/ 7,000",
+        "price": "S/ 3,500",
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
@@ -1740,7 +1740,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "name": "AMPLÍA",
-        "price": "Desde S/ 9,000",
+        "price": "Desde S/ 5,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
         "tagline": "Recibes lo de Control más una extra que eliges al cotizar: otra sede, otro módulo, o copiar datos a otro programa.",
@@ -1751,7 +1751,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
           "Opción 1: otra sede en el mismo sistema",
           "Opción 2: otro módulo (otra parte de la operación)",
           "Opción 3: los datos se copian a un programa que ya usas",
-          "S/ 9,000 es el piso; si pides dos cosas o algo más, se cotiza extra"
+          "S/ 5,000 es el piso; si pides dos cosas o algo más, se cotiza extra"
         ],
         "note": "Si con el día a día y las finanzas te alcanza, quédate en Control. Chat, app o una tienda para clientes se cotizan en esos servicios, no aquí."
       }
@@ -1835,9 +1835,9 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "label": "Precio",
-        "start": "S/ 4,500",
-        "pro": "S/ 7,000",
-        "premium": "Desde S/ 9,000"
+        "start": "S/ 2,000",
+        "pro": "S/ 3,500",
+        "premium": "Desde S/ 5,000"
       }
     ]
   }

@@ -201,39 +201,39 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       question: '¿Cuánto cuesta un proyecto?',
       answer: 'Depende del tipo de solución y su alcance. Estas son referencias orientativas:',
       details: [
-        'Página web: desde S/ 700 (Landing)',
-        'Rediseño web: desde S/ 700 (Actualiza)',
+        'Página web: desde S/ 600 (Landing)',
+        'Rediseño web: desde S/ 600 (Actualiza)',
         'Tienda online: desde S/ 2,000 (Emprende)',
-        'App móvil: desde S/ 3,000 (Lanzamiento)',
-        'Software a medida: desde S/ 4,500 (Diario)',
-        'Marketing digital: desde S/ 600/mes'
+        'App móvil: desde S/ 2,500 (Lanzamiento)',
+        'Software a medida: desde S/ 2,000 (Diario)',
+        'Marketing digital: desde S/ 500/mes'
       ]
     },
     {
       question: '¿Qué diferencia hay entre los planes de marketing?',
       answer: 'Cada plan hace un trabajo distinto. No es la misma gestión con más publicaciones:',
       details: [
-        'Start (S/ 600/mes): presencia en Facebook e Instagram. No incluye anuncios.',
-        'Pro (S/ 1,200/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
-        'Premium (S/ 1,800/mes): lo anterior más gestión de Meta Ads. La pauta la inviertes tú.'
+        'Start (S/ 500/mes): presencia en Facebook e Instagram. No incluye anuncios.',
+        'Pro (S/ 900/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
+        'Premium (S/ 1,400/mes): lo anterior más gestión de Meta Ads. La pauta la inviertes tú.'
       ]
     },
     {
       question: '¿Qué diferencia hay entre los planes de páginas web?',
       answer: 'Cada uno te entrega una web distinta. No es “la misma un poco más grande”:',
       details: [
-        'Landing (S/ 700): una sola página. Quien abre el link te escribe. Sirve para un anuncio o WhatsApp.',
-        'Sitio (S/ 1,200): 5 páginas con menú (Inicio, Nosotros, Servicios, Preguntas, Contacto).',
-        'Sitio Pro (S/ 2,000): el Sitio más hasta 4 páginas extra (un servicio, el equipo, una sede…) y ves cuánta gente entra.'
+        'Landing (S/ 600): una sola página. Quien abre el link te escribe. Sirve para un anuncio o WhatsApp.',
+        'Sitio (S/ 1,000): 5 páginas con menú (Inicio, Nosotros, Servicios, Preguntas, Contacto).',
+        'Sitio Pro (S/ 1,500): el Sitio más hasta 4 páginas extra (un servicio, el equipo, una sede…) y ves cuánta gente entra.'
       ]
     },
     {
       question: '¿Qué diferencia hay entre los planes de rediseño web?',
       answer: 'Cada uno hace un trabajo distinto con la web que ya tienes. Si no tienes web, el servicio es Páginas web:',
       details: [
-        'Actualiza (S/ 700): misma web, cara nueva. Conservas páginas y textos.',
-        'Evoluciona (S/ 1,200): eso, y además cambio qué ven primero para que te escriban.',
-        'Transforma (S/ 2,000): la armo de nuevo, paso textos y fotos, y conservo tu dirección.'
+        'Actualiza (S/ 600): misma web, cara nueva. Conservas páginas y textos.',
+        'Evoluciona (S/ 1,000): eso, y además cambio qué ven primero para que te escriban.',
+        'Transforma (S/ 1,500): la armo de nuevo, paso textos y fotos, y conservo tu dirección.'
       ]
     },
     {
@@ -249,18 +249,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       question: '¿Qué diferencia hay entre los planes de apps móviles?',
       answer: 'Cada uno hace un trabajo distinto. No es “más pantallas”:',
       details: [
-        'Lanzamiento (S/ 3,000): sin cuentas, solo Android. Ven lo que ofreces y te escriben por WhatsApp.',
-        'Crecimiento (S/ 5,500): se registran y les llega un aviso. Solo Android.',
-        'Escala (desde S/ 8,000): una extra cotizada: iPhone, cobrar, un empleado, o copiar datos a otro programa.'
+        'Lanzamiento (S/ 2,500): sin cuentas, solo Android. Ven lo que ofreces y te escriben por WhatsApp.',
+        'Crecimiento (S/ 4,500): se registran y les llega un aviso. Solo Android.',
+        'Escala (desde S/ 6,500): una extra cotizada: iPhone, cobrar, un empleado, o copiar datos a otro programa.'
       ]
     },
     {
       question: '¿Qué diferencia hay entre los planes de software a medida?',
       answer: 'Es el mismo sistema, en tres fases. No es “más pantallas”:',
       details: [
-        'Diario (S/ 4,500): el equipo registra el trabajo del día y lo consulta. Sin ingresos ni gastos.',
-        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de las finanzas.',
-        'Amplía (desde S/ 9,000): una extra cotizada: otra sede, otro módulo, o copiar datos a otro programa.'
+        'Diario (S/ 2,000): el equipo registra el trabajo del día y lo consulta. Sin ingresos ni gastos.',
+        'Control (S/ 3,500): eso, más ingresos, gastos y un reporte de las finanzas.',
+        'Amplía (desde S/ 5,000): una extra cotizada: otra sede, otro módulo, o copiar datos a otro programa.'
       ]
     },
     {
