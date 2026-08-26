@@ -200,6 +200,10 @@
           (mouseenter)="setActiveProcess(i)"
           (focus)="setActiveProcess(i)"
           (click)="setActiveProcess(i)">
+          <span
+            class="svc-process-panel-photo"
+            aria-hidden="true"
+            [style.background-image]="getStepBackground(i)"></span>
           <span class="svc-process-panel-number">{{ step.step }}</span>
           <span class="svc-process-panel-label">{{ step.title }}</span>
           <div class="svc-process-panel-detail">
