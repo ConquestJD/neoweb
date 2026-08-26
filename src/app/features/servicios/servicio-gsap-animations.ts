@@ -493,17 +493,19 @@ function setupProcess(root: HTMLElement, onComplete?: () => void) {
   }
 
   if (compactProcess && wrap) {
-    const story = section.querySelector('.svc-process-story');
-    if (story) {
-      ScrollTrigger.create({
-        trigger: story,
-        start: 'top top',
-        end: 'bottom bottom',
-        pin: wrap,
-        pinSpacing: false,
-        anticipatePin: 1
-      });
-    }
+    const steps = Math.max(
+      1,
+      wrap.querySelectorAll('.svc-process-accordion-bg-layer').length
+    );
+    ScrollTrigger.create({
+      trigger: wrap,
+      start: 'top top',
+      end: () => `+=${Math.max(1, steps - 1) * window.innerHeight}`,
+      pin: true,
+      pinSpacing: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true
+    });
   }
 }
 

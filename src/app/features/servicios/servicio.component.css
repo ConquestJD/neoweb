@@ -1639,25 +1639,36 @@ overflow: hidden;
 
   .svc-process {
     padding: 56px 0 0;
+    margin: 0;
+    background: #fafafa;
     transform: none;
     opacity: 1;
   }
 
   .svc-process-inner {
-    margin-bottom: 20px;
-    padding: 0 16px;
+    margin-bottom: 0;
+    padding: 0 16px 20px;
   }
 
   .svc-process-story {
+    width: 100%;
+    margin: 0;
+    background: #000000;
     height: calc(var(--steps, 4) * 100vh);
-    height: calc(var(--steps, 4) * 100svh);
+    height: calc(var(--steps, 4) * 100dvh);
+  }
+
+  :host.gsap-enabled .svc-process-story {
+    height: auto;
   }
 
   .svc-process-sticky {
     position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    height: 100svh;
+    height: 100dvh;
     overflow: hidden;
   }
 
@@ -1668,7 +1679,7 @@ overflow: hidden;
 
   .svc-process-accordion-wrap {
     overflow: hidden;
-    background: #0a0a0a;
+    background: #000000;
   }
 
   .svc-process-accordion {
@@ -1837,6 +1848,7 @@ overflow: hidden;
 
   .svc-cta {
     min-height: 0;
+    margin-top: 0;
     padding: 64px 16px 72px;
   }
 

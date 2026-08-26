@@ -309,12 +309,14 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    const range = el.offsetHeight - window.innerHeight;
+    const spacer = el.querySelector('.pin-spacer') as HTMLElement | null;
+    const track = spacer ?? el;
+    const range = track.offsetHeight - window.innerHeight;
     if (range <= 0) {
       return;
     }
 
-    const t = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / range));
+    const t = Math.min(1, Math.max(0, -track.getBoundingClientRect().top / range));
     const raw = t * steps;
     const next = Math.min(steps - 1, Math.floor(raw + 1e-4));
     const stepProgress = Math.min(1, Math.max(0, raw - next));
