@@ -90,557 +90,466 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "pagina-web": {
     "slug": "pagina-web",
     "heroImage": "/assets/services/pagina web.jpg",
-    "pageTitle": "Páginas Web Profesionales en Perú | Desarrollo Web a Medida | NeoWeb",
-    "metaDescription": "Diseño y desarrollo de páginas web profesionales en Perú. Sitios rápidos, responsive y optimizados para SEO que generan consultas y ventas. Cotiza con NeoWeb.",
+    "pageTitle": "Páginas Web en Perú | Una página o un sitio con menú | NeoWeb",
+    "metaDescription": "Elige lo que recibes: una sola página para que te escriban, un sitio de 5 páginas, o un sitio con página por servicio. Hecho a medida. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "web",
       "badgeText": "Desarrollo web · Perú",
       "titleLine1": "Páginas web",
-      "titleHighlight": "profesionales",
-      "description": "Diseño y desarrollo de páginas web a medida en Perú. Sitios corporativos rápidos, responsive y optimizados para Google, pensados para generar confianza, leads y ventas."
+      "titleHighlight": "fáciles de elegir",
+      "description": "Dime qué necesita tu cliente al entrar. ¿Solo escribirte? ¿Conocer la empresa? ¿Ver un servicio en concreto? Cada plan entrega una cosa distinta, hecha a medida, sin plantillas."
     },
-    "plansSubtitle": "Sitios web profesionales desde S/ 500. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
+    "plansSubtitle": "Landing: una página. Sitio: cinco páginas con menú. Sitio Pro: eso más páginas sueltas para tus servicios. En los tres va el nombre de tu web y el alojamiento los primeros 6 meses.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Secciones",
-      "titleLine1": "Todo lo que",
-      "titleHighlight": "incluye",
-      "subtitle": "Todas las secciones y funcionalidades necesarias para un sitio web corporativo completo."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "Mira qué llega a tu negocio con cada plan. No es la misma web “un poco más grande”."
     },
     "includes": [
       {
-        "icon": "rocket_launch",
-        "title": "Hero y propuesta de valor",
-        "description": "Mensajes claros y CTA definidos."
+        "icon": "web_asset",
+        "title": "Landing: una página",
+        "description": "Todo está en una sola pantalla al bajar: qué ofreces, por qué tú, y un botón para escribirte. Sirve para un anuncio o para pasar el link por WhatsApp."
       },
       {
-        "icon": "business",
-        "title": "Servicios y diferenciales",
-        "description": "Catálogo ordenado y beneficios."
+        "icon": "menu",
+        "title": "Sitio: 5 páginas",
+        "description": "Arriba hay un menú: Inicio, Nosotros, Servicios, Preguntas y Contacto. Sirve para que te conozcan, no solo para un anuncio."
       },
       {
-        "icon": "folder",
-        "title": "Portafolio y casos",
-        "description": "Resultados y credenciales."
+        "icon": "layers",
+        "title": "Sitio Pro: páginas por servicio",
+        "description": "Lo mismo que el Sitio, y además hasta 4 páginas extra (por ejemplo “Ortodoncia”, “El equipo” o “Nuestra sede”). Ves cuánta gente entra."
       },
       {
-        "icon": "star",
-        "title": "Testimonios y FAQ",
-        "description": "Confianza y claridad."
-      },
-      {
-        "icon": "article",
-        "title": "Blog y SEO",
-        "description": "Contenido optimizado y técnico listo."
-      },
-      {
-        "icon": "mail",
-        "title": "Contacto y lead gen",
-        "description": "Formularios y analítica."
+        "icon": "code",
+        "title": "En los tres planes",
+        "description": "Diseño hecho para ti, se ve bien en el celular, botón para escribirte, nombre de tu web y alojamiento 6 meses."
       }
     ],
     "showBenefitsSection": true,
     "benefits": [
       {
-        "icon": "speed",
-        "title": "Carga Ultra Rápida",
-        "description": "Optimizada para velocidad, tu sitio carga en menos de 2 segundos"
+        "icon": "code",
+        "title": "Sin plantillas",
+        "description": "Cada proyecto se programa a medida. No usamos Wix, WordPress ni temas genéricos."
       },
       {
         "icon": "devices",
-        "title": "100% Responsive",
-        "description": "Se adapta perfectamente a móviles, tablets y escritorio"
+        "title": "Se ve bien en el celular",
+        "description": "Diseño adaptado a móvil, tablet y computadora."
+      },
+      {
+        "icon": "chat",
+        "title": "WhatsApp y contacto",
+        "description": "El visitante puede escribirte sin adivinar cómo."
+      },
+      {
+        "icon": "https",
+        "title": "Nombre de tu web 6 meses",
+        "description": "El nombre (ej. tunegocio.pe) y el lugar donde se guarda la web van incluidos medio año. Después puedes seguir conmigo o llevarla a otro lado."
       },
       {
         "icon": "search",
-        "title": "SEO Optimizado",
-        "description": "Aparece en los primeros resultados de Google"
-      },
-      {
-        "icon": "security",
-        "title": "Seguridad Garantizada",
-        "description": "Certificado SSL y protección contra ataques"
-      },
-      {
-        "icon": "analytics",
-        "title": "Analytics Integrado",
-        "description": "Conoce el comportamiento de tus visitantes"
+        "title": "Google puede encontrarla",
+        "description": "La web queda preparada para aparecer cuando alguien busca tu negocio. No significa salir en el puesto número 1."
       },
       {
         "icon": "support_agent",
-        "title": "Soporte Continuo",
-        "description": "Asistencia técnica cuando la necesites"
+        "title": "Soporte al lanzar",
+        "description": "Acompañamiento para publicar y corregir ajustes menores después de la entrega."
       }
     ],
     "processSection": {
       "titleLine1": "Método de",
       "titleHighlight": "trabajo",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "subtitle": "Primero cerramos qué entra. Después diseño, armado, pruebas y la subimos."
     },
     "fullcodeSection": {
       "badgeText": "Full Code",
       "titleLine1": "Código propio y",
       "titleHighlight": "optimizado",
-      "subtitle": "Desarrollo a medida, listo para escalar y posicionar."
+      "subtitle": "Hecha a medida, sin plantillas, para que cargue rápido y se pueda ampliar después."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para tu",
-      "titleHighlight": "sitio corporativo?",
-      "description": "Construyo un sitio serio, veloz y que comunique autoridad."
+      "titleLine1": "¿Una página o",
+      "titleHighlight": "un sitio?",
+      "description": "Si solo quieres que te escriban, Landing. Si quieren conocerte, Sitio. Si cada servicio merece su propia página, Sitio Pro."
     },
     "features": [
       {
-        "icon": "speed",
-        "title": "Carga Ultra Rápida",
-        "description": "Optimizada para velocidad, tu sitio carga en menos de 2 segundos"
+        "icon": "code",
+        "title": "Sin plantillas",
+        "description": "Cada proyecto se programa a medida. No usamos Wix, WordPress ni temas genéricos."
       },
       {
         "icon": "devices",
-        "title": "100% Responsive",
-        "description": "Se adapta perfectamente a móviles, tablets y escritorio"
+        "title": "Se ve bien en el celular",
+        "description": "Diseño adaptado a móvil, tablet y computadora."
+      },
+      {
+        "icon": "chat",
+        "title": "WhatsApp y contacto",
+        "description": "El visitante puede escribirte sin adivinar cómo."
+      },
+      {
+        "icon": "https",
+        "title": "Nombre de tu web 6 meses",
+        "description": "El nombre (ej. tunegocio.pe) y el lugar donde se guarda la web van incluidos medio año. Después puedes seguir conmigo o llevarla a otro lado."
       },
       {
         "icon": "search",
-        "title": "SEO Optimizado",
-        "description": "Aparece en los primeros resultados de Google"
-      },
-      {
-        "icon": "security",
-        "title": "Seguridad Garantizada",
-        "description": "Certificado SSL y protección contra ataques"
-      },
-      {
-        "icon": "analytics",
-        "title": "Analytics Integrado",
-        "description": "Conoce el comportamiento de tus visitantes"
+        "title": "Google puede encontrarla",
+        "description": "La web queda preparada para aparecer cuando alguien busca tu negocio. No significa salir en el puesto número 1."
       },
       {
         "icon": "support_agent",
-        "title": "Soporte Continuo",
-        "description": "Asistencia técnica cuando la necesites"
+        "title": "Soporte al lanzar",
+        "description": "Acompañamiento para publicar y corregir ajustes menores después de la entrega."
       }
     ],
     "methodology": [
       {
         "step": "01",
-        "title": "Análisis y Planificación",
-        "description": "Analizo tu negocio, objetivos y competencia para crear una estrategia digital personalizada",
+        "title": "Hablamos y cerramos qué entra",
+        "description": "Antes de diseñar, queda claro si recibes una página, cinco páginas o páginas extra. Así no hay sorpresas a mitad de camino.",
         "icon": "assessment"
       },
       {
         "step": "02",
-        "title": "Diseño y Prototipado",
-        "description": "Creo diseños modernos y funcionales que reflejan la identidad de tu marca",
+        "title": "Diseño",
+        "description": "Te muestro cómo se va a ver: una página larga, o un sitio con menú, según el plan.",
         "icon": "palette"
       },
       {
         "step": "03",
-        "title": "Desarrollo Full Code",
-        "description": "Desarrollo tu sitio web desde cero con código limpio, optimizado y escalable",
+        "title": "Armado",
+        "description": "Lo programo desde cero, a la medida de tu negocio. No uso plantillas de Wix ni WordPress.",
         "icon": "code"
       },
       {
         "step": "04",
-        "title": "Optimización y Testing",
-        "description": "Pruebo en todos los dispositivos y optimizo velocidad, SEO y experiencia de usuario",
+        "title": "Revisión",
+        "description": "Probamos en el celular, el botón de WhatsApp y que todo cargue bien, antes de publicarla.",
         "icon": "speed"
       },
       {
         "step": "05",
-        "title": "Lanzamiento y Soporte",
-        "description": "Publico tu sitio web y te brindo soporte continuo para asegurar su éxito",
+        "title": "Al aire",
+        "description": "La subo con tu nombre de web. Queda lista para compartir el link o para que te busquen.",
         "icon": "launch"
       }
     ],
     "fullCodeBenefits": [
       {
+        "icon": "flag",
+        "title": "Sabes qué estás comprando",
+        "description": "Landing, Sitio y Sitio Pro no son “más de lo mismo”. Cada uno te entrega un tipo de web distinto."
+      },
+      {
         "icon": "code",
-        "title": "Código Limpio y Optimizado",
-        "description": "Desarrollo desde cero con código limpio, sin dependencias innecesarias. Tu sitio es rápido, seguro y fácil de mantener."
+        "title": "Hecha para ti, no con un molde",
+        "description": "Se programa a medida. Se ve y funciona distinto a una web armada con plantilla."
       },
       {
-        "icon": "speed",
-        "title": "Rendimiento Superior",
-        "description": "Sin plantillas pesadas. Código optimizado que carga en menos de 2 segundos y ofrece una experiencia fluida."
+        "icon": "view_agenda",
+        "title": "Páginas de verdad",
+        "description": "En el Sitio, Inicio y Nosotros son páginas distintas, con el menú arriba. En la Landing todo está en una sola página al bajar."
       },
       {
-        "icon": "security",
-        "title": "Seguridad Total",
-        "description": "Código personalizado significa menos vulnerabilidades. Tu sitio está protegido contra ataques comunes."
+        "icon": "https",
+        "title": "Nombre de web 6 meses",
+        "description": "El .pe o .com y el alojamiento van en el precio al inicio. Luego decides si sigues con mantenimiento o te la llevas."
       },
       {
         "icon": "tune",
-        "title": "Totalmente Personalizable",
-        "description": "Cada línea de código está diseñada para tu negocio. Modificaciones y actualizaciones sin límites."
-      },
-      {
-        "icon": "trending_up",
-        "title": "Escalabilidad Garantizada",
-        "description": "Tu sitio puede crecer sin restricciones. Agrego funcionalidades cuando las necesites."
+        "title": "Se puede ampliar después",
+        "description": "Puedes empezar con Landing y más adelante pasar a Sitio. Un panel para que tú edites textos se cotiza aparte."
       },
       {
         "icon": "support_agent",
-        "title": "Mantenimiento Simplificado",
-        "description": "Código bien estructurado facilita el mantenimiento. Actualizaciones rápidas y sin complicaciones."
+        "title": "Hablas con quien la hace",
+        "description": "Sin pasar por una cuenta de agencia ni cambiar de persona a mitad del proyecto."
       }
     ],
+
     "plans": [
       {
-        "name": "ESENCIAL",
-        "price": "S/ 500",
+        "name": "LANDING",
+        "price": "S/ 700",
         "icon": "star",
         "color": "from-blue-500 to-cyan-500",
-        "tagline": "Ideal para emprendedores y pequeños negocios que necesitan una presencia digital profesional.",
+        "tagline": "Recibes una sola página web. Quien abre el link baja y te escribe. No hay menú con más páginas.",
+        "benefit": "Ideal para un anuncio, un lanzamiento o para pasar el link por WhatsApp.",
         "features": [
-          "Diseño profesional y moderno",
-          "Hasta 6 secciones",
-          "Inicio, Nosotros, Servicios, Beneficios, FAQ y Contacto",
-          "Formulario de contacto",
-          "Botón de WhatsApp integrado",
-          "Adaptada para celulares, tablets y computadoras",
-          "Configuración básica para aparecer en Google",
-          "Certificado SSL",
-          "Hosting y dominio incluidos durante 6 meses",
-          "Entrega en aproximadamente 1 semana"
-        ]
+          "Una página: todo se ve al bajar, como un folleto digital",
+          "Portada con tu oferta y un botón para contactarte",
+          "Por qué elegirte, preguntas frecuentes y datos de contacto",
+          "Se ve bien en el celular",
+          "Botón de WhatsApp o formulario para que te escriban",
+          "Nombre de tu web (ej. tunegocio.pe) y alojamiento 6 meses",
+          "Lista en aproximadamente 1 semana"
+        ],
+        "note": "No incluye páginas aparte de Nosotros o Servicios. Si la gente necesita recorrer tu empresa, elige Sitio."
       },
       {
-        "name": "PROFESIONAL",
-        "price": "S/ 900",
+        "name": "SITIO",
+        "price": "S/ 1,200",
         "icon": "rocket_launch",
         "color": "from-gray-700 to-gray-900",
         "featured": true,
-        "tagline": "Ideal para empresas que buscan fortalecer su presencia digital y transmitir mayor confianza.",
+        "tagline": "Recibes un sitio con 5 páginas y un menú arriba para pasar de una a otra.",
+        "benefit": "Quien llega entiende quién eres, qué ofreces y cómo escribirte.",
         "features": [
-          "Todo lo incluido en Esencial",
-          "Hasta 10 secciones",
-          "Diseño completamente personalizado",
-          "Integración con redes sociales",
-          "Google Analytics",
-          "Optimización de velocidad",
-          "SEO avanzado",
-          "Investigación básica de palabras clave",
-          "Entrega en 1 a 2 semanas"
-        ]
+          "Página Inicio: lo esencial de tu negocio (aquí también va por qué elegirte)",
+          "Página Nosotros: tu historia o tu equipo",
+          "Página Servicios: todo lo que ofreces en una sola lista",
+          "Página de preguntas frecuentes",
+          "Página Contacto: formulario y WhatsApp",
+          "Se ve bien en el celular",
+          "Nombre de tu web y alojamiento 6 meses",
+          "Lista en 1 a 2 semanas"
+        ],
+        "note": "Tus servicios están juntos en una página. Si “Ortodoncia” o “Delivery” necesitan su propia página, elige Sitio Pro."
       },
       {
-        "name": "EMPRESARIAL",
-        "price": "S/ 1,500",
+        "name": "SITIO PRO",
+        "price": "S/ 2,000",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Ideal para empresas que necesitan una solución web más robusta, escalable y adaptada a sus procesos.",
+        "tagline": "Recibes el Sitio y hasta 4 páginas extra que tú eliges, por ejemplo un servicio, el equipo o una sede.",
+        "benefit": "La persona puede abrir una página concreta (“Limpieza”, “Cusco”) en vez de una lista larga.",
         "features": [
-          "Todo lo incluido en Profesional",
-          "Hasta 15 secciones",
-          "Diseño UI/UX avanzado",
-          "Portafolio dinámico",
-          "Formularios avanzados",
-          "Integraciones con CRM y herramientas externas",
-          "SEO completo",
-          "Optimización Premium de velocidad",
-          "CTAs personalizados",
-          "Prioridad de soporte",
-          "Posibilidad de incorporar un panel de administración según el alcance del proyecto",
-          "Entrega en 2 a 3 semanas"
-        ]
+          "Las 5 páginas del Sitio",
+          "Hasta 4 páginas extra a tu elección (un servicio, equipo, sede, casos o cómo trabajas)",
+          "Ves cuánta gente entra a tu web y desde dónde",
+          "Cada página extra queda pensada para que te encuentren al buscar ese servicio",
+          "Enlaces a tu Facebook o Instagram",
+          "Lista en 2 a 3 semanas"
+        ],
+        "note": "Tú no editas la web solo: cada cambio me lo pides. Un panel para publicar tú, o conectar el formulario a otra herramienta, se cotiza aparte."
       }
     ],
+    "plansHighlightsTitle": "En los tres planes va incluido",
     "plansHighlights": [
-      "Diseño profesional",
-      "Responsive para móviles",
-      "WhatsApp integrado",
-      "Certificado SSL",
-      "Optimización SEO",
-      "Hosting y dominio incluidos por 6 meses"
+      "Diseño hecho para tu negocio, no con plantilla",
+      "Se ve bien en el celular",
+      "Botón para escribirte (WhatsApp o formulario)",
+      "Candado de seguridad al abrir la web",
+      "Nombre de tu web y alojamiento 6 meses"
     ],
+    "plansBenefitsTitle": "Esto no entra en el precio (se cotiza)",
+    "plansBenefits": [
+      "Un panel para que tú cambies textos o fotos sin pedirme un cambio",
+      "Que el formulario llegue a tu sistema de clientes u otra herramienta",
+      "Otra página tipo anuncio si ya tienes un Sitio conmigo"
+    ],
+    "plansGuaranteeLabel": "Después de publicarla",
+    "plansGuarantee": "Los primeros 30 días te ayudo a corregir fallas y detalles chicos que entren en el plan, sin costo extra.",
     "plansComparisonHeaders": {
-      "start": "Esencial",
-      "pro": "Profesional",
-      "premium": "Empresarial"
+      "start": "Landing",
+      "pro": "Sitio",
+      "premium": "Sitio Pro"
     },
-    "plansComparisonIntro": "Compara alcance, entregables y tiempos para elegir el sitio que mejor impulsa tu negocio.",
+    "plansComparisonIntro": "Lee la primera fila: ahí está lo que te llevas a casa. El resto son detalles.",
     "plansComparison": [
       {
-        "label": "Secciones incluidas",
-        "start": "Hasta 6",
-        "pro": "Hasta 10",
-        "premium": "Hasta 15"
+        "label": "Qué te entrego",
+        "start": "1 página (bajas y listo)",
+        "pro": "5 páginas con menú",
+        "premium": "Esas 5 + hasta 4 más"
       },
       {
-        "label": "Diseño",
-        "start": "Profesional",
-        "pro": "Completamente personalizado",
-        "premium": "UI/UX avanzado"
+        "label": "Para qué sirve",
+        "start": "Que te escriban",
+        "pro": "Que te conozcan",
+        "premium": "Que elijan un servicio"
       },
       {
-        "label": "Formulario de contacto",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "¿Hay menú para cambiar de página?",
+        "start": "No",
+        "pro": "Sí",
+        "premium": "Sí"
       },
       {
-        "label": "WhatsApp integrado",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "¿Un servicio puede tener su propia página?",
+        "start": "No",
+        "pro": "No (van en una lista)",
+        "premium": "Sí, hasta 4"
       },
       {
-        "label": "Responsive (móvil, tablet, desktop)",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "SEO",
-        "start": "Básico",
-        "pro": "Avanzado",
-        "premium": "Completo"
-      },
-      {
-        "label": "Certificado SSL",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Hosting y dominio (6 meses)",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Integración con redes sociales",
-        "start": false,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Google Analytics",
-        "start": false,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Optimización de velocidad",
-        "start": false,
-        "pro": true,
-        "premium": "Premium"
-      },
-      {
-        "label": "Investigación de palabras clave",
-        "start": false,
-        "pro": "Básica",
-        "premium": true
-      },
-      {
-        "label": "Portafolio dinámico",
+        "label": "¿Ves cuánta gente entra?",
         "start": false,
         "pro": false,
         "premium": true
       },
       {
-        "label": "Formularios avanzados",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "¿Sirve para un anuncio?",
+        "start": "Sí, es su uso principal",
+        "pro": "Puede, pero no es el foco",
+        "premium": "Puede, pero no es el foco"
       },
       {
-        "label": "Integraciones CRM / externas",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "¿Tú editas la web solo?",
+        "start": "No",
+        "pro": "No",
+        "premium": "No (se cotiza aparte)"
       },
       {
-        "label": "Panel de administración",
-        "start": false,
-        "pro": false,
-        "premium": "Según alcance"
-      },
-      {
-        "label": "CTAs personalizados",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Soporte prioritario",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Tiempo de entrega",
-        "start": "Aprox. 1 semana",
-        "pro": "1–2 semanas",
-        "premium": "2–3 semanas"
+        "label": "Cuándo está lista",
+        "start": "Unos 7 días",
+        "pro": "1 a 2 semanas",
+        "premium": "2 a 3 semanas"
       }
     ]
   },
   "tienda-virtual": {
     "slug": "tienda-virtual",
     "heroImage": "/assets/services/tienda online.jpg",
-    "pageTitle": "Tienda Online en Perú | Desarrollo de E-commerce | NeoWeb",
-    "metaDescription": "Creamos tiendas online y e-commerce en Perú con catálogo, pagos y envíos. Listas para vender 24/7, atraer clientes y escalar tus ventas. Cotiza con NeoWeb.",
+    "pageTitle": "Tienda Online en Perú | Empezar a vender o vender más | NeoWeb",
+    "metaDescription": "Tienda a medida en Perú: empezar a cobrar, vender más con descuentos y anuncios, o que la usen varias personas. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "shopping_cart",
-      "badgeText": "E-commerce · Perú",
+      "badgeText": "Tienda online · Perú",
       "titleLine1": "Tienda online",
-      "titleHighlight": "que vende",
-      "description": "Desarrollo de tiendas online y e-commerce en Perú. Catálogo, pasarelas de pago, envíos y panel de gestión listos para vender 24/7 y convertir más visitas en pedidos."
+      "titleHighlight": "fácil de elegir",
+      "description": "Tres planes. Emprende: el cliente paga y tú ves el pedido. Crece: talla, descuentos y anuncios. Escala: si venden varios en el equipo o el pedido tiene que llegar a otro programa que ya usas."
     },
-    "plansSubtitle": "Creamos tiendas online preparadas para vender, automatizar procesos y acompañar el crecimiento de tu negocio. Hosting y dominio incluidos durante los primeros 6 meses. Posteriormente, el mantenimiento es opcional y se adapta a las necesidades de cada proyecto.",
+    "plansSubtitle": "Emprende es para empezar a cobrar. Crece es si hay talla o color, cupones o anuncios. Escala es si no eres solo tú: un empleado también ve pedidos, o cada compra se copia a otro programa. El nombre de tu web va 6 meses en todos.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Incluye",
-      "titleLine1": "Funcionalidades",
-      "titleHighlight": "clave",
-      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda online."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "No es la misma tienda “con más productos”. Cada plan sirve para un momento distinto."
     },
     "includes": [
       {
-        "icon": "shopping_cart",
-        "title": "Carrito de Compras",
-        "description": "Sistema completo de carrito con persistencia"
+        "icon": "storefront",
+        "title": "Emprende: empezar a vender",
+        "description": "El cliente elige, paga y te llega el pedido. Productos de un solo tipo (un frasco, un pack). Tú y nadie más en la pantalla de pedidos."
       },
       {
-        "icon": "payment",
-        "title": "Pasarelas de Pago",
-        "description": "Integración con múltiples métodos de pago"
+        "icon": "trending_up",
+        "title": "Crece: vender más",
+        "description": "Lo mismo, y además talla o color, cupones, un aviso si dejan la compra a medias, y la tienda lista para anuncios de Facebook e Instagram."
       },
       {
-        "icon": "inventory",
-        "title": "Gestión de Inventario",
-        "description": "Control automático de stock"
+        "icon": "groups",
+        "title": "Escala: ya no vendes solo",
+        "description": "Lo de Crece, más una de estas dos cosas (la eliges al cotizar): que un empleado también entre a ver pedidos, o que cada compra se copie al programa que ya usas (por ejemplo un Excel o el sistema de tu local)."
       },
       {
-        "icon": "local_shipping",
-        "title": "Gestión de Envíos",
-        "description": "Cálculo automático de costos de envío"
-      },
-      {
-        "icon": "analytics",
-        "title": "Reportes de Ventas",
-        "description": "Dashboard completo de métricas"
-      },
-      {
-        "icon": "security",
-        "title": "Seguridad Avanzada",
-        "description": "Protección de datos y transacciones"
+        "icon": "payments",
+        "title": "En los tres planes",
+        "description": "Carrito, un tipo de pago que acordamos (Yape o tarjeta), WhatsApp al comprar, pantalla para productos y pedidos, se ve en el celular, nombre de tu web 6 meses."
       }
     ],
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
       "titleHighlight": "trabajo",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "subtitle": "Primero vemos cómo vendes. Después diseño, armado, el pago y la subimos."
     },
     "fullcodeSection": {
-      "badgeText": "Full Code",
-      "titleLine1": "Desarrollo a",
-      "titleHighlight": "medida",
-      "subtitle": "Arquitectura segura, performance y SEO listos."
+      "badgeText": "A medida",
+      "titleLine1": "Tienda hecha",
+      "titleHighlight": "para ti",
+      "subtitle": "No es una plantilla de Shopify ni WordPress. Entra lo del plan que eliges, no “cualquier programa”."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "vender online?",
-      "description": "Lanza tu tienda con catálogo, pagos y envíos listos."
+      "titleLine1": "¿Cuál tienda",
+      "titleHighlight": "necesitas?",
+      "description": "¿Solo cobrar? Emprende. ¿Talla, cupones o anuncios? Crece. ¿Un empleado también ve pedidos, o el pedido llega a otro programa? Escala, te armo el precio."
     },
     "features": [
       {
-        "icon": "shopping_cart",
-        "title": "Carrito de Compras",
-        "description": "Sistema completo de carrito con persistencia"
+        "icon": "storefront",
+        "title": "Emprende: empezar a vender",
+        "description": "El cliente elige, paga y te llega el pedido. Productos de un solo tipo (un frasco, un pack). Tú y nadie más en la pantalla de pedidos."
       },
       {
-        "icon": "payment",
-        "title": "Pasarelas de Pago",
-        "description": "Integración con múltiples métodos de pago"
+        "icon": "trending_up",
+        "title": "Crece: vender más",
+        "description": "Lo mismo, y además talla o color, cupones, un aviso si dejan la compra a medias, y la tienda lista para anuncios de Facebook e Instagram."
       },
       {
-        "icon": "inventory",
-        "title": "Gestión de Inventario",
-        "description": "Control automático de stock"
+        "icon": "groups",
+        "title": "Escala: ya no vendes solo",
+        "description": "Lo de Crece, más una de estas dos cosas (la eliges al cotizar): que un empleado también entre a ver pedidos, o que cada compra se copie al programa que ya usas (por ejemplo un Excel o el sistema de tu local)."
       },
       {
-        "icon": "local_shipping",
-        "title": "Gestión de Envíos",
-        "description": "Cálculo automático de costos de envío"
-      },
-      {
-        "icon": "analytics",
-        "title": "Reportes de Ventas",
-        "description": "Dashboard completo de métricas"
-      },
-      {
-        "icon": "security",
-        "title": "Seguridad Avanzada",
-        "description": "Protección de datos y transacciones"
+        "icon": "payments",
+        "title": "En los tres planes",
+        "description": "Carrito, un tipo de pago que acordamos (Yape o tarjeta), WhatsApp al comprar, pantalla para productos y pedidos, se ve en el celular, nombre de tu web 6 meses."
       }
     ],
     "methodology": [
       {
         "step": "01",
-        "title": "Análisis de Productos y Mercado",
-        "description": "Analizo tu catálogo, competencia y estrategia de ventas para crear la mejor experiencia de compra",
+        "title": "Cómo vendes",
+        "description": "¿El producto es uno solo o tiene talla? ¿Vas a hacer anuncios? ¿Alguien más va a ver los pedidos? Con eso sale el plan.",
         "icon": "inventory"
       },
       {
         "step": "02",
-        "title": "Diseño de Experiencia de Compra",
-        "description": "Diseño una experiencia de compra intuitiva que guía al cliente desde el catálogo hasta el checkout",
+        "title": "Cómo se compra",
+        "description": "Diseño el camino: ver productos, carrito, pagar y el mensaje de “ya recibí tu pedido”.",
         "icon": "shopping_cart"
       },
       {
         "step": "03",
-        "title": "Desarrollo Full Code",
-        "description": "Construyo tu tienda online desde cero con código optimizado, carrito inteligente y pasarelas de pago",
+        "title": "Armado",
+        "description": "Hago la tienda desde cero, para tu negocio. Sin plantilla.",
         "icon": "code"
       },
       {
         "step": "04",
-        "title": "Integración de Pagos y Envíos",
-        "description": "Conecto métodos de pago seguros y sistemas de envío para una experiencia completa",
+        "title": "Pagos",
+        "description": "Dejamos un tipo de pago (Yape o tarjeta) y hacemos una compra de prueba.",
         "icon": "payment"
       },
       {
         "step": "05",
-        "title": "Panel Admin y Lanzamiento",
-        "description": "Entrego panel administrativo completo y lanzo tu tienda lista para vender",
+        "title": "Al aire",
+        "description": "Subo la tienda, te muestro dónde ves productos y pedidos, y cargo 20 productos para que arranques.",
         "icon": "dashboard"
       }
     ],
     "fullCodeBenefits": [
       {
+        "icon": "flag",
+        "title": "Sabes qué estás comprando",
+        "description": "Emprende, Crece y Escala no son “más productos”. Cada uno sirve para un momento distinto de tu negocio."
+      },
+      {
         "icon": "code",
-        "title": "Código Escalable",
-        "description": "Desarrollado desde cero para manejar miles de productos y transacciones sin problemas de rendimiento."
+        "title": "Hecha para ti, no con un molde",
+        "description": "Se arma a medida. No es una tienda genérica copiada de internet."
       },
       {
-        "icon": "shopping_cart",
-        "title": "Carrito Inteligente",
-        "description": "Carrito de compras personalizado con persistencia, cálculos automáticos y experiencia fluida."
+        "icon": "payments",
+        "title": "Pagas como en Perú",
+        "description": "Elegimos Yape o tarjeta. Si más adelante quieres los dos, se cotiza el segundo."
       },
       {
-        "icon": "payment",
-        "title": "Integraciones Flexibles",
-        "description": "Conecto con cualquier pasarela de pago, sistema de envío o ERP sin limitaciones."
+        "icon": "inventory_2",
+        "title": "Tú ves los pedidos",
+        "description": "Tienes una pantalla para productos y pedidos. No es un Excel suelto ni solo WhatsApp."
       },
       {
-        "icon": "speed",
-        "title": "Rendimiento Optimizado",
-        "description": "Código optimizado que carga rápido incluso con cientos de productos. Experiencia de compra fluida."
+        "icon": "tune",
+        "title": "Se puede ampliar después",
+        "description": "Puedes empezar en Emprende. Talla, cupones o anuncios van en Crece. Un empleado extra o otro programa, en Escala."
       },
       {
-        "icon": "security",
-        "title": "Seguridad de Transacciones",
-        "description": "Código personalizado con validaciones robustas y protección contra fraudes en cada transacción."
-      },
-      {
-        "icon": "dashboard",
-        "title": "Panel Admin Personalizado",
-        "description": "Dashboard administrativo diseñado específicamente para tu negocio. Gestión intuitiva de productos y pedidos."
+        "icon": "support_agent",
+        "title": "Hablas con quien la hace",
+        "description": "Sin pasar por una secretaria de agencia ni cambiar de persona a mitad del proyecto."
       }
     ],
     "plans": [
@@ -649,25 +558,19 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "price": "S/ 2,000",
         "icon": "star",
         "color": "from-gray-700 to-gray-900",
-        "tagline": "Ideal para emprendedores y pequeños negocios que quieren comenzar a vender por internet.",
-        "benefit": "Empieza a vender online con una tienda profesional desde el primer día.",
+        "tagline": "Recibes una tienda para empezar a cobrar: el cliente elige, paga y tú ves el pedido.",
+        "benefit": "Para productos simples (un frasco, un curso, un pack). Sin talla ni color.",
         "features": [
-          "Tienda virtual profesional lista para vender",
-          "Hasta 50 productos",
-          "Carrito de compras",
-          "Checkout seguro",
-          "Integración con métodos de pago",
-          "Gestión básica de inventario",
-          "Gestión de pedidos",
-          "Integración con WhatsApp Business",
-          "Correos automáticos de confirmación de compra",
-          "Carga inicial de productos (20 productos)",
-          "Capacitación personalizada de uso",
-          "Diseño responsive para móviles",
-          "Certificado SSL",
-          "Soporte inicial post-lanzamiento",
-          "Hosting y dominio incluidos por 6 meses"
-        ]
+          "Catálogo, carrito y pago en la misma tienda",
+          "Un tipo de pago: Yape o tarjeta (lo acordamos)",
+          "Tú ves los pedidos en una pantalla",
+          "WhatsApp y correo cuando alguien compra",
+          "Subo 20 productos para arrancar; el resto los cargas tú",
+          "Te enseño a usar esa pantalla",
+          "Se ve bien en el celular",
+          "Nombre de tu web 6 meses"
+        ],
+        "note": "Si cada producto tiene talla o color, o quieres cupones y anuncios, el plan es Crece. No es “tengo 60 productos”: es cómo vendes."
       },
       {
         "name": "CRECE",
@@ -675,122 +578,81 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
-        "tagline": "Ideal para negocios con catálogo consolidado que buscan aumentar ventas y optimizar la experiencia de compra.",
-        "benefit": "Convierte más visitantes en clientes y aumenta tus ventas.",
+        "tagline": "Recibes la tienda de Emprende más lo que hace falta para cerrar más ventas: no “más productos por capricho”.",
+        "benefit": "Talla o color, cupones, aviso si dejan la compra, y lista para anuncios de Facebook e Instagram.",
         "features": [
-          "Todo lo incluido en Emprende",
-          "Hasta 300 productos",
-          "Variantes y filtros avanzados",
+          "Todo lo de Emprende",
+          "Talla, color u otra opción",
           "Cupones de descuento",
-          "Promociones automáticas",
-          "Recuperación de carritos abandonados",
-          "Productos relacionados",
-          "Ventas cruzadas (“Clientes también compraron”)",
-          "Lista de deseos (Wishlist)",
-          "Panel de estadísticas",
-          "Integración con Facebook Catalog",
-          "Configuración de Meta Pixel",
-          "Google Analytics 4 configurado",
-          "Google Search Console configurado",
-          "Optimización de velocidad",
-          "Blog para posicionamiento de marca"
-        ]
+          "Aviso si alguien deja la compra a medias",
+          "Ves cuánta gente entra a la tienda",
+          "Lista para anuncios de Facebook e Instagram",
+          "Nombre de tu web 6 meses"
+        ],
+        "note": "El salto no es “puedo tener 300 productos”. Es que la tienda ayuda a vender. Lista de deseos, blog u otro tipo de pago se cotizan aparte."
       },
       {
         "name": "ESCALA",
-        "price": "Desde S/ 4,500 hasta S/ 7,000",
+        "price": "Desde S/ 4,500",
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
-        "tagline": "Ideal para empresas que necesitan automatización, personalización e integración con otros sistemas.",
-        "benefit": "Automatiza tu operación y lleva tu negocio al siguiente nivel.",
+        "tagline": "Recibes lo de Crece más una cosa extra que eliges al cotizar: un empleado ve pedidos, o cada compra se copia al programa que ya usas.",
+        "benefit": "Para cuando ya no vendes solo: hay un empleado, o los pedidos tienen que verse en otro programa.",
         "features": [
-          "Todo lo incluido en Crece",
-          "Productos ilimitados",
-          "Panel administrativo personalizado",
-          "Dashboard ejecutivo",
-          "Multiusuario con roles y permisos",
-          "CRM integrado",
-          "Integraciones ERP",
-          "APIs personalizadas",
-          "Automatización de procesos",
-          "Automatización de correos de marketing",
-          "Segmentación de clientes",
-          "Programa de fidelización",
-          "Sistema de cotizaciones",
-          "Integración con operadores logísticos",
-          "Flujos de aprobación",
-          "Diseño UI/UX a medida",
-          "Arquitectura preparada para escalar"
-        ]
+          "Todo lo de Crece",
+          "Eliges UNA de estas dos al cotizar",
+          "Opción 1: un empleado también entra a ver pedidos",
+          "Opción 2: cada compra se copia al programa que ya usas (un Excel o el sistema de tu local)",
+          "S/ 4,500 es el piso; si pides las dos cosas o algo más, se cotiza extra",
+          "Nombre de tu web 6 meses"
+        ],
+        "note": "Si vendes solo tú y no necesitas copiar pedidos a otro programa, quédate en Crece. Envíos con courier, puntos de cliente u otro programa extra se cotizan aparte."
       }
     ],
-    "plansHighlightsTitle": "Todas nuestras tiendas virtuales incluyen",
+    "plansHighlightsTitle": "En los tres planes va incluido",
     "plansHighlights": [
-      "Diseño profesional",
-      "Panel administrativo",
-      "Carrito de compras",
-      "Certificado SSL",
-      "WhatsApp integrado",
-      "Adaptación móvil",
-      "Capacitación inicial",
-      "Soporte post-lanzamiento",
-      "Hosting y dominio incluidos por 6 meses"
+      "Carrito y pedidos",
+      "Un tipo de pago: Yape o tarjeta",
+      "Pantalla para productos y pedidos",
+      "WhatsApp al comprar",
+      "20 productos cargados para arrancar",
+      "Se ve bien en el celular",
+      "Te enseño a usar la pantalla de pedidos",
+      "Nombre de tu web 6 meses"
     ],
-    "plansGuarantee": "Te acompañamos durante los primeros 30 días después del lanzamiento para resolver incidencias y realizar ajustes menores sin costo adicional.",
+    "plansBenefitsTitle": "Esto se cotiza aparte",
+    "plansBenefits": [
+      "Un segundo tipo de pago (Yape y tarjeta)",
+      "Cálculo de envíos con un courier (Olva, Shalom u otro)",
+      "Lista de deseos, blog o “clientes también compraron”",
+      "Una segunda cosa extra (otro empleado, otro programa…)"
+    ],
+    "plansGuaranteeLabel": "Después de publicarla",
+    "plansGuarantee": "Los primeros 30 días te ayudo a corregir fallas y detalles chicos que entren en el plan, sin costo extra.",
     "plansComparisonHeaders": {
       "start": "Emprende",
       "pro": "Crece",
       "premium": "Escala"
     },
-    "plansComparisonIntro": "Compara herramientas de venta, automatización y control para elegir el nivel que tu negocio necesita.",
+    "plansComparisonIntro": "Lee la primera fila: ahí está el trabajo. Escala no es “más productos”: es si hay equipo o otro programa.",
     "plansComparison": [
       {
-        "label": "Productos",
-        "start": "Hasta 50",
-        "pro": "Hasta 300",
-        "premium": "Ilimitados"
+        "label": "Para qué sirve",
+        "start": "Empezar a cobrar",
+        "pro": "Vender más",
+        "premium": "Ya no vendes solo"
       },
       {
-        "label": "Gestión de pedidos",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "Qué te entrego",
+        "start": "Tienda que cobra y toma pedidos",
+        "pro": "Eso + talla, cupones y anuncios",
+        "premium": "Eso + una de las dos extras"
       },
       {
-        "label": "Inventario",
-        "start": "Básico",
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "WhatsApp",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Carrito de compras",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Métodos de pago",
-        "start": true,
-        "pro": true,
-        "premium": true
-      },
-      {
-        "label": "Carga inicial de productos",
-        "start": "20",
-        "pro": "20",
-        "premium": "20"
-      },
-      {
-        "label": "Capacitación",
-        "start": true,
-        "pro": true,
-        "premium": true
+        "label": "¿Productos con talla o color?",
+        "start": "No",
+        "pro": "Sí",
+        "premium": "Sí"
       },
       {
         "label": "Cupones",
@@ -799,76 +661,40 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "premium": true
       },
       {
-        "label": "Recuperación de carritos",
+        "label": "Aviso si dejan la compra a medias",
         "start": false,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Wishlist",
+        "label": "¿Ves cuánta gente entra?",
         "start": false,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Facebook Catalog",
+        "label": "¿Sirve para anuncios de Facebook e Instagram?",
         "start": false,
         "pro": true,
         "premium": true
       },
       {
-        "label": "Meta Pixel",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "¿Otra persona puede entrar a ver pedidos?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "Google Analytics",
-        "start": false,
-        "pro": true,
-        "premium": true
+        "label": "¿El pedido puede ir a otro programa?",
+        "start": "No",
+        "pro": "No",
+        "premium": "Si lo eliges al cotizar"
       },
       {
-        "label": "CRM",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "ERP",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "APIs",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Automatizaciones",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Programa de fidelización",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Dashboard ejecutivo",
-        "start": false,
-        "pro": false,
-        "premium": true
-      },
-      {
-        "label": "Soporte prioritario",
-        "start": false,
-        "pro": false,
-        "premium": true
+        "label": "Precio",
+        "start": "S/ 2,000",
+        "pro": "S/ 3,000",
+        "premium": "Desde S/ 4,500"
       }
     ]
   },

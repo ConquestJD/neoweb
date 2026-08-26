@@ -30,9 +30,8 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
   };
 
   servicios = [
-    'Página web',
-    'Landing page',
-    'Tienda online (e-commerce)',
+    'Página web (landing o sitio)',
+    'Tienda online',
     'Rediseño de web',
     'Aplicación móvil',
     'Software a medida',
@@ -61,9 +60,18 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
-        'Landing Page: 1 semana',
-        'Sitio corporativo: 2 semanas',
+        'Landing: 1 semana',
+        'Sitio o Sitio Pro: 1 a 3 semanas',
         'eCommerce/App: más de 1 mes según alcance'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de páginas web?',
+      answer: 'Cada uno te entrega una web distinta. No es “la misma un poco más grande”:',
+      details: [
+        'Landing (S/ 700): una sola página. Quien abre el link te escribe. Sirve para un anuncio o WhatsApp.',
+        'Sitio (S/ 1,200): 5 páginas con menú (Inicio, Nosotros, Servicios, Preguntas, Contacto).',
+        'Sitio Pro (S/ 2,000): el Sitio más hasta 4 páginas extra (un servicio, el equipo, una sede…) y ves cuánta gente entra.'
       ]
     },
     {
@@ -73,6 +81,15 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
         'Start (S/ 600/mes): presencia en Facebook e Instagram. No incluye anuncios.',
         'Pro (S/ 1,200/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
         'Premium (S/ 1,800/mes): lo anterior más gestión de Meta Ads. La pauta la inviertes tú.'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de tienda online?',
+      answer: 'Cada uno hace un trabajo distinto. No es “más productos”:',
+      details: [
+        'Emprende (S/ 2,000): el cliente paga y tú ves el pedido. Productos simples, sin talla ni color.',
+        'Crece (S/ 3,000): talla o color, cupones, aviso si dejan la compra, y lista para anuncios de Facebook e Instagram.',
+        'Escala (desde S/ 4,500): un empleado también ve pedidos, o cada compra se copia a un programa que ya usas. Se cotiza.'
       ]
     },
     {

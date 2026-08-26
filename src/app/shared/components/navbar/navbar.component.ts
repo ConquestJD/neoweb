@@ -58,14 +58,14 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   services: ServiceMenuItem[] = [
     {
       name: 'Página Web',
-      short: 'Sitios corporativos a medida',
+      short: 'Una página o un sitio con menú',
       route: '/servicios/pagina-web',
       icon: 'language',
       image: '/assets/services/pagina web.jpg',
     },
     {
       name: 'Tienda Online',
-      short: 'E-commerce listo para vender',
+      short: 'Empezar a vender, vender más o con equipo',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
       image: '/assets/services/tienda online.jpg',

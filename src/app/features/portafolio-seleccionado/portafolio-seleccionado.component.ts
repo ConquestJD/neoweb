@@ -427,140 +427,115 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   plansByService: any = {
     'landing-page': [
       {
-        name: 'START',
-        price: 'S/ 500',
+        name: 'LANDING',
+        price: 'S/ 700',
         icon: 'star',
         features: [
-          '3-4 bloques: Hero, Beneficios, Servicios/Características, CTA',
-          'Diseño moderno',
-          'WhatsApp integrado',
-          'SEO básico',
-          'Hosting + dominio 1 año'
+          'Una página: bajas y está todo (oferta, por qué tú, contacto)',
+          'Botón de WhatsApp o formulario para escribirte',
+          'Se ve bien en el celular',
+          'Nombre de tu web y alojamiento 6 meses',
+          'Lista en aproximadamente 1 semana'
         ]
       },
       {
-        name: 'PRO',
-        price: 'S/ 800',
+        name: 'SITIO',
+        price: 'S/ 1,200',
         icon: 'rocket_launch',
         featured: true,
         features: [
-          '6-7 bloques: Hero, Beneficios, Cómo Funciona, Planes/Servicios, Testimonios, FAQ, CTA final',
-          'Copywriting optimizado',
-          'Formulario avanzado',
-          'Integración con CRM / Email marketing',
-          'Animaciones suaves',
-          'Google Analytics'
+          '5 páginas con menú: Inicio, Nosotros, Servicios, Preguntas y Contacto',
+          'WhatsApp y formulario',
+          'Se ve bien en el celular',
+          'Nombre de tu web y alojamiento 6 meses',
+          'Lista en 1 a 2 semanas'
         ]
       },
       {
-        name: 'PREMIUM',
-        price: 'S/ 1,200',
+        name: 'SITIO PRO',
+        price: 'S/ 2,000',
         icon: 'diamond',
         features: [
-          '8-10 bloques: Hero premium, Valor diferencial, Solución, Beneficios, Video/Demo, Planes, Testimonios, Casos de éxito, FAQ, CTA final',
-          'Diseño totalmente personalizado',
-          'Animaciones avanzadas',
-          'SEO completo',
-          'Optimizada para campañas masivas',
-          'Automatizaciones (email + etiquetas)'
+          'Las 5 páginas del Sitio',
+          'Hasta 4 páginas extra (un servicio, el equipo, una sede…)',
+          'Ves cuánta gente entra a tu web',
+          'Lista en 2 a 3 semanas',
+          'Un panel para editar tú se cotiza aparte'
         ]
       }
     ],
     'pagina-web': [
       {
-        name: 'ESENCIAL',
-        price: 'S/ 500',
+        name: 'LANDING',
+        price: 'S/ 700',
         icon: 'star',
         features: [
-          'Diseño profesional y moderno',
-          'Hasta 6 secciones',
-          'Inicio, Nosotros, Servicios, Beneficios, FAQ y Contacto',
-          'Formulario de contacto',
-          'Botón de WhatsApp integrado',
-          'Adaptada para celulares, tablets y computadoras',
-          'Configuración básica para aparecer en Google',
-          'Certificado SSL',
-          'Hosting y dominio incluidos durante 6 meses',
-          'Entrega en aproximadamente 1 semana'
+          'Una página: bajas y está todo (oferta, por qué tú, contacto)',
+          'Botón de WhatsApp o formulario para escribirte',
+          'Se ve bien en el celular',
+          'Nombre de tu web y alojamiento 6 meses',
+          'Lista en aproximadamente 1 semana'
         ]
       },
       {
-        name: 'PROFESIONAL',
-        price: 'S/ 900',
+        name: 'SITIO',
+        price: 'S/ 1,200',
         icon: 'rocket_launch',
         featured: true,
         features: [
-          'Todo lo incluido en Esencial',
-          'Hasta 10 secciones',
-          'Diseño completamente personalizado',
-          'Integración con redes sociales',
-          'Google Analytics',
-          'Optimización de velocidad',
-          'SEO avanzado',
-          'Investigación básica de palabras clave',
-          'Entrega en 1 a 2 semanas'
+          '5 páginas con menú: Inicio, Nosotros, Servicios, Preguntas y Contacto',
+          'WhatsApp y formulario',
+          'Se ve bien en el celular',
+          'Nombre de tu web y alojamiento 6 meses',
+          'Lista en 1 a 2 semanas'
         ]
       },
       {
-        name: 'EMPRESARIAL',
-        price: 'S/ 1,500',
+        name: 'SITIO PRO',
+        price: 'S/ 2,000',
         icon: 'diamond',
         features: [
-          'Todo lo incluido en Profesional',
-          'Hasta 15 secciones',
-          'Diseño UI/UX avanzado',
-          'Portafolio dinámico',
-          'Formularios avanzados',
-          'Integraciones con CRM y herramientas externas',
-          'SEO completo',
-          'Optimización Premium de velocidad',
-          'CTAs personalizados',
-          'Prioridad de soporte',
-          'Posibilidad de incorporar un panel de administración según el alcance del proyecto',
-          'Entrega en 2 a 3 semanas'
+          'Las 5 páginas del Sitio',
+          'Hasta 4 páginas extra (un servicio, el equipo, una sede…)',
+          'Ves cuánta gente entra a tu web',
+          'Lista en 2 a 3 semanas',
+          'Un panel para editar tú se cotiza aparte'
         ]
       }
     ],
     'tienda-virtual': [
       {
-        name: 'START',
-        price: 'S/ 2,500',
+        name: 'EMPRENDE',
+        price: 'S/ 2,000',
         icon: 'star',
         features: [
-          'Hasta 50 productos',
-          'Secciones: Inicio, Tienda, Categorías simples, Producto, Carrito, Checkout, Contacto',
-          'Métodos de pago básicos',
-          'Diseño moderno',
-          'Inventario básico',
-          'SEO simple'
+          'Tienda para cobrar: catálogo, carrito y un tipo de pago (Yape o tarjeta)',
+          'Tú ves los pedidos; WhatsApp y correo al comprar',
+          'Productos simples, sin talla ni color',
+          'Subo 20 productos para arrancar',
+          'Nombre de tu web 6 meses'
         ]
       },
       {
-        name: 'PRO',
-        price: 'S/ 3,500',
+        name: 'CRECE',
+        price: 'S/ 3,000',
         icon: 'rocket_launch',
         featured: true,
         features: [
-          'Hasta 300 productos',
-          'Secciones: Inicio, Tienda avanzada, Categorías profesionales, Producto completo, Cuenta usuario, Políticas, Blog',
-          'Variantes y filtros',
-          'Cupones y reportes',
-          'SEO optimizado',
-          'Integración con WhatsApp'
+          'Todo lo de Emprende',
+          'Talla, color u otra opción',
+          'Cupones y aviso si dejan la compra a medias',
+          'Lista para anuncios de Facebook e Instagram'
         ]
       },
       {
-        name: 'PREMIUM',
-        price: 'S/ 5,000 - S/ 8,000',
+        name: 'ESCALA',
+        price: 'Desde S/ 4,500',
         icon: 'diamond',
         features: [
-          'Productos ilimitados',
-          'Panel administrativo personalizado',
-          'Diseño UI/UX a medida',
-          'Automatizaciones (correos, estados, alertas)',
-          'Integraciones API externas',
-          'SEO completo',
-          'Optimización de rendimiento'
+          'Todo lo de Crece',
+          'Eliges una: un empleado ve pedidos, o cada compra se copia a otro programa',
+          'S/ 4,500 es el piso; se cotiza'
         ]
       }
     ],

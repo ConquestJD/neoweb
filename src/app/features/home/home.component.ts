@@ -201,8 +201,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       question: '¿Cuánto cuesta un proyecto?',
       answer: 'Depende del tipo de solución y su alcance. Estas son referencias orientativas:',
       details: [
-        'Página web: desde S/ 500',
-        'Tienda online: desde S/ 2,500',
+        'Página web: desde S/ 700 (Landing)',
+        'Tienda online: desde S/ 2,000 (Emprende)',
         'Software a medida: desde S/ 1,500',
         'Marketing digital: desde S/ 600/mes'
       ]
@@ -217,11 +217,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      question: '¿Qué diferencia hay entre los planes de páginas web?',
+      answer: 'Cada uno te entrega una web distinta. No es “la misma un poco más grande”:',
+      details: [
+        'Landing (S/ 700): una sola página. Quien abre el link te escribe. Sirve para un anuncio o WhatsApp.',
+        'Sitio (S/ 1,200): 5 páginas con menú (Inicio, Nosotros, Servicios, Preguntas, Contacto).',
+        'Sitio Pro (S/ 2,000): el Sitio más hasta 4 páginas extra (un servicio, el equipo, una sede…) y ves cuánta gente entra.'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de tienda online?',
+      answer: 'Cada uno hace un trabajo distinto. No es “más productos”:',
+      details: [
+        'Emprende (S/ 2,000): el cliente paga y tú ves el pedido. Productos simples, sin talla ni color.',
+        'Crece (S/ 3,000): talla o color, cupones, aviso si dejan la compra, y lista para anuncios de Facebook e Instagram.',
+        'Escala (desde S/ 4,500): un empleado también ve pedidos, o cada compra se copia a un programa que ya usas. Se cotiza.'
+      ]
+    },
+    {
       question: '¿Cuánto tarda un proyecto?',
       answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
       details: [
-        'Landing page: 1 semana',
-        'Sitio corporativo: 2 semanas',
+        'Landing: 1 semana',
+        'Sitio o Sitio Pro: 1 a 3 semanas',
         'Tienda online o app: más de 1 mes según alcance'
       ]
     },
@@ -250,20 +268,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       route: '/servicios/pagina-web',
       icon: 'language',
       image: '/assets/services/pagina web.jpg',
-      tag: 'Identidad',
-      outcome: 'Presencia corporativa confiable',
-      description: 'Sitios institucionales a medida, con diseño claro y código optimizado.',
-      audience: 'Para empresas que necesitan presencia profesional online'
+      tag: 'Web',
+      outcome: 'Una página, un sitio, o páginas por servicio',
+      description: 'Landing: una página para que te escriban. Sitio: 5 páginas con menú. Sitio Pro: además, páginas sueltas para tus servicios.',
+      audience: 'Para quien quiere saber exactamente qué va a recibir'
     },
     {
       name: 'Tienda Online',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
       image: '/assets/services/tienda online.jpg',
-      tag: 'E‑commerce',
-      outcome: 'Catálogo listo para vender',
-      description: 'E‑commerce con catálogo, carrito y pasarela de pagos integrados.',
-      audience: 'Para negocios que quieren vender productos en internet'
+      tag: 'Tienda',
+      outcome: 'Empezar a vender, vender más o con equipo',
+      description: 'Emprende: cobrar. Crece: talla, cupones y anuncios. Escala: un empleado ve pedidos, o se copian a otro programa.',
+      audience: 'Para quien quiere saber qué plan de tienda le toca'
     },
     {
       name: 'Marketing Digital',

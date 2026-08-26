@@ -25,7 +25,6 @@ export function initServicioGsapAnimations(
     setupPlans(root, () => callbacks.onSectionVisible?.('plans'));
     setupIncludes(root, () => callbacks.onSectionVisible?.('includes'));
     setupProcess(root, () => callbacks.onSectionVisible?.('process'));
-    setupFullcode(root, () => callbacks.onSectionVisible?.('fullcode'));
     setupCta(root, () => {
       callbacks.onSectionVisible?.('cta');
       callbacks.onCtaComplete?.();
@@ -481,88 +480,6 @@ function setupProcess(root: HTMLElement, onComplete?: () => void) {
         }
       }
     );
-  }
-}
-
-function setupFullcode(root: HTMLElement, onComplete?: () => void) {
-  const section = root.querySelector('.svc-fullcode');
-  if (!section) return;
-
-  const media = section.querySelector('.svc-fullcode-media');
-  const img = section.querySelector('.svc-fullcode-media img');
-  const label = section.querySelector('.svc-label');
-  const intro = section.querySelector('.svc-intro');
-  const items = section.querySelectorAll('.svc-fullcode-item');
-
-  if (media) gsap.set(media, { opacity: 0, xPercent: -8 });
-  if (img) gsap.set(img, { scale: 1.12 });
-  gsap.set([label, intro].filter(Boolean), { opacity: 0, y: 24 });
-  gsap.set(items, { opacity: 0, y: 28 });
-
-  const tl = gsap.timeline({
-    defaults: { ease: EASE },
-    scrollTrigger: {
-      trigger: section,
-      start: 'top 70%',
-      once: true
-    },
-    onComplete: () => onComplete?.()
-  });
-
-  if (media) {
-    tl.to(media, { opacity: 1, xPercent: 0, duration: 1.05, ease: EASE_SOFT }, 0);
-  }
-  if (img) {
-    tl.to(img, { scale: 1, duration: 1.3, ease: EASE_SOFT }, 0);
-  }
-  if (label) {
-    tl.fromTo(
-      label,
-      { opacity: 0, y: 30, clipPath: 'inset(0 0 100% 0)' },
-      { opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 0.85, ease: EASE_EXPO },
-      0.2
-    );
-  }
-  if (intro) {
-    tl.to(intro, { opacity: 1, y: 0, duration: 0.65 }, 0.35);
-  }
-  if (items.length) {
-    tl.to(
-      items,
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: EASE_SOFT },
-      0.45
-    );
-
-    items.forEach((item, i) => {
-      const title = item.querySelector('.svc-fullcode-title');
-      const desc = item.querySelector('.svc-fullcode-desc');
-      if (title) {
-        gsap.fromTo(
-          title,
-          { opacity: 0, x: -14 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.5,
-            delay: 0.5 + i * 0.08,
-            scrollTrigger: { trigger: section, start: 'top 70%', once: true }
-          }
-        );
-      }
-      if (desc) {
-        gsap.fromTo(
-          desc,
-          { opacity: 0, y: 10 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.45,
-            delay: 0.58 + i * 0.08,
-            scrollTrigger: { trigger: section, start: 'top 70%', once: true }
-          }
-        );
-      }
-    });
   }
 }
 

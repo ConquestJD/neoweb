@@ -211,32 +211,6 @@
     </div>
   </section>
   
-  <!-- ===================== FULL CODE ===================== -->
-  <section class="svc-fullcode svc-reveal" [class.is-visible]="sectionsVisible['fullcode']" data-section-id="fullcode">
-    <div class="svc-fullcode-media">
-      <img
-        [src]="getFullcodeImage(s.slug)"
-        (error)="onImgError($event)"
-        alt=""
-        loading="lazy">
-    </div>
-    <div class="svc-inner svc-fullcode-body">
-      <div class="svc-header svc-header-light">
-        <h2 class="svc-label svc-label-light">
-          {{ s.fullcodeSection.titleLine1 }}
-          <span class="svc-label-accent">{{ s.fullcodeSection.titleHighlight }}</span>
-        </h2>
-        <p class="svc-intro svc-intro-light">{{ s.fullcodeSection.subtitle }}</p>
-      </div>
-      <ul class="svc-fullcode-grid">
-        <li *ngFor="let item of s.fullCodeBenefits" class="svc-fullcode-item">
-          <h3 class="svc-fullcode-title">{{ item.title }}</h3>
-          <p class="svc-fullcode-desc">{{ item.description }}</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-  
   <!-- ===================== CTA ===================== -->
   <section class="svc-cta svc-reveal" id="svc-cta" [class.is-visible]="ctaVisible" data-section-id="cta">
     <p class="svc-cta-outline" aria-hidden="true">{{ s.hero.titleHighlight }}</p>

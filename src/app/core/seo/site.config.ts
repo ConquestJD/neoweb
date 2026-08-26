@@ -25,12 +25,12 @@ export const SITE_SERVICES = [
   {
     slug: 'pagina-web',
     name: 'Desarrollo de Páginas Web',
-    description: 'Sitios web corporativos desarrollados desde cero con código a medida, SEO y diseño orientado a conversión.'
+    description: 'Una sola página para que te escriban, o un sitio de 5 páginas con menú. Hecho a medida, sin plantillas.'
   },
   {
     slug: 'tienda-virtual',
     name: 'Tienda Online / E-commerce',
-    description: 'Tiendas online completas con catálogo, pasarelas de pago y experiencia de compra optimizada.'
+    description: 'Empezar a cobrar, vender más con descuentos y anuncios, o que un empleado vea pedidos. Un tipo de pago: Yape o tarjeta.'
   },
   {
     slug: 'marketing-digital',

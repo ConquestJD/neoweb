@@ -26,10 +26,6 @@ import { initServicioGsapAnimations } from './servicio-gsap-animations';
  *  Hero:        heroImage en servicios.data.ts → /assets/services/*.jpg
  *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
  *  Proceso:     imágenes en processStepImages (servicio.component.ts)
- *  Full Code:   /assets/services/fullcode/{slug}.jpg         una sola imagen de fondo
- *
- * Si un archivo no existe, se usa /assets/services/placeholder.jpg como respaldo,
- * así el layout nunca se rompe mientras vas subiendo las imágenes reales.
  * ============================================================
  */
 
@@ -57,7 +53,6 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private destroyed = false;
   private isFirstServiceLoad = true;
   private gsapCleanup: (() => void) | null = null;
-  private readonly placeholder = '/assets/services/placeholder.jpg';
 
   private readonly processStepImages: Record<string, string[]> = {
     'pagina-web': [
@@ -260,7 +255,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private revealAllSectionsInstant() {
-    ['plans', 'includes', 'process', 'fullcode', 'cta'].forEach((id) => {
+    ['plans', 'includes', 'process', 'cta'].forEach((id) => {
       this.sectionsVisible[id] = true;
     });
     this.ctaVisible = true;
@@ -294,19 +289,8 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     return `url("${encodeURI(this.getStepImage(index))}")`;
   }
 
-  getFullcodeImage(slug: string): string {
-    return `/assets/services/fullcode/${slug}.jpg`;
-  }
-
   isCompareBool(value: string | boolean): boolean {
     return typeof value === 'boolean';
-  }
-
-  onImgError(event: Event) {
-    const img = event.target as HTMLImageElement;
-    if (img && img.src.indexOf('placeholder.jpg') === -1) {
-      img.src = this.placeholder;
-    }
   }
 
   onCtaMouseMove(event: MouseEvent) {

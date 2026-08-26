@@ -1,82 +1,86 @@
 {
   "pagina-web": {
-    "pageTitle": "Agencia de Desarrollo Web en Perú | Páginas Web Personalizadas | NeoWeb",
+    "pageTitle": "Páginas Web en Perú | Una página o un sitio con menú | NeoWeb",
     "hero": {
       "badgeIcon": "web",
-      "badgeText": "Página web",
-      "titleLine1": "Sitio corporativo",
-      "titleHighlight": "profesional",
-      "description": "Autoridad, claridad y performance para tu marca. Diseño premium y base técnica lista para SEO."
+      "badgeText": "Desarrollo web · Perú",
+      "titleLine1": "Páginas web",
+      "titleHighlight": "fáciles de elegir",
+      "description": "Dime qué necesita tu cliente al entrar. ¿Solo escribirte? ¿Conocer la empresa? ¿Ver un servicio en concreto? Cada plan entrega una cosa distinta, hecha a medida, sin plantillas."
     },
-    "plansSubtitle": "Desde S/ 500 hasta S/ 1,200 según alcance. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "plansSubtitle": "Landing: una página. Sitio: cinco páginas con menú. Sitio Pro: eso más páginas sueltas para tus servicios. En los tres va el nombre de tu web y el alojamiento los primeros 6 meses.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Secciones",
-      "titleLine1": "Todo lo que",
-      "titleHighlight": "incluye",
-      "subtitle": "Todas las secciones y funcionalidades necesarias para un sitio web corporativo completo."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "Mira qué llega a tu negocio con cada plan. No es la misma web “un poco más grande”."
     },
     "includes": [
-      { "icon": "rocket_launch", "title": "Hero y propuesta de valor", "description": "Mensajes claros y CTA definidos." },
-      { "icon": "business", "title": "Servicios y diferenciales", "description": "Catálogo ordenado y beneficios." },
-      { "icon": "folder", "title": "Portafolio y casos", "description": "Resultados y credenciales." },
-      { "icon": "star", "title": "Testimonios y FAQ", "description": "Confianza y claridad." },
-      { "icon": "article", "title": "Blog y SEO", "description": "Contenido optimizado y técnico listo." },
-      { "icon": "mail", "title": "Contacto y lead gen", "description": "Formularios y analítica." }
+      { "icon": "web_asset", "title": "Landing: una página", "description": "Todo está en una sola pantalla al bajar: qué ofreces, por qué tú, y un botón para escribirte. Sirve para un anuncio o para pasar el link por WhatsApp." },
+      { "icon": "menu", "title": "Sitio: 5 páginas", "description": "Arriba hay un menú: Inicio, Nosotros, Servicios, Preguntas y Contacto. Sirve para que te conozcan, no solo para un anuncio." },
+      { "icon": "layers", "title": "Sitio Pro: páginas por servicio", "description": "Lo mismo que el Sitio, y además hasta 4 páginas extra (por ejemplo “Ortodoncia”, “El equipo” o “Nuestra sede”). Ves cuánta gente entra." },
+      { "icon": "code", "title": "En los tres planes", "description": "Diseño hecho para ti, se ve bien en el celular, botón para escribirte, nombre de tu web y alojamiento 6 meses." }
     ],
     "showBenefitsSection": true,
     "processSection": {
       "titleLine1": "Método de",
       "titleHighlight": "trabajo",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "subtitle": "Primero cerramos qué entra. Después diseño, armado, pruebas y la subimos."
     },
     "fullcodeSection": {
       "badgeText": "Full Code",
       "titleLine1": "Código propio y",
       "titleHighlight": "optimizado",
-      "subtitle": "Desarrollo a medida, listo para escalar y posicionar."
+      "subtitle": "Hecha a medida, sin plantillas, para que cargue rápido y se pueda ampliar después."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para tu",
-      "titleHighlight": "sitio corporativo?",
-      "description": "Construyo un sitio serio, veloz y que comunique autoridad."
+      "titleLine1": "¿Una página o",
+      "titleHighlight": "un sitio?",
+      "description": "Si solo quieres que te escriban, Landing. Si quieren conocerte, Sitio. Si cada servicio merece su propia página, Sitio Pro."
     }
   },
   "tienda-virtual": {
-    "pageTitle": "Tienda Online - NeoWeb | E-commerce Completo",
+    "pageTitle": "Tienda Online en Perú | Empezar a vender o vender más | NeoWeb",
     "hero": {
       "badgeIcon": "shopping_cart",
-      "badgeText": "eCommerce",
+      "badgeText": "Tienda online · Perú",
       "titleLine1": "Tienda online",
-      "titleHighlight": "completa",
-      "description": "Catálogo, pagos, envíos y analítica listos para vender 24/7. Diseño limpio y conversion-first."
+      "titleHighlight": "fácil de elegir",
+      "description": "Tres planes. Emprende: el cliente paga y tú ves el pedido. Crece: talla, descuentos y anuncios. Escala: si venden varios en el equipo o el pedido tiene que llegar a otro programa que ya usas."
     },
-    "plansSubtitle": "Desde S/ 2,500 hasta S/ 8,000 según funcionalidades y catálogo. Dominio y hosting gratis por solo 6 meses; luego se paga un monto mensual de mantenimiento.",
+    "plansSubtitle": "Emprende es para empezar a cobrar. Crece es si hay talla o color, cupones o anuncios. Escala es si no eres solo tú: un empleado también ve pedidos, o cada compra se copia a otro programa. El nombre de tu web va 6 meses en todos.",
     "includesSection": {
       "badgeIcon": "check_circle",
-      "badgeText": "Incluye",
-      "titleLine1": "Funcionalidades",
-      "titleHighlight": "clave",
-      "subtitle": "Todas las herramientas necesarias para gestionar y hacer crecer tu tienda online."
+      "badgeText": "Qué recibes",
+      "titleLine1": "Así se",
+      "titleHighlight": "entiende",
+      "subtitle": "No es la misma tienda “con más productos”. Cada plan sirve para un momento distinto."
     },
+    "includes": [
+      { "icon": "storefront", "title": "Emprende: empezar a vender", "description": "El cliente elige, paga y te llega el pedido. Productos de un solo tipo (un frasco, un pack). Tú y nadie más en la pantalla de pedidos." },
+      { "icon": "trending_up", "title": "Crece: vender más", "description": "Lo mismo, y además talla o color, cupones, un aviso si dejan la compra a medias, y la tienda lista para anuncios de Facebook e Instagram." },
+      { "icon": "groups", "title": "Escala: ya no vendes solo", "description": "Lo de Crece, más una de estas dos cosas (la eliges al cotizar): que un empleado también entre a ver pedidos, o que cada compra se copie al programa que ya usas (por ejemplo un Excel o el sistema de tu local)." },
+      { "icon": "payments", "title": "En los tres planes", "description": "Carrito, un tipo de pago que acordamos (Yape o tarjeta), WhatsApp al comprar, pantalla para productos y pedidos, se ve en el celular, nombre de tu web 6 meses." }
+    ],
     "showBenefitsSection": false,
     "processSection": {
       "titleLine1": "Cómo",
       "titleHighlight": "trabajo",
-      "subtitle": "Un proceso estructurado y probado para garantizar resultados excepcionales."
+      "subtitle": "Primero vemos cómo vendes. Después diseño, armado, el pago y la subimos."
     },
     "fullcodeSection": {
-      "badgeText": "Full Code",
-      "titleLine1": "Desarrollo a",
-      "titleHighlight": "medida",
-      "subtitle": "Arquitectura segura, performance y SEO listos."
+      "badgeText": "A medida",
+      "titleLine1": "Tienda hecha",
+      "titleHighlight": "para ti",
+      "subtitle": "No es una plantilla de Shopify ni WordPress. Entra lo del plan que eliges, no “cualquier programa”."
     },
     "ctaSection": {
       "theme": "dark",
-      "titleLine1": "¿Listo para",
-      "titleHighlight": "vender online?",
-      "description": "Lanza tu tienda con catálogo, pagos y envíos listos."
+      "titleLine1": "¿Cuál tienda",
+      "titleHighlight": "necesitas?",
+      "description": "¿Solo cobrar? Emprende. ¿Talla, cupones o anuncios? Crece. ¿Un empleado también ve pedidos, o el pedido llega a otro programa? Escala, te armo el precio."
     }
   },
   "marketing-digital": {
