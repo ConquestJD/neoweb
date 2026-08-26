@@ -236,7 +236,7 @@ function setupPlans(root: HTMLElement, onComplete?: () => void) {
           }
         );
       }
-      if (features.length) {
+      if (features.length && !window.matchMedia('(max-width: 900px)').matches) {
         gsap.fromTo(
           features,
           { opacity: 0, x: -10 },

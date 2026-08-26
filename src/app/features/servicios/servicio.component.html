@@ -63,11 +63,24 @@
           <p *ngIf="plan.tagline" class="svc-plan-tagline">{{ plan.tagline }}</p>
           <p *ngIf="plan.benefit" class="svc-plan-benefit">{{ plan.benefit }}</p>
 
-          <ul class="svc-plan-features">
-            <li *ngFor="let feature of plan.features">{{ feature }}</li>
-          </ul>
-
-          <p *ngIf="plan.note" class="svc-plan-note">{{ plan.note }}</p>
+          <div
+            class="svc-plan-details"
+            [class.is-open]="expandedPlanIndex === i">
+            <button
+              type="button"
+              class="svc-plan-details-toggle"
+              (click)="togglePlanDetails(i)"
+              [attr.aria-expanded]="expandedPlanIndex === i">
+              <span>{{ expandedPlanIndex === i ? 'Ocultar detalle' : 'Qué incluye' }}</span>
+              <span class="material-icons" aria-hidden="true">{{ expandedPlanIndex === i ? 'expand_less' : 'expand_more' }}</span>
+            </button>
+            <div class="svc-plan-details-body">
+              <ul class="svc-plan-features">
+                <li *ngFor="let feature of plan.features">{{ feature }}</li>
+              </ul>
+              <p *ngIf="plan.note" class="svc-plan-note">{{ plan.note }}</p>
+            </div>
+          </div>
 
           <a routerLink="/contacto" class="svc-plan-cta">
             Elegir {{ plan.name }}
