@@ -259,7 +259,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       answer: 'Es el mismo sistema, en tres fases. No es “más pantallas”:',
       details: [
         'Diario (S/ 4,500): el equipo registra el trabajo del día y lo consulta. Sin ingresos ni gastos.',
-        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de la plata.',
+        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de las finanzas.',
         'Amplía (desde S/ 9,000): una extra cotizada: otra sede, otro módulo, o copiar datos a otro programa.'
       ]
     },
@@ -352,7 +352,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'auto_awesome',
       image: '/assets/services/software a medida.jpg',
       tag: 'Automatización',
-      outcome: 'El día a día, la plata o se cotiza',
+      outcome: 'El día a día, las finanzas o se cotiza',
       description: 'Diario: el equipo registra el trabajo. Control: eso y ves ingresos y gastos. Amplía: otra sede, módulo o programa, cotizado.',
       audience: 'Para quien quiere un sistema interno, no una web'
     }

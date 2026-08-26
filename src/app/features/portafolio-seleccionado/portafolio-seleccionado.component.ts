@@ -575,7 +575,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
         featured: true,
         features: [
           'Todo lo de Diario',
-          'Ingresos, gastos y un reporte de la plata',
+          'Ingresos, gastos y un reporte de las finanzas',
           'Lista en 2 a 3 meses'
         ]
       },

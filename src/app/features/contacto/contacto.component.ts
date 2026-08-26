@@ -119,7 +119,7 @@ export class ContactoComponent implements AfterViewInit, OnDestroy {
       answer: 'Es el mismo sistema, en tres fases. No es “más pantallas”:',
       details: [
         'Diario (S/ 4,500): el equipo registra el trabajo del día y lo consulta. Sin ingresos ni gastos.',
-        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de la plata.',
+        'Control (S/ 7,000): eso, más ingresos, gastos y un reporte de las finanzas.',
         'Amplía (desde S/ 9,000): una extra cotizada: otra sede, otro módulo, o copiar datos a otro programa.'
       ]
     },

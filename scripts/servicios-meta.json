@@ -92,7 +92,7 @@
       "titleHighlight": "con un objetivo claro",
       "description": "Tres planes distintos: presencia en redes, contenido que lleva gente a tu web, o captación con Meta Ads. Facebook e Instagram. La pauta, si la hay, la inviertes tú."
     },
-    "plansSubtitle": "No es más publicaciones por más plata. Cada plan resuelve un trabajo distinto: verse profesional, traer consultas a tu web, o captar con anuncios.",
+    "plansSubtitle": "No es más publicaciones por más dinero. Cada plan resuelve un trabajo distinto: verse profesional, traer consultas a tu web, o captar con anuncios.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Alcance",
@@ -204,7 +204,7 @@
     }
   },
   "digitalizacion-procesos": {
-    "pageTitle": "Software a Medida en Perú | El día a día, la plata o se cotiza | NeoWeb",
+    "pageTitle": "Software a Medida en Perú | El día a día, las finanzas o se cotiza | NeoWeb",
     "hero": {
       "badgeIcon": "settings",
       "badgeText": "Software a medida · Perú",
@@ -212,7 +212,7 @@
       "titleHighlight": "en tres fases",
       "description": "No es una web ni una tienda. Es el sistema con el que tu equipo trabaja. Diario: registran el día a día y lo consultan. Control: eso, y ves ingresos y gastos. Amplía: otra sede, otro módulo u otro programa, se cotiza."
     },
-    "plansSubtitle": "Diario es el trabajo de cada día. Control suma la plata. Amplía es una extra cotizada. En los tres el equipo entra con usuario. Si lo que quieres es una web o una tienda, esos son otros servicios.",
+    "plansSubtitle": "Diario es el trabajo de cada día. Control suma ingresos y gastos. Amplía es una extra cotizada. En los tres el equipo entra con usuario. Si lo que quieres es una web o una tienda, esos son otros servicios.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Qué recibes",
@@ -222,7 +222,7 @@
     },
     "includes": [
       { "icon": "event_note", "title": "Diario: el día a día", "description": "Tu equipo entra, registra lo que hacen todos los días y lo puede buscar después. Un reporte de ese trabajo. El sistema ya se usa, no es un formulario suelto." },
-      { "icon": "payments", "title": "Control: el día a día y la plata", "description": "Lo de Diario, y además ingresos, gastos y un reporte que tú abres para ver cómo va el dinero." },
+      { "icon": "payments", "title": "Control: el día a día y las finanzas", "description": "Lo de Diario, y además ingresos, gastos y un reporte que tú abres para ver cómo va el dinero." },
       { "icon": "tune", "title": "Amplía: lo que falte", "description": "Lo de Control, más una extra que eliges al cotizar: otra sede, otro módulo, o que los datos se copien a un programa que ya usas." },
       { "icon": "groups", "title": "En las tres fases", "description": "Sistema interno, hecho para tu negocio. El equipo entra con usuario. Te enseño a usarlo. No es una página pública ni una tienda." }
     ],
@@ -242,7 +242,7 @@
       "theme": "dark",
       "titleLine1": "¿En qué fase",
       "titleHighlight": "empiezas?",
-      "description": "¿Que el equipo deje el Excel? Diario. ¿También ver la plata? Control. ¿Otra sede, otro módulo u otro programa? Amplía, te armo el precio. Si es web o tienda, esos son otros servicios."
+      "description": "¿Que el equipo deje el Excel? Diario. ¿También ver ingresos y gastos? Control. ¿Otra sede, otro módulo u otro programa? Amplía, te armo el precio. Si es web o tienda, esos son otros servicios."
     }
   }
 }

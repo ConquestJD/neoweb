@@ -710,7 +710,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "con un objetivo claro",
       "description": "Tres planes distintos: presencia en redes, contenido que lleva gente a tu web, o captación con Meta Ads. Facebook e Instagram. La pauta, si la hay, la inviertes tú."
     },
-    "plansSubtitle": "No es más publicaciones por más plata. Cada plan resuelve un trabajo distinto: verse profesional, traer consultas a tu web, o captar con anuncios.",
+    "plansSubtitle": "No es más publicaciones por más dinero. Cada plan resuelve un trabajo distinto: verse profesional, traer consultas a tu web, o captar con anuncios.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Alcance",
@@ -1559,7 +1559,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   "digitalizacion-procesos": {
     "slug": "digitalizacion-procesos",
     "heroImage": "/assets/services/software a medida.jpg",
-    "pageTitle": "Software a Medida en Perú | El día a día, la plata o se cotiza | NeoWeb",
+    "pageTitle": "Software a Medida en Perú | El día a día, las finanzas o se cotiza | NeoWeb",
     "metaDescription": "Sistema interno para tu empresa: el equipo registra el día a día, ves ingresos y gastos, o ampliamos lo que falte. Cotiza con NeoWeb.",
     "hero": {
       "badgeIcon": "settings",
@@ -1568,7 +1568,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "titleHighlight": "en tres fases",
       "description": "No es una web ni una tienda. Es el sistema con el que tu equipo trabaja. Diario: registran el día a día y lo consultan. Control: eso, y ves ingresos y gastos. Amplía: otra sede, otro módulo u otro programa, se cotiza."
     },
-    "plansSubtitle": "Diario es el trabajo de cada día. Control suma la plata. Amplía es una extra cotizada. En los tres el equipo entra con usuario. Si lo que quieres es una web o una tienda, esos son otros servicios.",
+    "plansSubtitle": "Diario es el trabajo de cada día. Control suma ingresos y gastos. Amplía es una extra cotizada. En los tres el equipo entra con usuario. Si lo que quieres es una web o una tienda, esos son otros servicios.",
     "includesSection": {
       "badgeIcon": "check_circle",
       "badgeText": "Qué recibes",
@@ -1584,7 +1584,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "icon": "payments",
-        "title": "Control: el día a día y la plata",
+        "title": "Control: el día a día y las finanzas",
         "description": "Lo de Diario, y además ingresos, gastos y un reporte que tú abres para ver cómo va el dinero."
       },
       {
@@ -1614,7 +1614,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       "theme": "dark",
       "titleLine1": "¿En qué fase",
       "titleHighlight": "empiezas?",
-      "description": "¿Que el equipo deje el Excel? Diario. ¿También ver la plata? Control. ¿Otra sede, otro módulo u otro programa? Amplía, te armo el precio. Si es web o tienda, esos son otros servicios."
+      "description": "¿Que el equipo deje el Excel? Diario. ¿También ver ingresos y gastos? Control. ¿Otra sede, otro módulo u otro programa? Amplía, te armo el precio. Si es web o tienda, esos son otros servicios."
     },
     "features": [
       {
@@ -1624,7 +1624,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "icon": "payments",
-        "title": "Control: el día a día y la plata",
+        "title": "Control: el día a día y las finanzas",
         "description": "Lo de Diario, y además ingresos, gastos y un reporte que tú abres para ver cómo va el dinero."
       },
       {
@@ -1683,13 +1683,13 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       },
       {
         "icon": "payments",
-        "title": "La plata va cuando la pides",
+        "title": "Ingresos y gastos, cuando los pides",
         "description": "Ingresos y gastos no se inventan en Diario. Están en Control, para que el precio coincida con lo que ves."
       },
       {
         "icon": "tune",
         "title": "Se puede ampliar después",
-        "description": "Puedes empezar en Diario. La plata va en Control. Otra sede, otro módulo u otro programa, en Amplía."
+        "description": "Puedes empezar en Diario. Ingresos y gastos van en Control. Otra sede, otro módulo u otro programa, en Amplía."
       },
       {
         "icon": "storefront",
@@ -1726,12 +1726,12 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "rocket_launch",
         "color": "from-blue-500 to-cyan-500",
         "featured": true,
-        "tagline": "Recibes el día a día y la plata: ingresos, gastos y un reporte para ver cómo va el dinero.",
+        "tagline": "Recibes el día a día más ingresos y gastos, y un reporte para ver cómo va el dinero.",
         "benefit": "Para cuando el sistema también tiene que mostrar si el negocio está cuadrando.",
         "features": [
           "Todo lo de Diario",
           "Registro de ingresos y gastos",
-          "Un reporte que tú abres para ver la plata",
+          "Un reporte que tú abres para ver ingresos y gastos",
           "El equipo sigue registrando el día a día",
           "Te enseño a usarlo",
           "Lista en 2 a 3 meses"
@@ -1744,7 +1744,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "icon": "diamond",
         "color": "from-orange-500 to-red-500",
         "tagline": "Recibes lo de Control más una extra que eliges al cotizar: otra sede, otro módulo, o copiar datos a otro programa.",
-        "benefit": "Para cuando el día a día y la plata no alcanzan: hay otra sucursal, otra parte del negocio u otro sistema.",
+        "benefit": "Para cuando el día a día y las finanzas no alcanzan: hay otra sucursal, otra parte del negocio u otro sistema.",
         "features": [
           "Todo lo de Control",
           "Eliges UNA de estas al cotizar",
@@ -1753,7 +1753,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
           "Opción 3: los datos se copian a un programa que ya usas",
           "S/ 9,000 es el piso; si pides dos cosas o algo más, se cotiza extra"
         ],
-        "note": "Si con el día a día y la plata te alcanza, quédate en Control. Chat, app o una tienda para clientes se cotizan en esos servicios, no aquí."
+        "note": "Si con el día a día y las finanzas te alcanza, quédate en Control. Chat, app o una tienda para clientes se cotizan en esos servicios, no aquí."
       }
     ],
     "plansHighlightsTitle": "En las tres fases va incluido",
@@ -1782,7 +1782,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
       {
         "label": "Para qué sirve",
         "start": "Dejar el Excel del día",
-        "pro": "Ver también la plata",
+        "pro": "Ver también las finanzas",
         "premium": "Otra sede, módulo o programa"
       },
       {
@@ -1810,7 +1810,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
         "premium": true
       },
       {
-        "label": "¿Tú ves un reporte de la plata?",
+        "label": "¿Tú ves un reporte de ingresos y gastos?",
         "start": false,
         "pro": true,
         "premium": true
