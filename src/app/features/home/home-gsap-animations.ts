@@ -2,10 +2,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.config({
-  ignoreMobileResize: true,
-  autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load'
-});
 
 export type HomeGsapCallbacks = {
   onServicesStart?: () => void;
@@ -28,6 +24,11 @@ export function initHomeGsapAnimations(
   root: HTMLElement,
   callbacks: HomeGsapCallbacks = {}
 ): () => void {
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+    autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load'
+  });
+
   const ctx = gsap.context(() => {
     setupHero(root);
     setupServices(root, callbacks.onServicesStart, callbacks.onServicesComplete);
