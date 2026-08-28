@@ -1,0 +1,21 @@
+# NeoWeb
+
+Agencia digital en Perú: desarrollo web a medida, tiendas online, apps, software interno y marketing digital. Sitios rápidos, hechos a medida, sin plantillas.
+
+## Páginas
+
+- [Inicio](https://neoweb.website/inicio): qué hacemos, proceso y preguntas frecuentes.
+- [Páginas web](https://neoweb.website/servicios/pagina-web): una página o un sitio con menú. Desde S/600.
+- [Tienda online](https://neoweb.website/servicios/tienda-virtual): cobrar, vender más o con equipo. Desde S/2,000.
+- [Marketing digital](https://neoweb.website/servicios/marketing-digital): Facebook e Instagram, por mes. Desde S/500.
+- [Rediseño web](https://neoweb.website/servicios/rediseno-paginas-web): cara nueva o armarla de nuevo. Desde S/600.
+- [Apps móviles](https://neoweb.website/servicios/aplicaciones-moviles): Android o extra cotizada. Desde S/2,500.
+- [Software a medida](https://neoweb.website/servicios/digitalizacion-procesos): sistema interno para el equipo. Desde S/2,000.
+- [Portafolio](https://neoweb.website/portafolio): proyectos reales en Perú.
+- [Nosotros](https://neoweb.website/nosotros): quién hace el trabajo.
+- [Contacto](https://neoweb.website/contacto): WhatsApp +51 942 820 836 o contacto@neoweb.website.
+
+## Opcional
+
+- [Política de privacidad](https://neoweb.website/politica-privacidad)
+- [Términos y condiciones](https://neoweb.website/terminos-condiciones)

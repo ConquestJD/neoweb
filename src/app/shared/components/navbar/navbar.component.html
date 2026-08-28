@@ -35,8 +35,7 @@
 
           <!-- Megamenú -->
           <div *ngIf="isServicesDropdownOpen"
-               class="services-megamenu"
-               [@megaFade]>
+               class="services-megamenu">
             <div class="megamenu-inner">
               <div class="megamenu-list" role="list">
                 <p class="megamenu-eyebrow">Servicios</p>
@@ -118,7 +117,6 @@
   <div
     *ngIf="isMenuOpen"
     class="mobile-menu-glass"
-    [@slideDown]
   >
     <div class="mobile-menu-content">
       <a routerLink="/inicio"
@@ -146,8 +144,7 @@
         </button>
 
         <div *ngIf="isServicesDropdownOpen"
-             class="mobile-services-submenu"
-             [@slideDown]>
+             class="mobile-services-submenu">
           <a *ngFor="let service of services; let i = index"
              [routerLink]="service.route"
              (click)="navigateTo(service.route)"

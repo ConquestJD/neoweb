@@ -10,7 +10,6 @@ import {
   HostBinding,
   ChangeDetectorRef
 } from '@angular/core';
-import { trigger, transition, style } from '@angular/animations';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import {
@@ -34,18 +33,7 @@ interface ServiceMenuItem {
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
-  animations: [
-    // Enter/leave instant: GSAP maneja el enter; leave largo causaba carreras
-    trigger('slideDown', [
-      transition(':enter', [style({ opacity: 1, transform: 'none' })]),
-      transition(':leave', [style({ opacity: 0 })])
-    ]),
-    trigger('megaFade', [
-      transition(':enter', [style({ opacity: 1, transform: 'translate(-50%, 0)' })]),
-      transition(':leave', [style({ opacity: 0, transform: 'translate(-50%, 0)' })])
-    ])
-  ]
+  styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.gsap-enabled') gsapEnabled = false;

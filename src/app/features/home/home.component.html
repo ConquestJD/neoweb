@@ -6,13 +6,10 @@
     <video
       #heroVideo
       class="hero-video"
-      autoplay
       muted
       loop
       playsinline
-      preload="metadata">
-      <source src="/assets/home/hero.mp4" type="video/mp4">
-      <source src="/assets/home/hero.mov" type="video/mp4">
+      preload="none">
     </video>
     <div class="hero-video-overlay" aria-hidden="true"></div>
   </div>
@@ -96,7 +93,7 @@
                   ? 'Siguiente: ' + slide.service.name
                   : 'Mostrar ' + slide.service.name + ' en el carrusel'
           ">
-          <img [src]="slide.service.image" [alt]="slide.service.name" loading="lazy" decoding="async">
+          <img *ngIf="isCarouselImageReady(i)" [src]="slide.service.image" [alt]="slide.service.name" loading="lazy" decoding="async">
           <div class="carousel-slide-overlay" aria-hidden="true"></div>
           <div class="carousel-slide-top">
             <h3>{{ slide.service.name }}</h3>
@@ -149,7 +146,7 @@
           class="why-showcase-bg-layer"
           [class.is-active]="i === activeDiferencialIndex"
           [class.is-past]="i < activeDiferencialIndex"
-          [style.background-image]="storyImage(diferencial.image)">
+          [style.background-image]="isStoryLayerReady(i, activeDiferencialIndex) ? storyImage(diferencial.image) : null">
         </div>
       </div>
       <div class="why-showcase-mask" aria-hidden="true"></div>
@@ -286,7 +283,7 @@
           class="process-accordion-bg-layer"
           [class.is-active]="i === activeProcessIndex"
           [class.is-past]="i < activeProcessIndex"
-          [style.background-image]="storyImage(step.image)">
+          [style.background-image]="isStoryLayerReady(i, activeProcessIndex) ? storyImage(step.image) : null">
         </div>
       </div>
       <div class="process-accordion-scrim" aria-hidden="true"></div>

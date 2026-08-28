@@ -499,12 +499,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.carouselTransform = `translateX(calc(-${this.trackIndex} * (${slideShare}% + ${gap}rem) + ${centerOffset}%))`;
   }
 
-  private preloadServiceImages() {
-    for (const service of this.services) {
-      const img = new Image();
-      img.decoding = 'async';
-      img.src = service.image;
-    }
+  isCarouselImageReady(index: number): boolean {
+    return Math.abs(index - this.trackIndex) <= 2;
+  }
+
+  isStoryLayerReady(index: number, active: number): boolean {
+    return Math.abs(index - active) <= 1;
   }
 
   private portfolioScrollEnabled = false;
@@ -936,13 +936,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.gsapEnabled = true;
-    this.preloadServiceImages();
 
     this.ngZone.runOutsideAngular(() => {
       this.gsapCleanup = initHomeGsapAnimations(this.host.nativeElement, {
         onServicesStart: () => this.ngZone.run(() => {
           this.servicesVisible = true;
-          this.preloadServiceImages();
         }),
         onServicesComplete: () => this.ngZone.run(() => {
           this.servicesIntroDone = true;
@@ -975,7 +973,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.faqVisible = true;
     this.faqIntroDone = true;
     this.ctaVisible = true;
-    this.preloadServiceImages();
     this.bindHomeStoryScroll();
   }
 
@@ -1004,13 +1001,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private initHeroVideo() {
     const video = this.heroVideo?.nativeElement;
-    if (!video) {
+    if (!video || !this.shouldLoadHeroVideo()) {
       return;
     }
 
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.preload = 'metadata';
+    video.src = '/assets/home/hero.mp4';
 
     const tryPlay = () => {
       if (this.destroyed) {
@@ -1026,6 +1025,26 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     video.addEventListener('canplay', tryPlay, { once: true });
     video.load();
+  }
+
+  private shouldLoadHeroVideo(): boolean {
+    if (typeof window === 'undefined' || this.prefersReducedMotion()) {
+      return false;
+    }
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      return false;
+    }
+
+    const connection = (navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }).connection;
+
+    if (connection?.saveData) {
+      return false;
+    }
+
+    return true;
   }
 
   private stopHeroVideo() {
@@ -1173,7 +1192,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.servicesVisible = true;
-    this.preloadServiceImages();
 
     const prefersReducedMotion = typeof window !== 'undefined'
       && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

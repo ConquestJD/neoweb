@@ -109,6 +109,7 @@ section {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  background: #0b0b0d url('/assets/home/hero-poster.webp') center / cover no-repeat;
 }
 
 .hero-video {

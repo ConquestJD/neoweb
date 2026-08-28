@@ -16,6 +16,12 @@ DirectoryIndex index.html index.csr.html
   </IfModule>
 </Files>
 
+<Files "llms.txt">
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+  </IfModule>
+</Files>
+
 <Files "robots.txt">
   <IfModule mod_headers.c>
     Header set Content-Type "text/plain; charset=UTF-8"
@@ -28,6 +34,7 @@ DirectoryIndex index.html index.csr.html
 
   # Archivos estáticos conocidos (no reescribir: Google y crawlers los piden directo)
   RewriteRule ^robots\.txt$ - [L]
+  RewriteRule ^llms\.txt$ - [L]
   RewriteRule ^sitemap\.xml$ - [L]
   RewriteRule ^favicon\.ico$ - [L]
   RewriteRule ^icon-[0-9]+\.(png|webp)$ - [L]
