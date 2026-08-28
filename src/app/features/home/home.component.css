@@ -1,6 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap');
-
-:host {
+﻿:host {
   display: block;
 }
 
@@ -2358,7 +2356,7 @@ section {
 }
 
 .faq-item.is-open .faq-number {
-  color: rgba(255, 235, 210, 0.85);
+  color: #ffffff;
 }
 
 .faq-question {
@@ -2450,7 +2448,7 @@ section {
   right: 0;
   bottom: -4px;
   height: 1px;
-  background: rgba(255, 235, 210, 0.75);
+  background: rgba(255, 255, 255, 0.75);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);

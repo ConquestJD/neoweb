@@ -24,6 +24,7 @@ export class NosotrosComponent implements AfterViewInit, OnDestroy {
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
+  private ctaMagnetRect: DOMRect | null = null;
 
   stats = [
     { value: '2025', label: 'Inicio del proyecto' },
@@ -148,7 +149,10 @@ export class NosotrosComponent implements AfterViewInit, OnDestroy {
 
   onCtaMouseMove(event: MouseEvent) {
     const wrap = event.currentTarget as HTMLElement;
-    const rect = wrap.getBoundingClientRect();
+    if (!this.ctaMagnetRect) {
+      this.ctaMagnetRect = wrap.getBoundingClientRect();
+    }
+    const rect = this.ctaMagnetRect;
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     const maxOffset = window.innerWidth <= 768 ? 12 : 24;
@@ -161,6 +165,7 @@ export class NosotrosComponent implements AfterViewInit, OnDestroy {
   }
 
   onCtaMouseLeave() {
+    this.ctaMagnetRect = null;
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;

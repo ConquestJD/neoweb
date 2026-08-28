@@ -101,28 +101,28 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'omed',
       title: 'OMED',
       category: 'Sitio Web Profesional',
-      scrollUrl: '/assets/portfolio/scrolls/omed-scroll.jpg',
+      scrollUrl: '/assets/portfolio/scrolls/omed-scroll.webp',
       result: 'Web para 2 sedes (Cusco y Tacna) con mejor posicionamiento local'
     },
     {
       id: 'sml-web',
       title: 'Santa María Laura',
       category: 'Colegio Privado',
-      scrollUrl: '/assets/portfolio/scrolls/sml-scroll.jpg',
+      scrollUrl: '/assets/portfolio/scrolls/sml-scroll.webp',
       result: 'Presencia institucional con admisión 2026 activa y blog educativo'
     },
     {
       id: 'hombre-universal',
       title: 'Hombre Universal',
       category: 'Publicación Editorial',
-      scrollUrl: '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg',
+      scrollUrl: '/assets/portfolio/scrolls/hombreuniversal-scroll.webp',
       result: 'Plataforma editorial premium para difundir pensamiento y filosofía'
     },
     {
       id: 'yachaytambo',
       title: 'Yachay Tambo',
       category: 'Retiro Vivencial',
-      scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.jpg',
+      scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.webp',
       result: 'Presencia digital para retiros en Urubamba y Tacna'
     }
   ];
@@ -134,42 +134,42 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       description: 'Cada sección, color y estructura está pensada estratégicamente para tu marca: identidad visual propia y una experiencia que guía al usuario hacia la conversión.',
       icon: 'palette',
       points: ['Identidad visual propia', 'UX pensado para convertir'],
-      image: '/assets/home/por que neoweb/diseño web.jpg'
+      image: '/assets/home/por que neoweb/diseño web.webp'
     },
     {
       title: 'Código real, no plantillas',
       description: 'Construimos tu página desde cero con código personalizado, sin plantillas, sin Wix, sin WordPress. Esto garantiza rendimiento, seguridad y un diseño único para tu negocio.',
       icon: 'code',
       points: ['Sin Wix ni WordPress', 'Mejor rendimiento y seguridad'],
-      image: '/assets/home/por que neoweb/codigo real.jpg'
+      image: '/assets/home/por que neoweb/codigo real.webp'
     },
     {
       title: 'Correo empresarial profesional',
       description: 'Configuramos tu correo corporativo con el dominio de tu negocio, para que tu marca se vea más seria y confiable en cada comunicación.',
       icon: 'alternate_email',
       points: ['nombre@tuempresa.com', 'Mayor credibilidad'],
-      image: '/assets/home/por que neoweb/correo empresarial.png'
+      image: '/assets/home/por que neoweb/correo empresarial.webp'
     },
     {
       title: 'Optimización SEO desde la base',
       description: 'Estructuramos el sitio para que los buscadores lo entiendan desde el día uno: metadatos, velocidad y contenido pensado para posicionar.',
       icon: 'travel_explore',
       points: ['Estructura indexable', 'Mejor posicionamiento'],
-      image: '/assets/home/por que neoweb/seo.png'
+      image: '/assets/home/por que neoweb/seo.webp'
     },
     {
       title: 'Velocidad y rendimiento',
       description: 'Optimizamos cada recurso para que tu página cargue rápido en cualquier dispositivo, mejorando la experiencia y el posicionamiento.',
       icon: 'speed',
       points: ['Carga rápida', 'Optimizado para móvil'],
-      image: '/assets/home/por que neoweb/velocidad.png'
+      image: '/assets/home/por que neoweb/velocidad.webp'
     },
     {
       title: 'Soporte y acompañamiento',
       description: 'Te guiamos en todo el proceso: mejoras, recomendaciones, actualizaciones y soporte técnico rápido cuando lo necesites.',
       icon: 'support_agent',
       points: ['Comunicación directa', 'Mejoras continuas'],
-      image: '/assets/home/por que neoweb/soporte.jpg'
+      image: '/assets/home/por que neoweb/soporte.webp'
     }
   ];
 
@@ -178,32 +178,32 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       title: 'Discovery',
       description: 'Objetivos, alcance y priorización para entender el reto de negocio. Analizo tu mercado y competencia.',
       deliverables: ['Kickoff meeting', 'Brief completo'],
-      image: '/assets/home/proceso/discovery.jpg'
+      image: '/assets/home/proceso/discovery.webp'
     },
     {
       title: 'UX & UI',
       description: 'Wireframes, diseño visual y microcopys orientados a conversión. Cada elemento pensado para generar resultados.',
       deliverables: ['Prototipo navegable', 'Design system'],
-      image: '/assets/home/proceso/uxui.jpg'
+      image: '/assets/home/proceso/uxui.webp'
     },
     {
       title: 'Desarrollo',
       description: 'Código a medida, performance optimizado, SEO técnico y QA continuo. Desarrollo limpio y escalable.',
       deliverables: ['Entregables parciales', 'Code review'],
-      image: '/assets/home/proceso/desarrollo.jpg'
+      image: '/assets/home/proceso/desarrollo.webp'
     },
     {
       title: 'Lanzamiento',
       description: 'Go-live, optimización, analítica configurada y handoff con soporte cercano. Tu proyecto listo para crecer.',
       deliverables: ['Checklist completo', 'Métricas y reportes'],
-      image: '/assets/home/proceso/lanzamiento.jpg'
+      image: '/assets/home/proceso/lanzamiento.webp'
     }
   ];
 
   homeFaqs = [
     {
       question: '¿Cuánto cuesta un proyecto?',
-      answer: 'Depende del tipo de solución y su alcance. Estas son referencias orientativas:',
+      answer: 'Depende de qué te entrego, no de “más grande”. Referencias:',
       details: [
         'Página web: desde S/ 600 (Landing)',
         'Rediseño web: desde S/ 600 (Actualiza)',
@@ -214,19 +214,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
-      question: '¿Qué diferencia hay entre los planes de marketing?',
-      answer: 'Cada plan hace un trabajo distinto. No es la misma gestión con más publicaciones:',
-      details: [
-        'Start (S/ 500/mes): presencia en Facebook e Instagram. No incluye anuncios.',
-        'Pro (S/ 900/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
-        'Premium (S/ 1,400/mes): lo anterior más gestión de Meta Ads. La pauta la inviertes tú.'
-      ]
-    },
-    {
       question: '¿Qué diferencia hay entre los planes de páginas web?',
-      answer: 'Cada uno te entrega una web distinta. No es “la misma un poco más grande”:',
+      answer: 'Cada uno te entrega una web distinta. No es la misma un poco más grande:',
       details: [
-        'Landing (S/ 600): una sola página. Quien abre el link te escribe. Sirve para un anuncio o WhatsApp.',
+        'Landing (S/ 600): una sola página. Quien abre el link baja y te escribe. Para un anuncio o WhatsApp.',
         'Sitio (S/ 1,000): 5 páginas con menú (Inicio, Nosotros, Servicios, Preguntas, Contacto).',
         'Sitio Pro (S/ 1,500): el Sitio más hasta 4 páginas extra (un servicio, el equipo, una sede…) y ves cuánta gente entra.'
       ]
@@ -238,6 +229,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         'Actualiza (S/ 600): misma web, cara nueva. Conservas páginas y textos.',
         'Evoluciona (S/ 1,000): eso, y además cambio qué ven primero para que te escriban.',
         'Transforma (S/ 1,500): la armo de nuevo, paso textos y fotos, y conservo tu dirección.'
+      ]
+    },
+    {
+      question: '¿Qué diferencia hay entre los planes de marketing?',
+      answer: 'Cada plan hace un trabajo distinto. No es la misma gestión con más publicaciones:',
+      details: [
+        'Start (S/ 500/mes): presencia en Facebook e Instagram. No incluye anuncios.',
+        'Pro (S/ 900/mes): contenido con objetivo de consultas o visitas a tu web. Sin pauta.',
+        'Premium (S/ 1,400/mes): lo de Pro más gestión de Meta Ads. La pauta la inviertes tú.'
       ]
     },
     {
@@ -269,7 +269,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       question: '¿Cuánto tarda un proyecto?',
-      answer: 'Los tiempos varían según el tipo y alcance del proyecto:',
+      answer: 'Los tiempos varían según el plan:',
       details: [
         'Landing o Actualiza: 1 semana',
         'Sitio, Sitio Pro, Evoluciona o Transforma: 1 a 3 semanas',
@@ -281,20 +281,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
-      question: '¿Usan WordPress, Wix o plantillas?',
-      answer: 'No. Desarrollo cada proyecto desde cero con código personalizado. Eso garantiza mejor rendimiento, seguridad, diseño único y un sitio pensado para tu negocio, no para encajar en una plantilla genérica.'
+      question: '¿Usas WordPress, Wix o plantillas?',
+      answer: 'No. Lo programo desde cero, a la medida de tu negocio. No uso plantillas de Wix ni WordPress.'
     },
     {
-      question: '¿Dominio y hosting están incluidos?',
-      answer: 'En proyectos web (página, tienda o rediseño) incluyo dominio y hosting gratis los primeros 6 meses. Después puedes continuar con un plan de mantenimiento mensual o migrar a tu propio proveedor.'
+      question: '¿El nombre de la web y el alojamiento van incluidos?',
+      answer: 'En página, tienda o rediseño va el nombre de tu web y el alojamiento los primeros 6 meses. Después puedes seguir con un mantenimiento mensual o pasarlo a tu propio proveedor.'
     },
     {
       question: '¿Incluye soporte?',
-      answer: 'Sí. Todos los proyectos incluyen soporte post-entrega y puedes contratar mantenimiento opcional para actualizaciones, mejoras y respuesta prioritaria cuando lo necesites.'
+      answer: 'Sí. Después de publicar te ayudo con fallas y ajustes chicos que entren en el plan. Un mantenimiento mensual para cambios y prioridad se contrata aparte.'
     },
     {
       question: '¿Trabajas remoto?',
-      answer: 'Sí. Trabajo de forma remota con clientes en todo el Perú y Latinoamérica, con reuniones por videollamada, seguimiento claro y entregables documentados en cada etapa.'
+      answer: 'Sí. Trabajo remoto con clientes en todo el Perú. Nos vemos por videollamada y te voy entregando cada etapa por escrito.'
     }
   ];
 
@@ -304,7 +304,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Página Web',
       route: '/servicios/pagina-web',
       icon: 'language',
-      image: '/assets/services/pagina web.jpg',
+      image: '/assets/services/pagina web.webp',
       tag: 'Web',
       outcome: 'Una página, un sitio, o páginas por servicio',
       description: 'Landing: una página para que te escriban. Sitio: 5 páginas con menú. Sitio Pro: además, páginas sueltas para tus servicios.',
@@ -314,7 +314,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Tienda Online',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
-      image: '/assets/services/tienda online.jpg',
+      image: '/assets/services/tienda online.webp',
       tag: 'Tienda',
       outcome: 'Empezar a vender, vender más o con equipo',
       description: 'Emprende: cobrar. Crece: talla, cupones y anuncios. Escala: un empleado ve pedidos, o se copian a otro programa.',
@@ -324,7 +324,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Marketing Digital',
       route: '/servicios/marketing-digital',
       icon: 'campaign',
-      image: '/assets/services/marketing.jpg',
+      image: '/assets/services/marketing.webp',
       tag: 'Redes',
       outcome: 'Contenido con un objetivo claro',
       description: 'Presencia en redes, contenido hacia tu web o captación con Meta Ads. Elige el trabajo, no la cantidad de posts.',
@@ -334,7 +334,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Rediseño Web',
       route: '/servicios/rediseno-paginas-web',
       icon: 'autorenew',
-      image: '/assets/services/rediseño.jpg',
+      image: '/assets/services/rediseño.webp',
       tag: 'Renovación',
       outcome: 'Cara nueva, otro camino o hacerla de nuevo',
       description: 'Actualiza: se ve nueva. Evoluciona: además te escriben. Transforma: la armo de nuevo y muevo lo que sirve.',
@@ -344,7 +344,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Apps Móviles',
       route: '/servicios/aplicaciones-moviles',
       icon: 'phone_iphone',
-      image: '/assets/services/app movil.jpg',
+      image: '/assets/services/app movil.webp',
       tag: 'Producto',
       outcome: 'Sin cuentas, con usuarios o una extra',
       description: 'Lanzamiento: Android y WhatsApp. Crecimiento: cuentas en Android. Escala: iPhone, cobrar, un empleado u otro programa, cotizado.',
@@ -354,7 +354,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       name: 'Software a Medida',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
-      image: '/assets/services/software a medida.jpg',
+      image: '/assets/services/software a medida.webp',
       tag: 'Automatización',
       outcome: 'El día a día, las finanzas o se cotiza',
       description: 'Diario: el equipo registra el trabajo. Control: eso y ves ingresos y gastos. Amplía: otra sede, módulo o programa, cotizado.',
@@ -901,6 +901,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private gsapCleanup: (() => void) | null = null;
   private whyScrollUnbind: (() => void) | null = null;
   private processScrollUnbind: (() => void) | null = null;
+  private ctaMagnetRect: DOMRect | null = null;
+  private storyRangeByEl = new WeakMap<HTMLElement, number>();
+  private storyScrollRaf = 0;
 
   ngAfterViewInit() {
     this.initHeroVideo();
@@ -1250,6 +1253,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.destroyed) {
       return;
     }
+    this.storyRangeByEl = new WeakMap();
+    this.ctaMagnetRect = null;
     this.syncCarouselTransform();
     this.bindHomeStoryScroll();
   }
@@ -1271,21 +1276,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.ngZone.runOutsideAngular(() => {
       const onScroll = () => {
-        this.syncStoryIndex(
-          this.whyStory?.nativeElement,
-          this.diferenciales.length,
-          'activeDiferencialIndex',
-          'whyCopyNonce'
-        );
-        this.syncStoryIndex(
-          this.processStory?.nativeElement,
-          this.processSteps.length,
-          'activeProcessIndex',
-          'processCopyNonce'
-        );
+        if (this.storyScrollRaf) {
+          return;
+        }
+        this.storyScrollRaf = requestAnimationFrame(() => {
+          this.storyScrollRaf = 0;
+          this.syncStoryIndex(
+            this.whyStory?.nativeElement,
+            this.diferenciales.length,
+            'activeDiferencialIndex',
+            'whyCopyNonce'
+          );
+          this.syncStoryIndex(
+            this.processStory?.nativeElement,
+            this.processSteps.length,
+            'activeProcessIndex',
+            'processCopyNonce'
+          );
+        });
       };
       window.addEventListener('scroll', onScroll, { passive: true });
-      this.whyScrollUnbind = () => window.removeEventListener('scroll', onScroll);
+      this.whyScrollUnbind = () => {
+        window.removeEventListener('scroll', onScroll);
+        if (this.storyScrollRaf) {
+          cancelAnimationFrame(this.storyScrollRaf);
+          this.storyScrollRaf = 0;
+        }
+      };
       onScroll();
     });
   }
@@ -1309,7 +1326,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const spacer = el.querySelector('.pin-spacer') as HTMLElement | null;
     const track = spacer ?? el;
-    const range = track.offsetHeight - window.innerHeight;
+    let range = this.storyRangeByEl.get(track);
+    if (range == null) {
+      range = track.offsetHeight - window.innerHeight;
+      this.storyRangeByEl.set(track, range);
+    }
     if (range <= 0) {
       return;
     }
@@ -1344,7 +1365,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onCtaMouseMove(event: MouseEvent) {
     const wrap = event.currentTarget as HTMLElement;
-    const rect = wrap.getBoundingClientRect();
+    if (!this.ctaMagnetRect) {
+      this.ctaMagnetRect = wrap.getBoundingClientRect();
+    }
+    const rect = this.ctaMagnetRect;
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     const maxOffset = window.innerWidth <= 768 ? 12 : 24;
@@ -1357,6 +1381,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onCtaMouseLeave() {
+    this.ctaMagnetRect = null;
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;

@@ -48,7 +48,7 @@
 .con-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/contacto/contacto-hero.jpg');
+  background-image: url('/assets/contacto/contacto-hero.webp');
   background-size: cover;
   background-position: center top;
   transform: scale(1.02);

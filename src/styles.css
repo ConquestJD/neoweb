@@ -1,5 +1,4 @@
 /* Global minimal corporate theme */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -301,17 +300,6 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #bbbbbb;
-}
-
-spline-viewer {
-  overflow: hidden !important;
-  touch-action: pan-y !important;
-  user-select: none !important;
-}
-
-spline-viewer canvas {
-  touch-action: none !important;
-  pointer-events: auto !important;
 }
 
 @media (min-width: 1920px) {

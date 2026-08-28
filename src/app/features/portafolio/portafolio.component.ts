@@ -49,6 +49,7 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
+  private ctaMagnetRect: DOMRect | null = null;
 
   marqueeCopies = [
     'PROYECTOS · CASOS REALES · PERÚ · NEO WEB · ',
@@ -62,8 +63,8 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'liceum',
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
-      imageUrl: 'assets/portfolio/liceum-inicio.png',
-      scrollUrl: '/assets/portfolio/scrolls/liceum-scroll.jpg',
+      imageUrl: 'assets/portfolio/liceum-inicio.webp',
+      scrollUrl: '/assets/portfolio/scrolls/liceum-scroll.webp',
       description: 'Plataforma institucional y comercial para cursos médicos, inscripciones y comunicación académica.',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
       results: {
@@ -90,8 +91,8 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'omed',
       title: 'OMED',
       category: 'Clínica Especializada',
-      imageUrl: 'assets/portfolio/omed-inicio.png',
-      scrollUrl: '/assets/portfolio/scrolls/omed-scroll.jpg',
+      imageUrl: 'assets/portfolio/omed-inicio.webp',
+      scrollUrl: '/assets/portfolio/scrolls/omed-scroll.webp',
       description: 'Sitio web médico para presentar sedes, especialidades y rutas claras de contacto para pacientes.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Angular Material', 'SEO On-Page'],
       results: {
@@ -118,7 +119,7 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'omed-financial',
       title: 'Gestión Financiera OMED',
       category: 'Software a Medida',
-      imageUrl: 'assets/portfolio/gestion-financiera-omed-login.png',
+      imageUrl: 'assets/portfolio/gestion-financiera-omed-login.webp',
       description: 'Sistema web interno para la administración financiera, médica y operativa de la Clínica OMED.',
       technologies: ['Angular 19', 'TypeScript', 'RxJS', 'Chart.js', 'Angular Material', 'REST API', 'JWT Auth', 'MySQL', 'jsPDF', 'xlsx'],
       results: {
@@ -145,8 +146,8 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'sml-web',
       title: 'Santa María Laura',
       category: 'Colegio Privado · Lima',
-      imageUrl: 'assets/portfolio/sml-inicio.png',
-      scrollUrl: '/assets/portfolio/scrolls/sml-scroll.jpg',
+      imageUrl: 'assets/portfolio/sml-inicio.webp',
+      scrollUrl: '/assets/portfolio/scrolls/sml-scroll.webp',
       description: 'Sitio institucional para comunicar propuesta educativa, niveles, infraestructura y proceso de admisión.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
       results: {
@@ -173,7 +174,7 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'sml-portal',
       title: 'Portal SML',
       category: 'Plataforma Educativa Interna',
-      imageUrl: 'assets/portfolio/sml-portal-login.png',
+      imageUrl: 'assets/portfolio/sml-portal-login.webp',
       description: 'Plataforma educativa integral: gestión académica, comunicación profesores-padres y acceso seguro.',
       technologies: ['Angular', 'TypeScript', 'JWT Auth', 'REST API', 'Responsive UI'],
       results: {
@@ -200,8 +201,8 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'hombre-universal',
       title: 'Hombre Universal',
       category: 'Publicación Editorial · Cultura',
-      imageUrl: 'assets/portfolio/hombre-universal-inicio.png',
-      scrollUrl: '/assets/portfolio/scrolls/hombreuniversal-scroll.jpg',
+      imageUrl: 'assets/portfolio/hombre-universal-inicio.webp',
+      scrollUrl: '/assets/portfolio/scrolls/hombreuniversal-scroll.webp',
       description: 'Publicación digital de ciencia, arte, filosofía y educación para lectores en búsqueda de sentido.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
       results: {
@@ -228,8 +229,8 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'yachaytambo',
       title: 'Yachay Tambo',
       category: 'Retiro Vivencial · Bienestar',
-      imageUrl: 'assets/portfolio/yachaytambo-inicio.png',
-      scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.jpg',
+      imageUrl: 'assets/portfolio/yachaytambo-inicio.webp',
+      scrollUrl: '/assets/portfolio/scrolls/yachaytambo-scroll.webp',
       description: 'Sitio web para presentar retiros vivenciales, sedes, calendario y reserva en Urubamba y Tacna.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
       results: {
@@ -347,7 +348,10 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onCtaMouseMove(event: MouseEvent) {
     const wrap = event.currentTarget as HTMLElement;
-    const rect = wrap.getBoundingClientRect();
+    if (!this.ctaMagnetRect) {
+      this.ctaMagnetRect = wrap.getBoundingClientRect();
+    }
+    const rect = this.ctaMagnetRect;
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     const maxOffset = window.innerWidth <= 768 ? 12 : 24;
@@ -360,6 +364,7 @@ export class PortafolioComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onCtaMouseLeave() {
+    this.ctaMagnetRect = null;
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;

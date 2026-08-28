@@ -24,8 +24,8 @@ import { initServicioGsapAnimations } from './servicio-gsap-animations';
  * CONVENCIÓN DE IMÁGENES — reemplaza los archivos en estas rutas
  * (mismo slug del servicio, numeración empezando en 1)
  * ============================================================
- *  Hero:        heroImage en servicios.data.ts → /assets/services/*.jpg
- *  Planes:      /assets/services/planes/{slug}-{n}.jpg       n = índice del plan (1, 2, 3...)
+ *  Hero:        heroImage en servicios.data.ts → /assets/services/*.webp
+ *  Planes:      /assets/services/planes/{slug}-{n}.webp       n = índice del plan (1, 2, 3...)
  *  Proceso:     imágenes en processStepImages (servicio.component.ts)
  * ============================================================
  */
@@ -57,48 +57,51 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   private isFirstServiceLoad = true;
   private gsapCleanup: (() => void) | null = null;
   private processScrollUnbind: (() => void) | null = null;
+  private ctaMagnetRect: DOMRect | null = null;
+  private storyRangeByEl = new WeakMap<HTMLElement, number>();
+  private storyScrollRaf = 0;
 
   private readonly processStepImages: Record<string, string[]> = {
     'pagina-web': [
-      '/assets/home/proceso/discovery.jpg',
-      '/assets/home/proceso/uxui.jpg',
-      '/assets/home/proceso/desarrollo.jpg',
-      '/assets/home/por que neoweb/velocidad.png',
-      '/assets/home/proceso/lanzamiento.jpg'
+      '/assets/home/proceso/discovery.webp',
+      '/assets/home/proceso/uxui.webp',
+      '/assets/home/proceso/desarrollo.webp',
+      '/assets/home/por que neoweb/velocidad.webp',
+      '/assets/home/proceso/lanzamiento.webp'
     ],
     'tienda-virtual': [
-      '/assets/home/proceso/discovery.jpg',
-      '/assets/services/tienda online.jpg',
-      '/assets/home/proceso/desarrollo.jpg',
-      '/assets/portfolio/liceum-incripcion.png',
-      '/assets/portfolio/gestion-financiera-omed-login.png'
+      '/assets/home/proceso/discovery.webp',
+      '/assets/services/tienda online.webp',
+      '/assets/home/proceso/desarrollo.webp',
+      '/assets/portfolio/liceum-incripcion.webp',
+      '/assets/portfolio/gestion-financiera-omed-login.webp'
     ],
     'marketing-digital': [
-      '/assets/home/proceso/discovery.jpg',
-      '/assets/services/marketing.jpg',
-      '/assets/home/por que neoweb/diseño web.jpg',
-      '/assets/home/por que neoweb/seo.png'
+      '/assets/home/proceso/discovery.webp',
+      '/assets/services/marketing.webp',
+      '/assets/home/por que neoweb/diseño web.webp',
+      '/assets/home/por que neoweb/seo.webp'
     ],
     'rediseno-paginas-web': [
-      '/assets/home/proceso/discovery.jpg',
-      '/assets/services/rediseño.jpg',
-      '/assets/home/proceso/desarrollo.jpg',
-      '/assets/home/por que neoweb/codigo real.jpg',
-      '/assets/home/proceso/lanzamiento.jpg'
+      '/assets/home/proceso/discovery.webp',
+      '/assets/services/rediseño.webp',
+      '/assets/home/proceso/desarrollo.webp',
+      '/assets/home/por que neoweb/codigo real.webp',
+      '/assets/home/proceso/lanzamiento.webp'
     ],
     'aplicaciones-moviles': [
-      '/assets/home/proceso/uxui.jpg',
-      '/assets/services/app movil.jpg',
-      '/assets/home/proceso/desarrollo.jpg',
-      '/assets/home/por que neoweb/velocidad.png',
-      '/assets/home/proceso/lanzamiento.jpg'
+      '/assets/home/proceso/uxui.webp',
+      '/assets/services/app movil.webp',
+      '/assets/home/proceso/desarrollo.webp',
+      '/assets/home/por que neoweb/velocidad.webp',
+      '/assets/home/proceso/lanzamiento.webp'
     ],
     'digitalizacion-procesos': [
-      '/assets/home/proceso/discovery.jpg',
-      '/assets/services/software a medida.jpg',
-      '/assets/home/proceso/desarrollo.jpg',
-      '/assets/portfolio/gestion-financiera-omed-login.png',
-      '/assets/home/por que neoweb/soporte.jpg'
+      '/assets/home/proceso/discovery.webp',
+      '/assets/services/software a medida.webp',
+      '/assets/home/proceso/desarrollo.webp',
+      '/assets/portfolio/gestion-financiera-omed-login.webp',
+      '/assets/home/por que neoweb/soporte.webp'
     ]
   };
 
@@ -213,6 +216,8 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!isPlatformBrowser(this.platformId) || this.destroyed) {
       return;
     }
+    this.storyRangeByEl = new WeakMap();
+    this.ctaMagnetRect = null;
     this.bindProcessStoryScroll();
   }
 
@@ -290,9 +295,23 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     this.ngZone.runOutsideAngular(() => {
-      const onScroll = () => this.syncProcessStoryIndex();
+      const onScroll = () => {
+        if (this.storyScrollRaf) {
+          return;
+        }
+        this.storyScrollRaf = requestAnimationFrame(() => {
+          this.storyScrollRaf = 0;
+          this.syncProcessStoryIndex();
+        });
+      };
       window.addEventListener('scroll', onScroll, { passive: true });
-      this.processScrollUnbind = () => window.removeEventListener('scroll', onScroll);
+      this.processScrollUnbind = () => {
+        window.removeEventListener('scroll', onScroll);
+        if (this.storyScrollRaf) {
+          cancelAnimationFrame(this.storyScrollRaf);
+          this.storyScrollRaf = 0;
+        }
+      };
       this.syncProcessStoryIndex();
     });
   }
@@ -311,7 +330,11 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const spacer = el.querySelector('.pin-spacer') as HTMLElement | null;
     const track = spacer ?? el;
-    const range = track.offsetHeight - window.innerHeight;
+    let range = this.storyRangeByEl.get(track);
+    if (range == null) {
+      range = track.offsetHeight - window.innerHeight;
+      this.storyRangeByEl.set(track, range);
+    }
     if (range <= 0) {
       return;
     }
@@ -340,7 +363,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getServiceHeroImage(): string {
-    return this.service?.heroImage ?? '/assets/services/pagina web.jpg';
+    return this.service?.heroImage ?? '/assets/services/pagina web.webp';
   }
 
   getServiceHeroBackground(): string {
@@ -349,13 +372,13 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ----- Helpers de imágenes por sección -----
   getPlanImage(slug: string, index: number): string {
-    return `/assets/services/planes/${slug}-${index + 1}.jpg`;
+    return `/assets/services/planes/${slug}-${index + 1}.webp`;
   }
 
   getStepImage(index: number): string {
     const slug = this.service?.slug;
     const images = slug ? this.processStepImages[slug] : undefined;
-    return images?.[index] ?? '/assets/home/proceso/discovery.jpg';
+    return images?.[index] ?? '/assets/home/proceso/discovery.webp';
   }
 
   getStepBackground(index: number): string {
@@ -368,7 +391,10 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onCtaMouseMove(event: MouseEvent) {
     const wrap = event.currentTarget as HTMLElement;
-    const rect = wrap.getBoundingClientRect();
+    if (!this.ctaMagnetRect) {
+      this.ctaMagnetRect = wrap.getBoundingClientRect();
+    }
+    const rect = this.ctaMagnetRect;
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     const maxOffset = window.innerWidth <= 768 ? 12 : 24;
@@ -381,6 +407,7 @@ export class ServicioComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onCtaMouseLeave() {
+    this.ctaMagnetRect = null;
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;

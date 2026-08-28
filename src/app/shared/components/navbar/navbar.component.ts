@@ -61,42 +61,42 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
       short: 'Una página o un sitio con menú',
       route: '/servicios/pagina-web',
       icon: 'language',
-      image: '/assets/services/pagina web.jpg',
+      image: '/assets/services/pagina web.webp',
     },
     {
       name: 'Tienda Online',
       short: 'Empezar a vender, vender más o con equipo',
       route: '/servicios/tienda-virtual',
       icon: 'shopping_bag',
-      image: '/assets/services/tienda online.jpg',
+      image: '/assets/services/tienda online.webp',
     },
     {
       name: 'Marketing Digital',
       short: 'Presencia, contenido o ads',
       route: '/servicios/marketing-digital',
       icon: 'campaign',
-      image: '/assets/services/marketing.jpg',
+      image: '/assets/services/marketing.webp',
     },
     {
       name: 'Rediseño Web',
       short: 'Cara nueva, otro camino o de nuevo',
       route: '/servicios/rediseno-paginas-web',
       icon: 'autorenew',
-      image: '/assets/services/rediseño.jpg',
+      image: '/assets/services/rediseño.webp',
     },
     {
       name: 'Apps Móviles',
       short: 'Sin cuentas, con usuarios o cotizada',
       route: '/servicios/aplicaciones-moviles',
       icon: 'phone_iphone',
-      image: '/assets/services/app movil.jpg',
+      image: '/assets/services/app movil.webp',
     },
     {
       name: 'Software a medida',
       short: 'El día a día, las finanzas o se cotiza',
       route: '/servicios/digitalizacion-procesos',
       icon: 'auto_awesome',
-      image: '/assets/services/software a medida.jpg',
+      image: '/assets/services/software a medida.webp',
     }
   ];
 

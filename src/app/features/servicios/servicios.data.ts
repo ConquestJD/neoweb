@@ -89,7 +89,7 @@ export interface ServicioConfig {
 export const SERVICIOS: Record<string, ServicioConfig> = {
   "pagina-web": {
     "slug": "pagina-web",
-    "heroImage": "/assets/services/pagina web.jpg",
+    "heroImage": "/assets/services/pagina web.webp",
     "pageTitle": "Páginas Web en Perú | Una página o un sitio con menú | NeoWeb",
     "metaDescription": "Elige lo que recibes: una sola página para que te escriban, un sitio de 5 páginas, o un sitio con página por servicio. Hecho a medida. Cotiza con NeoWeb.",
     "hero": {
@@ -408,7 +408,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "tienda-virtual": {
     "slug": "tienda-virtual",
-    "heroImage": "/assets/services/tienda online.jpg",
+    "heroImage": "/assets/services/tienda online.webp",
     "pageTitle": "Tienda Online en Perú | Empezar a vender o vender más | NeoWeb",
     "metaDescription": "Tienda a medida en Perú: empezar a cobrar, vender más con descuentos y anuncios, o que la usen varias personas. Cotiza con NeoWeb.",
     "hero": {
@@ -700,7 +700,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "marketing-digital": {
     "slug": "marketing-digital",
-    "heroImage": "/assets/services/marketing.jpg",
+    "heroImage": "/assets/services/marketing.webp",
     "pageTitle": "Marketing Digital en Perú | Redes, Contenido y Meta Ads | NeoWeb",
     "metaDescription": "Gestión de redes en Perú: presencia, contenido hacia tu web o captación con Meta Ads. Facebook e Instagram. La pauta no está en el fee. Cotiza con NeoWeb.",
     "hero": {
@@ -985,7 +985,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "rediseno-paginas-web": {
     "slug": "rediseno-paginas-web",
-    "heroImage": "/assets/services/rediseño.jpg",
+    "heroImage": "/assets/services/rediseño.webp",
     "pageTitle": "Rediseño Web en Perú | Cara nueva, otro camino o de nuevo | NeoWeb",
     "metaDescription": "Ya tienes web: la hago verse nueva, cambio el camino para que te escriban, o la armo de nuevo y muevo lo que sirve. Cotiza con NeoWeb.",
     "hero": {
@@ -1265,7 +1265,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "aplicaciones-moviles": {
     "slug": "aplicaciones-moviles",
-    "heroImage": "/assets/services/app movil.jpg",
+    "heroImage": "/assets/services/app movil.webp",
     "pageTitle": "Apps Móviles en Perú | Sin cuentas, con usuarios o cotizada | NeoWeb",
     "metaDescription": "App a medida en Perú: sin cuentas o con usuarios en Android, o una extra cotizada (iPhone, cobrar, empleado u otro programa). Cotiza con NeoWeb.",
     "hero": {
@@ -1558,7 +1558,7 @@ export const SERVICIOS: Record<string, ServicioConfig> = {
   },
   "digitalizacion-procesos": {
     "slug": "digitalizacion-procesos",
-    "heroImage": "/assets/services/software a medida.jpg",
+    "heroImage": "/assets/services/software a medida.webp",
     "pageTitle": "Software a Medida en Perú | El día a día, las finanzas o se cotiza | NeoWeb",
     "metaDescription": "Sistema interno para tu empresa: el equipo registra el día a día, ves ingresos y gastos, o ampliamos lo que falte. Cotiza con NeoWeb.",
     "hero": {

@@ -1,6 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap');
-
-:host {
+﻿:host {
   display: block;
   --ink: #1f150c;
   --paper: #ffffff;

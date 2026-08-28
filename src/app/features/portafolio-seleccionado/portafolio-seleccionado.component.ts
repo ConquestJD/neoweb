@@ -48,6 +48,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   ctaMagnetX = 0;
   ctaMagnetY = 0;
   ctaMagnetActive = false;
+  private ctaMagnetRect: DOMRect | null = null;
 
   private routeSub?: Subscription;
   private sectionObserver?: IntersectionObserver;
@@ -61,14 +62,14 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'LICEUM',
       category: 'Centro de Investigación Médica',
       heroColor: '#0B2748',
-      imageUrl: 'assets/portfolio/liceum-inicio.png',
-      imageUrl2: 'assets/portfolio/liceum-cursos.png',
-      imageUrl3: 'assets/portfolio/liceum-curso-seleccionado.png',
+      imageUrl: 'assets/portfolio/liceum-inicio.webp',
+      imageUrl2: 'assets/portfolio/liceum-cursos.webp',
+      imageUrl3: 'assets/portfolio/liceum-curso-seleccionado.webp',
       galleryImages: [
-        'assets/portfolio/liceum-inicio.png',
-        'assets/portfolio/liceum-cursos.png',
-        'assets/portfolio/liceum-curso-seleccionado.png',
-        'assets/portfolio/liceum-incripcion.png'
+        'assets/portfolio/liceum-inicio.webp',
+        'assets/portfolio/liceum-cursos.webp',
+        'assets/portfolio/liceum-curso-seleccionado.webp',
+        'assets/portfolio/liceum-incripcion.webp'
       ],
       description: 'Plataforma institucional y comercial para cursos médicos, inscripciones y comunicación académica.',
       technologies: ['Angular 19', 'TypeScript', 'Angular Material', 'FastAPI', 'Python', 'MySQL', 'Izipay API'],
@@ -114,14 +115,14 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'OMED',
       category: 'Clínica Especializada',
       heroColor: '#0A5C63',
-      imageUrl: 'assets/portfolio/omed-inicio.png',
-      imageUrl2: 'assets/portfolio/omed-especialidades-medicas.png',
-      imageUrl3: 'assets/portfolio/omed-sobre-nosotros.png',
+      imageUrl: 'assets/portfolio/omed-inicio.webp',
+      imageUrl2: 'assets/portfolio/omed-especialidades-medicas.webp',
+      imageUrl3: 'assets/portfolio/omed-sobre-nosotros.webp',
       galleryImages: [
-        'assets/portfolio/omed-inicio.png',
-        'assets/portfolio/omed-especialidades-medicas.png',
-        'assets/portfolio/omed-sede-cusco.png',
-        'assets/portfolio/omed-sobre-nosotros.png'
+        'assets/portfolio/omed-inicio.webp',
+        'assets/portfolio/omed-especialidades-medicas.webp',
+        'assets/portfolio/omed-sede-cusco.webp',
+        'assets/portfolio/omed-sobre-nosotros.webp'
       ],
       description: 'Sitio web médico para presentar sedes, especialidades y rutas claras de contacto para pacientes.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'Angular Material', 'SEO On-Page'],
@@ -167,11 +168,11 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'Gestión Financiera OMED',
       category: 'Software a Medida',
       heroColor: '#0B3D45',
-      imageUrl: 'assets/portfolio/gestion-financiera-omed-login.png',
-      imageUrl2: 'assets/portfolio/gestion-financiera-omed-login.png',
-      imageUrl3: 'assets/portfolio/gestion-financiera-omed-login.png',
+      imageUrl: 'assets/portfolio/gestion-financiera-omed-login.webp',
+      imageUrl2: 'assets/portfolio/gestion-financiera-omed-login.webp',
+      imageUrl3: 'assets/portfolio/gestion-financiera-omed-login.webp',
       galleryImages: [
-        'assets/portfolio/gestion-financiera-omed-login.png'
+        'assets/portfolio/gestion-financiera-omed-login.webp'
       ],
       description: 'Sistema web interno para la administración financiera, médica y operativa de la Clínica OMED.',
       technologies: ['Angular 19', 'TypeScript', 'RxJS', 'Chart.js', 'Angular Material', 'REST API', 'JWT Auth', 'MySQL', 'jsPDF', 'xlsx'],
@@ -217,14 +218,14 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'Santa María Laura',
       category: 'Colegio Privado · Lima',
       heroColor: '#7A0E2C',
-      imageUrl: 'assets/portfolio/sml-inicio.png',
-      imageUrl2: 'assets/portfolio/sml-educacion-formativa.png',
-      imageUrl3: 'assets/portfolio/sml-infraestructura.png',
+      imageUrl: 'assets/portfolio/sml-inicio.webp',
+      imageUrl2: 'assets/portfolio/sml-educacion-formativa.webp',
+      imageUrl3: 'assets/portfolio/sml-infraestructura.webp',
       galleryImages: [
-        'assets/portfolio/sml-inicio.png',
-        'assets/portfolio/sml-educacion-formativa.png',
-        'assets/portfolio/sml-infraestructura.png',
-        'assets/portfolio/sml-blog.png'
+        'assets/portfolio/sml-inicio.webp',
+        'assets/portfolio/sml-educacion-formativa.webp',
+        'assets/portfolio/sml-infraestructura.webp',
+        'assets/portfolio/sml-blog.webp'
       ],
       description: 'Sitio institucional para el colegio privado Santa María Laura: comunica su propuesta educativa, niveles, infraestructura y proceso de admisión 2026.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
@@ -270,11 +271,11 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'Portal SML',
       category: 'Plataforma Educativa Interna',
       heroColor: '#6B1230',
-      imageUrl: 'assets/portfolio/sml-portal-login.png',
-      imageUrl2: 'assets/portfolio/sml-portal-login.png',
-      imageUrl3: 'assets/portfolio/sml-portal-login.png',
+      imageUrl: 'assets/portfolio/sml-portal-login.webp',
+      imageUrl2: 'assets/portfolio/sml-portal-login.webp',
+      imageUrl3: 'assets/portfolio/sml-portal-login.webp',
       galleryImages: [
-        'assets/portfolio/sml-portal-login.png'
+        'assets/portfolio/sml-portal-login.webp'
       ],
       description: 'Plataforma educativa integral del colegio Santa María Laura: gestión académica, comunicación profesores‑padres y acceso privado por rol.',
       technologies: ['Angular', 'TypeScript', 'JWT Auth', 'REST API', 'Responsive UI'],
@@ -320,14 +321,14 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'Hombre Universal',
       category: 'Publicación Editorial · Cultura',
       heroColor: '#1A1840',
-      imageUrl: 'assets/portfolio/hombre-universal-inicio.png',
-      imageUrl2: 'assets/portfolio/hombre-universal-articulos.png',
-      imageUrl3: 'assets/portfolio/hombre-universal-acerca-de.png',
+      imageUrl: 'assets/portfolio/hombre-universal-inicio.webp',
+      imageUrl2: 'assets/portfolio/hombre-universal-articulos.webp',
+      imageUrl3: 'assets/portfolio/hombre-universal-acerca-de.webp',
       galleryImages: [
-        'assets/portfolio/hombre-universal-inicio.png',
-        'assets/portfolio/hombre-universal-acerca-de.png',
-        'assets/portfolio/hombre-universal-articulos.png',
-        'assets/portfolio/hombre-universal-paramitas.png'
+        'assets/portfolio/hombre-universal-inicio.webp',
+        'assets/portfolio/hombre-universal-acerca-de.webp',
+        'assets/portfolio/hombre-universal-articulos.webp',
+        'assets/portfolio/hombre-universal-paramitas.webp'
       ],
       description: 'Publicación digital orientada al descubrimiento del Hombre Trascendental: una síntesis de ciencia, arte, filosofía y educación para personas en búsqueda de sentido y crecimiento interior.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
@@ -373,14 +374,14 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
       title: 'Yachay Tambo',
       category: 'Retiro Vivencial · Bienestar',
       heroColor: '#2F4A1C',
-      imageUrl: 'assets/portfolio/yachaytambo-inicio.png',
-      imageUrl2: 'assets/portfolio/yachaytambo-experiencia.png',
-      imageUrl3: 'assets/portfolio/yachaytambo-sedes.png',
+      imageUrl: 'assets/portfolio/yachaytambo-inicio.webp',
+      imageUrl2: 'assets/portfolio/yachaytambo-experiencia.webp',
+      imageUrl3: 'assets/portfolio/yachaytambo-sedes.webp',
       galleryImages: [
-        'assets/portfolio/yachaytambo-inicio.png',
-        'assets/portfolio/yachaytambo-experiencia.png',
-        'assets/portfolio/yachaytambo-calendarios.png',
-        'assets/portfolio/yachaytambo-sedes.png'
+        'assets/portfolio/yachaytambo-inicio.webp',
+        'assets/portfolio/yachaytambo-experiencia.webp',
+        'assets/portfolio/yachaytambo-calendarios.webp',
+        'assets/portfolio/yachaytambo-sedes.webp'
       ],
       description: 'Sitio web para retiros vivenciales “Mente que Sana”: experiencia, sedes en Urubamba y Tacna, calendario, tarifas y reserva.',
       technologies: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'SEO On-Page'],
@@ -977,7 +978,10 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
 
   onCtaMouseMove(event: MouseEvent) {
     const wrap = event.currentTarget as HTMLElement;
-    const rect = wrap.getBoundingClientRect();
+    if (!this.ctaMagnetRect) {
+      this.ctaMagnetRect = wrap.getBoundingClientRect();
+    }
+    const rect = this.ctaMagnetRect;
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     const maxOffset = window.innerWidth <= 768 ? 12 : 24;
@@ -990,6 +994,7 @@ export class PortafolioSeleccionadoComponent implements OnInit, AfterViewInit, O
   }
 
   onCtaMouseLeave() {
+    this.ctaMagnetRect = null;
     this.ctaMagnetX = 0;
     this.ctaMagnetY = 0;
     this.ctaMagnetActive = false;
