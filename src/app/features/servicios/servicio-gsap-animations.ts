@@ -77,7 +77,14 @@ function setupHero(root: HTMLElement) {
     tl.fromTo(
       title,
       { opacity: 0, y: 52, clipPath: 'inset(0 0 100% 0)' },
-      { opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 1.1, ease: EASE_EXPO },
+      {
+        opacity: 1,
+        y: 0,
+        clipPath: 'inset(0% 0% -0.4em 0%)',
+        duration: 1.1,
+        ease: EASE_EXPO,
+        onComplete: () => gsap.set(title, { clipPath: 'none' })
+      },
       0.4
     );
   }
